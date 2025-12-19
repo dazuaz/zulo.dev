@@ -1,11 +1,218 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Layout from '../layouts/Layout.astro'
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const socials = [
+  { label: 'X', href: 'https://x.com/danielzuloaga' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/daniel-zuloaga/' },
+  { label: 'GitHub', href: 'https://github.com/dazuaz' }
+]
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="Daniel Zuloaga"
+  description="Personal site for Daniel Zuloaga; fintech leadership, platform scale, and data-first execution."
+>
+  <div class="relative min-h-screen overflow-hidden px-4 py-14 sm:px-6 lg:px-10">
+    <div class="pointer-events-none absolute inset-x-0 top-0 -z-30 flex justify-center" aria-hidden="true">
+      <div
+        class="h-40 w-full max-w-6xl"
+        style="background: radial-gradient(circle at 20% 10%, rgba(94, 234, 212, 0.12), transparent 35%), radial-gradient(circle at 60% 20%, rgba(59, 130, 246, 0.1), transparent 36%), radial-gradient(circle at 80% 8%, rgba(255, 237, 213, 0.1), transparent 30%); filter: blur(30px);"
+      >
+      </div>
+    </div>
+    <div
+      class="pointer-events-none absolute inset-[-15%] -z-20 rotate-6 blur-[120px] opacity-70"
+      style="background: radial-gradient(circle at 20% 30%, rgba(165, 245, 233, 0.18), transparent 38%), radial-gradient(circle at 80% 18%, rgba(255, 190, 92, 0.24), transparent 33%), radial-gradient(circle at 50% 78%, rgba(120, 149, 255, 0.18), transparent 36%);"
+    >
+    </div>
+    <div
+      class="pointer-events-none absolute inset-[-12%] -z-10 blur-[110px]"
+      style="background: radial-gradient(circle at 25% 24%, rgba(73, 203, 178, 0.2), transparent 35%), radial-gradient(circle at 70% 60%, rgba(249, 207, 109, 0.22), transparent 32%);"
+    >
+    </div>
+    <div class="pointer-events-none absolute right-4 top-16 -z-10 hidden sm:block" aria-hidden="true">
+      <svg class="h-32 w-32 text-sky-100/40" viewBox="0 0 160 160" fill="none">
+        <defs>
+          <linearGradient id="windGradient" x1="0" y1="0" x2="160" y2="160" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#5eead4" stop-opacity="0.7"></stop>
+            <stop offset="1" stop-color="#3b82f6" stop-opacity="0.55"></stop>
+          </linearGradient>
+        </defs>
+        <path
+          d="M18 80c24-10 46-10 70 0s46 10 70 0M22 54c14-6 36-10 58-2s46 12 62 6M25 104c18-8 40-8 64 1.5S133 116 146 110"
+          stroke="url(#windGradient)"
+          stroke-width="5"
+          stroke-linecap="round"
+          opacity="0.9"></path>
+        <path d="m36 118 14 12m28-6 14 12" stroke="url(#windGradient)" stroke-width="4" stroke-linecap="round" opacity="0.7"></path>
+      </svg>
+    </div>
+    <div class="pointer-events-none absolute inset-x-[-8%] bottom-[-40px] -z-20 flex justify-center" aria-hidden="true">
+      <div class="nautical-wave-band h-24 w-full max-w-6xl"></div>
+    </div>
+
+    <div class="relative mx-auto flex max-w-5xl flex-col gap-10">
+      <header class="space-y-4">
+        <p class="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">Fintech executive · Platform strategist</p>
+        <h1 class="text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl">Scaling resilient financial ecosystems</h1>
+        <p class="max-w-4xl text-lg text-slate-200/90">
+          Dynamic fintech leader with 15+ years driving technology innovation, financial product strategy, and digital transformation across
+          banking, payments, and lending. I pair financial acumen with technical rigor to modernize platforms, manage multimillion-dollar
+          portfolios, and ship data-driven outcomes.
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+          {
+            socials.map((item) => (
+              <a
+                class="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-50 transition hover:-translate-y-[1px] hover:border-white/20 hover:bg-white/10"
+                href={item.href}
+                rel="noreferrer"
+                target="_blank"
+              >
+                <span>{item.label}</span>
+                <svg class="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" viewBox="0 0 16 16">
+                  <path
+                    fill="currentColor"
+                    d="m5.6 3.4 1.8 1.8L5 7.6l3.4 3.4-1.8 1.8L1.4 7.6 5.6 3.4Zm4.8 0 1.8 1.8L9.8 7.6 13.2 11l-1.8 1.8-5.2-5.2 4.2-4.2Z"
+                  />
+                </svg>
+              </a>
+            ))
+          }
+        </div>
+      </header>
+
+      <section class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <article
+          class="relative flex h-full flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-5 shadow-xl shadow-black/40 transition hover:-translate-y-0.5 hover:border-white/20 sm:col-span-2 lg:col-span-3"
+        >
+          <div
+            class="inline-flex w-fit items-center rounded-full border border-amber-200/30 bg-amber-200/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-200"
+          >
+            What drives me
+          </div>
+          <h2 class="text-2xl font-semibold text-slate-50">Build with intention, measure with curiosity</h2>
+          <p class="text-slate-200/90">
+            I like to work end-to-end: clarify the problem, sketch the interfaces, and land the details in code. I keep shipping loops
+            tight, rely on strong collaboration, and optimize for maintainable systems that are easy to extend.
+          </p>
+          <ul class="flex list-disc flex-col gap-2 pl-5 text-slate-100/90">
+            <li>Cross-functional leadership across finance, engineering, operations, and partners.</li>
+            <li>Product strategy that connects business goals to measurable platform outcomes.</li>
+            <li>Calm execution: disciplined project management, instrumentation, and risk controls.</li>
+          </ul>
+        </article>
+
+        <article
+          class="relative flex h-full flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-5 shadow-xl shadow-black/40 transition hover:-translate-y-0.5 hover:border-white/20"
+        >
+          <div
+            class="inline-flex w-fit items-center rounded-full border border-amber-200/30 bg-amber-200/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-200"
+          >
+            Current levers
+          </div>
+          <ul class="flex list-disc flex-col gap-2 pl-5 text-slate-100/90">
+            <li>Designing and modernizing loan origination systems and fund management infrastructure.</li>
+            <li>Building BI ecosystems: ETL, data warehouses, analytics layers, reporting.</li>
+            <li>Automating onboarding, operations, and compliance workflows to cut manual effort.</li>
+            <li>Replatforming to cloud for scale, observability, and cost efficiency.</li>
+            <li>Managing vendor and SaaS portfolios to optimize spend and capabilities.</li>
+          </ul>
+        </article>
+
+        <article
+          class="relative flex h-full flex-col gap-4 rounded-2xl border border-emerald-200/20 bg-emerald-200/[0.06] p-5 shadow-xl shadow-black/40 transition hover:-translate-y-0.5 hover:border-emerald-200/40"
+        >
+          <div
+            class="inline-flex w-fit items-center rounded-full border border-emerald-200/30 bg-emerald-200/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-100"
+          >
+            Toolbox
+          </div>
+          <p class="text-slate-100">
+            Hands-on with data and cloud platforms, able to dive into architecture, delivery, and vendor management to unblock the outcome.
+          </p>
+          <div class="flex flex-wrap gap-2">
+            {
+              [
+                'Business Strategy',
+                'Cross-Functional Leadership',
+                'Platform Development',
+                'Product Strategy',
+                'Stakeholder Management',
+                'Workflow Optimization'
+              ].map((tag) => <span class="rounded-lg border border-white/10 bg-white/10 px-3 py-2 text-sm text-slate-50">{tag}</span>)
+            }
+          </div>
+        </article>
+
+        <article
+          class="relative flex h-full flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-5 shadow-xl shadow-black/40 transition hover:-translate-y-0.5 hover:border-white/20"
+        >
+          <div
+            class="inline-flex w-fit items-center rounded-full border border-emerald-200/30 bg-emerald-200/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-100"
+          >
+            Ways to work together
+          </div>
+          <ul class="flex list-disc flex-col gap-2 pl-5 text-slate-100/90">
+            <li>Leverage the use of AI on workflows to reduce manual effort and improve efficiency.</li>
+            <li>Partnering with teams to integrate data, analytics, and automation with clarity.</li>
+            <li>Advisory on product strategy, vendor selection, and tech portfolio management.</li>
+          </ul>
+        </article>
+
+        <article
+          class="relative flex h-full flex-col gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 shadow-xl shadow-black/40 transition hover:-translate-y-0.5 hover:border-white/20 sm:col-span-2 lg:col-span-3"
+        >
+          <div class="flex flex-col gap-3 sm:grid sm:grid-cols-[1.5fr,1fr] sm:items-center sm:gap-4">
+            <div class="space-y-2">
+              <div
+                class="inline-flex w-fit items-center rounded-full border border-amber-200/30 bg-amber-200/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-200"
+              >
+                Say hi
+              </div>
+              <h2 class="text-2xl font-semibold text-slate-50">Let’s modernize the stack</h2>
+              <p class="text-slate-200/90">
+                Whether it’s scaling a lending platform, standing up BI, or rethinking cloud spend, I’m ready to help chart the roadmap and
+                ship the change.
+              </p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <a
+                class="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-300 via-amber-200 to-amber-300 px-4 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-emerald-300/30 transition hover:-translate-y-[1px]"
+                href="https://x.com/danielzuloaga"
+                target="_blank"
+                rel="noreferrer"
+              >
+                DM on X
+              </a>
+              <a
+                class="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-50 transition hover:-translate-y-[1px] hover:border-white/25 hover:bg-white/10"
+                href="https://www.linkedin.com/in/daniel-zuloaga/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Connect on LinkedIn
+              </a>
+            </div>
+          </div>
+        </article>
+      </section>
+      <div class="flex flex-wrap items-center gap-3 text-sm text-slate-200/85">
+        <div
+          class="inline-flex items-center gap-2 rounded-full border border-sky-200/40 bg-sky-200/10 px-3 py-1 font-semibold uppercase tracking-[0.14em] text-sky-100"
+        >
+          <svg class="h-4 w-4 text-sky-100" viewBox="0 0 24 24" fill="none">
+            <path d="M3 12c4-1.8 8-1.8 12 0s8 1.8 12 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+            <path d="M6 16c3-1.2 6-1.2 9 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.6"></path>
+          </svg>
+          <span>Family, Movement &amp; Water</span>
+        </div>
+        <span class="text-slate-200/75"
+          >Proud father of two boys and husband to an amazing wife. Passionate runner abd kitesurfer keeps my approach calm, observant, and
+          tactical.</span
+        >
+      </div>
+    </div>
+  </div>
 </Layout>
