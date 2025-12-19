@@ -1,35 +1,27 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import { getCollection } from 'astro:content'
 
 const socials = [
   { label: 'X', href: 'https://x.com/danielzuloaga' },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/daniel-zuloaga/' },
-  { label: 'GitHub', href: 'https://github.com/dazuaz' }
+  { label: 'GitHub', href: 'https://github.com/dazuaz' },
+  { label: 'Blog', href: '/blog' }
 ]
+
+const recentPosts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3)
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' })
 ---
 
 <Layout
   title="Daniel Zuloaga"
   description="Personal site for Daniel Zuloaga; fintech leadership, platform scale, and data-first execution."
 >
-  <div class="relative min-h-screen overflow-hidden px-4 py-14 sm:px-6 lg:px-10">
-    <div class="pointer-events-none absolute inset-x-0 top-0 -z-30 flex justify-center" aria-hidden="true">
-      <div
-        class="h-40 w-full max-w-6xl"
-        style="background: radial-gradient(circle at 20% 10%, rgba(94, 234, 212, 0.12), transparent 35%), radial-gradient(circle at 60% 20%, rgba(59, 130, 246, 0.1), transparent 36%), radial-gradient(circle at 80% 8%, rgba(255, 237, 213, 0.1), transparent 30%); filter: blur(30px);"
-      >
-      </div>
-    </div>
-    <div
-      class="pointer-events-none absolute inset-[-15%] -z-20 rotate-6 blur-[120px] opacity-70"
-      style="background: radial-gradient(circle at 20% 30%, rgba(165, 245, 233, 0.18), transparent 38%), radial-gradient(circle at 80% 18%, rgba(255, 190, 92, 0.24), transparent 33%), radial-gradient(circle at 50% 78%, rgba(120, 149, 255, 0.18), transparent 36%);"
-    >
-    </div>
-    <div
-      class="pointer-events-none absolute inset-[-12%] -z-10 blur-[110px]"
-      style="background: radial-gradient(circle at 25% 24%, rgba(73, 203, 178, 0.2), transparent 35%), radial-gradient(circle at 70% 60%, rgba(249, 207, 109, 0.22), transparent 32%);"
-    >
-    </div>
+  <div class="relative z-0 min-h-screen overflow-hidden px-4 py-14 sm:px-6 lg:px-10">
+    <div class="water-wind-glow" aria-hidden="true"></div>
     <div class="pointer-events-none absolute right-4 top-16 -z-10 hidden sm:block" aria-hidden="true">
       <svg class="h-32 w-32 text-sky-100/40" viewBox="0 0 160 160" fill="none">
         <defs>
@@ -44,21 +36,19 @@ const socials = [
           stroke-width="5"
           stroke-linecap="round"
           opacity="0.9"></path>
-        <path d="m36 118 14 12m28-6 14 12" stroke="url(#windGradient)" stroke-width="4" stroke-linecap="round" opacity="0.7"></path>
       </svg>
     </div>
-    <div class="pointer-events-none absolute inset-x-[-8%] bottom-[-40px] -z-20 flex justify-center" aria-hidden="true">
-      <div class="nautical-wave-band h-24 w-full max-w-6xl"></div>
-    </div>
 
-    <div class="relative mx-auto flex max-w-5xl flex-col gap-10">
+    <div class="relative z-10 mx-auto flex max-w-5xl flex-col gap-10">
       <header class="space-y-4">
-        <p class="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">Fintech executive · Platform strategist</p>
-        <h1 class="text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl">Scaling resilient financial ecosystems</h1>
+        <p class="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">Product engineering and platform growth</p>
+        <h1 class="text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl">Daniel Zuloaga</h1>
         <p class="max-w-4xl text-lg text-slate-200/90">
-          Dynamic fintech leader with 15+ years driving technology innovation, financial product strategy, and digital transformation across
-          banking, payments, and lending. I pair financial acumen with technical rigor to modernize platforms, manage multimillion-dollar
-          portfolios, and ship data-driven outcomes.
+          Product engineer with over 15 years of hands-on experience driving tech innovation, shaping product strategy, and leading digital
+          transformation. I excel at product management, scaling platforms, managing multiple service providers and tech stacks, and
+          bridging collaboration across sales, marketing, engineering, and operations teams. I'm passionate about building high-performing
+          teams, designing data-driven systems, and delivering real growth through automation, smart integrations, and strong programming
+          expertise.
         </p>
 
         <div class="flex flex-wrap gap-3">
@@ -90,17 +80,17 @@ const socials = [
           <div
             class="inline-flex w-fit items-center rounded-full border border-amber-200/30 bg-amber-200/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-200"
           >
-            What drives me
+            Focus areas
           </div>
-          <h2 class="text-2xl font-semibold text-slate-50">Build with intention, measure with curiosity</h2>
+          <h2 class="text-2xl font-semibold text-slate-50">Product strategy paired with hands-on delivery</h2>
           <p class="text-slate-200/90">
-            I like to work end-to-end: clarify the problem, sketch the interfaces, and land the details in code. I keep shipping loops
-            tight, rely on strong collaboration, and optimize for maintainable systems that are easy to extend.
+            I move between roadmap and code: define product direction, turn it into architecture and integrations, and ship with measurable
+            impact. The goal is clarity, strong collaboration, and platforms that scale without friction.
           </p>
           <ul class="flex list-disc flex-col gap-2 pl-5 text-slate-100/90">
-            <li>Cross-functional leadership across finance, engineering, operations, and partners.</li>
-            <li>Product strategy that connects business goals to measurable platform outcomes.</li>
-            <li>Calm execution: disciplined project management, instrumentation, and risk controls.</li>
+            <li>Product management that links strategy to execution and growth.</li>
+            <li>Automation and integrations that reduce manual effort.</li>
+            <li>Cross-functional alignment across sales, marketing, engineering, and ops.</li>
           </ul>
         </article>
 
@@ -110,14 +100,14 @@ const socials = [
           <div
             class="inline-flex w-fit items-center rounded-full border border-amber-200/30 bg-amber-200/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-200"
           >
-            Current levers
+            What I build
           </div>
           <ul class="flex list-disc flex-col gap-2 pl-5 text-slate-100/90">
-            <li>Designing and modernizing loan origination systems and fund management infrastructure.</li>
-            <li>Building BI ecosystems: ETL, data warehouses, analytics layers, reporting.</li>
-            <li>Automating onboarding, operations, and compliance workflows to cut manual effort.</li>
-            <li>Replatforming to cloud for scale, observability, and cost efficiency.</li>
-            <li>Managing vendor and SaaS portfolios to optimize spend and capabilities.</li>
+            <li>Platform scaling plans and implementation across multiple stacks.</li>
+            <li>Automation pipelines that shorten cycles and improve quality.</li>
+            <li>Data systems for visibility: ETL, dashboards, and alerts.</li>
+            <li>Integrations across service providers and internal tools.</li>
+            <li>Vendor and portfolio management to control cost and performance.</li>
           </ul>
         </article>
 
@@ -127,20 +117,20 @@ const socials = [
           <div
             class="inline-flex w-fit items-center rounded-full border border-emerald-200/30 bg-emerald-200/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-100"
           >
-            Toolbox
+            Strengths
           </div>
           <p class="text-slate-100">
-            Hands-on with data and cloud platforms, able to dive into architecture, delivery, and vendor management to unblock the outcome.
+            Hands-on across product, data, and engineering with a bias for delivery and team performance.
           </p>
           <div class="flex flex-wrap gap-2">
             {
               [
-                'Business Strategy',
-                'Cross-Functional Leadership',
-                'Platform Development',
-                'Product Strategy',
-                'Stakeholder Management',
-                'Workflow Optimization'
+                'Product Management',
+                'Platform Scaling',
+                'Automation',
+                'Systems Integration',
+                'Data-Driven Systems',
+                'Team Leadership'
               ].map((tag) => <span class="rounded-lg border border-white/10 bg-white/10 px-3 py-2 text-sm text-slate-50">{tag}</span>)
             }
           </div>
@@ -152,12 +142,12 @@ const socials = [
           <div
             class="inline-flex w-fit items-center rounded-full border border-emerald-200/30 bg-emerald-200/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-100"
           >
-            Ways to work together
+            How I help
           </div>
           <ul class="flex list-disc flex-col gap-2 pl-5 text-slate-100/90">
-            <li>Leverage the use of AI on workflows to reduce manual effort and improve efficiency.</li>
-            <li>Partnering with teams to integrate data, analytics, and automation with clarity.</li>
-            <li>Advisory on product strategy, vendor selection, and tech portfolio management.</li>
+            <li>Clarify product strategy and translate it into execution plans.</li>
+            <li>Design automation and integration layers that connect teams and tools.</li>
+            <li>Build high-performing teams and a healthy delivery cadence.</li>
           </ul>
         </article>
 
@@ -169,12 +159,12 @@ const socials = [
               <div
                 class="inline-flex w-fit items-center rounded-full border border-amber-200/30 bg-amber-200/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-200"
               >
-                Say hi
+                Let's build
               </div>
-              <h2 class="text-2xl font-semibold text-slate-50">Let’s modernize the stack</h2>
+              <h2 class="text-2xl font-semibold text-slate-50">Let's connect on product and platform growth</h2>
               <p class="text-slate-200/90">
-                Whether it’s scaling a lending platform, standing up BI, or rethinking cloud spend, I’m ready to help chart the roadmap and
-                ship the change.
+                If you are scaling a product, modernizing a platform, or aligning teams around data, I can help define the roadmap and
+                deliver the outcomes.
               </p>
             </div>
             <div class="flex flex-wrap gap-3">
@@ -198,6 +188,47 @@ const socials = [
           </div>
         </article>
       </section>
+
+      <section class="flex flex-col gap-6">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div class="space-y-2">
+            <p class="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">Latest writing</p>
+            <h2 class="text-2xl font-semibold text-slate-50">Three recent notes</h2>
+            <p class="max-w-2xl text-slate-200/85">Brief posts on product strategy, platform scale, and automation.</p>
+          </div>
+          <a
+            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-200 transition hover:-translate-y-[1px] hover:border-white/20 hover:bg-white/10"
+            href="/blog"
+          >
+            View the blog
+          </a>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {
+            recentPosts.length ? (
+              recentPosts.map((post) => (
+                <a
+                  class="group flex h-full flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-5 shadow-xl shadow-black/40 transition hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/10"
+                  href={`/blog/${post.slug}`}
+                >
+                  <div class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
+                    {dateFormatter.format(post.data.pubDate)}
+                  </div>
+                  <h3 class="text-lg font-semibold text-slate-50 transition group-hover:text-white">{post.data.title}</h3>
+                  <p class="text-sm text-slate-200/85">{post.data.description}</p>
+                  <span class="mt-auto text-sm font-semibold text-emerald-200 transition group-hover:text-emerald-100">Read post</span>
+                </a>
+              ))
+            ) : (
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-6 text-slate-200/80 sm:col-span-2 lg:col-span-3">
+                No posts yet. Check back soon.
+              </div>
+            )
+          }
+        </div>
+      </section>
+
       <div class="flex flex-wrap items-center gap-3 text-sm text-slate-200/85">
         <div
           class="inline-flex items-center gap-2 rounded-full border border-sky-200/40 bg-sky-200/10 px-3 py-1 font-semibold uppercase tracking-[0.14em] text-sky-100"
@@ -209,7 +240,7 @@ const socials = [
           <span>Family, Movement &amp; Water</span>
         </div>
         <span class="text-slate-200/75"
-          >Proud father of two boys and husband to an amazing wife. Passionate runner abd kitesurfer keeps my approach calm, observant, and
+          >Proud father of two boys and husband to an amazing wife. Passionate runner and kitesurfer keep my approach calm, observant, and
           tactical.</span
         >
       </div>
