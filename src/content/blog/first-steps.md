@@ -1,12 +1,14 @@
 ---
 title: "A calm operating rhythm"
 description: "How I shape fintech platforms with the pace of water and the clarity of wind."
-pubDate: 2024-12-01
+pubDate: 2025-10-14
 tags:
   - Leadership
   - Platform
   - Execution
 ---
+
+> Disclaimer: this is a placeholder post written by AI. It is intended to test the blog design and functionality.
 
 I like systems that feel like water: steady, adaptive, and transparent. Wind adds a second layer. It is the signal that shows where momentum is building and where it is fading. When both are in view, the work becomes calmer and more deliberate.
 
