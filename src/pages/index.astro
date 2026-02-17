@@ -3,10 +3,10 @@ import Layout from '../layouts/Layout.astro'
 import { getCollection } from 'astro:content'
 
 const socials = [
-  { label: 'X', href: 'https://x.com/danielzuloaga' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/daniel-zuloaga/' },
-  { label: 'GitHub', href: 'https://github.com/dazuaz' },
-  { label: 'Blog', href: '/blog' }
+  { label: 'X', href: 'https://x.com/danielzuloaga', external: true },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/daniel-zuloaga/', external: true },
+  { label: 'GitHub', href: 'https://github.com/dazuaz', external: true },
+  { label: 'Blog', href: '/blog', external: false }
 ]
 
 const recentPosts = (await getCollection('blog', ({ data }) => !data.draft))
@@ -20,148 +20,71 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' })
   title="Daniel Zuloaga"
   description="Personal site for Daniel Zuloaga; fintech leadership, platform scale, and data-first execution."
 >
-  <div class="relative z-0 min-h-screen overflow-hidden px-4 py-14 sm:px-6 lg:px-10">
-    <div class="water-wind-glow" aria-hidden="true"></div>
-    <div class="pointer-events-none absolute right-4 top-16 -z-10 hidden sm:block" aria-hidden="true">
-      <svg class="h-32 w-32 text-sky-100/40" viewBox="0 0 160 160" fill="none">
-        <defs>
-          <linearGradient id="windGradient" x1="0" y1="0" x2="160" y2="160" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#5eead4" stop-opacity="0.7"></stop>
-            <stop offset="1" stop-color="#3b82f6" stop-opacity="0.55"></stop>
-          </linearGradient>
-        </defs>
-        <path
-          d="M18 80c24-10 46-10 70 0s46 10 70 0M22 54c14-6 36-10 58-2s46 12 62 6M25 104c18-8 40-8 64 1.5S133 116 146 110"
-          stroke="url(#windGradient)"
-          stroke-width="5"
-          stroke-linecap="round"
-          opacity="0.9"></path>
-      </svg>
-    </div>
-
-    <div class="relative z-10 mx-auto flex max-w-5xl flex-col gap-10">
-      <header class="space-y-4">
-        <p class="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">Product leader and engineer</p>
-        <h1 class="text-4xl font-semibold tracking-tight text-slate-50 sm:text-5xl">Daniel Zuloaga</h1>
-        <p class="max-w-4xl text-lg text-slate-200/90">
-          Product leader and engineer with 15+ years in banking, payments, and private lending. Experienced in building and scaling
-          operational platforms, integrating CRM and origination systems, and delivering automation and analytics that improve speed,
-          accuracy, and visibility across the loan lifecycle. Strong cross-functional partner to sales, marketing, operations, and
-          leadership, with hands-on technical depth in data and systems integration.
+  <main class="px-4 py-12 sm:px-6 lg:px-10">
+    <div class="mx-auto flex max-w-5xl flex-col gap-5 sm:gap-6">
+      <header class="soft-surface reveal rounded-3xl p-7 sm:p-10">
+        <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-800">Product leader and engineer</p>
+        <h1 class="mt-3 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">Daniel Zuloaga</h1>
+        <p class="mt-4 max-w-4xl text-base text-slate-700 sm:text-lg">
+          Product leader and engineer with 15+ years in banking, payments, and private lending. I build practical systems that improve
+          speed, accuracy, and visibility across the full loan lifecycle.
         </p>
 
-        <div class="flex flex-wrap gap-3">
+        <div class="mt-6 flex flex-wrap gap-3">
           {
             socials.map((item) => (
               <a
-                class="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm font-medium text-slate-50 transition hover:-translate-y-[1px] hover:border-white/20 hover:bg-white/10"
+                class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-800 transition hover:border-slate-400 hover:bg-slate-50"
                 href={item.href}
-                rel="noreferrer"
-                target="_blank"
+                rel={item.external ? 'noreferrer' : undefined}
+                target={item.external ? '_blank' : undefined}
               >
                 <span>{item.label}</span>
-                <svg class="h-4 w-4 transition group-hover:translate-x-0.5" aria-hidden="true" viewBox="0 0 16 16">
-                  <path
-                    fill="currentColor"
-                    d="m5.6 3.4 1.8 1.8L5 7.6l3.4 3.4-1.8 1.8L1.4 7.6 5.6 3.4Zm4.8 0 1.8 1.8L9.8 7.6 13.2 11l-1.8 1.8-5.2-5.2 4.2-4.2Z"
-                  />
-                </svg>
               </a>
             ))
           }
         </div>
       </header>
 
-      <section class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <article
-          class="relative flex h-full flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-5 shadow-xl shadow-black/40 transition hover:-translate-y-0.5 hover:border-white/20 sm:col-span-2 lg:col-span-3"
-        >
-          <div
-            class="inline-flex w-fit items-center rounded-full border border-amber-200/30 bg-amber-200/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-200"
-          >
-            Focus areas
-          </div>
-          <h2 class="text-2xl font-semibold text-slate-50">Product strategy paired with hands-on delivery</h2>
-          <p class="text-slate-200/90">
-            I move between roadmap and code: define product direction, turn it into architecture and integrations, and ship with measurable
-            impact. The goal is clarity, strong collaboration, and platforms that scale without friction.
+      <section class="grid gap-4 lg:grid-cols-3">
+        <article class="soft-surface reveal rounded-3xl p-6 sm:p-7 lg:col-span-2">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-sky-800">Focus</p>
+          <h2 class="mt-2 text-2xl font-semibold tracking-tight text-slate-900">Strategy with hands-on delivery</h2>
+          <p class="mt-3 text-slate-700">
+            I move between roadmap and implementation: aligning teams on product direction, then building the systems and automations that
+            deliver measurable outcomes.
           </p>
-          <ul class="flex list-disc flex-col gap-2 pl-5 text-slate-100/90">
-            <li>Product management that links strategy to execution and growth.</li>
-            <li>Automation and integrations that reduce manual effort.</li>
-            <li>Cross-functional alignment across sales, marketing, engineering, and ops.</li>
+          <ul class="mt-4 list-disc space-y-2 pl-5 text-slate-700">
+            <li>Product strategy tied directly to execution and growth.</li>
+            <li>Automation and integrations that remove manual bottlenecks.</li>
+            <li>Cross-functional alignment across sales, marketing, engineering, and operations.</li>
           </ul>
         </article>
 
-        <article
-          class="relative flex h-full flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-5 shadow-xl shadow-black/40 transition hover:-translate-y-0.5 hover:border-white/20"
-        >
-          <div
-            class="inline-flex w-fit items-center rounded-full border border-amber-200/30 bg-amber-200/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-200"
-          >
-            What I build
-          </div>
-          <ul class="flex list-disc flex-col gap-2 pl-5 text-slate-100/90">
-            <li>Platform scaling plans and implementation across multiple stacks.</li>
-            <li>Automation pipelines that shorten cycles and improve quality.</li>
-            <li>Data systems for visibility: ETL, dashboards, and alerts.</li>
-            <li>Integrations across service providers and internal tools.</li>
-            <li>Vendor and portfolio management to control cost and performance.</li>
-          </ul>
-        </article>
-
-        <article
-          class="relative flex h-full flex-col gap-4 rounded-2xl border border-emerald-200/20 bg-emerald-200/[0.06] p-5 shadow-xl shadow-black/40 transition hover:-translate-y-0.5 hover:border-emerald-200/40"
-        >
-          <div
-            class="inline-flex w-fit items-center rounded-full border border-emerald-200/30 bg-emerald-200/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-100"
-          >
-            Strengths
-          </div>
-          <p class="text-slate-100">Hands-on across product, data, and engineering with a bias for delivery and team performance.</p>
-          <div class="flex flex-wrap gap-2">
+        <article class="soft-surface reveal rounded-3xl p-6 sm:p-7">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal-800">Strengths</p>
+          <div class="mt-4 flex flex-wrap gap-2">
             {
-              ['Product Management', 'Platform Scaling', 'Automation', 'Systems Integration', 'Data-Driven Systems', 'Team Leadership'].map(
-                (tag) => <span class="rounded-lg border border-white/10 bg-white/10 px-3 py-2 text-sm text-slate-50">{tag}</span>
+              ['Product Management', 'Platform Scaling', 'Automation', 'Systems Integration', 'Data Systems', 'Team Leadership'].map(
+                (tag) => <span class="rounded-full border border-slate-300 bg-white px-3 py-1.5 text-sm text-slate-700">{tag}</span>
               )
             }
           </div>
         </article>
 
-        <article
-          class="relative flex h-full flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-5 shadow-xl shadow-black/40 transition hover:-translate-y-0.5 hover:border-white/20"
-        >
-          <div
-            class="inline-flex w-fit items-center rounded-full border border-emerald-200/30 bg-emerald-200/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-emerald-100"
-          >
-            How I help
-          </div>
-          <ul class="flex list-disc flex-col gap-2 pl-5 text-slate-100/90">
-            <li>Clarify product strategy and translate it into execution plans.</li>
-            <li>Design automation and integration layers that connect teams and tools.</li>
-            <li>Build high-performing teams and a healthy delivery cadence.</li>
-          </ul>
-        </article>
-
-        <article
-          class="relative flex h-full flex-col gap-4 rounded-2xl border border-white/10 bg-white/5 p-5 shadow-xl shadow-black/40 transition hover:-translate-y-0.5 hover:border-white/20 sm:col-span-2 lg:col-span-3"
-        >
-          <div class="flex flex-col gap-3 sm:grid sm:grid-cols-[1.5fr,1fr] sm:items-center sm:gap-4">
-            <div class="space-y-2">
-              <div
-                class="inline-flex w-fit items-center rounded-full border border-amber-200/30 bg-amber-200/10 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-amber-200"
-              >
-                Let's build
-              </div>
-              <h2 class="text-2xl font-semibold text-slate-50">Let's connect on product and platform growth</h2>
-              <p class="text-slate-200/90">
-                If you are scaling a product, modernizing a platform, or aligning teams around data, I can help define the roadmap and
-                deliver the outcomes.
+        <article class="soft-surface reveal rounded-3xl p-6 sm:p-7 lg:col-span-3">
+          <div class="flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
+            <div class="max-w-2xl">
+              <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal-800">How I help</p>
+              <h2 class="mt-2 text-2xl font-semibold tracking-tight text-slate-900">Build cleaner operations and faster product execution</h2>
+              <p class="mt-3 text-slate-700">
+                If you are scaling a platform, modernizing workflows, or improving operational visibility, I can help turn that into a clear
+                roadmap and shipped outcomes.
               </p>
             </div>
             <div class="flex flex-wrap gap-3">
               <a
-                class="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-emerald-300 via-amber-200 to-amber-300 px-4 py-3 text-sm font-semibold text-slate-900 shadow-lg shadow-emerald-300/30 transition hover:-translate-y-[1px]"
+                class="inline-flex items-center justify-center rounded-xl bg-sky-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-sky-800"
                 href="https://x.com/danielzuloaga"
                 target="_blank"
                 rel="noreferrer"
@@ -169,7 +92,7 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' })
                 DM on X
               </a>
               <a
-                class="inline-flex items-center justify-center rounded-xl border border-white/15 bg-white/5 px-4 py-3 text-sm font-semibold text-slate-50 transition hover:-translate-y-[1px] hover:border-white/25 hover:bg-white/10"
+                class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-400"
                 href="https://www.linkedin.com/in/daniel-zuloaga/"
                 target="_blank"
                 rel="noreferrer"
@@ -181,61 +104,79 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' })
         </article>
       </section>
 
-      <section class="flex flex-col gap-6">
+      <section class="soft-surface reveal rounded-3xl p-6 sm:p-7">
         <div class="flex flex-wrap items-end justify-between gap-4">
-          <div class="space-y-2">
-            <p class="text-xs font-semibold uppercase tracking-[0.28em] text-slate-400">Latest writing</p>
-            <h2 class="text-2xl font-semibold text-slate-50">Three recent notes</h2>
-            <p class="max-w-2xl text-slate-200/85">Brief posts on product strategy, platform scale, and automation.</p>
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-800">Latest writing</p>
+            <h2 class="mt-2 text-2xl font-semibold tracking-tight text-slate-900">Recent notes</h2>
+            <p class="mt-2 max-w-2xl text-slate-700">Short posts on product strategy, platform scale, and automation.</p>
           </div>
           <a
-            class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-200 transition hover:-translate-y-[1px] hover:border-white/20 hover:bg-white/10"
+            class="inline-flex items-center rounded-full border border-slate-300 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.17em] text-slate-700 transition hover:border-slate-400"
             href="/blog"
           >
-            View the blog
+            View all posts
           </a>
         </div>
 
-        <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {
             recentPosts.length ? (
               recentPosts.map((post) => (
                 <a
-                  class="group flex h-full flex-col gap-3 rounded-2xl border border-white/10 bg-white/5 p-5 shadow-xl shadow-black/40 transition hover:-translate-y-0.5 hover:border-white/20 hover:bg-white/10"
+                  class="group rounded-2xl border border-slate-200 bg-white p-5 transition hover:border-slate-300 hover:shadow-sm"
                   href={`/blog/${post.slug}`}
                 >
-                  <div class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
-                    {dateFormatter.format(post.data.pubDate)}
-                  </div>
-                  <h3 class="text-lg font-semibold text-slate-50 transition group-hover:text-white">{post.data.title}</h3>
-                  <p class="text-sm text-slate-200/85">{post.data.description}</p>
-                  <span class="mt-auto text-sm font-semibold text-emerald-200 transition group-hover:text-emerald-100">Read post</span>
+                  <p class="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">{dateFormatter.format(post.data.pubDate)}</p>
+                  <h3 class="mt-3 text-lg font-semibold text-slate-900 transition group-hover:text-sky-800">{post.data.title}</h3>
+                  <p class="mt-2 text-sm text-slate-700">{post.data.description}</p>
+                  <span class="mt-4 inline-flex text-sm font-semibold text-sky-700">Read post</span>
                 </a>
               ))
             ) : (
-              <div class="rounded-2xl border border-white/10 bg-white/5 p-6 text-slate-200/80 sm:col-span-2 lg:col-span-3">
+              <div class="rounded-2xl border border-slate-200 bg-white p-6 text-slate-700 sm:col-span-2 lg:col-span-3">
                 No posts yet. Check back soon.
               </div>
             )
           }
         </div>
       </section>
-
-      <div class="flex flex-wrap items-center gap-3 text-sm text-slate-200/85">
-        <div
-          class="inline-flex items-center gap-2 rounded-full border border-sky-200/40 bg-sky-200/10 px-3 py-1 font-semibold uppercase tracking-[0.14em] text-sky-100"
-        >
-          <svg class="h-4 w-4 text-sky-100" viewBox="0 0 24 24" fill="none">
-            <path d="M3 12c4-1.8 8-1.8 12 0s8 1.8 12 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
-            <path d="M6 16c3-1.2 6-1.2 9 0" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.6"></path>
-          </svg>
-          <span>Family, Movement &amp; Water</span>
-        </div>
-        <span class="text-slate-200/75"
-          >Proud father of two boys and husband to an amazing wife. Passionate runner and kitesurfer keep my approach calm, observant, and
-          tactical.</span
-        >
-      </div>
     </div>
-  </div>
+  </main>
+
+  <style>
+    .reveal {
+      animation: rise-in 0.65s ease-out both;
+    }
+
+    .reveal:nth-child(2) {
+      animation-delay: 0.08s;
+    }
+
+    .reveal:nth-child(3) {
+      animation-delay: 0.14s;
+    }
+
+    .reveal:nth-child(4) {
+      animation-delay: 0.2s;
+    }
+
+    @keyframes rise-in {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal {
+        animation: none;
+      }
+    }
+  </style>
 </Layout>
