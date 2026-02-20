@@ -2,6 +2,8 @@
 title: "8 Illustration Styles That Work Well With AI (With Prompt Variants + Recreates)"
 description: "A practical, research-backed list of illustration styles you can reliably generate with AI, using one base scene and style-adjusted prompts."
 pubDate: 2026-02-20
+heroImage: "/blog/ai-illustration-styles/main-image-gemini-paper-cut.webp"
+heroImageAlt: "Paper-cut collage illustration of an artist looking for inspiration in an infinite canvas world."
 tags:
   - AI
   - Illustration
@@ -39,6 +41,18 @@ centered composition, full scene, no text or logos.
 Models used for the recreations:
 - `gpt-image-1.5`
 - `gemini-3-pro-image-preview`
+
+Main image prompt used with Gemini:
+
+```text
+Create a striking blog hero illustration of a solitary artist searching for inspiration inside an infinite canvas world.
+Show the artist in the foreground with sketchbook and brush, standing on layered paper forms while an endless canvas
+pathway extends into the distance with floating cut-paper sketches, abstract symbols, and soft sunrise light.
+Convey curiosity, momentum, and creative discovery. Wide cinematic composition (16:9), clear focal point,
+strong depth, no text, no logos.
+Style treatment: paper-cut collage illustration, layered cut-paper shapes, tactile paper fibers,
+soft depth shadows between layers.
+```
 
 ## 1) Flat Vector Editorial
 

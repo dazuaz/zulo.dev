@@ -1,7 +1,7 @@
 ---
 import Layout from './Layout.astro';
 
-const { title, description, pubDate, updatedDate, tags } = Astro.props;
+const { title, description, pubDate, updatedDate, tags, heroImage, heroImageAlt } = Astro.props;
 const formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' });
 const publishedLabel = formatter.format(pubDate);
 const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
@@ -39,6 +39,20 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
           ) : null
         }
       </header>
+
+      {
+        heroImage ? (
+          <figure class="soft-surface rounded-3xl p-3 sm:p-4">
+            <img
+              class="blog-hero-image"
+              src={heroImage}
+              alt={heroImageAlt ?? `${title} main image`}
+              loading="eager"
+              decoding="async"
+            />
+          </figure>
+        ) : null
+      }
 
       <div class="soft-surface rounded-3xl p-6 sm:p-8">
         <div class="blog-content">
