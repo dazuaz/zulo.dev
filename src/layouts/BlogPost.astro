@@ -1,7 +1,8 @@
 ---
 import Layout from './Layout.astro';
+import PromptCopyEnhancer from '../components/PromptCopyEnhancer';
 
-const { title, description, pubDate, updatedDate, tags, heroImage, heroImageAlt } = Astro.props;
+const { title, description, pubDate, updatedDate, tags, heroImage, heroImageAlt, slug } = Astro.props;
 const formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' });
 const publishedLabel = formatter.format(pubDate);
 const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
@@ -61,4 +62,5 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
       </div>
     </article>
   </main>
+  <PromptCopyEnhancer client:load slug={slug} />
 </Layout>

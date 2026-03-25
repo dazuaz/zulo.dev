@@ -1,6 +1,6 @@
 ---
-title: "8 Illustration Styles That Work Well With AI (With Prompt Variants + Recreates)"
-description: "A practical, research-backed list of illustration styles you can reliably generate with AI, using one base scene and style-adjusted prompts."
+title: "11 Illustration Styles That Work Well With AI (Cross-Model Prompt Recreates)"
+description: "A research-backed style sweep across GPT Image and Gemini with a blended prompt framework, control blocks, and side-by-side recreations."
 pubDate: 2026-02-20
 heroImage: "/blog/ai-illustration-styles/main-image-gemini-paper-cut.webp"
 heroImageAlt: "Paper-cut collage illustration of an artist looking for inspiration in an infinite canvas world."
@@ -26,21 +26,48 @@ A style made this list if it has:
 2. Strong keyword cues that models consistently recognize
 3. Room for variation without losing the style identity
 
-I landed on 8 styles (inside the requested 6-10 range) that tend to be reliable in modern image models.
+I extended this to 11 styles after adding a second research pass and three new techniques not previously covered.
 
-## Base Prompt
+Models used for the recreations:
+- `gpt-image-1.5`
+- `gemini-3-pro-image-preview`
 
-I used this base prompt in all generations, then appended a style treatment:
+## Research-Blended Prompt Method (What Changed)
+
+I blended findings from:
+- Google's Nano Banana 2 announcement (speed, grounding, consistency, text handling, provenance)
+- Gemini API image guidance (describe scenes naturally, use explicit constraints, iterate with edits, set output controls)
+
+The method I now use for every style test:
+
+1. Lock the scene first: subject, action, environment, framing.
+2. Add only one style block per run: avoid mixing multiple visual dialects.
+3. Add a control block: identity, count constraints, text/language rules, and negative constraints.
+4. Declare output specs up front: aspect ratio and target size.
+5. Iterate with deltas: keep prompt stable, change only what failed.
+
+Why these controls matter: Google's February 26, 2026 Nano Banana 2 launch notes better consistency in more complex scenes (including examples with up to 5 characters and 14 objects), which maps directly to identity and count constraints in practical prompts.
+
+Reusable control block:
+
+```text
+Control block:
+- Keep one consistent subject identity across variants.
+- Preserve object count and relative placement.
+- Do not add extra characters, logos, or text.
+- If text is required: render legibly in [language].
+- Keep composition stable unless explicitly changed.
+```
+
+## Base Prompt (Scene Lock)
+
+I used this in all style generations, then appended each style treatment:
 
 ```text
 Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,
 small city skyline in the background, trees on both sides, soft morning mist,
 centered composition, full scene, no text or logos.
 ```
-
-Models used for the recreations:
-- `gpt-image-1.5`
-- `gemini-3-pro-image-preview`
 
 Main image prompt used with Gemini:
 
@@ -248,25 +275,116 @@ soft studio lighting, tactile clay texture, shallow depth of field.
   </figure>
 </div>
 
+## 9) Synthetic Cubism (New)
+
+Why this works well with AI:
+- Strong geometric decomposition gives clear structural constraints.
+- Fragmented planes let models stylize aggressively while preserving composition.
+
+Prompt adjustment:
+
+```text
+Style treatment: bright colored Synthetic Cubism illustration, angular fractured planes,
+overlapping geometric forms, bold contrasting color blocks, subtle painted texture.
+```
+
+<div class="model-compare-grid">
+  <figure class="model-compare-card">
+    <figcaption class="model-compare-label"><code>gpt-image-1.5</code></figcaption>
+    <img src="/blog/ai-illustration-styles/synthetic-cubism.webp" alt="Synthetic Cubism recreation with gpt-image-1.5" loading="lazy" />
+  </figure>
+  <figure class="model-compare-card">
+    <figcaption class="model-compare-label"><code>gemini-3-pro-image-preview</code></figcaption>
+    <img src="/blog/ai-illustration-styles/synthetic-cubism-gemini.webp" alt="Synthetic Cubism recreation with gemini-3-pro-image-preview" loading="lazy" />
+  </figure>
+</div>
+
+## 10) Linocut Print (New)
+
+Why this works well with AI:
+- Carved texture vocabulary (gouges, rough edges, limited inks) is explicit and easy to cue.
+- High-contrast composition usually survives prompt variation cleanly.
+
+Prompt adjustment:
+
+```text
+Style treatment: linocut print illustration, carved line textures, high contrast two-tone ink,
+rough hand-carved edges, handmade press texture.
+```
+
+<div class="model-compare-grid">
+  <figure class="model-compare-card">
+    <figcaption class="model-compare-label"><code>gpt-image-1.5</code></figcaption>
+    <img src="/blog/ai-illustration-styles/linocut.webp" alt="Linocut print recreation with gpt-image-1.5" loading="lazy" />
+  </figure>
+  <figure class="model-compare-card">
+    <figcaption class="model-compare-label"><code>gemini-3-pro-image-preview</code></figcaption>
+    <img src="/blog/ai-illustration-styles/linocut-gemini.webp" alt="Linocut print recreation with gemini-3-pro-image-preview" loading="lazy" />
+  </figure>
+</div>
+
+## 11) Art Nouveau Poster Illustration (New)
+
+Why this works well with AI:
+- Decorative line rhythm and botanical ornamentation are distinctive and repeatable.
+- Poster-era constraints (flat color fields + print texture) are highly promptable.
+
+Prompt adjustment:
+
+```text
+Style treatment: Art Nouveau poster illustration, flowing organic lines, ornamental botanical motifs,
+flat decorative color fields, vintage print texture, elegant composition, no typography.
+```
+
+<div class="model-compare-grid">
+  <figure class="model-compare-card">
+    <figcaption class="model-compare-label"><code>gpt-image-1.5</code></figcaption>
+    <img src="/blog/ai-illustration-styles/art-nouveau.webp" alt="Art Nouveau poster recreation with gpt-image-1.5" loading="lazy" />
+  </figure>
+  <figure class="model-compare-card">
+    <figcaption class="model-compare-label"><code>gemini-3-pro-image-preview</code></figcaption>
+    <img src="/blog/ai-illustration-styles/art-nouveau-gemini.webp" alt="Art Nouveau poster recreation with gemini-3-pro-image-preview" loading="lazy" />
+  </figure>
+</div>
+
 ## Reusable Prompt Template
 
 Use this pattern for your own style sweeps:
 
 ```text
+Scene lock:
 Draw [subject + action + environment + composition].
-Style treatment: [style name], [shape language], [color palette],
-[texture/material cues], [lighting], [finish constraints].
+
+Style treatment:
+[style name], [shape language], [color palette], [texture/material cues],
+[lighting], [finish constraints].
+
+Control block:
+- Keep subject identity consistent across variants.
+- Preserve object count and relative positions.
+- Do not add extra logos/text/subjects.
+- If text is required: render in [language], high legibility.
+
+Output spec:
+- Aspect ratio: [1:1 | 16:9 | 4:5]
+- Target size: [1K | 2K | 4K]
 ```
 
 ## Notes From Testing
 
 1. Keep subject + composition fixed when comparing styles.
 2. Change only the style block each run.
-3. Add explicit material and technique words (for example: halftone, gouache, cut-paper, hatching).
-4. Include "no text or logos" if typography is not desired.
+3. Add explicit material and technique words (for example: halftone, gouache, cut-paper, hatching, carved ink).
+4. Use natural-language scene descriptions instead of short keyword piles.
+5. For harder scenes, run iterative edits rather than rewriting from scratch.
+6. Include "no text or logos" if typography is not desired.
 
 ## References
 
+- [Google: Nano Banana 2 (Gemini 3.1 Flash Image) announcement](https://blog.google/innovation-and-ai/technology/ai/nano-banana-2/)
+- [Google AI for Developers: Image generation guide (Gemini API)](https://ai.google.dev/gemini-api/docs/image-generation)
+- [Google DeepMind: Gemini 2.5 Flash Image page](https://deepmind.google/models/gemini/flash-image/)
+- [C2PA: Coalition for Content Provenance and Authenticity](https://c2pa.org/)
 - [OpenAI: Image generation guide](https://developers.openai.com/api/docs/guides/image-generation)
 - [OpenAI: Image generation tool prompting tips](https://developers.openai.com/api/docs/guides/tools-image-generation)
 - [Adobe Learn: Create a flat illustration](https://www.adobe.com/learn/illustrator/in-app/create-a-fun-flat-lay-illustration)
@@ -277,3 +395,6 @@ Style treatment: [style name], [shape language], [color palette],
 - [Wikipedia: Papercutting](https://en.wikipedia.org/wiki/Paper_cutting)
 - [Wikipedia: Risograph](https://en.wikipedia.org/wiki/Risograph)
 - [Wikipedia: Clay animation](https://en.wikipedia.org/wiki/Clay_animation)
+- [Britannica: Synthetic Cubism](https://www.britannica.com/art/Synthetic-Cubism)
+- [Britannica: Linocut](https://www.britannica.com/art/linocut)
+- [V&A Museum: Art Nouveau style guide](https://www.vam.ac.uk/articles/art-nouveau)
