@@ -23,8 +23,17 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' })
   <main class="px-4 py-12 sm:px-6 lg:px-10">
     <div class="mx-auto flex max-w-5xl flex-col gap-5 sm:gap-6">
       <header class="soft-surface reveal rounded-3xl p-7 sm:p-10">
-        <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-800">Product leader and engineer</p>
-        <h1 class="mt-3 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">Daniel Zuloaga</h1>
+        <div class="flex flex-col gap-6 sm:flex-row sm:items-start">
+          <img
+            src="/headshot.jpeg"
+            alt="Daniel Zuloaga"
+            class="h-24 w-24 shrink-0 rounded-full object-cover sm:h-28 sm:w-28"
+          />
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-800">Product leader and engineer</p>
+            <h1 class="mt-3 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">Daniel Zuloaga</h1>
+          </div>
+        </div>
         <p class="mt-4 max-w-4xl text-base text-slate-700 sm:text-lg">
           Product leader and engineer with 15+ years of experience across banking, payments, and private lending. Proven track record
           building and scaling operational platforms, integrating systems, and delivering automation and analytics that improve speed,
@@ -64,14 +73,11 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' })
         </article>
 
         <article class="soft-surface reveal rounded-3xl p-6 sm:p-7">
-          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal-800">Strengths</p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            {
-              ['Product Management', 'Platform Scaling', 'Automation', 'Systems Integration', 'Data Systems', 'Team Leadership'].map(
-                (tag) => <span class="rounded-full border border-slate-300 bg-white px-3 py-1.5 text-sm text-slate-700">{tag}</span>
-              )
-            }
-          </div>
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-teal-800">Currently</p>
+          <h2 class="mt-2 text-2xl font-semibold tracking-tight text-slate-900">AI Adoption</h2>
+          <p class="mt-3 text-slate-700">
+            Helping teams integrate AI into their workflows — from strategy and tool selection to hands-on implementation that drives real productivity gains.
+          </p>
         </article>
 
         <article class="soft-surface reveal rounded-3xl p-6 sm:p-7 lg:col-span-3">
