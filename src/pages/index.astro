@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro'
 import { getCollection } from 'astro:content'
 
+const contactHref = 'mailto:daniel@zulo.dev'
+
 const socials = [
   { label: 'X', href: 'https://x.com/danielzuloaga', external: true },
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/daniel-zuloaga/', external: true },
@@ -17,8 +19,8 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' })
 ---
 
 <Layout
-  title="Daniel Zuloaga"
-  description="Product leader and engineer with 15+ years across banking, payments, and private lending; operational platforms, systems integration, automation, analytics, and AI adoption."
+  title="Daniel Zuloaga — product & engineering for fintech ops"
+  description="If your platform has outgrown the workflows around it, or AI adoption is stuck in slide decks — that's the work. 15+ years across banking, payments, and private lending."
 >
   <main class="px-4 py-12 sm:px-6 lg:px-10">
     <div class="mx-auto flex max-w-5xl flex-col gap-5 sm:gap-6">
@@ -26,26 +28,35 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' })
         <div class="flex flex-col gap-6 sm:flex-row sm:items-start">
           <img
             src="/headshot.jpeg"
-            alt="Daniel Zuloaga"
+            alt=""
             class="h-24 w-24 shrink-0 rounded-full object-cover sm:h-28 sm:w-28"
           />
           <div>
-            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-800">Product leader and engineer</p>
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-800">Product & engineering for fintech ops</p>
             <h1 class="mt-3 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">Daniel Zuloaga</h1>
           </div>
         </div>
-        <p class="mt-4 max-w-4xl text-base text-slate-700 sm:text-lg">
-          Product leader and engineer with 15+ years of experience across banking, payments, and private lending. Proven track record
-          building and scaling operational platforms, integrating systems, and delivering automation and analytics that improve speed,
-          accuracy, and visibility. Strong cross-functional partner to sales, marketing, operations, and leadership, with hands-on
-          technical depth in applications, systems integration, and AI adoption.
+
+        <p class="mt-5 max-w-3xl text-lg text-slate-800 sm:text-xl">
+          You're probably here because something on the operations or product side isn't clicking — a platform that grew faster than the
+          workflows around it, a process still running on spreadsheets, or AI adoption stuck in slide decks. That's the work.
+        </p>
+        <p class="mt-3 max-w-3xl text-base text-slate-700">
+          15+ years across banking, payments, and private lending. I move between roadmap and implementation: aligning teams on direction,
+          then building the systems and automations that ship the outcome.
         </p>
 
-        <div class="mt-6 flex flex-wrap gap-3">
+        <div class="mt-7 flex flex-wrap items-center gap-3">
+          <a
+            class="inline-flex items-center justify-center rounded-xl bg-sky-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800"
+            href={contactHref}
+          >
+            Get in touch
+          </a>
           {
             socials.map((item) => (
               <a
-                class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-800 transition hover:border-slate-400 hover:bg-slate-50"
+                class="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:border-slate-400 hover:bg-slate-50"
                 href={item.href}
                 rel={item.external ? 'noreferrer' : undefined}
                 target={item.external ? '_blank' : undefined}

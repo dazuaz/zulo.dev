@@ -8,7 +8,14 @@ const publishedLabel = formatter.format(pubDate);
 const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
 ---
 
-<Layout title={`${title} | Daniel Zuloaga`} description={description}>
+<Layout
+  title={`${title} | Daniel Zuloaga`}
+  description={description}
+  ogType="article"
+  ogImage={heroImage ?? '/og.jpg'}
+  pubDate={pubDate}
+  updatedDate={updatedDate}
+>
   <main class="px-4 py-12 sm:px-6 lg:px-10">
     <article class="mx-auto flex max-w-3xl flex-col gap-6">
       <a

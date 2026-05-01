@@ -2,9 +2,32 @@
 import '../styles/global.css';
 
 const {
-	title = 'Daniel Zuloaga — product-minded engineer',
-	description = 'Personal site for Daniel Zuloaga.',
+	title = 'Daniel Zuloaga — product & engineering for fintech ops',
+	description = 'Product leader and engineer. 15+ years across banking, payments, and private lending — turning operational mess into systems that ship outcomes.',
+	ogImage = '/og.jpg',
+	ogType = 'website',
+	pubDate,
+	updatedDate,
 } = Astro.props;
+
+const siteOrigin = Astro.site ?? new URL(Astro.url.origin);
+const canonicalURL = new URL(Astro.url.pathname, siteOrigin).toString();
+const ogImageURL = new URL(ogImage, siteOrigin).toString();
+const isHome = Astro.url.pathname === '/';
+
+const personJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'Person',
+	name: 'Daniel Zuloaga',
+	url: siteOrigin.toString(),
+	jobTitle: 'Product Leader and Engineer',
+	image: new URL('/headshot.jpeg', siteOrigin).toString(),
+	sameAs: [
+		'https://x.com/danielzuloaga',
+		'https://www.linkedin.com/in/daniel-zuloaga/',
+		'https://github.com/dazuaz',
+	],
+};
 ---
 
 <!doctype html>
@@ -16,6 +39,28 @@ const {
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<link rel="canonical" href={canonicalURL} />
+
+		<meta property="og:type" content={ogType} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImageURL} />
+		<meta property="og:site_name" content="Daniel Zuloaga" />
+		{pubDate && <meta property="article:published_time" content={pubDate.toISOString()} />}
+		{updatedDate && <meta property="article:modified_time" content={updatedDate.toISOString()} />}
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:site" content="@danielzuloaga" />
+		<meta name="twitter:creator" content="@danielzuloaga" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImageURL} />
+
+		{isHome && (
+			<script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
+		)}
+
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
