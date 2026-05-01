@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import { getCollection } from 'astro:content'
 
-const contactHref = 'mailto:daniel@zulo.dev'
+const contactHref = '/contact'
 
 const socials = [
   { label: 'X', href: 'https://x.com/danielzuloaga', external: true },
@@ -104,11 +104,9 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' })
             <div class="flex flex-wrap gap-3">
               <a
                 class="inline-flex items-center justify-center rounded-xl bg-sky-700 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-sky-800"
-                href="https://x.com/danielzuloaga"
-                target="_blank"
-                rel="noreferrer"
+                href="/contact"
               >
-                DM on X
+                Send a message
               </a>
               <a
                 class="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-semibold text-slate-800 transition hover:border-slate-400"
