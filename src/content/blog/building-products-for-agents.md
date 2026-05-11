@@ -1,9 +1,9 @@
 ---
-title: "Building products when the operator is an agent"
-description: "A loan-onboarding story reframed: what to design for when humans and LLM agents share the same tools—and how to turn judgment into durable software."
+title: "What changes when an agent can do the boring part?"
+description: "A personal note on loan onboarding, AI agents, and the small shift that happens when software can run the work, show its mistakes, and get corrected."
 pubDate: 2026-03-24
 heroImage: "/blog/building-products-for-agents/hero-ink-line-art.webp"
-heroImageAlt: "Ink line drawing on cream paper: a code terminal, a circular human-and-agent workflow loop, and a hand correcting a form that feeds back into code—black ink with cross-hatched shadows."
+heroImageAlt: "Ink line drawing on cream paper: a code terminal, a circular human-and-agent workflow loop, and a hand correcting a form that feeds back into code, with black ink and cross-hatched shadows."
 tags:
   - Codex
   - Workflow
@@ -12,85 +12,93 @@ tags:
   - Product
 ---
 
-I shipped a small internal tool to onboard new loans into our servicing platform. On paper, the happy path is simple: point it at a loan, run the import, done.
+I have been thinking about a small internal tool more than it probably deserves.
 
-That tool is still the product. What changed is **who runs it and how the work closes**.
+It onboards new loans into our servicing platform. That is not a glamorous sentence. Most of the work is the kind of work people only notice when it breaks: *map this field, normalize that date, move these documents,* make sure the resulting record looks like the loan everyone thinks we bought.
 
-Instead of clicking through for each loan myself, I open Codex and ask it to **invoke the import function** for that case. The agent reads the output, chases failures, patches code when the bug is ours, runs verification, and I still do a human pass on the record. Then I describe what I changed manually—and that feedback updates the importer so the next loan is closer to right.
+For a long time, this was the kind of thing I understood as a workflow. A person has a task. The product gives them screens. Maybe there is a checklist. Maybe there are a few scripts hiding behind the scenes. The person does the work, cleans up the edge cases, and carries a lot of the real knowledge in their head.
 
-This post is not a pitch for “use AI for imports.” It is a way to think about **what good product shape looks like** when LLMs and agents are part of the operating model, not a bolt-on chat window.
+Lately the shape feels different.
 
-## The loop (one concrete instance)
+Now I can open Codex and ask it to run the importer for a specific loan. **It calls the same function I would have called.** It reads the output. If the importer breaks, it can usually see where. Sometimes it patches the mapper, reruns the job, and gets us to a cleaner result *before I have finished mentally loading the whole problem.*
 
-1. **Execute** — The agent runs the same code path a human would, with full access to stdout, stderr, stack traces, and logs.
+Then I still open the servicing system and look.
 
-2. **Diagnose** — It interprets partial success, validation errors, and mapper edge cases in context.
+That last part matters. The agent can do a lot of the boring part, but **it does not know what I am willing to stand behind.** It does not know which mismatch is harmless, which missing value is policy, or which strange-looking record is actually correct because the deal was strange. *I still make those calls.*
 
-3. **Repair** — When the failure is in our code, it proposes a fix and re-runs, shrinking the distance between “broken” and “known good” without constant context switching.
+The interesting part is what happens after.
 
-4. **Verify** — A second agent-style pass can check invariants: expected rows, consistency with similar loans, obvious contradictions.
+When I change something manually, I can tell the agent what I changed and why. Not in a big formal ceremony. Just: *this field came from the wrong source, this date should follow the note, this borrower name was normalized too aggressively.* Then the agent can trace that correction back into the importer and adjust the code so the next loan is closer.
 
-5. **Human pass** — I open the servicing UI. Some fields need policy judgment, nuance, or a decision that is not worth encoding as rules yet.
+That is the shift I keep coming back to.
 
-6. **Teach the product** — I tell the agent what I changed and why. It reconciles that with the importer and mapping logic and updates the code. Manual work becomes **training signal for the software**, not a one-off correction.
+> **The manual fix is no longer just cleanup. It can become a lesson the system keeps.**
 
-If you squint, this is a product requirement: **executable operations, observable outcomes, reversible human edits, and a path from exception to code.**
+## The old feeling
 
-## How this should change how you build
+Most operations software has a quiet leak in it.
 
-### 1. Treat “callable” as a first-class interface
+**People learn things while doing the work, but the product does not always learn with them.** A person notices that a certain lender formats escrow data differently. They remember it. They tell someone on Slack. They add a note to a spreadsheet. A month later, someone else hits the same issue and either asks around or solves it again.
 
-Agents do not thrive on vibes; they thrive on **entry points**. Scripts, CLIs, jobs, and well-named functions beat “open the admin panel and do the thing” when you want automation or assistance to scale.
+This is normal, and *it is exhausting.*
 
-If the only way to onboard a loan is a sequence of clicks, the agent is stuck simulating a human at a GUI. If the import is `runLoanImport(id)` (or equivalent) with predictable inputs, the agent can operate the same substrate you test in CI.
+It is also why so many internal tools age badly. The official workflow sits in the app, but the real workflow lives in *habits, exceptions, screenshots, and "ask me before you do that one" knowledge.*
 
-**Product implication:** invest in the same boundaries you would for APIs and batch jobs—whether or not you expose them to customers. Internal operators and agents are both “clients.”
+Agents do not magically fix this. **If anything, they expose it.** When you ask an agent to run a messy operation, it immediately runs into all the places where the system depends on human memory.
 
-### 2. Design for observation, not just success
+But that exposure is useful.
 
-The slow part of operations is rarely “running the job.” It is **reconciling intent with effect**: what did the system do, what did we mean, and where did the model or the rules diverge?
+If the work can be *run programmatically, observed clearly, and corrected in a way that points back to code,* then every weird case has a chance to improve the system instead of becoming another private memory.
 
-Structured errors, correlation IDs, and logs that answer “what object failed and why” matter more than ever. Unstructured dumps are better than silence, but **machine- and human-legible** beats both.
+## The loop I want more of
 
-**Product implication:** when something fails, optimize for answers: field-level validation, explicit state transitions, and reports that an agent (or a tired human) can scan in one pass.
+The loop is simple:
 
-### 3. Separate judgment from mechanics
+1. **Run** the real operation, not a toy version of it.
+2. **Read** the result in enough detail to know what happened.
+3. **Let software** handle the mechanical fixes.
+4. **Let a person** make the judgment calls.
+5. **Turn** the person's correction into a durable change.
 
-Agents are strong at mechanics: run, read, diff, patch, re-run. They are weak at **stakeholder truth**—what this loan should mean under your policy, or what you will defend in an audit.
+That sounds obvious, but a lot of software is not built this way.
 
-The product pattern that holds up is: **automate the pipeline; reserve the UI for review and judgment** on the exceptions that matter.
+The operation might only exist as a sequence of clicks. The logs might say *"validation failed"* without saying what changed or why. The review screen might make it easy to fix a record but impossible to explain the fix. The code might be far enough from the work that nobody bothers to close the loop.
 
-**Product implication:** make correction easy where humans must intervene, and make those corrections **addressable** (which record, which field, what changed) so they can flow back into rules and code.
+Agents make those gaps more expensive, because they are very literal. They need *entry points.* They need *output.* They need *names for things.* They need *errors that say more than "something went wrong."* In a strange way, **designing for agents often means finally designing for the tired human who has been doing the job all along.**
 
-### 4. Close the loop into the codebase
+## What I would design for now
 
-Spreadsheets and sticky corrections are where product learning goes to die. The agent era makes it cheaper to **encode** what you learned—if you ritualize “I changed X because Y; update the mapper.”
+**I would make more operations callable.**
 
-That is not the model “learning” in the ML sense. It is **software learning**: your repository becomes the memory of edge cases.
+Not every task needs a polished UI first. Sometimes the most important interface is a boring function, job, or command that can be run with a clear input and a clear result. *If an agent can call it, a test can call it. If a test can call it, the team can reason about it.*
 
-**Product implication:** treat post-import edits as first-class events. Even a lightweight habit—describe deltas, patch code—beats heroic manual cleanup with no upstream fix.
+**I would make failures easier to read.**
 
-### 5. Verification is part of the product, not QA theater
+A good error is not just a red light. It says *which record failed, which field was questionable, what the system expected, and what it actually saw.* That helps an agent, but it also helps the person who gets pulled in at 4:47 p.m. and has to make a call.
 
-“Did it work?” should be answerable without tribal knowledge. Checklists, invariant checks, or comparison against a golden path for a known loan family turn verification into something an agent can help run—and a human can trust.
+**I would treat human edits as product signal.**
 
-**Product implication:** if only one senior person can tell whether an import is sane, you have a reliability problem that AI will not solve; you have a **specification** problem.
+When someone fixes a field after an import, that is not just a local patch. *It is evidence.* Maybe the mapper is wrong. Maybe the source data is inconsistent. Maybe the business rule is not written down. The product should make those edits addressable enough that they can flow back into *code, config, or documentation.*
 
-## What stays the same
+**I would keep judgment visibly human.**
 
-You still own outcomes, compliance, and customer impact. Agents compress iteration time; they do not remove accountability.
+There are parts of this work I do not want to hide inside automation. I want the system to say, *"Here is what I did, here is what I am unsure about, and here is where a person needs to decide."* That is a healthier shape than pretending the agent is certain because the screen is green.
 
-You still need a product story normal humans understand. The agent is an operator mode, not a replacement for clarity of purpose.
+## The part I do not want to lose
 
-## A compact checklist for “agent-era” product shape
+The best version of this is not a future where nobody touches the work.
 
-- **One obvious way to run the operation** programmatically (CLI, job, function, API).
-- **Rich, structured feedback** on failure and partial success.
-- **A review surface** where humans apply judgment without fighting the tool.
-- **A habit or automation path** from human correction to code or config.
-- **Verifiable success criteria** that do not depend on a single expert’s glance.
+It is a future where people spend less time on the *mechanical drag* around the work. Less retyping. Less spelunking through logs. Less remembering that one exception from two months ago. More attention on the parts that actually require **taste, policy, accountability, and context.**
 
----
+That is why this small loan importer has stayed in my head. *It is not about loan imports.* It is about a different relationship with software.
 
-The loan importer was a small tool. The general pattern is larger: **build so that both people and agents can act, see, correct, and improve the system**—and so improvements accumulate in the product instead of in someone’s head.
+The product is not only the screen. It is:
 
+- the **function** the agent can call
+- the **report** that explains itself
+- the **correction** that becomes code
+- the **review surface** where a person can say, *"yes, this is right,"* with enough confidence to own the result
+
+Agents are useful when they make that loop tighter.
+
+**Not because they replace the operator, but because they give the operator a better way to teach the system what the work really is.**
