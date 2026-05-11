@@ -12,6 +12,8 @@ tags:
   - Creative Workflow
 ---
 
+> **Disclaimer:** Most of this post—including the draft prose and every image shown—was produced with AI tools, then edited for clarity and factual consistency.
+
 If you want predictable image outputs from AI, style choice matters as much as subject choice.
 
 I researched illustration styles with strong visual rules, then recreated the **same scene** in multiple styles by changing only the style portion of the prompt.
