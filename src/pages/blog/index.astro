@@ -7,13 +7,13 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort((a, 
 const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
 ---
 
-<Layout title="Writing | Daniel Zuloaga" description="Essays on product, systems, software, and making operational work clearer." nav="blog">
+<Layout title="Writing | Daniel Zuloaga" description="Notes on building with AI agents, agentic workflows, and the judgment calls that still belong to people." nav="blog">
   <main id="main-content">
     <section class="page-shell page-intro">
       <div class="stack-md">
-        <h1 class="display-title">Writing on product and systems</h1>
+        <h1 class="display-title">Writing on building with AI</h1>
         <p class="prose-body">
-          Essays on product, systems, and the practical work of building software that holds up.
+          Notes on agentic workflows, product design when software can run the work, and what still requires human judgment.
           Subscribe via <a class="link-accent focus-ring" href="/rss.xml">RSS</a>.
         </p>
       </div>

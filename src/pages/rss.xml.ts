@@ -11,7 +11,7 @@ export async function GET(context: APIContext) {
 
   return rss({
     title: 'Daniel Zuloaga — Writing',
-    description: 'Essays on product, systems, software, and making operational work clearer.',
+    description: 'Notes on building with AI agents, agentic workflows, and the judgment calls that still belong to people.',
     site: context.site,
     customData: '<language>en-us</language>',
     items: posts.map((post) => ({
