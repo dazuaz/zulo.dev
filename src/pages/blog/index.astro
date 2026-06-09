@@ -1,51 +1,47 @@
 ---
 import Layout from '../../layouts/Layout.astro'
 import { getCollection } from 'astro:content'
+import { readingTimeMinutes } from '../../lib/reading-time'
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-const dateFormatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' })
+const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
 ---
 
-<Layout title="Blog | Daniel Zuloaga" description="Writing on fintech leadership, platform execution, and building calm systems.">
-  <main class="px-4 py-12 sm:px-6 lg:px-10">
-    <div class="mx-auto flex max-w-4xl flex-col gap-6">
-      <header class="soft-surface rounded-3xl p-6 sm:p-8">
-        <div class="flex items-center gap-3">
-          <a href="/" class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-800 transition hover:text-sky-900">Home</a>
-          <span class="text-xs text-slate-400">/</span>
-          <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-800">Blog</p>
-        </div>
-        <h1 class="mt-3 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">Writing on product and systems</h1>
-        <p class="mt-3 max-w-3xl text-base text-slate-700 sm:text-lg">Short essays on fintech execution, operational clarity, and practical engineering.</p>
-      </header>
+<Layout title="Writing | Daniel Zuloaga" description="Essays on product, systems, software, and making operational work clearer." nav="blog">
+  <main id="main-content">
+    <section class="page-shell page-intro">
+      <div class="stack-md">
+        <h1 class="display-title">Writing on product and systems</h1>
+        <p class="prose-body">
+          Essays on product, systems, and the practical work of building software that holds up.
+          Subscribe via <a class="link-accent focus-ring" href="/rss.xml">RSS</a>.
+        </p>
+      </div>
+    </section>
 
-      <section class="grid gap-4">
+    <section class="page-shell section-rule section-block section-block--end">
+      <ul class="post-list">
         {
           posts.length ? (
             posts.map((post) => (
-              <a class="group soft-surface block rounded-3xl p-5 sm:p-6" href={`/blog/${post.id}`}>
-                <div class="flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-                  <span>{dateFormatter.format(post.data.pubDate)}</span>
-                  {post.data.tags?.length ? (
-                    <div class="flex flex-wrap gap-2">
-                      {post.data.tags.slice(0, 3).map((tag) => (
-                        <span class="rounded-full border border-slate-300 bg-white px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-600">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  ) : null}
-                </div>
-                <h2 class="mt-3 text-xl font-semibold text-slate-900 transition group-hover:text-sky-800">{post.data.title}</h2>
-                <p class="mt-2 text-slate-700">{post.data.description}</p>
-                <span class="mt-4 inline-flex items-center text-sm font-semibold text-sky-700">Read post</span>
-              </a>
+              <li>
+                <a class="post-row focus-ring" href={`/blog/${post.id}`}>
+                  <span class="post-row-meta">
+                    <time class="meta-date" datetime={post.data.pubDate.toISOString()}>
+                      {dateFormatter.format(post.data.pubDate)}
+                    </time>
+                    <span class="meta-date">{readingTimeMinutes(post.body ?? '')} min read</span>
+                  </span>
+                  <span class="post-row-title">{post.data.title}</span>
+                  <span class="post-row-desc">{post.data.description}</span>
+                </a>
+              </li>
             ))
           ) : (
-            <div class="soft-surface rounded-3xl p-6 text-slate-700">No posts yet. Check back soon.</div>
+            <li class="prose-body empty-state">No posts yet. Check back soon.</li>
           )
         }
-      </section>
-    </div>
+      </ul>
+    </section>
   </main>
 </Layout>

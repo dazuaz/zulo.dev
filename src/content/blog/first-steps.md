@@ -2,6 +2,7 @@
 title: "A calm operating rhythm"
 description: "How I shape fintech platforms with the pace of water and the clarity of wind."
 pubDate: 2025-10-14
+draft: true
 tags:
   - Leadership
   - Platform

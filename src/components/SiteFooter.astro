@@ -1,0 +1,44 @@
+---
+const year = new Date().getFullYear();
+
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'Writing', href: '/blog' },
+  { label: 'Contact', href: '/contact' },
+];
+
+const socialLinks = [
+  { label: 'X', href: 'https://x.com/danielzuloaga' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/daniel-zuloaga/' },
+  { label: 'GitHub', href: 'https://github.com/dazuaz' },
+];
+---
+
+<footer class="site-footer">
+  <div class="page-shell site-footer-inner">
+    <p class="site-footer-copy">© {year} Daniel Zuloaga</p>
+    <nav class="site-footer-nav" aria-label="Footer">
+      {
+        navLinks.map((link) => (
+          <a class="footer-link focus-ring" href={link.href}>{link.label}</a>
+        ))
+      }
+    </nav>
+    <nav class="site-footer-social" aria-label="Social links">
+      {
+        socialLinks.map((link) => (
+          <a
+            class="footer-link focus-ring"
+            href={link.href}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {link.label}
+            <span class="sr-only"> (opens in new tab)</span>
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+  <p class="page-shell site-footer-tagline">Notes on software, systems, and the work in between.</p>
+</footer>

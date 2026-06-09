@@ -1,6 +1,6 @@
 ---
-title: "11 Illustration Styles That Work Well With AI (Cross-Model Prompt Recreates)"
-description: "A research-backed style sweep across GPT Image and Gemini with a blended prompt framework, control blocks, and side-by-side recreations."
+title: "11 illustration styles that work well with AI image models"
+description: "The same scene recreated in 11 styles across GPT Image and Gemini, with the exact prompt blocks I used and notes on what held up."
 pubDate: 2026-02-20
 heroImage: "/blog/ai-illustration-styles/main-image-gemini-paper-cut.webp"
 heroImageAlt: "Paper-cut collage illustration of an artist looking for inspiration in an infinite canvas world."
@@ -12,7 +12,7 @@ tags:
   - Creative Workflow
 ---
 
-> **Disclaimer:** Most of this post—including the draft prose and every image shown—was produced with AI tools, then edited for clarity and factual consistency.
+> Disclaimer: most of this post, including the draft prose and every image shown, was produced with AI tools, then edited for clarity and factual consistency.
 
 If you want predictable image outputs from AI, style choice matters as much as subject choice.
 
@@ -20,7 +20,7 @@ I researched illustration styles with strong visual rules, then recreated the **
 
 The scene: **a red bicycle courier crossing a stone bridge at sunrise, with river reflections and a city skyline**.
 
-## How I Selected These Styles
+## How I selected these styles
 
 A style made this list if it has:
 
@@ -34,7 +34,7 @@ Models used for the recreations:
 - `gpt-image-1.5`
 - `gemini-3-pro-image-preview`
 
-## Research-Blended Prompt Method (What Changed)
+## The prompt method
 
 I blended findings from:
 - Google's Nano Banana 2 announcement (speed, grounding, consistency, text handling, provenance)
@@ -61,7 +61,7 @@ Control block:
 - Keep composition stable unless explicitly changed.
 ```
 
-## Base Prompt (Scene Lock)
+## Base prompt (scene lock)
 
 I used this in all style generations, then appended each style treatment:
 
@@ -277,7 +277,7 @@ soft studio lighting, tactile clay texture, shallow depth of field.
   </figure>
 </div>
 
-## 9) Synthetic Cubism (New)
+## 9) Synthetic Cubism
 
 Why this works well with AI:
 - Strong geometric decomposition gives clear structural constraints.
@@ -301,7 +301,7 @@ overlapping geometric forms, bold contrasting color blocks, subtle painted textu
   </figure>
 </div>
 
-## 10) Linocut Print (New)
+## 10) Linocut Print
 
 Why this works well with AI:
 - Carved texture vocabulary (gouges, rough edges, limited inks) is explicit and easy to cue.
@@ -325,7 +325,7 @@ rough hand-carved edges, handmade press texture.
   </figure>
 </div>
 
-## 11) Art Nouveau Poster Illustration (New)
+## 11) Art Nouveau Poster Illustration
 
 Why this works well with AI:
 - Decorative line rhythm and botanical ornamentation are distinctive and repeatable.
@@ -349,7 +349,7 @@ flat decorative color fields, vintage print texture, elegant composition, no typ
   </figure>
 </div>
 
-## Reusable Prompt Template
+## Reusable prompt template
 
 Use this pattern for your own style sweeps:
 
@@ -372,7 +372,7 @@ Output spec:
 - Target size: [1K | 2K | 4K]
 ```
 
-## Notes From Testing
+## Notes from testing
 
 1. Keep subject + composition fixed when comparing styles.
 2. Change only the style block each run.

@@ -18,8 +18,18 @@ const escapeHtml = (s: string) =>
 
 const isEmail = (s: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
 
+const jsonError = (error: string, field?: 'name' | 'email' | 'message', status = 400) =>
+  Response.json(field ? { error, field } : { error }, { status });
+
 export const POST: APIRoute = async ({ request }) => {
-  const verification = await checkBotId();
+  let verification: Awaited<ReturnType<typeof checkBotId>>;
+  try {
+    verification = await checkBotId();
+  } catch (err) {
+    console.error('BotID verification failed:', err);
+    return Response.json({ error: 'Request could not be verified' }, { status: 503 });
+  }
+
   if (verification.isBot) {
     return Response.json({ error: 'Request rejected' }, { status: 403 });
   }
@@ -28,7 +38,7 @@ export const POST: APIRoute = async ({ request }) => {
   try {
     payload = await request.json();
   } catch {
-    return Response.json({ error: 'Invalid request body' }, { status: 400 });
+    return jsonError('Invalid request body');
   }
 
   const name = typeof payload.name === 'string' ? payload.name.trim() : '';
@@ -36,13 +46,13 @@ export const POST: APIRoute = async ({ request }) => {
   const message = typeof payload.message === 'string' ? payload.message.trim() : '';
 
   if (!name || name.length > MAX_NAME) {
-    return Response.json({ error: 'Name is required' }, { status: 400 });
+    return jsonError('Name is required', 'name');
   }
   if (!email || email.length > MAX_EMAIL || !isEmail(email)) {
-    return Response.json({ error: 'A valid email is required' }, { status: 400 });
+    return jsonError('A valid email is required', 'email');
   }
   if (!message || message.length > MAX_MESSAGE) {
-    return Response.json({ error: 'Message is required' }, { status: 400 });
+    return jsonError('Message is required', 'message');
   }
 
   const apiKey = import.meta.env.RESEND_API_KEY;

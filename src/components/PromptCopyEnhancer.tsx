@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { createRoot, type Root } from 'react-dom/client';
 
-import { Button } from './ui/button';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
 
 type Props = {
@@ -66,21 +65,17 @@ function PromptCopyButton({ prompt }: { prompt: string }) {
     <TooltipProvider>
       <Tooltip>
         <TooltipTrigger asChild>
-          <Button
+          <button
             type="button"
-            variant="secondary"
-            size="sm"
-            className="border border-slate-300/80 bg-white/90 text-slate-800 shadow-sm backdrop-blur hover:bg-white"
+            className="prompt-copy-btn focus-ring"
             onClick={handleCopy}
             aria-label="Copy image prompt"
           >
             {copied ? 'Copied' : 'Copy prompt'}
-          </Button>
+          </button>
         </TooltipTrigger>
         <TooltipContent side="top" align="start">
-          <div className="max-h-72 overflow-auto whitespace-pre-wrap font-mono text-[11px] leading-[1.35]">
-            {prompt}
-          </div>
+          <div className="prompt-copy-tooltip">{prompt}</div>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>

@@ -1,13 +1,16 @@
 ---
 import '../styles/global.css';
+import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 
 const {
-	title = 'Daniel Zuloaga — product & engineering for fintech ops',
-	description = 'Product leader and engineer. 15+ years across banking, payments, and private lending — turning operational mess into systems that ship outcomes.',
+	title = 'Daniel Zuloaga — software, systems, and useful tools',
+	description = 'Notes, experiments, and essays on building useful software, clearer operational systems, and better ways to work with AI.',
 	ogImage = '/og.jpg',
 	ogType = 'website',
 	pubDate,
 	updatedDate,
+	nav = 'home',
 } = Astro.props;
 
 const siteOrigin = Astro.site ?? new URL(Astro.url.origin);
@@ -21,13 +24,15 @@ const personJsonLd = {
 	name: 'Daniel Zuloaga',
 	url: siteOrigin.toString(),
 	jobTitle: 'Product Leader and Engineer',
-	image: new URL('/headshot.jpeg', siteOrigin).toString(),
 	sameAs: [
 		'https://x.com/danielzuloaga',
 		'https://www.linkedin.com/in/daniel-zuloaga/',
 		'https://github.com/dazuaz',
 	],
 };
+
+const fontHref =
+	'https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500&family=Sora:wght@500;600&display=swap';
 ---
 
 <!doctype html>
@@ -40,6 +45,12 @@ const personJsonLd = {
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<link rel="canonical" href={canonicalURL} />
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			title="Daniel Zuloaga — Writing"
+			href={new URL('rss.xml', siteOrigin)}
+		/>
 
 		<meta property="og:type" content={ogType} />
 		<meta property="og:url" content={canonicalURL} />
@@ -63,12 +74,13 @@ const personJsonLd = {
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
-			rel="stylesheet"
-		/>
+		<link rel="preload" as="style" href={fontHref} />
+		<link href={fontHref} rel="stylesheet" />
 	</head>
-	<body class="min-h-screen bg-slate-50 text-slate-900 antialiased">
+	<body class="min-h-screen antialiased">
+		<a class="skip-link focus-ring" href="#main-content">Skip to content</a>
+		<SiteNav current={nav} />
 		<slot />
+		<SiteFooter />
 	</body>
 </html>

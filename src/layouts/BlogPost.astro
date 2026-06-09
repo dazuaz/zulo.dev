@@ -2,7 +2,19 @@
 import Layout from './Layout.astro';
 import PromptCopyEnhancer from '../components/PromptCopyEnhancer';
 
-const { title, description, pubDate, updatedDate, tags, heroImage, heroImageAlt, slug } = Astro.props;
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  tags,
+  heroImage,
+  heroImageAlt,
+  slug,
+  minutes,
+  newerPost,
+  olderPost,
+} = Astro.props;
 const formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' });
 const publishedLabel = formatter.format(pubDate);
 const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
@@ -15,57 +27,85 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
   ogImage={heroImage ?? '/og.jpg'}
   pubDate={pubDate}
   updatedDate={updatedDate}
+  nav="blog"
 >
-  <main class="px-4 py-12 sm:px-6 lg:px-10">
-    <article class="mx-auto flex max-w-3xl flex-col gap-6">
-      <a
-        class="inline-flex w-fit items-center rounded-full border border-slate-300 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-slate-700 transition hover:border-slate-400"
-        href="/blog"
-      >
-        Back to blog
-      </a>
+  <main id="main-content">
+    <article class="page-shell section-block--end">
+      <header class="page-intro article-header">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a class="focus-ring" href="/">Home</a>
+          <span class="breadcrumb-sep" aria-hidden="true">/</span>
+          <a class="focus-ring" href="/blog">Writing</a>
+          <span class="breadcrumb-sep" aria-hidden="true">/</span>
+          <span aria-current="page">{title}</span>
+        </nav>
+        <h1 class="display-title measure-article-title">{title}</h1>
+        <p class="prose-lead">{description}</p>
 
-      <header class="soft-surface rounded-3xl p-6 sm:p-8">
-        <p class="text-xs font-semibold uppercase tracking-[0.24em] text-sky-800">Post</p>
-        <h1 class="mt-2 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">{title}</h1>
-        <p class="mt-3 text-base text-slate-700 sm:text-lg">{description}</p>
-
-        <div class="mt-4 flex flex-wrap items-center gap-3 text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
-          <span>{publishedLabel}</span>
+        <div class="article-meta meta-date">
+          <time datetime={pubDate.toISOString()}>{publishedLabel}</time>
+          {minutes && <span>{minutes} min read</span>}
           {updatedLabel && <span>Updated {updatedLabel}</span>}
         </div>
 
         {
           tags?.length ? (
-            <div class="mt-4 flex flex-wrap gap-2">
+            <div class="cluster-md">
               {tags.map((tag) => (
-                <span class="rounded-full border border-slate-300 bg-white px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-600">
-                  {tag}
-                </span>
+                <span class="tag">{tag}</span>
               ))}
             </div>
           ) : null
         }
       </header>
 
-      {
-        heroImage ? (
-          <figure class="soft-surface rounded-3xl p-3 sm:p-4">
-            <img
-              class="blog-hero-image"
-              src={heroImage}
-              alt={heroImageAlt ?? `${title} main image`}
-              loading="eager"
-              decoding="async"
-            />
-          </figure>
-        ) : null
-      }
+      <div class="article-measure">
+        {
+          heroImage ? (
+            <figure class="section-rule article-hero">
+              <img
+                class="blog-hero-image"
+                src={heroImage}
+                alt={heroImageAlt ?? `${title} main image`}
+                loading="eager"
+                decoding="async"
+              />
+            </figure>
+          ) : null
+        }
 
-      <div class="soft-surface rounded-3xl p-6 sm:p-8">
-        <div class="blog-content">
-          <slot />
+        <div class="section-rule article-prose">
+          <div class="blog-content">
+            <slot />
+          </div>
         </div>
+
+        {
+          newerPost || olderPost ? (
+            <nav class="section-rule article-pager" aria-label="More writing">
+              {olderPost ? (
+                <a class="article-pager-link focus-ring" href={`/blog/${olderPost.slug}`} rel="prev">
+                  <span class="article-pager-label">Older</span>
+                  <span class="article-pager-title">{olderPost.title}</span>
+                </a>
+              ) : (
+                <span class="article-pager-spacer" aria-hidden="true" />
+              )}
+              {newerPost ? (
+                <a
+                  class="article-pager-link article-pager-link--next focus-ring"
+                  href={`/blog/${newerPost.slug}`}
+                  rel="next"
+                >
+                  <span class="article-pager-label">Newer</span>
+                  <span class="article-pager-title">{newerPost.title}</span>
+                </a>
+              ) : (
+                <span class="article-pager-spacer" aria-hidden="true" />
+              )}
+            </nav>
+          ) : null
+        }
       </div>
     </article>
   </main>

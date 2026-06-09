@@ -1,5 +1,5 @@
 ---
-title: "Git Worktrees Explained: A Practical Mental Model for Parallel Work"
+title: "How Git worktrees work"
 description: "A practical mental model for using Git worktrees so you and your AI agents can work in parallel."
 pubDate: 2026-02-17
 tags:
@@ -10,23 +10,19 @@ tags:
   - Developer Experience
 ---
 
-After you start using Codex daily, it's important to understand one of its main features: Git worktrees and when to make use of them.
+Once you start using Codex daily, it is worth understanding Git worktrees and when to use them.
 
-In simple words, worktrees do **not** make a full copy of your repository. Instead, they create an additional working directory that shares the same underlying Git history and object database. Each worktree has its own working directory and index, so uncommitted changes stay isolated to the folder where they were made — but all commits still go into the same shared repository.
+Worktrees do not make a full copy of your repository. They create an additional working directory that shares the same underlying Git history and object database. Each worktree has its own working directory and index, so uncommitted changes stay isolated to the folder where they were made, but all commits still go into the same shared repository.
 
 ![Git worktree mental model diagram](/blog/how-git-worktrees-work.png)
 
-## The Problem Worktrees Solve
+## The problem worktrees solve
 
-If an agent is actively editing your repository for 15 to 60 minutes, your main working directory is no longer a safe place to do unrelated work.
-
-You can wait, but that wastes time.
-
-You can interrupt, but that breaks momentum.
+If an agent is actively editing your repository for 15 to 60 minutes, your main working directory is no longer a safe place to do unrelated work. You can wait, but that wastes time. You can interrupt, but that breaks momentum.
 
 Worktrees solve this by giving you multiple working directories for the same repository, each with its own checked-out branch.
 
-## The Mental Model
+## The mental model
 
 Think of a worktree as:
 
@@ -34,9 +30,9 @@ Think of a worktree as:
 - Multiple independent folders on disk
 - One active branch per folder
 
-So instead of one folder constantly switching branches, you have multiple folders, each **stable on its own branch**.
+So instead of one folder constantly switching branches, you have multiple folders, each stable on its own branch.
 
-## Create One
+## Create one
 
 ```bash
 git worktree add ../games-worktrees/agent-track-17 -b agent/track-17 main
@@ -50,7 +46,7 @@ This command:
 
 Now your main folder can stay on `main` (or any other branch) while the agent works in the worktree.
 
-## Core Rules and Gotchas
+## Core rules and gotchas
 
 1. You cannot check out the same branch in two worktrees at once.
 2. Uncommitted changes are isolated to the folder where they were made.
@@ -65,7 +61,7 @@ To see active worktrees:
 git worktree list
 ```
 
-## Reviewing an Agent Branch While It Is Active
+## Reviewing an agent branch while it is active
 
 If `agent/track-17` is already checked out in its worktree, your main folder cannot check out that branch directly.
 
@@ -89,7 +85,7 @@ git worktree remove ../games-worktrees/agent-track-17
 git worktree prune
 ```
 
-## Why This Works Well With AI Agents
+## Why this works well with AI agents
 
 In my workflow, each agent creates its own worktree and branch before writing code. The agent only touches that folder. I keep working in my main folder.
 
@@ -99,6 +95,4 @@ That gives me:
 2. Fewer stash/checkout interruptions
 3. Clean, reviewable branches and PRs
 
-If you remember one sentence, use this:
-
-**Git worktrees let you keep multiple branches checked out at the same time, in separate folders, on the same machine.**
+If you remember one sentence, use this: Git worktrees let you keep multiple branches checked out at the same time, in separate folders, on the same machine.
