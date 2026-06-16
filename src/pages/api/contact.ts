@@ -1,25 +1,26 @@
 import type { APIRoute } from 'astro';
 import { checkBotId } from 'botid/server';
-import { Resend } from 'resend';
 
 export const prerender = false;
 
 const MAX_NAME = 120;
 const MAX_EMAIL = 254;
 const MAX_MESSAGE = 5000;
-
-const escapeHtml = (s: string) =>
-  s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
+const NOTION_RICH_TEXT_LIMIT = 2000;
+const NOTION_API_VERSION = '2022-06-28';
 
 const isEmail = (s: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s);
 
 const jsonError = (error: string, field?: 'name' | 'email' | 'message', status = 400) =>
   Response.json(field ? { error, field } : { error }, { status });
+
+const toRichText = (content: string) => {
+  const chunks: { text: { content: string } }[] = [];
+  for (let i = 0; i < content.length; i += NOTION_RICH_TEXT_LIMIT) {
+    chunks.push({ text: { content: content.slice(i, i + NOTION_RICH_TEXT_LIMIT) } });
+  }
+  return chunks;
+};
 
 export const POST: APIRoute = async ({ request }) => {
   let verification: Awaited<ReturnType<typeof checkBotId>>;
@@ -55,34 +56,41 @@ export const POST: APIRoute = async ({ request }) => {
     return jsonError('Message is required', 'message');
   }
 
-  const apiKey = import.meta.env.RESEND_API_KEY;
-  const toEmail = import.meta.env.CONTACT_TO_EMAIL;
-  const fromEmail = import.meta.env.CONTACT_FROM_EMAIL ?? 'Zulo.dev <onboarding@resend.dev>';
+  const notionKey = import.meta.env.NOTION_API_KEY;
+  const databaseId = import.meta.env.NOTION_CONTACT_DATABASE_ID;
 
-  if (!apiKey || !toEmail) {
-    console.error('Missing RESEND_API_KEY or CONTACT_TO_EMAIL');
-    return Response.json({ error: 'Email service is not configured' }, { status: 500 });
+  if (!notionKey || !databaseId) {
+    console.error('Missing NOTION_API_KEY or NOTION_CONTACT_DATABASE_ID');
+    return Response.json({ error: 'Contact service is not configured' }, { status: 500 });
   }
 
-  const resend = new Resend(apiKey);
+  let notionRes: Response;
+  try {
+    notionRes = await fetch('https://api.notion.com/v1/pages', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${notionKey}`,
+        'Notion-Version': NOTION_API_VERSION,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        parent: { database_id: databaseId },
+        properties: {
+          Name: { title: [{ text: { content: name } }] },
+          Email: { email },
+          Message: { rich_text: toRichText(message) },
+          Status: { status: { name: 'New' } },
+        },
+      }),
+    });
+  } catch (err) {
+    console.error('Notion request failed:', err);
+    return Response.json({ error: 'Could not send message' }, { status: 502 });
+  }
 
-  const { error } = await resend.emails.send({
-    from: fromEmail,
-    to: [toEmail],
-    replyTo: email,
-    subject: `zulo.dev contact form — ${name}`,
-    text: `From: ${name} <${email}>\n\n${message}`,
-    html: `
-      <div style="font-family:system-ui,sans-serif;color:#0f172a;">
-        <p><strong>From:</strong> ${escapeHtml(name)} &lt;${escapeHtml(email)}&gt;</p>
-        <hr />
-        <p style="white-space:pre-wrap;">${escapeHtml(message)}</p>
-      </div>
-    `,
-  });
-
-  if (error) {
-    console.error('Resend error:', error);
+  if (!notionRes.ok) {
+    const body = await notionRes.text();
+    console.error('Notion API error:', notionRes.status, body);
     return Response.json({ error: 'Could not send message' }, { status: 502 });
   }
 

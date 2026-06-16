@@ -87,16 +87,6 @@ import Layout from '../layouts/Layout.astro';
   </main>
 
   <script>
-    import { initBotId } from 'botid/client/core';
-
-    // BotID challenge scripts rely on vercel.json rewrites that only exist on Vercel.
-    // In local dev, initBotId intercepts fetch and fails before the API is reached.
-    if (import.meta.env.PROD) {
-      initBotId({
-        protect: [{ path: '/api/contact', method: 'POST' }],
-      });
-    }
-
     type FieldName = 'name' | 'email' | 'message';
 
     const form = document.getElementById('contact-form') as HTMLFormElement | null;
@@ -230,7 +220,7 @@ import Layout from '../layouts/Layout.astro';
           console.error('Contact form submit failed:', err);
           const networkMessage =
             import.meta.env.DEV
-              ? 'Could not reach the contact API. In local dev, copy .env.example to .env and set RESEND_API_KEY.'
+              ? 'Could not reach the contact API. In local dev, copy .env.example to .env and set NOTION_API_KEY.'
               : 'Network error. Check your connection and try again.';
           errorEl.textContent = networkMessage;
           errorEl.classList.remove('hidden');
