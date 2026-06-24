@@ -13,7 +13,7 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'n
 
 <Layout
   title="Daniel Zuloaga"
-  description="A personal site for notes, experiments, and the work I keep coming back to: making useful software, clearer systems, and better ways to think."
+  description="AI product and engineering in regulated fintech. Notes on building production systems, agents, and the work behind them."
   nav="home"
 >
   <main id="main-content">
@@ -21,10 +21,10 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'n
       <div class="hero-copy">
         <h1 class="display-title">Daniel Zuloaga</h1>
         <p class="prose-lead">
-          I build useful software, write down what I learn, and spend time in the messy middle where ideas turn into working systems.
+          I build and implement AI systems end to end — product thinking on the way in, working code on the way out.
         </p>
         <p class="prose-body">
-          Most of my work has lived around finance, software, operations, and lately AI. The through line is making confusing things clearer, then turning that clarity into something people can actually use.
+          Fifteen years in fintech — engineer, then platform architect, now building production AI inside a regulated lending operation. Agents, document pipelines, and the governance around them: I own that stack, not just the roadmap. I write about what I learn as I build; that's a more honest introduction than anything I could put here.
         </p>
         <div class="hero-actions">
           <a class="btn-primary focus-ring" href={contactHref}>Get in touch</a>
@@ -34,20 +34,15 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'n
 
     <section class="page-shell section-rule split-section">
       <div class="split-column">
-        <h2 class="section-title">Useful systems, plain language</h2>
+        <h2 class="section-title">What I'm building now</h2>
         <p class="prose-body">
-          I tend to orbit problems that have too many tabs open: old workflows, new tools, half-formed ideas, and teams trying to make sense of change.
+          I'm working on agent orchestration across lending workflows — document ingestion, tool-calling pipelines, custom MCP servers — in production, not a sandbox. The technical build is half of it; the other half is adoption: governance, training, and the unglamorous work of making automation stick with the people who use it.
         </p>
-        <ul class="focus-list">
-          <li>Finding the small question underneath the big, vague one.</li>
-          <li>Turning repeatable work into tools instead of rituals.</li>
-          <li>Writing and building in public enough that the thinking gets sharper.</li>
-        </ul>
       </div>
       <div class="split-column">
-        <h2 class="section-title">Learning out loud</h2>
+        <h2 class="section-title">What's new</h2>
         <p class="prose-body">
-          I'm spending a lot of time with AI tools, not as a pitch, but as a way to rethink how people work, review, correct, and teach software over time.
+          AI collapsed product and engineering into one role for me. I can go from a workflow problem to a shipped agent in days, not quarters — but the failure modes are different, and production means something stricter in finance. I write about that shift: faster loops, harder constraints, and what holds up.
         </p>
       </div>
     </section>
@@ -56,7 +51,7 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'n
       <div class="section-head">
         <div class="stack-xs">
           <h2 class="section-title">Recent notes</h2>
-          <p class="prose-body">Working through software, systems, and how work changes.</p>
+          <p class="prose-body">Systems, constraints, and notes from the build.</p>
         </div>
         <a class="btn-secondary focus-ring" href="/blog">View all writing</a>
       </div>
@@ -86,13 +81,10 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'n
       <div class="ink-band">
         <div class="ink-band-inner">
           <div class="ink-band-copy">
-            <h2 class="section-title">Send the unfinished version</h2>
-            <p class="prose-body">
-              You do not need a polished brief. A half-shaped idea, a stuck workflow, or a question you keep circling is usually enough to start a useful conversation.
-            </p>
+            <h2 class="section-title">Have a problem worth solving?</h2>
           </div>
           <div class="ink-band-actions cluster-md">
-            <a class="btn-primary focus-ring" href="/contact">Write me</a>
+            <a class="btn-primary focus-ring" href={contactHref}>Get in touch</a>
             <a
               class="btn-outline focus-ring"
               href="https://www.linkedin.com/in/daniel-zuloaga/"
