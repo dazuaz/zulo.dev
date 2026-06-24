@@ -1,47 +1,27 @@
 ---
 import Layout from '../../layouts/Layout.astro'
+import PageShell from '../../components/ui/PageShell.astro'
+import PostList from '../../components/PostList.astro'
 import { getCollection } from 'astro:content'
-import { readingTimeMinutes } from '../../lib/reading-time'
+import { accentLink, displayTitle, proseBody } from '../../lib/classes'
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
 ---
 
 <Layout title="Writing | Daniel Zuloaga" description="Notes on building with AI agents, agentic workflows, and the judgment calls that still belong to people." nav="blog">
   <main id="main-content">
-    <section class="page-shell page-intro">
-      <div class="stack-md">
-        <h1 class="display-title">Writing on building with AI</h1>
-        <p class="prose-body">
+    <PageShell class="py-page-intro">
+      <div class="flex flex-col gap-md">
+        <h1 class={displayTitle}>Writing on building with AI</h1>
+        <p class={proseBody}>
           Notes on agentic workflows, product design when software can run the work, and what still requires human judgment.
-          Subscribe via <a class="link-accent focus-ring" href="/rss.xml">RSS</a>.
+          Subscribe via <a class={accentLink} href="/rss.xml">RSS</a>.
         </p>
       </div>
-    </section>
+    </PageShell>
 
-    <section class="page-shell section-rule section-block section-block--end">
-      <ul class="post-list">
-        {
-          posts.length ? (
-            posts.map((post) => (
-              <li>
-                <a class="post-row focus-ring" href={`/blog/${post.id}`}>
-                  <span class="post-row-meta">
-                    <time class="meta-date" datetime={post.data.pubDate.toISOString()}>
-                      {dateFormatter.format(post.data.pubDate)}
-                    </time>
-                    <span class="meta-date">{readingTimeMinutes(post.body ?? '')} min read</span>
-                  </span>
-                  <span class="post-row-title">{post.data.title}</span>
-                  <span class="post-row-desc">{post.data.description}</span>
-                </a>
-              </li>
-            ))
-          ) : (
-            <li class="prose-body empty-state">No posts yet. Check back soon.</li>
-          )
-        }
-      </ul>
-    </section>
+    <PageShell class="py-section pb-section-lg">
+      <PostList posts={posts} showReadingTime />
+    </PageShell>
   </main>
 </Layout>

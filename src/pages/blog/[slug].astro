@@ -1,8 +1,11 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BlogPost from '../../layouts/BlogPost.astro';
+import Button from '../../components/ui/Button.astro';
 import Layout from '../../layouts/Layout.astro';
+import PageShell from '../../components/ui/PageShell.astro';
 import { readingTimeMinutes } from '../../lib/reading-time';
+import { displayTitle, proseBody } from '../../lib/classes';
 
 const slug = Astro.params.slug;
 const publishedPosts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
@@ -43,19 +46,19 @@ const Content = renderedPost?.Content;
   ) : (
     <Layout title="Post not found | Daniel Zuloaga" description="The requested blog post could not be found." nav="blog">
       <main id="main-content">
-        <section class="page-shell page-intro">
-          <div class="stack-lg">
-            <div class="stack-md">
-              <h1 class="display-title">Post not found</h1>
-              <p class="prose-body">
+        <PageShell class="py-page-intro">
+          <div class="flex flex-col gap-lg">
+            <div class="flex flex-col gap-md">
+              <h1 class={displayTitle}>Post not found</h1>
+              <p class={proseBody}>
                 The blog post you requested does not exist or is not publicly available.
               </p>
             </div>
-            <a class="btn-secondary focus-ring inline-flex" href="/blog">
+            <Button href="/blog" variant="secondary" class="self-start">
               Back to writing
-            </a>
+            </Button>
           </div>
-        </section>
+        </PageShell>
       </main>
     </Layout>
   )

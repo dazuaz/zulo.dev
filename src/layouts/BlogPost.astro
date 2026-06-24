@@ -1,6 +1,10 @@
 ---
 import Layout from './Layout.astro';
+import MarkdownProse from '../components/ui/MarkdownProse.astro';
+import PageShell from '../components/ui/PageShell.astro';
 import PromptCopyEnhancer from '../components/PromptCopyEnhancer';
+import { displayTitle, focusRing, metaText, proseLead } from '../lib/classes';
+import { cn } from '../lib/utils';
 
 const {
   title,
@@ -30,19 +34,19 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
   nav="blog"
 >
   <main id="main-content">
-    <article class="page-shell section-block--end">
-      <header class="page-intro article-header">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a class="focus-ring" href="/">Home</a>
-          <span class="breadcrumb-sep" aria-hidden="true">/</span>
-          <a class="focus-ring" href="/blog">Writing</a>
-          <span class="breadcrumb-sep" aria-hidden="true">/</span>
-          <span aria-current="page">{title}</span>
+    <PageShell as="article" class="pb-section-lg">
+      <header class="flex flex-col gap-md py-page-intro">
+        <nav class="flex items-center gap-xs font-ui text-sm font-medium leading-ui text-accent" aria-label="Breadcrumb">
+          <a class={focusRing} href="/">Home</a>
+          <span class="select-none text-meta" aria-hidden="true">/</span>
+          <a class={focusRing} href="/blog">Writing</a>
+          <span class="select-none text-meta" aria-hidden="true">/</span>
+          <span class="text-ink" aria-current="page">{title}</span>
         </nav>
-        <h1 class="display-title measure-article-title">{title}</h1>
-        <p class="prose-lead">{description}</p>
+        <h1 class={cn(displayTitle, 'max-w-[48rem]')}>{title}</h1>
+        <p class={proseLead}>{description}</p>
 
-        <div class="article-meta meta-date">
+        <div class={cn(metaText, 'flex flex-wrap items-center gap-sm')}>
           <time datetime={pubDate.toISOString()}>{publishedLabel}</time>
           {minutes && <span>{minutes} min read</span>}
           {updatedLabel && <span>Updated {updatedLabel}</span>}
@@ -50,21 +54,21 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
 
         {
           tags?.length ? (
-            <div class="cluster-md">
+            <div class="flex flex-wrap items-center gap-sm">
               {tags.map((tag) => (
-                <span class="tag">{tag}</span>
+                <span class="inline-flex min-h-8 items-center rounded-md border border-border bg-bg px-2.5 py-1.5 font-ui text-xs font-medium leading-ui text-muted">{tag}</span>
               ))}
             </div>
           ) : null
         }
       </header>
 
-      <div class="article-measure">
+      <div class="w-full max-w-[65ch]">
         {
           heroImage ? (
-            <figure class="section-rule article-hero">
+            <figure class="w-full py-xl">
               <img
-                class="blog-hero-image"
+                class="block h-auto w-full rounded-lg border border-border"
                 src={heroImage}
                 alt={heroImageAlt ?? `${title} main image`}
                 loading="eager"
@@ -74,40 +78,40 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
           ) : null
         }
 
-        <div class="section-rule article-prose">
-          <div class="blog-content">
+        <div class="py-xl">
+          <MarkdownProse>
             <slot />
-          </div>
+          </MarkdownProse>
         </div>
 
         {
           newerPost || olderPost ? (
-            <nav class="section-rule article-pager" aria-label="More writing">
+            <nav class="mt-xl grid gap-md pt-lg sm:grid-cols-2 sm:gap-xl" aria-label="More writing">
               {olderPost ? (
-                <a class="article-pager-link focus-ring" href={`/blog/${olderPost.slug}`} rel="prev">
-                  <span class="article-pager-label">Older</span>
-                  <span class="article-pager-title">{olderPost.title}</span>
+                <a class={cn(focusRing, 'group flex flex-col gap-2xs rounded-sm')} href={`/blog/${olderPost.slug}`} rel="prev">
+                  <span class={metaText}>Older</span>
+                  <span class="text-balance font-display text-base font-semibold leading-heading tracking-[-0.015em] text-ink transition-colors duration-150 ease-out group-hover:text-accent motion-reduce:transition-none">{olderPost.title}</span>
                 </a>
               ) : (
-                <span class="article-pager-spacer" aria-hidden="true" />
+                <span class="hidden sm:block" aria-hidden="true" />
               )}
               {newerPost ? (
                 <a
-                  class="article-pager-link article-pager-link--next focus-ring"
+                  class={cn(focusRing, 'group flex flex-col gap-2xs rounded-sm sm:text-right')}
                   href={`/blog/${newerPost.slug}`}
                   rel="next"
                 >
-                  <span class="article-pager-label">Newer</span>
-                  <span class="article-pager-title">{newerPost.title}</span>
+                  <span class={metaText}>Newer</span>
+                  <span class="text-balance font-display text-base font-semibold leading-heading tracking-[-0.015em] text-ink transition-colors duration-150 ease-out group-hover:text-accent motion-reduce:transition-none">{newerPost.title}</span>
                 </a>
               ) : (
-                <span class="article-pager-spacer" aria-hidden="true" />
+                <span class="hidden sm:block" aria-hidden="true" />
               )}
             </nav>
           ) : null
         }
       </div>
-    </article>
+    </PageShell>
   </main>
   <PromptCopyEnhancer client:load slug={slug} />
 </Layout>

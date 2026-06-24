@@ -1,0 +1,25 @@
+---
+import { cn } from '../../lib/utils';
+
+const { class: className = '' } = Astro.props;
+
+const proseClasses = cn(
+  'text-pretty text-[1.0625rem] leading-prose text-muted',
+  '[&>*+*]:mt-lg',
+  '[&_h2]:mt-2xl [&_h2]:font-display [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:leading-heading [&_h2]:tracking-[-0.02em] [&_h2]:text-ink',
+  '[&_h3]:mt-xl [&_h3]:font-display [&_h3]:text-lg [&_h3]:font-semibold [&_h3]:leading-heading [&_h3]:tracking-[-0.02em] [&_h3]:text-ink',
+  '[&_img]:h-auto [&_img]:w-full [&_img]:rounded-lg [&_img]:border [&_img]:border-border',
+  '[&_a]:text-accent [&_a]:underline [&_a]:decoration-1 [&_a]:underline-offset-4 [&_a:hover]:text-accent-hover [&_a:focus-visible]:rounded-sm [&_a:focus-visible]:outline [&_a:focus-visible]:outline-2 [&_a:focus-visible]:outline-offset-2 [&_a:focus-visible]:outline-accent',
+  '[&_ul]:list-disc [&_ol]:list-decimal [&_ul]:pl-[1.3rem] [&_ol]:pl-[1.3rem] [&_li+li]:mt-2xs',
+  '[&_blockquote]:border-l-[3px] [&_blockquote]:border-accent [&_blockquote]:py-2xs [&_blockquote]:pl-lg [&_blockquote]:font-display [&_blockquote]:text-lg [&_blockquote]:font-medium [&_blockquote]:leading-heading [&_blockquote]:tracking-[-0.015em] [&_blockquote]:text-ink [&_blockquote_p]:m-0 [&_blockquote_p+p]:mt-sm',
+  '[&_:not(pre)_>_code]:rounded-md [&_:not(pre)_>_code]:border [&_:not(pre)_>_code]:border-border [&_:not(pre)_>_code]:bg-border/45 [&_:not(pre)_>_code]:px-[0.35rem] [&_:not(pre)_>_code]:py-[0.1rem] [&_:not(pre)_>_code]:font-mono [&_:not(pre)_>_code]:text-[0.9em] [&_:not(pre)_>_code]:text-ink',
+  '[&_pre]:overflow-x-auto [&_pre]:rounded-lg [&_pre]:border [&_pre]:border-[oklch(0.94_0.01_255_/_0.08)] [&_pre]:bg-ink-deep [&_pre]:p-md [&_pre]:font-mono [&_pre]:text-sm [&_pre]:leading-[1.55] [&_pre]:tracking-[0.01em] [&_pre]:text-[oklch(0.9_0.01_255)]',
+  '[&_pre_code]:border-0 [&_pre_code]:bg-transparent [&_pre_code]:p-0 [&_pre_code]:text-inherit',
+  '[&_hr]:my-2xl [&_hr]:border-0 [&_hr]:border-t [&_hr]:border-rule',
+  className,
+);
+---
+
+<div class={proseClasses}>
+  <slot />
+</div>

@@ -1,5 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Button from '../components/ui/Button.astro';
+import FormField from '../components/ui/FormField.astro';
+import PageShell from '../components/ui/PageShell.astro';
+import { accentLink, displayTitle, fieldError, proseBody, sectionTitle } from '../lib/classes';
+import { cn } from '../lib/utils';
 ---
 
 <Layout
@@ -8,82 +13,42 @@ import Layout from '../layouts/Layout.astro';
   nav="contact"
 >
   <main id="main-content">
-    <section class="page-shell page-intro">
-      <div class="stack-md">
-        <h1 class="display-title">Get in touch</h1>
-        <p class="prose-body">
+    <PageShell class="py-page-intro">
+      <div class="flex flex-col gap-md">
+        <h1 class={displayTitle}>Get in touch</h1>
+        <p class={proseBody}>
           Tell me a bit about what you're working on. I read everything; I reply to most things within a couple of days.
         </p>
       </div>
-    </section>
+    </PageShell>
 
-    <section class="page-shell section-rule section-block section-block--end">
-      <div class="content-panel measure-form">
+    <PageShell class="py-section pb-section-lg">
+      <div class="max-w-[36rem] rounded-lg border border-border bg-surface p-[clamp(var(--spacing-lg),3vw,var(--spacing-2xl))]">
         <div id="contact-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
 
-        <form id="contact-form" class="form-stack" novalidate>
-          <div class="field-group">
-            <label for="name" class="field-label">Name <span class="field-required">(required)</span></label>
-            <input
-              id="name"
-              name="name"
-              type="text"
-              required
-              maxlength="120"
-              autocomplete="name"
-              class="field-input"
-              aria-describedby="name-error"
-            />
-            <p id="name-error" class="field-error hidden" role="alert"></p>
-          </div>
+        <form id="contact-form" class="flex flex-col gap-lg" novalidate>
+          <FormField id="name" label="Name" required maxlength="120" autocomplete="name" />
+          <FormField id="email" label="Email" type="email" required maxlength="254" autocomplete="email" />
+          <FormField id="message" label="Message" required textarea rows="6" maxlength="5000" />
 
-          <div class="field-group">
-            <label for="email" class="field-label">Email <span class="field-required">(required)</span></label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              required
-              maxlength="254"
-              autocomplete="email"
-              class="field-input"
-              aria-describedby="email-error"
-            />
-            <p id="email-error" class="field-error hidden" role="alert"></p>
-          </div>
-
-          <div class="field-group">
-            <label for="message" class="field-label">Message <span class="field-required">(required)</span></label>
-            <textarea
-              id="message"
-              name="message"
-              required
-              rows="6"
-              maxlength="5000"
-              class="field-input resize-y"
-              aria-describedby="message-error"
-            ></textarea>
-            <p id="message-error" class="field-error hidden" role="alert"></p>
-          </div>
-
-          <p id="contact-error" class="field-error hidden" role="alert"></p>
+          <p id="contact-error" class={cn(fieldError, 'hidden')} role="alert"></p>
 
           <div>
-            <button type="submit" id="contact-submit" class="btn-primary focus-ring">
+            <Button type="submit" id="contact-submit">
               <span id="contact-submit-label">Send message</span>
-            </button>
+            </Button>
           </div>
         </form>
 
-        <div id="contact-success" class="hidden stack-md" role="region" aria-labelledby="contact-success-heading">
-          <h2 id="contact-success-heading" class="section-title" tabindex="-1">Thanks, your message is on its way.</h2>
-          <p class="prose-body">
+        <div id="contact-success" class="hidden flex flex-col gap-md" role="region" aria-labelledby="contact-success-heading">
+          <h2 id="contact-success-heading" class={sectionTitle} tabindex="-1">Thanks, your message is on its way.</h2>
+          <p class={proseBody}>
             I'll reply to the email you provided. Until then, you can poke around the
-            <a class="link-accent focus-ring" href="/blog">writing</a>.
+            <a class={accentLink} href="/blog">writing</a>.
           </p>
         </div>
       </div>
-    </section>
+    </PageShell>
   </main>
 
   <script>

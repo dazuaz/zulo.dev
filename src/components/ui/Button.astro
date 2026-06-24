@@ -1,0 +1,43 @@
+---
+import { cn } from '../../lib/utils';
+import { focusRing } from '../../lib/classes';
+
+const {
+  href,
+  variant = 'primary',
+  class: className = '',
+  ...attrs
+} = Astro.props;
+
+const variants = {
+  primary:
+    'border-transparent bg-accent px-5 font-semibold text-white hover:bg-accent-hover active:bg-[oklch(0.32_0.14_220)]',
+  secondary:
+    'gap-2 border-border bg-surface px-4 font-medium text-muted hover:border-border-strong hover:bg-bg hover:text-ink active:bg-[oklch(0.95_0.006_255)]',
+  outline:
+    'border-border bg-surface px-4 font-semibold text-ink hover:border-border-strong hover:bg-bg active:bg-[oklch(0.95_0.006_255)]',
+  primaryOnDark:
+    'border-transparent bg-accent-on-dark px-5 font-semibold text-ink-deep hover:bg-[oklch(0.86_0.06_200)] active:bg-[oklch(0.8_0.05_200)]',
+  outlineOnDark:
+    'border-[oklch(0.94_0.01_255_/_0.35)] bg-transparent px-4 font-semibold text-[oklch(0.94_0.01_255)] hover:border-[oklch(0.94_0.01_255_/_0.6)] hover:bg-[oklch(0.94_0.01_255_/_0.06)] active:bg-[oklch(0.94_0.01_255_/_0.1)]',
+};
+
+const classes = cn(
+  'inline-flex min-h-11 cursor-pointer items-center justify-center rounded-lg border py-2.5 font-ui text-sm leading-ui transition-colors duration-150 ease-out disabled:cursor-not-allowed disabled:opacity-60 motion-reduce:transition-none',
+  focusRing,
+  variants[variant as keyof typeof variants] ?? variants.primary,
+  className,
+);
+---
+
+{
+  href ? (
+    <a href={href} class={classes} {...attrs}>
+      <slot />
+    </a>
+  ) : (
+    <button class={classes} {...attrs}>
+      <slot />
+    </button>
+  )
+}

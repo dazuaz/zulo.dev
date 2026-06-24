@@ -1,14 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import Button from '../components/ui/Button.astro'
+import PageShell from '../components/ui/PageShell.astro'
+import PostList from '../components/PostList.astro'
 import { getCollection } from 'astro:content'
+import { displayTitle, proseBody, proseLead, sectionTitle } from '../lib/classes'
 
 const contactHref = '/contact'
 
 const recentPosts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 4)
-
-const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
 ---
 
 <Layout
@@ -17,86 +19,83 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'n
   nav="home"
 >
   <main id="main-content">
-    <section class="page-shell page-intro">
-      <div class="hero-copy">
-        <h1 class="display-title">Daniel Zuloaga</h1>
-        <p class="prose-lead">
-          I build and implement AI systems end to end — product thinking on the way in, working code on the way out.
-        </p>
-        <p class="prose-body">
-          Fifteen years in fintech — engineer, then platform architect, now building production AI inside a regulated lending operation. Agents, document pipelines, and the governance around them: I own that stack, not just the roadmap. I write about what I learn as I build; that's a more honest introduction than anything I could put here.
-        </p>
-        <div class="hero-actions">
-          <a class="btn-primary focus-ring" href={contactHref}>Get in touch</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="page-shell section-rule split-section">
-      <div class="split-column">
-        <h2 class="section-title">What I'm building now</h2>
-        <p class="prose-body">
-          I'm working on agent orchestration across lending workflows — document ingestion, tool-calling pipelines, custom MCP servers — in production, not a sandbox. The technical build is half of it; the other half is adoption: governance, training, and the unglamorous work of making automation stick with the people who use it.
-        </p>
-      </div>
-      <div class="split-column">
-        <h2 class="section-title">What's new</h2>
-        <p class="prose-body">
-          AI collapsed product and engineering into one role for me. I can go from a workflow problem to a shipped agent in days, not quarters — but the failure modes are different, and production means something stricter in finance. I write about that shift: faster loops, harder constraints, and what holds up.
-        </p>
-      </div>
-    </section>
-
-    <section class="page-shell section-rule section-block">
-      <div class="section-head">
-        <div class="stack-xs">
-          <h2 class="section-title">Recent notes</h2>
-          <p class="prose-body">Systems, constraints, and notes from the build.</p>
-        </div>
-        <a class="btn-secondary focus-ring" href="/blog">View all writing</a>
-      </div>
-
-      <ul class="post-list post-list-spaced">
-        {
-          recentPosts.length ? (
-            recentPosts.map((post) => (
-              <li>
-                <a class="post-row focus-ring block" href={`/blog/${post.id}`}>
-                  <time class="meta-date" datetime={post.data.pubDate.toISOString()}>
-                    {dateFormatter.format(post.data.pubDate)}
-                  </time>
-                  <span class="post-row-title">{post.data.title}</span>
-                  <span class="post-row-desc">{post.data.description}</span>
-                </a>
-              </li>
-            ))
-          ) : (
-            <li class="prose-body empty-state">No posts yet. Check back soon.</li>
-          )
-        }
-      </ul>
-    </section>
-
-    <section class="page-shell section-block--page-end">
-      <div class="ink-band">
-        <div class="ink-band-inner">
-          <div class="ink-band-copy">
-            <h2 class="section-title">Have a problem worth solving?</h2>
+    <PageShell class="py-page-intro">
+      <div class="grid items-start gap-xl md:grid-cols-[minmax(11rem,15rem)_minmax(0,1fr)] md:gap-2xl lg:grid-cols-[minmax(13rem,17.5rem)_minmax(0,1fr)] lg:gap-3xl">
+        <figure class="m-0 hidden md:block">
+          <img
+            class="block aspect-3/4 h-auto w-full rounded-lg border border-border object-cover object-[center_20%]"
+            src="/hero-kitesurf.webp"
+            alt="Watercolor of Daniel kitesurfing with his son on a sunny day in Miami"
+            width="1086"
+            height="1448"
+            loading="eager"
+            decoding="async"
+          />
+        </figure>
+        <div class="flex flex-col gap-lg">
+          <h1 class={displayTitle}>Daniel Zuloaga</h1>
+          <p class={proseLead}>
+            I build and implement AI systems end to end — product thinking on the way in, working code on the way out.
+          </p>
+          <p class={proseBody}>
+            Fifteen years in fintech, from engineer to platform architect, now building production AI inside a regulated lending operation. Agents, document pipelines, and the governance around them: I own that stack, not just the roadmap. I write about what I learn as I build; that's a more honest introduction than anything I could put here.
+          </p>
+          <div>
+            <Button href={contactHref}>Get in touch</Button>
           </div>
-          <div class="ink-band-actions cluster-md">
-            <a class="btn-primary focus-ring" href={contactHref}>Get in touch</a>
-            <a
-              class="btn-outline focus-ring"
+        </div>
+      </div>
+    </PageShell>
+
+    <PageShell class="grid gap-xl py-section md:grid-cols-2 md:gap-2xl lg:grid-cols-[1.12fr_0.88fr] lg:gap-3xl">
+      <div class="flex flex-col gap-md">
+        <h2 class={sectionTitle}>What I'm building now</h2>
+        <p class={proseBody}>
+          I'm working on agent orchestration across lending workflows, from lead generation to loan servicing: document ingestion, tool-calling pipelines, custom MCP servers, and more. The technical build is half of it; the other half is adoption: governance, training, and the unglamorous work of making automation stick with the people who use it.
+        </p>
+      </div>
+      <div class="flex flex-col gap-md">
+        <h2 class={sectionTitle}>What's new</h2>
+        <p class={proseBody}>
+          AI collapsed product and engineering into one role for me. I can go from a workflow problem to a shipped agent in days, not quarters, but the abstractions are harder to get right and the failure modes are different. I write about that shift: faster loops, harder constraints, and what holds up.
+        </p>
+      </div>
+    </PageShell>
+
+    <PageShell class="py-section">
+      <div class="flex flex-wrap items-end justify-between gap-md">
+        <div class="flex flex-col gap-xs">
+          <h2 class={sectionTitle}>Recent notes</h2>
+          <p class={proseBody}>Systems, constraints, and notes from the build.</p>
+        </div>
+        <Button href="/blog" variant="secondary">View all writing</Button>
+      </div>
+
+      <PostList posts={recentPosts} class="mt-lg" />
+    </PageShell>
+
+    <PageShell class="pb-page-end">
+      <div class="rounded-lg bg-ink-deep p-section-lg text-[oklch(0.94_0.01_255)]">
+        <div class="flex flex-col gap-lg sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex flex-col gap-sm">
+            <h2 class="text-balance font-display text-section font-semibold leading-heading tracking-[-0.015em] text-[oklch(0.97_0.005_255)]">
+              Have a problem worth solving?
+            </h2>
+          </div>
+          <div class="flex shrink-0 flex-wrap items-center gap-sm">
+            <Button href={contactHref} variant="primaryOnDark">Get in touch</Button>
+            <Button
               href="https://www.linkedin.com/in/daniel-zuloaga/"
+              variant="outlineOnDark"
               target="_blank"
               rel="noopener noreferrer"
             >
               Connect on LinkedIn
               <span class="sr-only"> (opens in new tab)</span>
-            </a>
+            </Button>
           </div>
         </div>
       </div>
-    </section>
+    </PageShell>
   </main>
 </Layout>

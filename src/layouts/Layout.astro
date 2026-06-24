@@ -79,8 +79,13 @@ const fontHref =
 		<link href={fontHref} rel="stylesheet" />
 		{import.meta.env.PROD && <BotIdProtection />}
 	</head>
-	<body class="min-h-screen antialiased">
-		<a class="skip-link focus-ring" href="#main-content">Skip to content</a>
+	<body class="min-h-screen bg-bg font-body text-base leading-body text-ink antialiased [font-kerning:normal] [font-optical-sizing:auto]">
+		<a
+			class="absolute -top-full left-4 z-skip rounded-lg bg-accent px-4 py-2.5 font-ui text-sm font-semibold leading-ui text-white transition-[top] duration-150 ease-out focus:top-4 focus:outline focus:outline-2 focus:outline-offset-2 focus:outline-accent motion-reduce:transition-none"
+			href="#main-content"
+		>
+			Skip to content
+		</a>
 		<SiteNav current={nav} />
 		<slot />
 		<SiteFooter />

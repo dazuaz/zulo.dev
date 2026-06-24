@@ -1,0 +1,51 @@
+---
+import { readingTimeMinutes } from '../lib/reading-time';
+import { cn } from '../lib/utils';
+import { focusRing, metaText, proseBody } from '../lib/classes';
+
+const { posts = [], showReadingTime = false, class: className = '' } = Astro.props;
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  month: 'short',
+  day: 'numeric',
+  year: 'numeric',
+});
+---
+
+<ul class={cn('m-0 list-none p-0', className)}>
+  {
+    posts.length ? (
+      posts.map((post) => (
+        <li>
+          <a
+            class={cn(
+              'group grid gap-x-lg gap-y-2xs rounded-sm py-lg transition-colors duration-150 ease-out hover:bg-accent/3 focus-visible:bg-accent/3 sm:grid-cols-[7.5rem_1fr] sm:items-baseline motion-reduce:transition-none',
+              focusRing,
+            )}
+            href={`/blog/${post.id}`}
+          >
+            {showReadingTime ? (
+              <span class="flex items-baseline gap-sm sm:flex-col sm:gap-2xs">
+                <time class={metaText} datetime={post.data.pubDate.toISOString()}>
+                  {dateFormatter.format(post.data.pubDate)}
+                </time>
+                <span class={metaText}>{readingTimeMinutes(post.body ?? '')} min read</span>
+              </span>
+            ) : (
+              <time class={metaText} datetime={post.data.pubDate.toISOString()}>
+                {dateFormatter.format(post.data.pubDate)}
+              </time>
+            )}
+            <span class="text-balance font-display text-md font-semibold leading-heading tracking-[-0.015em] text-ink transition-colors duration-150 group-hover:text-accent group-focus-visible:text-accent motion-reduce:transition-none">
+              {post.data.title}
+            </span>
+            <span class="col-span-full max-w-[65ch] text-pretty text-sm leading-body text-muted sm:col-start-2">
+              {post.data.description}
+            </span>
+          </a>
+        </li>
+      ))
+    ) : (
+      <li class={cn(proseBody, 'py-xl')}>No posts yet. Check back soon.</li>
+    )
+  }
+</ul>

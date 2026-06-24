@@ -1,4 +1,8 @@
 ---
+import PageShell from './ui/PageShell.astro';
+import { focusRing } from '../lib/classes';
+import { cn } from '../lib/utils';
+
 const { current = 'home' } = Astro.props;
 
 const links = [
@@ -8,14 +12,18 @@ const links = [
 ];
 ---
 
-<header class="site-nav">
-  <div class="page-shell site-nav-inner">
-    <a class="site-nav-brand focus-ring" href="/">Daniel Zuloaga</a>
-    <nav class="site-nav-links" aria-label="Primary">
+<header class="sticky top-0 z-sticky bg-bg font-ui shadow-surface">
+  <PageShell as="div" class="flex items-center justify-between gap-md py-sm">
+    <a class={cn(focusRing, 'font-display text-sm font-semibold leading-ui text-ink')} href="/">Daniel Zuloaga</a>
+    <nav class="flex flex-wrap items-center gap-x-lg gap-y-2xs" aria-label="Primary">
       {
         links.map((link) => (
           <a
-            class:list={['site-nav-link', 'focus-ring', { 'is-active': current === link.id }]}
+            class={cn(
+              focusRing,
+              'rounded-sm text-sm font-medium leading-ui text-muted transition-colors duration-150 ease-out hover:text-ink motion-reduce:transition-none',
+              current === link.id && 'text-ink',
+            )}
             href={link.href}
             aria-current={current === link.id ? 'page' : undefined}
           >
@@ -24,5 +32,5 @@ const links = [
         ))
       }
     </nav>
-  </div>
+  </PageShell>
 </header>

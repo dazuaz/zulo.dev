@@ -1,0 +1,49 @@
+---
+import { fieldError, fieldInput, fieldLabel, fieldRequired } from '../../lib/classes';
+import { cn } from '../../lib/utils';
+
+const {
+  id,
+  label,
+  type = 'text',
+  autocomplete,
+  maxlength,
+  rows,
+  required = false,
+  textarea = false,
+} = Astro.props;
+
+const errorId = `${id}-error`;
+---
+
+<div class="flex flex-col gap-xs">
+  <label for={id} class={fieldLabel}>
+    {label}
+    {required && <span class={fieldRequired}> (required)</span>}
+  </label>
+  {
+    textarea ? (
+      <textarea
+        id={id}
+        name={id}
+        required={required}
+        rows={rows}
+        maxlength={maxlength}
+        class={cn(fieldInput, 'min-h-36 resize-y py-sm')}
+        aria-describedby={errorId}
+      />
+    ) : (
+      <input
+        id={id}
+        name={id}
+        type={type}
+        required={required}
+        maxlength={maxlength}
+        autocomplete={autocomplete}
+        class={fieldInput}
+        aria-describedby={errorId}
+      />
+    )
+  }
+  <p id={errorId} class={cn(fieldError, 'hidden')} role="alert"></p>
+</div>

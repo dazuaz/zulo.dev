@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { createRoot, type Root } from 'react-dom/client';
 
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './ui/tooltip';
+import { focusRing } from '../lib/classes';
+import { cn } from '../lib/utils';
 
 type Props = {
   slug: string;
@@ -67,7 +69,10 @@ function PromptCopyButton({ prompt }: { prompt: string }) {
         <TooltipTrigger asChild>
           <button
             type="button"
-            className="prompt-copy-btn focus-ring"
+            className={cn(
+              'min-h-11 rounded-lg border border-border bg-surface/95 px-md font-ui text-sm font-medium leading-ui text-ink shadow-surface transition-colors duration-150 ease-out hover:border-border-strong hover:bg-surface motion-reduce:transition-none',
+              focusRing,
+            )}
             onClick={handleCopy}
             aria-label="Copy image prompt"
           >
@@ -75,7 +80,7 @@ function PromptCopyButton({ prompt }: { prompt: string }) {
           </button>
         </TooltipTrigger>
         <TooltipContent side="top" align="start">
-          <div className="prompt-copy-tooltip">{prompt}</div>
+          <div className="max-h-72 overflow-auto whitespace-pre-wrap font-mono text-xs leading-[1.45]">{prompt}</div>
         </TooltipContent>
       </Tooltip>
     </TooltipProvider>
@@ -90,7 +95,6 @@ export default function PromptCopyEnhancer({ slug }: Props) {
 
     const roots: Root[] = [];
     const mounts: HTMLElement[] = [];
-    const containerClass = 'prompt-overlay-container';
 
     const images = Array.from(document.querySelectorAll('article img'));
     for (const image of images) {
@@ -104,12 +108,13 @@ export default function PromptCopyEnhancer({ slug }: Props) {
         image;
 
       if (!(host instanceof HTMLElement)) continue;
-      if (host.querySelector('.prompt-copy-mount')) continue;
+      if (host.querySelector('[data-prompt-copy-mount]')) continue;
 
-      host.classList.add(containerClass);
+      host.classList.add('relative');
 
       const mount = document.createElement('div');
-      mount.className = 'prompt-copy-mount';
+      mount.dataset.promptCopyMount = 'true';
+      mount.className = 'absolute bottom-sm left-sm z-30';
       host.appendChild(mount);
 
       const root = createRoot(mount);

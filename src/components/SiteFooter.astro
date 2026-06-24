@@ -1,4 +1,8 @@
 ---
+import PageShell from './ui/PageShell.astro';
+import { focusRing } from '../lib/classes';
+import { cn } from '../lib/utils';
+
 const year = new Date().getFullYear();
 
 const navLinks = [
@@ -14,21 +18,21 @@ const socialLinks = [
 ];
 ---
 
-<footer class="site-footer">
-  <div class="page-shell site-footer-inner">
-    <p class="site-footer-copy">© {year} Daniel Zuloaga</p>
-    <nav class="site-footer-nav" aria-label="Footer">
+<footer class="mt-page-end py-xl">
+  <PageShell as="div" class="flex flex-wrap items-center justify-between gap-x-lg gap-y-md font-ui text-xs leading-ui text-meta">
+    <p class="m-0">© {year} Daniel Zuloaga</p>
+    <nav class="flex flex-wrap items-center gap-x-md gap-y-sm" aria-label="Footer">
       {
         navLinks.map((link) => (
-          <a class="footer-link focus-ring" href={link.href}>{link.label}</a>
+          <a class={cn(focusRing, 'text-xs font-medium leading-ui text-muted transition-colors duration-150 ease-out hover:text-ink motion-reduce:transition-none')} href={link.href}>{link.label}</a>
         ))
       }
     </nav>
-    <nav class="site-footer-social" aria-label="Social links">
+    <nav class="flex flex-wrap items-center gap-x-md gap-y-sm" aria-label="Social links">
       {
         socialLinks.map((link) => (
           <a
-            class="footer-link focus-ring"
+            class={cn(focusRing, 'text-xs font-medium leading-ui text-muted transition-colors duration-150 ease-out hover:text-ink motion-reduce:transition-none')}
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
@@ -39,6 +43,8 @@ const socialLinks = [
         ))
       }
     </nav>
-  </div>
-  <p class="page-shell site-footer-tagline">Notes on software, systems, and the work in between.</p>
+  </PageShell>
+  <PageShell as="p" class="mt-sm font-ui text-xs leading-ui text-meta">
+    Notes on software, systems, and the work in between.
+  </PageShell>
 </footer>
