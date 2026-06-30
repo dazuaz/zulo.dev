@@ -1,101 +1,137 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Button from '../components/ui/Button.astro'
-import PageShell from '../components/ui/PageShell.astro'
-import PostList from '../components/PostList.astro'
-import { getCollection } from 'astro:content'
-import { displayTitle, proseBody, proseLead, sectionTitle } from '../lib/classes'
+import Layout from "../layouts/Layout.astro";
+import Button from "../components/ui/Button.astro";
+import PageShell from "../components/ui/PageShell.astro";
+import PostList from "../components/PostList.astro";
+import { getCollection } from "astro:content";
+import {
+    displayTitle,
+    proseBody,
+    proseLead,
+    sectionTitle,
+} from "../lib/classes";
 
-const contactHref = '/contact'
+const contactHref = "/contact";
 
-const recentPosts = (await getCollection('blog', ({ data }) => !data.draft))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 4)
+const recentPosts = (await getCollection("blog", ({ data }) => !data.draft))
+    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+    .slice(0, 4);
 ---
 
 <Layout
-  title="Daniel Zuloaga"
-  description="AI product and engineering in regulated fintech. Notes on building production systems, agents, and the work behind them."
-  nav="home"
+    title="Daniel Zuloaga"
+    description="AI product and engineering in regulated fintech. Notes on building production systems, agents, and the work behind them."
+    nav="home"
 >
-  <main id="main-content">
-    <PageShell class="py-page-intro">
-      <div class="grid items-start gap-xl md:grid-cols-[minmax(11rem,15rem)_minmax(0,1fr)] md:gap-2xl lg:grid-cols-[minmax(13rem,17.5rem)_minmax(0,1fr)] lg:gap-3xl">
-        <figure class="m-0 hidden md:block">
-          <img
-            class="block aspect-3/4 h-auto w-full rounded-lg border border-border object-cover object-[center_20%]"
-            src="/hero-kitesurf.webp"
-            alt="Watercolor of Daniel kitesurfing with his son on a sunny day in Miami"
-            width="1086"
-            height="1448"
-            loading="eager"
-            decoding="async"
-          />
-        </figure>
-        <div class="flex flex-col gap-lg">
-          <h1 class={displayTitle}>Daniel Zuloaga</h1>
-          <p class={proseLead}>
-            I build and implement AI systems end to end — product thinking on the way in, working code on the way out.
-          </p>
-          <p class={proseBody}>
-            Fifteen years in fintech, from engineer to platform architect, now building production AI inside a regulated lending operation. Agents, document pipelines, and the governance around them: I own that stack, not just the roadmap. I write about what I learn as I build; that's a more honest introduction than anything I could put here.
-          </p>
-          <div>
-            <Button href={contactHref}>Get in touch</Button>
-          </div>
-        </div>
-      </div>
-    </PageShell>
-
-    <PageShell class="grid gap-xl py-section md:grid-cols-2 md:gap-2xl lg:grid-cols-[1.12fr_0.88fr] lg:gap-3xl">
-      <div class="flex flex-col gap-md">
-        <h2 class={sectionTitle}>What I'm building now</h2>
-        <p class={proseBody}>
-          I'm working on agent orchestration across lending workflows, from lead generation to loan servicing: document ingestion, tool-calling pipelines, custom MCP servers, and more. The technical build is half of it; the other half is adoption: governance, training, and the unglamorous work of making automation stick with the people who use it.
-        </p>
-      </div>
-      <div class="flex flex-col gap-md">
-        <h2 class={sectionTitle}>What's new</h2>
-        <p class={proseBody}>
-          AI collapsed product and engineering into one role for me. I can go from a workflow problem to a shipped agent in days, not quarters, but the abstractions are harder to get right and the failure modes are different. I write about that shift: faster loops, harder constraints, and what holds up.
-        </p>
-      </div>
-    </PageShell>
-
-    <PageShell class="py-section">
-      <div class="flex flex-wrap items-end justify-between gap-md">
-        <div class="flex flex-col gap-xs">
-          <h2 class={sectionTitle}>Recent notes</h2>
-          <p class={proseBody}>Systems, constraints, and notes from the build.</p>
-        </div>
-        <Button href="/blog" variant="secondary">View all writing</Button>
-      </div>
-
-      <PostList posts={recentPosts} class="mt-lg" />
-    </PageShell>
-
-    <PageShell class="pb-page-end">
-      <div class="rounded-lg bg-ink-deep p-section-lg text-[oklch(0.94_0.01_255)]">
-        <div class="flex flex-col gap-lg sm:flex-row sm:items-center sm:justify-between">
-          <div class="flex flex-col gap-sm">
-            <h2 class="text-balance font-display text-section font-semibold leading-heading tracking-[-0.015em] text-[oklch(0.97_0.005_255)]">
-              Have a problem worth solving?
-            </h2>
-          </div>
-          <div class="flex shrink-0 flex-wrap items-center gap-sm">
-            <Button href={contactHref} variant="primaryOnDark">Get in touch</Button>
-            <Button
-              href="https://www.linkedin.com/in/daniel-zuloaga/"
-              variant="outlineOnDark"
-              target="_blank"
-              rel="noopener noreferrer"
+    <main id="main-content">
+        <PageShell class="py-page-intro">
+            <div
+                class="grid items-start gap-xl md:grid-cols-[minmax(11rem,15rem)_minmax(0,1fr)] md:gap-2xl lg:grid-cols-[minmax(13rem,17.5rem)_minmax(0,1fr)] lg:gap-3xl"
             >
-              Connect on LinkedIn
-              <span class="sr-only"> (opens in new tab)</span>
-            </Button>
-          </div>
-        </div>
-      </div>
-    </PageShell>
-  </main>
+                <figure class="m-0 hidden md:block">
+                    <img
+                        class="block aspect-3/4 h-auto w-full rounded-lg border border-border object-cover object-[center_20%]"
+                        src="/hero-kitesurf.webp"
+                        alt="Watercolor of Daniel kitesurfing with his son on a sunny day in Miami"
+                        width="1086"
+                        height="1448"
+                        loading="eager"
+                        decoding="async"
+                    />
+                </figure>
+                <div class="flex flex-col gap-lg">
+                    <h1 class={displayTitle}>Daniel Zuloaga</h1>
+                    <p class={proseLead}>
+                        Building AI-powered products that solve real business
+                        problems.
+                    </p>
+                    <p class={proseBody}>
+                        Software engineer • Technical product manager • MBA. I
+                        build AI-first products, automate complex workflows, and
+                        turn ambitious ideas into scalable software.
+                    </p>
+                    <div>
+                        <Button href={contactHref}>Get in touch</Button>
+                    </div>
+                </div>
+            </div>
+        </PageShell>
+
+        <PageShell
+            class="grid gap-xl py-section md:grid-cols-2 md:gap-2xl lg:grid-cols-[1.12fr_0.88fr] lg:gap-3xl"
+        >
+            <div class="flex flex-col gap-md">
+                <h2 class={sectionTitle}>What I'm building now</h2>
+                <p class={proseBody}>
+                    I'm working on agent orchestration across lending workflows,
+                    from lead generation to loan servicing: document ingestion,
+                    tool-calling pipelines, custom MCP servers, tailored RAG
+                    pipelines and more. <strong
+                        >The technical complexity is fading away, but the build
+                        is just a small part of the equation;</strong
+                    > the real challenge is the rest: knowing what to work on to get
+                    adoption, governance, training, and getting your team and your
+                    clients delighted with your products.
+                </p>
+            </div>
+            <div class="flex flex-col gap-md">
+                <h2 class={sectionTitle}>What's new</h2>
+                <p class={proseBody}>
+                    AI collapsed product and engineering into one role for me. I
+                    can go from a workflow problem to a shipped agent in hours,
+                    not weeks, but the abstractions to solve the real problems
+                    and the interfaces that bring a quality experience are
+                    harder to get right.
+                </p>
+            </div>
+        </PageShell>
+
+        <PageShell class="py-section">
+            <div class="flex flex-wrap items-end justify-between gap-md">
+                <div class="flex flex-col gap-xs">
+                    <h2 class={sectionTitle}>Recent notes</h2>
+                    <p class={proseBody}>
+                        Systems, constraints, and notes from the build.
+                    </p>
+                </div>
+                <Button href="/blog" variant="secondary">
+                    View all writing
+                </Button>
+            </div>
+
+            <PostList posts={recentPosts} class="mt-lg" />
+        </PageShell>
+
+        <PageShell class="pb-page-end">
+            <div
+                class="rounded-lg bg-ink-deep p-section-lg text-[oklch(0.94_0.01_255)]"
+            >
+                <div
+                    class="flex flex-col gap-lg sm:flex-row sm:items-center sm:justify-between"
+                >
+                    <div class="flex flex-col gap-sm">
+                        <h2
+                            class="text-balance font-display text-section font-semibold leading-heading tracking-[-0.015em] text-[oklch(0.97_0.005_255)]"
+                        >
+                            Have a problem worth solving?
+                        </h2>
+                    </div>
+                    <div class="flex shrink-0 flex-wrap items-center gap-sm">
+                        <Button href={contactHref} variant="primaryOnDark">
+                            Get in touch
+                        </Button>
+                        <Button
+                            href="https://www.linkedin.com/in/daniel-zuloaga/"
+                            variant="outlineOnDark"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Connect on LinkedIn
+                            <span class="sr-only"> (opens in new tab)</span>
+                        </Button>
+                    </div>
+                </div>
+            </div>
+        </PageShell>
+    </main>
 </Layout>

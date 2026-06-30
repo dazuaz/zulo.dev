@@ -97,13 +97,13 @@ crisp edges, minimal shading, limited palette of teal coral cream,
 subtle grain texture.
 ```
 
-<div class="model-compare-grid">
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gpt-image-1.5</code></figcaption>
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gpt-image-1.5</code></figcaption>
     <img src="/blog/ai-illustration-styles/flat-vector.webp" alt="Flat vector editorial style recreation with gpt-image-1.5" loading="lazy" />
   </figure>
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gemini-3-pro-image-preview</code></figcaption>
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gemini-3-pro-image-preview</code></figcaption>
     <img src="/blog/ai-illustration-styles/flat-vector-gemini.webp" alt="Flat vector editorial style recreation with gemini-3-pro-image-preview" loading="lazy" />
   </figure>
 </div>
@@ -121,13 +121,13 @@ Style treatment: isometric technical illustration, axonometric perspective,
 precise geometry, long soft shadows, muted cyan and warm orange palette.
 ```
 
-<div class="model-compare-grid">
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gpt-image-1.5</code></figcaption>
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gpt-image-1.5</code></figcaption>
     <img src="/blog/ai-illustration-styles/isometric.webp" alt="Isometric style recreation with gpt-image-1.5" loading="lazy" />
   </figure>
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gemini-3-pro-image-preview</code></figcaption>
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gemini-3-pro-image-preview</code></figcaption>
     <img src="/blog/ai-illustration-styles/isometric-gemini.webp" alt="Isometric style recreation with gemini-3-pro-image-preview" loading="lazy" />
   </figure>
 </div>
@@ -145,13 +145,13 @@ Style treatment: black and white ink line art, varied line weight,
 cross-hatching for shadows, hand-drawn texture on off-white paper.
 ```
 
-<div class="model-compare-grid">
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gpt-image-1.5</code></figcaption>
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gpt-image-1.5</code></figcaption>
     <img src="/blog/ai-illustration-styles/ink-line-art.webp" alt="Ink line art style recreation with gpt-image-1.5" loading="lazy" />
   </figure>
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gemini-3-pro-image-preview</code></figcaption>
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gemini-3-pro-image-preview</code></figcaption>
     <img src="/blog/ai-illustration-styles/ink-line-art-gemini.webp" alt="Ink line art style recreation with gemini-3-pro-image-preview" loading="lazy" />
   </figure>
 </div>
@@ -169,13 +169,13 @@ Style treatment: watercolor illustration on cold-press paper,
 transparent washes, soft edges, pigment blooms, light granulation.
 ```
 
-<div class="model-compare-grid">
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gpt-image-1.5</code></figcaption>
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gpt-image-1.5</code></figcaption>
     <img src="/blog/ai-illustration-styles/watercolor.webp" alt="Watercolor style recreation with gpt-image-1.5" loading="lazy" />
   </figure>
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gemini-3-pro-image-preview</code></figcaption>
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gemini-3-pro-image-preview</code></figcaption>
     <img src="/blog/ai-illustration-styles/watercolor-gemini.webp" alt="Watercolor style recreation with gemini-3-pro-image-preview" loading="lazy" />
   </figure>
 </div>
@@ -193,13 +193,13 @@ Style treatment: storybook gouache painting, matte opaque brush strokes,
 rich warm palette, layered painted texture.
 ```
 
-<div class="model-compare-grid">
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gpt-image-1.5</code></figcaption>
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gpt-image-1.5</code></figcaption>
     <img src="/blog/ai-illustration-styles/storybook-gouache.webp" alt="Gouache storybook style recreation with gpt-image-1.5" loading="lazy" />
   </figure>
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gemini-3-pro-image-preview</code></figcaption>
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gemini-3-pro-image-preview</code></figcaption>
     <img src="/blog/ai-illustration-styles/storybook-gouache-gemini.webp" alt="Gouache storybook style recreation with gemini-3-pro-image-preview" loading="lazy" />
   </figure>
 </div>
@@ -217,13 +217,13 @@ Style treatment: paper-cut collage illustration, layered cut-paper shapes,
 tactile paper fibers, soft depth shadows between layers.
 ```
 
-<div class="model-compare-grid">
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gpt-image-1.5</code></figcaption>
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gpt-image-1.5</code></figcaption>
     <img src="/blog/ai-illustration-styles/paper-cut.webp" alt="Paper cut collage style recreation with gpt-image-1.5" loading="lazy" />
   </figure>
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gemini-3-pro-image-preview</code></figcaption>
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gemini-3-pro-image-preview</code></figcaption>
     <img src="/blog/ai-illustration-styles/paper-cut-gemini.webp" alt="Paper cut collage style recreation with gemini-3-pro-image-preview" loading="lazy" />
   </figure>
 </div>
@@ -242,13 +242,13 @@ Style treatment: risograph print aesthetic, two-color spot inks
 vintage poster feel.
 ```
 
-<div class="model-compare-grid">
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gpt-image-1.5</code></figcaption>
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gpt-image-1.5</code></figcaption>
     <img src="/blog/ai-illustration-styles/risograph.webp" alt="Risograph style recreation with gpt-image-1.5" loading="lazy" />
   </figure>
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gemini-3-pro-image-preview</code></figcaption>
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gemini-3-pro-image-preview</code></figcaption>
     <img src="/blog/ai-illustration-styles/risograph-gemini.webp" alt="Risograph style recreation with gemini-3-pro-image-preview" loading="lazy" />
   </figure>
 </div>
@@ -266,13 +266,13 @@ Style treatment: 3D claymation miniature style, rounded handcrafted forms,
 soft studio lighting, tactile clay texture, shallow depth of field.
 ```
 
-<div class="model-compare-grid">
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gpt-image-1.5</code></figcaption>
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gpt-image-1.5</code></figcaption>
     <img src="/blog/ai-illustration-styles/clay-3d.webp" alt="Clay 3D style recreation with gpt-image-1.5" loading="lazy" />
   </figure>
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gemini-3-pro-image-preview</code></figcaption>
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gemini-3-pro-image-preview</code></figcaption>
     <img src="/blog/ai-illustration-styles/clay-3d-gemini.webp" alt="Clay 3D style recreation with gemini-3-pro-image-preview" loading="lazy" />
   </figure>
 </div>
@@ -290,13 +290,13 @@ Style treatment: bright colored Synthetic Cubism illustration, angular fractured
 overlapping geometric forms, bold contrasting color blocks, subtle painted texture.
 ```
 
-<div class="model-compare-grid">
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gpt-image-1.5</code></figcaption>
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gpt-image-1.5</code></figcaption>
     <img src="/blog/ai-illustration-styles/synthetic-cubism.webp" alt="Synthetic Cubism recreation with gpt-image-1.5" loading="lazy" />
   </figure>
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gemini-3-pro-image-preview</code></figcaption>
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gemini-3-pro-image-preview</code></figcaption>
     <img src="/blog/ai-illustration-styles/synthetic-cubism-gemini.webp" alt="Synthetic Cubism recreation with gemini-3-pro-image-preview" loading="lazy" />
   </figure>
 </div>
@@ -314,13 +314,13 @@ Style treatment: linocut print illustration, carved line textures, high contrast
 rough hand-carved edges, handmade press texture.
 ```
 
-<div class="model-compare-grid">
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gpt-image-1.5</code></figcaption>
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gpt-image-1.5</code></figcaption>
     <img src="/blog/ai-illustration-styles/linocut.webp" alt="Linocut print recreation with gpt-image-1.5" loading="lazy" />
   </figure>
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gemini-3-pro-image-preview</code></figcaption>
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gemini-3-pro-image-preview</code></figcaption>
     <img src="/blog/ai-illustration-styles/linocut-gemini.webp" alt="Linocut print recreation with gemini-3-pro-image-preview" loading="lazy" />
   </figure>
 </div>
@@ -338,13 +338,13 @@ Style treatment: Art Nouveau poster illustration, flowing organic lines, ornamen
 flat decorative color fields, vintage print texture, elegant composition, no typography.
 ```
 
-<div class="model-compare-grid">
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gpt-image-1.5</code></figcaption>
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gpt-image-1.5</code></figcaption>
     <img src="/blog/ai-illustration-styles/art-nouveau.webp" alt="Art Nouveau poster recreation with gpt-image-1.5" loading="lazy" />
   </figure>
-  <figure class="model-compare-card">
-    <figcaption class="model-compare-label"><code>gemini-3-pro-image-preview</code></figcaption>
+  <figure class="m-0">
+    <figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta"><code>gemini-3-pro-image-preview</code></figcaption>
     <img src="/blog/ai-illustration-styles/art-nouveau-gemini.webp" alt="Art Nouveau poster recreation with gemini-3-pro-image-preview" loading="lazy" />
   </figure>
 </div>
