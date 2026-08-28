@@ -12,23 +12,17 @@ tags:
   - Creative Workflow
 ---
 
-> Disclaimer: most of this post, including the draft prose and every image shown, was produced with AI tools, then edited for clarity and factual consistency.
+> I used AI to draft much of this post and generate every image. I edited the copy and checked the factual details.
 
-If you want predictable image outputs from AI, style choice matters as much as subject choice.
+Style is one of the strongest controls in an image prompt. A named medium with clear rules usually gives more predictable results than a loose mood such as "playful" or "cinematic."
 
-I researched illustration styles with strong visual rules, then recreated the **same scene** in multiple styles by changing only the style portion of the prompt.
+I tested 11 illustration styles against the same scene and changed only the style block between runs.
 
-The scene: **a red bicycle courier crossing a stone bridge at sunrise, with river reflections and a city skyline**.
+The scene shows a red bicycle courier crossing a stone bridge at sunrise, with river reflections and a city skyline.
 
 ## How I selected these styles
 
-A style made this list if it has:
-
-1. Clear, repeatable visual language (shape, texture, palette, perspective)
-2. Strong keyword cues that models consistently recognize
-3. Room for variation without losing the style identity
-
-I extended this to 11 styles after adding a second research pass and three new techniques not previously covered.
+A useful test style needs recognizable rules for shape, texture, color, or perspective. The model also has to respond to the name consistently without producing the same composition every time. Eleven styles met that bar.
 
 Models used for the recreations:
 - `gpt-image-1.5`
@@ -36,19 +30,17 @@ Models used for the recreations:
 
 ## The prompt method
 
-I blended findings from:
-- Google's Nano Banana 2 announcement (speed, grounding, consistency, text handling, provenance)
-- Gemini API image guidance (describe scenes naturally, use explicit constraints, iterate with edits, set output controls)
+I based the test on Google's Nano Banana 2 announcement and the Gemini API image guide. Both favor natural scene descriptions, explicit constraints, and small edits between runs.
 
 The method I now use for every style test:
 
-1. Lock the scene first: subject, action, environment, framing.
-2. Add only one style block per run: avoid mixing multiple visual dialects.
-3. Add a control block: identity, count constraints, text/language rules, and negative constraints.
-4. Declare output specs up front: aspect ratio and target size.
-5. Iterate with deltas: keep prompt stable, change only what failed.
+1. Lock the subject, action, environment, and framing.
+2. Add one style block per run.
+3. State identity, object count, text, and exclusion rules in a control block.
+4. Set the aspect ratio and target size before generating.
+5. Keep the prompt stable and edit only what failed.
 
-Why these controls matter: Google's February 26, 2026 Nano Banana 2 launch notes better consistency in more complex scenes (including examples with up to 5 characters and 14 objects), which maps directly to identity and count constraints in practical prompts.
+Google's February 26, 2026 Nano Banana 2 announcement reports better consistency in complex scenes. Its examples include as many as five characters and 14 objects. That is why the control block spells out identity and object count.
 
 Reusable control block:
 
@@ -61,7 +53,7 @@ Control block:
 - Keep composition stable unless explicitly changed.
 ```
 
-## Base prompt (scene lock)
+## Base scene prompt
 
 I used this in all style generations, then appended each style treatment:
 
@@ -83,11 +75,9 @@ Style treatment: paper-cut collage illustration, layered cut-paper shapes, tacti
 soft depth shadows between layers.
 ```
 
-## 1) Flat Vector Editorial
+## 1. Flat vector editorial
 
-Why this works well with AI:
-- Geometric forms and clean silhouettes are easy for models to preserve.
-- Limited palettes and minimal shading reduce ambiguity.
+Geometric forms and clean silhouettes give the model firm boundaries. A limited palette and minimal shading leave fewer choices to improvise.
 
 Prompt adjustment:
 
@@ -108,11 +98,9 @@ subtle grain texture.
   </figure>
 </div>
 
-## 2) Isometric Illustration
+## 2. Isometric illustration
 
-Why this works well with AI:
-- Isometric/axonometric constraints give the model a strong perspective framework.
-- Technical geometry naturally anchors forms and spacing.
+Isometric axes constrain the perspective before the model draws the scene. That fixed geometry helps objects keep their shape and spacing.
 
 Prompt adjustment:
 
@@ -132,11 +120,9 @@ precise geometry, long soft shadows, muted cyan and warm orange palette.
   </figure>
 </div>
 
-## 3) Ink Line Art
+## 3. Ink line art
 
-Why this works well with AI:
-- Line-only rendering is a clear constraint with a long training history.
-- Hatching and line-weight instructions are usually followed well.
+Line-only rendering is a strict constraint, and models usually follow instructions about hatching and line weight.
 
 Prompt adjustment:
 
@@ -156,11 +142,9 @@ cross-hatching for shadows, hand-drawn texture on off-white paper.
   </figure>
 </div>
 
-## 4) Watercolor
+## 4. Watercolor
 
-Why this works well with AI:
-- Washes, soft edges, and pigment bloom cues are highly recognizable.
-- Watercolor naturally tolerates soft control and small artifacts.
+Models recognize washes, soft edges, and pigment blooms. Small artifacts also look less out of place in watercolor than they do in crisp vector work.
 
 Prompt adjustment:
 
@@ -180,11 +164,9 @@ transparent washes, soft edges, pigment blooms, light granulation.
   </figure>
 </div>
 
-## 5) Storybook Gouache
+## 5. Storybook gouache
 
-Why this works well with AI:
-- Matte, opaque paint layers are a strong texture signal.
-- Illustrative color blocking translates consistently across subjects.
+Matte paint and opaque layers give the model a specific surface to imitate. Broad blocks of color tend to survive changes in subject and composition.
 
 Prompt adjustment:
 
@@ -204,11 +186,9 @@ rich warm palette, layered painted texture.
   </figure>
 </div>
 
-## 6) Paper-Cut Collage
+## 6. Paper-cut collage
 
-Why this works well with AI:
-- Layered paper shapes and cast shadows define depth clearly.
-- Material cues (paper fibers, cut edges) are highly promptable.
+Layered shapes and cast shadows define depth without realistic perspective. Words such as "paper fibers" and "cut edges" produce visible material cues reliably.
 
 Prompt adjustment:
 
@@ -228,11 +208,9 @@ tactile paper fibers, soft depth shadows between layers.
   </figure>
 </div>
 
-## 7) Risograph Print
+## 7. Risograph print
 
-Why this works well with AI:
-- Limited spot colors, halftone dots, and misregistration are explicit cues.
-- The style has an intentionally imperfect print aesthetic that models mimic well.
+Spot colors, halftone dots, and slight misregistration are concrete instructions. Small printing flaws belong in the style, so the result does not depend on perfect edges.
 
 Prompt adjustment:
 
@@ -253,11 +231,9 @@ vintage poster feel.
   </figure>
 </div>
 
-## 8) Clay 3D / Claymation Look
+## 8. Clay 3D and claymation
 
-Why this works well with AI:
-- "Miniature", "clay texture", and "stop-motion" cues are visually distinct.
-- Rounded forms and tactile materials are usually rendered consistently.
+"Miniature," "clay texture," and "stop-motion" point to a distinct physical look. Models usually carry the rounded forms and fingerprints across the whole scene.
 
 Prompt adjustment:
 
@@ -277,11 +253,9 @@ soft studio lighting, tactile clay texture, shallow depth of field.
   </figure>
 </div>
 
-## 9) Synthetic Cubism
+## 9. Synthetic Cubism
 
-Why this works well with AI:
-- Strong geometric decomposition gives clear structural constraints.
-- Fragmented planes let models stylize aggressively while preserving composition.
+Geometric decomposition gives the model a clear way to distort the subject. Fragmented planes can change the drawing sharply while the main composition remains recognizable.
 
 Prompt adjustment:
 
@@ -301,11 +275,9 @@ overlapping geometric forms, bold contrasting color blocks, subtle painted textu
   </figure>
 </div>
 
-## 10) Linocut Print
+## 10. Linocut print
 
-Why this works well with AI:
-- Carved texture vocabulary (gouges, rough edges, limited inks) is explicit and easy to cue.
-- High-contrast composition usually survives prompt variation cleanly.
+Gouges, rough edges, and limited ink are easy to name and easy to see in the result. High contrast also keeps the composition readable when details change.
 
 Prompt adjustment:
 
@@ -325,11 +297,9 @@ rough hand-carved edges, handmade press texture.
   </figure>
 </div>
 
-## 11) Art Nouveau Poster Illustration
+## 11. Art Nouveau poster illustration
 
-Why this works well with AI:
-- Decorative line rhythm and botanical ornamentation are distinctive and repeatable.
-- Poster-era constraints (flat color fields + print texture) are highly promptable.
+Flowing lines, botanical ornament, flat color, and print texture give the model a recognizable set of rules. The style is decorative, but its poster format still constrains the composition.
 
 Prompt adjustment:
 
@@ -374,12 +344,12 @@ Output spec:
 
 ## Notes from testing
 
-1. Keep subject + composition fixed when comparing styles.
+1. Keep the subject and composition fixed when comparing styles.
 2. Change only the style block each run.
-3. Add explicit material and technique words (for example: halftone, gouache, cut-paper, hatching, carved ink).
+3. Name the material or technique. Useful terms include halftone, gouache, cut paper, hatching, and carved ink.
 4. Use natural-language scene descriptions instead of short keyword piles.
 5. For harder scenes, run iterative edits rather than rewriting from scratch.
-6. Include "no text or logos" if typography is not desired.
+6. Include "no text or logos" when you do not want typography.
 
 ## References
 

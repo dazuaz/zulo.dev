@@ -20,7 +20,7 @@ const recentPosts = (await getCollection("blog", ({ data }) => !data.draft))
 
 <Layout
     title="Daniel Zuloaga"
-    description="AI product and engineering in regulated fintech. Notes on building production systems, agents, and the work behind them."
+    description="Daniel Zuloaga builds AI products for regulated lending. Notes on agents, product work, and what breaks in production."
     nav="home"
 >
     <main id="main-content">
@@ -42,13 +42,12 @@ const recentPosts = (await getCollection("blog", ({ data }) => !data.draft))
                 <div class="flex flex-col gap-lg">
                     <h1 class={displayTitle}>Daniel Zuloaga</h1>
                     <p class={proseLead}>
-                        Building AI-powered products that solve real business
-                        problems.
+                        I build AI products for lending teams.
                     </p>
                     <p class={proseBody}>
-                        Software engineer • Technical product manager • MBA. I
-                        build AI-first products, automate complex workflows, and
-                        turn ambitious ideas into scalable software.
+                        I'm a software engineer and product manager with an MBA.
+                        I turn messy lending workflows into software that teams
+                        can run in production.
                     </p>
                     <div>
                         <Button href={contactHref}>Get in touch</Button>
@@ -63,25 +62,24 @@ const recentPosts = (await getCollection("blog", ({ data }) => !data.draft))
             <div class="flex flex-col gap-md">
                 <h2 class={sectionTitle}>What I'm building now</h2>
                 <p class={proseBody}>
-                    I'm working on agent orchestration across lending workflows,
-                    from lead generation to loan servicing: document ingestion,
-                    tool-calling pipelines, custom MCP servers, tailored RAG
-                    pipelines and more. <strong
-                        >The technical complexity is fading away, but the build
-                        is just a small part of the equation;</strong
-                    > the real challenge is the rest: knowing what to work on to get
-                    adoption, governance, training, and getting your team and your
-                    clients delighted with your products.
+                    I'm building agents that handle work from lead generation
+                    through loan servicing. They ingest documents, call tools,
+                    retrieve context from internal data, and connect to company
+                    systems through custom MCP servers. Making those pieces work
+                    is getting easier. Deciding what deserves automation and
+                    earning users' trust is still the hard part.
                 </p>
             </div>
             <div class="flex flex-col gap-md">
-                <h2 class={sectionTitle}>What's new</h2>
+                <h2 class={sectionTitle}>What's changed</h2>
                 <p class={proseBody}>
-                    AI collapsed product and engineering into one role for me. I
-                    can go from a workflow problem to a shipped agent in hours,
-                    not weeks, but the abstractions to solve the real problems
-                    and the interfaces that bring a quality experience are
-                    harder to get right.
+                    AI has collapsed product and engineering into one job for
+                    me. I can find a workflow problem in the morning and ship a
+                    working agent that afternoon. The speed is great, and a
+                    little deceptive. Code arrives faster than good judgment. I
+                    still have to decide where the agent belongs and what happens
+                    when it is wrong. Then comes the bluntest test. Does anyone
+                    want it?
                 </p>
             </div>
         </PageShell>
@@ -91,7 +89,7 @@ const recentPosts = (await getCollection("blog", ({ data }) => !data.draft))
                 <div class="flex flex-col gap-xs">
                     <h2 class={sectionTitle}>Recent notes</h2>
                     <p class={proseBody}>
-                        Systems, constraints, and notes from the build.
+                        Notes from building agents in production.
                     </p>
                 </div>
                 <Button href="/blog" variant="secondary">
@@ -113,7 +111,7 @@ const recentPosts = (await getCollection("blog", ({ data }) => !data.draft))
                         <h2
                             class="text-balance font-display text-section font-semibold leading-heading tracking-[-0.015em] text-[oklch(0.97_0.005_255)]"
                         >
-                            Have a problem worth solving?
+                            Need to untangle a stubborn workflow?
                         </h2>
                     </div>
                     <div class="flex shrink-0 flex-wrap items-center gap-sm">

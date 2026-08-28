@@ -1,9 +1,9 @@
 ---
 title: "What changes when an agent can do the boring part?"
-description: "A personal note on loan onboarding, AI agents, and the small shift that happens when software can run the work, show its mistakes, and get corrected."
+description: "A loan onboarding agent can run the job, inspect its errors, patch the code, and ask a person to verify the result."
 pubDate: 2026-03-24
 heroImage: "/blog/building-products-for-agents/hero-ink-line-art.webp"
-heroImageAlt: "Ink line drawing on cream paper: a code terminal, a circular human-and-agent workflow loop, and a hand correcting a form that feeds back into code, with black ink and cross-hatched shadows."
+heroImageAlt: "Ink line drawing on cream paper of a code terminal, a human and agent workflow loop, and a hand correcting a form that feeds back into code."
 tags:
   - Codex
   - Workflow
@@ -12,21 +12,20 @@ tags:
   - Product
 ---
 
-AI Feedback loop inside product features.
+Most loan onboarding software does a plain job. It reads a record from one system, reshapes the fields, moves the documents, and writes everything to another API.
 
-Imagine a simple tool that takes the data from one system and onboards it onto another system. It's a pretty simple tool that uses APIs, takes shapes of data from the source and converts into it's destination shapes. With legacy tools and poorly documented APIs, there will alwyas be edge cases when you actually use with production data. Most of the work is the kind people only notice when it breaks: map this field, normalize that date, move these documents, make sure the resulting record is complete.
+The happy path is easy. Production data is not. A date arrives in an unexpected format. A legacy API returns a field nobody documented. One loan has six documents where the test fixture had two. People notice this work only when the transfer fails or the new record is incomplete.
 
-So, when something breaks or is not working as expected, the users need to identify the issues, or the developers need to review the logs, or you could have a QA tool that points out the issues, then you create a ticket or github issue to track the problem.
+The usual response is familiar. A user reports the problem, a developer searches the logs, and somebody opens an issue. The fix waits in a queue.
 
-But instead of clicking the button that runs the app, you tell the AI coding agent to run the extraction with accesss to the source code of the program, for example onboard Loan 1234, the AI agent calls the onboarding function, it reads the output, it reads the logs and will be aware of a failing parse or validation, then right there it will fix the code, run it again and validate the source and the target match.
+A coding agent creates a tighter loop. Give it a concrete job such as "onboard Loan 1234." The agent calls the onboarding function, reads the result and logs, and sees the failed parse or validation. Because it can also read the source, it can patch the code, run the job again, and compare the source record with the destination.
 
-## The ideal AI loop
+## The loop I want
 
-1. Run the real production operation 
-2. Great observability and evals.
-3. Allow AI Agent to handle fixes.
-4. Users provide validation or steering.
-5. Turn the users input into product feedback.
-6. AI Agent implements the new changes.
+1. Run the real operation against production data.
+2. Record enough detail to explain every failure.
+3. Let the agent propose and test a fix.
+4. Ask a person to verify the result.
+5. Turn that correction into a test and a product change.
 
-Over time the AI agent learns from the feedback and improves its ability to handle issues and implement changes. The Applications are constantly learning and adapting to new production data and user feedback.
+This is more useful than an agent that only fills out a form faster. Each ugly production case can improve the software that handles the next one. The user's correction changes the product instead of disappearing into a ticket queue.
