@@ -2,6 +2,7 @@
 title: "How Git worktrees work"
 description: "Git worktrees give each Codex task its own folder and branch without duplicating the repository."
 pubDate: 2026-02-17
+updatedDate: 2026-09-05
 tags:
   - Codex
   - Git
@@ -10,7 +11,7 @@ tags:
   - Developer Experience
 ---
 
-If you use Codex every day, Git worktrees are worth learning.
+When several tasks move at once, each needs a clear scope and a place to be reviewed. Git worktrees provide that separation for code. They are worth understanding if you are coordinating work with coding agents, even when you are not writing every change yourself.
 
 Worktrees do not make a full copy of your repository. They create an additional working directory that shares the same underlying Git history and object database. Each worktree has its own working directory and index, so uncommitted changes stay isolated to the folder where they were made, but all commits still go into the same shared repository.
 
@@ -91,4 +92,4 @@ In my workflow, each agent creates its own worktree and branch before writing co
 
 Concurrent tasks stay isolated, I rarely have to stash work, and every agent leaves behind a branch I can review.
 
-The short version is simple. Git worktrees let you keep multiple branches checked out at the same time in separate folders on the same machine.
+The coordination still needs a person. Each task needs an owner, a definition of done, and a decision about when to merge. Worktrees keep changes separate; those decisions keep parallel work pointed at the same product.

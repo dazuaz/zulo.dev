@@ -35,13 +35,11 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
 >
   <main id="main-content">
     <PageShell as="article" class="pb-section-lg">
-      <header class="flex flex-col gap-md py-page-intro">
-        <nav class="flex items-center gap-xs font-ui text-sm font-medium leading-ui text-accent" aria-label="Breadcrumb">
+      <header class="mx-auto flex max-w-[48rem] flex-col gap-md border-b border-rule py-page-intro">
+        <nav class="flex flex-wrap items-center gap-xs font-ui text-sm font-medium leading-ui text-accent" aria-label="Breadcrumb">
           <a class={focusRing} href="/">Home</a>
           <span class="select-none text-meta" aria-hidden="true">/</span>
           <a class={focusRing} href="/blog">Writing</a>
-          <span class="select-none text-meta" aria-hidden="true">/</span>
-          <span class="text-ink" aria-current="page">{title}</span>
         </nav>
         <h1 class={cn(displayTitle, 'max-w-[48rem]')}>{title}</h1>
         <p class={proseLead}>{description}</p>
@@ -56,19 +54,19 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
           tags?.length ? (
             <div class="flex flex-wrap items-center gap-sm">
               {tags.map((tag) => (
-                <span class="inline-flex min-h-8 items-center rounded-md border border-border bg-bg px-2.5 py-1.5 font-ui text-xs font-medium leading-ui text-muted">{tag}</span>
+                <span class="inline-flex items-center py-1 font-ui text-xs font-medium uppercase tracking-wide text-muted">{tag}</span>
               ))}
             </div>
           ) : null
         }
       </header>
 
-      <div class="w-full max-w-[65ch]">
+      <div class="mx-auto w-full max-w-[42rem]">
         {
           heroImage ? (
             <figure class="w-full py-xl">
               <img
-                class="block h-auto w-full rounded-lg border border-border"
+                class="block h-auto w-full"
                 src={heroImage}
                 alt={heroImageAlt ?? `${title} main image`}
                 loading="eager"
@@ -86,11 +84,11 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
 
         {
           newerPost || olderPost ? (
-            <nav class="mt-xl grid gap-md pt-lg sm:grid-cols-2 sm:gap-xl" aria-label="More writing">
+            <nav class="mt-xl grid gap-md border-t border-rule pt-lg sm:grid-cols-2 sm:gap-xl" aria-label="More writing">
               {olderPost ? (
                 <a class={cn(focusRing, 'group flex flex-col gap-2xs rounded-sm')} href={`/blog/${olderPost.slug}`} rel="prev">
                   <span class={metaText}>Older</span>
-                  <span class="text-balance font-display text-base font-semibold leading-heading tracking-[-0.015em] text-ink transition-colors duration-150 ease-out group-hover:text-accent motion-reduce:transition-none">{olderPost.title}</span>
+                  <span class="text-balance font-display text-xl font-normal leading-heading tracking-[-0.015em] text-ink transition-colors duration-150 ease-out group-hover:text-accent motion-reduce:transition-none">{olderPost.title}</span>
                 </a>
               ) : (
                 <span class="hidden sm:block" aria-hidden="true" />
@@ -102,7 +100,7 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
                   rel="next"
                 >
                   <span class={metaText}>Newer</span>
-                  <span class="text-balance font-display text-base font-semibold leading-heading tracking-[-0.015em] text-ink transition-colors duration-150 ease-out group-hover:text-accent motion-reduce:transition-none">{newerPost.title}</span>
+                  <span class="text-balance font-display text-xl font-normal leading-heading tracking-[-0.015em] text-ink transition-colors duration-150 ease-out group-hover:text-accent motion-reduce:transition-none">{newerPost.title}</span>
                 </a>
               ) : (
                 <span class="hidden sm:block" aria-hidden="true" />

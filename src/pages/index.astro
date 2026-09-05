@@ -1,135 +1,77 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Button from "../components/ui/Button.astro";
-import PageShell from "../components/ui/PageShell.astro";
-import PostList from "../components/PostList.astro";
-import { getCollection } from "astro:content";
-import {
-    displayTitle,
-    proseBody,
-    proseLead,
-    sectionTitle,
-} from "../lib/classes";
+import Layout from '../layouts/Layout.astro';
+import PageShell from '../components/ui/PageShell.astro';
+import PostList from '../components/PostList.astro';
+import { getCollection } from 'astro:content';
+import { accentLink, focusRing, sectionTitle } from '../lib/classes';
 
-const contactHref = "/contact";
-
-const recentPosts = (await getCollection("blog", ({ data }) => !data.draft))
-    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-    .slice(0, 4);
+const recentPosts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
 <Layout
-    title="Daniel Zuloaga"
-    description="Daniel Zuloaga builds AI products for regulated lending. Notes on agents, product work, and what breaks in production."
-    nav="home"
+  title="Daniel Zuloaga"
+  description="Daniel Zuloaga works across product and engineering in lending. Notes on leading AI product work, setting priorities, and building dependable operations."
+  nav="home"
 >
-    <main id="main-content">
-        <PageShell class="py-page-intro">
-            <div
-                class="grid items-start gap-xl md:grid-cols-[minmax(11rem,15rem)_minmax(0,1fr)] md:gap-2xl lg:grid-cols-[minmax(13rem,17.5rem)_minmax(0,1fr)] lg:gap-3xl"
-            >
-                <figure class="m-0 hidden md:block">
-                    <img
-                        class="block aspect-3/4 h-auto w-full rounded-lg border border-border object-cover object-[center_20%]"
-                        src="/hero-kitesurf.webp"
-                        alt="Watercolor of Daniel kitesurfing with his son on a sunny day in Miami"
-                        width="1086"
-                        height="1448"
-                        loading="eager"
-                        decoding="async"
-                    />
-                </figure>
-                <div class="flex flex-col gap-lg">
-                    <h1 class={displayTitle}>Daniel Zuloaga</h1>
-                    <p class={proseLead}>
-                        I build AI products for lending teams.
-                    </p>
-                    <p class={proseBody}>
-                        I'm a software engineer and product manager with an MBA.
-                        I turn messy lending workflows into software that teams
-                        can run in production.
-                    </p>
-                    <div>
-                        <Button href={contactHref}>Get in touch</Button>
-                    </div>
-                </div>
-            </div>
-        </PageShell>
+  <main id="main-content">
+    <PageShell as="div">
+      <header class="masthead">
+        <p class="eyebrow">The personal website of</p>
+        <h1>Daniel Zuloaga<span class="text-accent">.</span></h1>
+      </header>
 
-        <PageShell
-            class="grid gap-xl py-section md:grid-cols-2 md:gap-2xl lg:grid-cols-[1.12fr_0.88fr] lg:gap-3xl"
-        >
-            <div class="flex flex-col gap-md">
-                <h2 class={sectionTitle}>What I'm building now</h2>
-                <p class={proseBody}>
-                    I'm building agents that handle work from lead generation
-                    through loan servicing. They ingest documents, call tools,
-                    retrieve context from internal data, and connect to company
-                    systems through custom MCP servers. Making those pieces work
-                    is getting easier. Deciding what deserves automation and
-                    earning users' trust is still the hard part.
-                </p>
-            </div>
-            <div class="flex flex-col gap-md">
-                <h2 class={sectionTitle}>What's changed</h2>
-                <p class={proseBody}>
-                    AI has collapsed product and engineering into one job for
-                    me. I can find a workflow problem in the morning and ship a
-                    working agent that afternoon. The speed is great, and a
-                    little deceptive. Code arrives faster than good judgment. I
-                    still have to decide where the agent belongs and what happens
-                    when it is wrong. Then comes the bluntest test. Does anyone
-                    want it?
-                </p>
-            </div>
-        </PageShell>
+      <section class="introduction" aria-labelledby="introduction-heading">
+        <div class="bio">
+          <p class="eyebrow text-accent">Product &amp; engineering</p>
+          <h2 id="introduction-heading">I lead AI product work.<br /><em>And write about<br />what I learn.</em></h2>
+          <p>My work is in lending: connecting product direction, engineering, and day-to-day operations. <a class={accentLink} href="/blog/building-products-for-agents">Loan onboarding</a> is one example of how I think about that work.</p>
+          <p>My background spans engineering, product, and an MBA. I care about choosing the right problems and giving teams a clear path to dependable software.</p>
+          <a class:list={[focusRing, 'hello-link']} href="/contact">Let’s talk <span aria-hidden="true">↗</span></a>
+        </div>
+        <figure>
+          <img
+            src="/hero-kitesurf.webp"
+            alt="Illustration of Daniel kitesurfing with his son in Miami"
+            width="1086"
+            height="1448"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+          <figcaption><span>Away from the keyboard</span><span>Miami, FL</span></figcaption>
+        </figure>
+      </section>
 
-        <PageShell class="py-section">
-            <div class="flex flex-wrap items-end justify-between gap-md">
-                <div class="flex flex-col gap-xs">
-                    <h2 class={sectionTitle}>Recent notes</h2>
-                    <p class={proseBody}>
-                        Notes from building agents in production.
-                    </p>
-                </div>
-                <Button href="/blog" variant="secondary">
-                    View all writing
-                </Button>
-            </div>
-
-            <PostList posts={recentPosts} class="mt-lg" />
-        </PageShell>
-
-        <PageShell class="pb-page-end">
-            <div
-                class="rounded-lg bg-ink-deep p-section-lg text-[oklch(0.94_0.01_255)]"
-            >
-                <div
-                    class="flex flex-col gap-lg sm:flex-row sm:items-center sm:justify-between"
-                >
-                    <div class="flex flex-col gap-sm">
-                        <h2
-                            class="text-balance font-display text-section font-semibold leading-heading tracking-[-0.015em] text-[oklch(0.97_0.005_255)]"
-                        >
-                            Need to untangle a stubborn workflow?
-                        </h2>
-                    </div>
-                    <div class="flex shrink-0 flex-wrap items-center gap-sm">
-                        <Button href={contactHref} variant="primaryOnDark">
-                            Get in touch
-                        </Button>
-                        <Button
-                            href="https://www.linkedin.com/in/daniel-zuloaga/"
-                            variant="outlineOnDark"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Connect on LinkedIn
-                            <span class="sr-only"> (opens in new tab)</span>
-                        </Button>
-                    </div>
-                </div>
-            </div>
-        </PageShell>
-    </main>
+      <section class="fieldnotes" aria-labelledby="fieldnotes-heading">
+        <div class="flex flex-wrap items-center justify-between gap-md py-lg">
+          <h2 id="fieldnotes-heading" class={sectionTitle}>Fieldnotes</h2>
+          <a class:list={[focusRing, 'text-sm hover:text-accent']} href="/blog">All writing <span aria-hidden="true">↗</span></a>
+        </div>
+        <PostList posts={recentPosts} compact />
+      </section>
+    </PageShell>
+  </main>
 </Layout>
+
+<style>
+  .eyebrow { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+  .masthead { padding: clamp(2rem, 4vw, 3rem) 0; border-bottom: 1px solid var(--color-rule); }
+  .masthead h1 { margin-top: 0.4rem; font-family: var(--font-display); font-size: clamp(3.25rem, 10vw, 7rem); font-weight: 400; line-height: 1.1; letter-spacing: -0.035em; }
+  .introduction { display: grid; grid-template-columns: 1.13fr 0.87fr; gap: 8%; align-items: center; padding: clamp(2rem, 4vw, 3rem) 0; }
+  .bio h2 { margin: 1.25rem 0; font-family: var(--font-display); font-size: clamp(2.5rem, 4.4vw, 3.5rem); font-weight: 400; line-height: 1.12; letter-spacing: -0.015em; }
+  .bio h2 em { color: var(--color-muted); }
+  .bio > p:not(.eyebrow) { max-width: 25rem; margin-top: 1rem; line-height: 1.65; }
+  .hello-link { display: inline-flex; min-height: 2.75rem; align-items: center; gap: 2rem; margin-top: 1.5rem; padding: 0.5rem 0; border-bottom: 1px solid currentColor; color: var(--color-accent); font-size: 0.875rem; }
+  .hello-link:hover { color: var(--color-accent-hover); }
+  figure img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 70%; }
+  figcaption { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; margin-top: 0.75rem; color: var(--color-meta); font-size: 0.75rem; letter-spacing: 0.06em; }
+  figcaption span:first-child { text-transform: uppercase; }
+  .fieldnotes { border-top: 2px solid var(--color-ink); }
+  @media (max-width: 640px) {
+    .introduction { grid-template-columns: 1fr; gap: 2rem; }
+    .bio h2 { font-size: clamp(2.5rem, 8vw, 3.5rem); }
+    figure img { aspect-ratio: 4 / 3; object-position: center 62%; }
+  }
+</style>

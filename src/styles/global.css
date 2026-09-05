@@ -1,27 +1,9 @@
 @import "tailwindcss";
 
-@font-face {
-	font-family: 'Sora Fallback';
-	src: local('Segoe UI');
-	size-adjust: 104%;
-	ascent-override: 92%;
-	descent-override: 22%;
-	line-gap-override: 0%;
-}
-
-@font-face {
-	font-family: 'Literata Fallback';
-	src: local('Georgia');
-	size-adjust: 98%;
-	ascent-override: 94%;
-	descent-override: 22%;
-	line-gap-override: 0%;
-}
-
 @theme {
-	--font-display: 'Sora', 'Sora Fallback', 'Segoe UI', sans-serif;
-	--font-body: 'Literata', 'Literata Fallback', Georgia, serif;
-	--font-ui: 'Sora', 'Sora Fallback', 'Segoe UI', sans-serif;
+	--font-display: 'Instrument Serif', Georgia, serif;
+	--font-body: 'DM Sans', 'Segoe UI', sans-serif;
+	--font-ui: 'DM Sans', 'Segoe UI', sans-serif;
 	--font-mono: ui-monospace, 'SF Mono', Menlo, monospace;
 
 	--text-xs: 0.75rem;
@@ -30,8 +12,8 @@
 	--text-md: 1.125rem;
 	--text-lg: 1.25rem;
 	--text-xl: 1.5625rem;
-	--text-section: clamp(1.25rem, 1.5vw + 0.85rem, 1.5625rem);
-	--text-display: clamp(2.25rem, 4vw + 0.5rem, 3.75rem);
+	--text-section: clamp(2rem, 2.5vw + 0.85rem, 2.75rem);
+	--text-display: clamp(3rem, 5vw + 0.5rem, 5rem);
 
 	--leading-display: 1.1;
 	--leading-heading: 1.25;
@@ -52,20 +34,20 @@
 	--spacing-page-intro: clamp(2.5rem, 6vw, 4.5rem);
 	--spacing-page-end: clamp(2rem, 5vw, 3.5rem);
 
-	--color-bg: oklch(0.965 0.007 255);
-	--color-surface: oklch(0.995 0.002 255);
-	--color-ink: oklch(0.18 0.025 255);
-	--color-ink-deep: oklch(0.14 0.03 250);
-	--color-muted: oklch(0.42 0.02 255);
-	--color-meta: oklch(0.5 0.018 255);
-	--color-border: oklch(0.82 0.012 255);
-	--color-rule: oklch(0.88 0.01 255);
-	--color-accent: oklch(0.42 0.14 220);
-	--color-accent-hover: oklch(0.36 0.14 220);
-	--color-accent-subtle: oklch(0.93 0.035 220);
-	--color-accent-on-dark: oklch(0.78 0.08 200);
+	--color-bg: #f8f7f3;
+	--color-surface: #fdfcf9;
+	--color-ink: #242923;
+	--color-ink-deep: #20241f;
+	--color-muted: #62665e;
+	--color-meta: #62665e;
+	--color-border: #d3d5cb;
+	--color-rule: #d3d5cb;
+	--color-accent: #a13c23;
+	--color-accent-hover: #7e2e1a;
+	--color-accent-subtle: #f1e4dc;
+	--color-accent-on-dark: #f6a17f;
 	--color-danger: oklch(0.52 0.18 25);
-	--color-border-strong: oklch(0.75 0.012 255);
+	--color-border-strong: #a9ada1;
 
 	--shadow-surface: 0 1px 0 oklch(0.18 0.025 255 / 0.04);
 
@@ -73,4 +55,9 @@
 
 	--z-sticky: 40;
 	--z-skip: 50;
+}
+
+::selection {
+	background: var(--color-accent-subtle);
+	color: var(--color-ink);
 }

@@ -1,51 +1,43 @@
 ---
 import { readingTimeMinutes } from '../lib/reading-time';
 import { cn } from '../lib/utils';
-import { focusRing, metaText, proseBody } from '../lib/classes';
+import { focusRing, proseBody } from '../lib/classes';
 
-const { posts = [], showReadingTime = false, class: className = '' } = Astro.props;
+const { posts = [], showReadingTime = false, compact = false, class: className = '' } = Astro.props;
 const dateFormatter = new Intl.DateTimeFormat('en-US', {
   month: 'short',
-  day: 'numeric',
+  day: '2-digit',
   year: 'numeric',
 });
 ---
 
-<ul class={cn('m-0 list-none p-0', className)}>
+<ul class={cn('post-list m-0 list-none p-0', className)}>
   {
-    posts.length ? (
-      posts.map((post) => (
-        <li>
-          <a
-            class={cn(
-              'group grid gap-x-lg gap-y-2xs rounded-sm py-lg transition-colors duration-150 ease-out hover:bg-accent/3 focus-visible:bg-accent/3 sm:grid-cols-[7.5rem_1fr] sm:items-baseline motion-reduce:transition-none',
-              focusRing,
-            )}
-            href={`/blog/${post.id}`}
-          >
-            {showReadingTime ? (
-              <span class="flex items-baseline gap-sm sm:flex-col sm:gap-2xs">
-                <time class={metaText} datetime={post.data.pubDate.toISOString()}>
-                  {dateFormatter.format(post.data.pubDate)}
-                </time>
-                <span class={metaText}>{readingTimeMinutes(post.body ?? '')} min read</span>
-              </span>
-            ) : (
-              <time class={metaText} datetime={post.data.pubDate.toISOString()}>
-                {dateFormatter.format(post.data.pubDate)}
-              </time>
-            )}
-            <span class="text-balance font-display text-md font-semibold leading-heading tracking-[-0.015em] text-ink transition-colors duration-150 group-hover:text-accent group-focus-visible:text-accent motion-reduce:transition-none">
-              {post.data.title}
-            </span>
-            <span class="col-span-full max-w-[65ch] text-pretty text-sm leading-body text-muted sm:col-start-2">
-              {post.data.description}
-            </span>
-          </a>
-        </li>
-      ))
-    ) : (
-      <li class={cn(proseBody, 'py-xl')}>No posts yet. Check back soon.</li>
-    )
+    posts.length ? posts.map((post) => (
+      <li class="border-t border-rule">
+        <a class={cn('post-link group', focusRing)} href={`/blog/${post.id}`}>
+          <span class="post-meta">
+            <time datetime={post.data.pubDate.toISOString()}>{dateFormatter.format(post.data.pubDate)}</time>
+            {showReadingTime && <span class="normal-case tracking-normal">{readingTimeMinutes(post.body ?? '')} min read</span>}
+          </span>
+          <span class="post-title group-hover:text-accent group-focus-visible:text-accent">{post.data.title}</span>
+          <span class="post-arrow group-hover:text-accent" aria-hidden="true">↗</span>
+          {!compact && <span class="post-description">{post.data.description}</span>}
+        </a>
+      </li>
+    )) : <li class={cn(proseBody, 'py-xl')}>No posts yet. Check back soon.</li>
   }
 </ul>
+
+<style>
+  .post-link { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr) 1rem; gap: 0.5rem 1.75rem; align-items: baseline; padding: 1.5rem 0; }
+  .post-meta { display: flex; flex-direction: column; gap: 0.25rem; color: var(--color-meta); font-family: var(--font-ui); font-size: 0.75rem; letter-spacing: 0.06em; text-transform: uppercase; }
+  .post-title { font-family: var(--font-display); font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 400; line-height: 1.2; }
+  .post-arrow { justify-self: end; }
+  .post-description { grid-column: 2; max-width: 60ch; color: var(--color-muted); font-size: 1rem; line-height: 1.6; }
+  @media (max-width: 640px) {
+    .post-link { grid-template-columns: minmax(0, 1fr) 1rem; gap: 0.5rem 1rem; }
+    .post-meta { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; gap: 0.5rem 1rem; }
+    .post-description { grid-column: 1; }
+  }
+</style>

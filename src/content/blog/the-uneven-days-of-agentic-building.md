@@ -1,7 +1,8 @@
 ---
 title: "The uneven days of building with agents"
-description: "Some days an agent carries the work. Other days it leads you into a refactor nobody asked for. Both are part of building this way."
+description: "Building with agents keeps bringing me back to scope, priorities, and the judgment it takes to help a team ship useful work."
 pubDate: 2026-06-05
+updatedDate: 2026-09-05
 heroImage: "/blog/the-uneven-days-of-agentic-building/hero-ink-line-art.webp"
 heroImageAlt: "Ink line drawing on cream paper of a developer choosing between a calm sailing path and tangled alleys, with abstract code on a laptop."
 draft: false
@@ -13,7 +14,7 @@ tags:
   - Product
 ---
 
-I have been building applications with agents for a while now. The honest summary is that it feels like weather.
+I have been building applications with agents for a while now. The honest summary is that it feels like weather. Staying close to the work keeps reminding me how much depends on the direction we give it.
 
 Some days everything clicks. You describe what you want, the agent runs with it, and you end the day further along than you had any right to be. You are not fighting the tool or second-guessing every turn. For a few hours, building software feels light again.
 
@@ -33,23 +34,15 @@ When they disagree, flow inverts. You spend more time cleaning up than creating.
 
 I have started treating flow as a signal instead of a mood. A good day usually means the task had a clear boundary and mistakes surfaced early. On a bad day, I often tried to force an unclear task forward with more prompts.
 
-That distinction helps a little. "I am bad at this today" becomes "I have not made this problem clear yet."
+That distinction changes what I need to do next. Clarify the outcome, narrow the scope, or decide which uncertainty we need to resolve before committing more time. A team needs those decisions as much as an agent does.
 
 ## The new mess
 
-Every previous shift in how we build software came with mess. This one is just faster.
-
-More tools. More models. More agents. More worktrees and MCP servers. More "connect your repo and it will figure it out" promises. Every team chat has a half-adopted convention and a screenshot of a workflow that worked once.
+The growing list of models, agents, worktrees, and MCP servers creates decisions for the whole team. A promising tool still needs a reason to become part of how we work.
 
 The mess gets into your head. You have to decide what to delegate, what to verify, and what to throw away. New failure modes appear. A confident answer is wrong. A change passes lint and still misses the point. An entire feature follows a requirement you never wrote down.
 
-Because the tooling changes every few months, a low-grade dread sits under the excitement.
-
-You finish a hard integration and wonder whether it will matter in six months. The user problem will still exist, but the next frontier model might make your setup feel antique. Prompting patterns, guardrails, and custom tools built to keep agents from wrecking the repo are all up for revision again.
-
-I feel that dread regularly, and it is not irrational. What felt like a clever orchestration layer in January can feel like overhead by June. A new context window or "build the whole app" demo suggests that you should have waited, built less, or chosen another approach.
-
-The trap is letting that whisper turn into paralysis.
+I still feel the uncertainty of investing in tools that may look dated in six months. The user problem will remain, but the integration we spent weeks on may need to change. I want an experiment to answer a specific question before it becomes another dependency the team has to maintain.
 
 ## What still seems worth the time
 
@@ -63,7 +56,7 @@ Revenue is a crude test, but it cuts through the fog. Excitement scales easily. 
 
 Documentation should teach the next person and the next agent how the system works. Operations need readable errors. Production failures need tests. Domain knowledge captured this way ages better than a prompt trick.
 
-None of this removes the dread. It gives me work that should survive the next model release.
+These are investments I can explain in terms of the team's ability to deliver and support the product, even when the tooling changes.
 
 ## Differentiation in a world where code is cheap
 
@@ -89,14 +82,12 @@ I am learning to notice earlier when a path widens scope without reducing risk. 
 
 On a good day, that willingness to explore is useful. I can test two approaches before lunch, then send the agent through the boring work of hardening the better one. Experiments stay in another worktree, and the main branch stays calm.
 
-The difference between a good day and a bad day is often whether you knew which kind of path you were on.
+Before exploring, I want to know what decision the experiment will inform, how much time it deserves, and what evidence would make us stop. That gives curiosity a useful boundary and protects the team's commitments.
 
 ## What I am learning
 
-Agentic coding is not one skill. It requires scoping and review, plus knowing when to stop prompting and fix the system. It also requires knowing when "good enough" should ship. Some days, what looks like perfectionism is fear that the work will soon become obsolete.
+Leading this work means making the outcome clear, keeping scope honest, and deciding when there is enough evidence to ship. Technical involvement helps me see the tradeoffs. It also gives me a responsibility to turn what I learn into decisions the team can act on.
 
-Excitement and dread can coexist. Whole categories of work are finally movable. The floor also keeps rising, and old advantages decay faster.
+Users still need help on Monday morning regardless of which model launched over the weekend. I want the team to know what matters that morning, who owns the next decision, and what can wait.
 
-The tools do not have a center, but the work does. Users still need help on Monday morning regardless of which model launched over the weekend.
-
-Some days that center is easy to see. Other days you have to walk back out of an alley first. Both are part of the job now.
+Some days that direction is easy to see. Other days you have to walk back out of an alley first. Both are part of the job now.

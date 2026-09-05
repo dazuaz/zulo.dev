@@ -1,50 +1,25 @@
 ---
 import PageShell from './ui/PageShell.astro';
 import { focusRing } from '../lib/classes';
-import { cn } from '../lib/utils';
 
 const year = new Date().getFullYear();
-
-const navLinks = [
-  { label: 'Home', href: '/' },
-  { label: 'Writing', href: '/blog' },
-  { label: 'Contact', href: '/contact' },
-];
-
 const socialLinks = [
-  { label: 'X', href: 'https://x.com/danielzuloaga' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/daniel-zuloaga/' },
   { label: 'GitHub', href: 'https://github.com/dazuaz' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/daniel-zuloaga/' },
+  { label: 'X', href: 'https://x.com/danielzuloaga' },
 ];
 ---
 
-<footer class="mt-page-end py-xl">
-  <PageShell as="div" class="flex flex-wrap items-center justify-between gap-x-lg gap-y-md font-ui text-xs leading-ui text-meta">
-    <p class="m-0">© {year} Daniel Zuloaga</p>
-    <nav class="flex flex-wrap items-center gap-x-md gap-y-sm" aria-label="Footer">
-      {
-        navLinks.map((link) => (
-          <a class={cn(focusRing, 'text-xs font-medium leading-ui text-muted transition-colors duration-150 ease-out hover:text-ink motion-reduce:transition-none')} href={link.href}>{link.label}</a>
-        ))
-      }
+<footer class="mt-2xl">
+  <PageShell as="div" class="flex flex-wrap items-center justify-between gap-x-lg gap-y-sm border-t border-rule py-lg font-ui text-xs text-meta">
+    <p>© {year} Daniel Zuloaga</p>
+    <nav class="flex flex-wrap items-center gap-x-lg gap-y-xs" aria-label="Social links">
+      {socialLinks.map((link) => (
+        <a class:list={[focusRing, 'inline-flex min-h-11 items-center gap-xs hover:text-accent']} href={link.href} target="_blank" rel="noopener noreferrer">
+          {link.label} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in new tab)</span>
+        </a>
+      ))}
+      <a class:list={[focusRing, 'inline-flex min-h-11 items-center hover:text-accent']} href="/rss.xml">RSS</a>
     </nav>
-    <nav class="flex flex-wrap items-center gap-x-md gap-y-sm" aria-label="Social links">
-      {
-        socialLinks.map((link) => (
-          <a
-            class={cn(focusRing, 'text-xs font-medium leading-ui text-muted transition-colors duration-150 ease-out hover:text-ink motion-reduce:transition-none')}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {link.label}
-            <span class="sr-only"> (opens in new tab)</span>
-          </a>
-        ))
-      }
-    </nav>
-  </PageShell>
-  <PageShell as="p" class="mt-sm font-ui text-xs leading-ui text-meta">
-    Notes on software, systems, and the work in between.
   </PageShell>
 </footer>

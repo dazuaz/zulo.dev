@@ -2,6 +2,7 @@
 title: "11 illustration styles that work well with AI image models"
 description: "The same scene recreated in 11 styles across GPT Image and Gemini, with the exact prompt blocks I used and notes on what held up."
 pubDate: 2026-02-20
+updatedDate: 2026-09-05
 heroImage: "/blog/ai-illustration-styles/main-image-gemini-paper-cut.webp"
 heroImageAlt: "Paper-cut collage illustration of an artist looking for inspiration in an infinite canvas world."
 tags:
@@ -28,9 +29,11 @@ Models used for the recreations:
 - `gpt-image-1.5`
 - `gemini-3-pro-image-preview`
 
+The useful product decision is which visual language fits the job. These examples give a team something concrete to compare before committing to a direction. The prompts make that direction easier to repeat.
+
 ## The prompt method
 
-I based the test on Google's Nano Banana 2 announcement and the Gemini API image guide. Both favor natural scene descriptions, explicit constraints, and small edits between runs.
+This article has been revised since its original publication. The method below draws on Google's February 26 Nano Banana 2 announcement and the Gemini API image guide, alongside the examples shown here.
 
 The method I now use for every style test:
 

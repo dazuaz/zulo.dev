@@ -8,19 +8,19 @@ import { accentLink, displayTitle, proseBody } from '../../lib/classes'
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 ---
 
-<Layout title="Writing | Daniel Zuloaga" description="Notes on building with AI agents, agentic workflows, and the judgment calls that still belong to people." nav="blog">
+<Layout title="Writing | Daniel Zuloaga" description="Notes on leading AI product work, making engineering decisions, and building operations that teams can trust." nav="blog">
   <main id="main-content">
     <PageShell class="py-page-intro">
       <div class="flex flex-col gap-md">
-        <h1 class={displayTitle}>Writing on building with AI</h1>
+        <h1 class={displayTitle}>Fieldnotes</h1>
         <p class={proseBody}>
-          Notes on agentic workflows, product design when software can run the work, and what still requires human judgment.
+          Notes on where AI belongs in a product, how teams decide what to build, and what it takes to make the result dependable.
           Subscribe via <a class={accentLink} href="/rss.xml">RSS</a>.
         </p>
       </div>
     </PageShell>
 
-    <PageShell class="py-section pb-section-lg">
+    <PageShell class="pb-section-lg">
       <PostList posts={posts} showReadingTime />
     </PageShell>
   </main>
