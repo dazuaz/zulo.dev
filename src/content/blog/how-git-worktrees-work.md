@@ -92,4 +92,4 @@ In my workflow, each agent creates its own worktree and branch before writing co
 
 Concurrent tasks stay isolated, I rarely have to stash work, and every agent leaves behind a branch I can review.
 
-The coordination still needs a person. Each task needs an owner, a definition of done, and a decision about when to merge. Worktrees keep changes separate; those decisions keep parallel work pointed at the same product.
+I like the freedom to test an idea without disturbing the product people already use. Each experiment still needs a reason to exist and a decision about whether it should ship. More parallel work is useful when it helps answer those questions sooner.

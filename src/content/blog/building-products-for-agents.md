@@ -1,6 +1,6 @@
 ---
 title: "What changes when an agent can do the boring part?"
-description: "A proposed loan onboarding workflow that turns operational failures into product improvements, with clear ownership and review."
+description: "A proposed loan onboarding workflow, and how I would judge whether faster fixes create a better product and a stronger business."
 pubDate: 2026-03-24
 updatedDate: 2026-09-05
 heroImage: "/blog/building-products-for-agents/hero-ink-line-art.webp"
@@ -33,10 +33,12 @@ Consider a loan transfer that fails because a date arrives in an unexpected form
 
 The regression test stays with the product. The person handling the loan gets an explanation of what changed and whether the record is now complete.
 
-## What I would measure
+## What would make this worth building?
 
-I would judge this workflow by time to a verified resolution, repeat failures, and the amount of review it asks of the operations team. A faster code change is useful only if it reduces the work around the failed transfer.
+Before investing in this, I would want to understand how often transfers fail, what each failure costs the customer, and who has a reason to pay for a better result. An occasional annoyance and a daily operational bottleneck deserve different products.
+
+I would measure time to a verified resolution, repeat failures, and the amount of review the workflow asks of the operations team. Then I would compare the cost of running and supporting it with the value it creates for the customer. Faster fixes need to translate into something the customer notices and values.
 
 Product and engineering need to agree on which failures qualify for this loop, who can approve a change, and which cases should stop for a policy decision. Those boundaries are part of the design.
 
-That is the opportunity I want to pursue: each difficult production case making the next transfer more reliable. The agent can carry the investigation and testing. The team remains responsible for deciding what should change and whether the result is ready.
+That is the opportunity I want to pursue: each difficult production case making the next transfer more reliable. I would start with one recurring failure, prove the improvement with the people doing the work, and use that evidence to decide whether to expand.

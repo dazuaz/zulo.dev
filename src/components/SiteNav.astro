@@ -11,7 +11,7 @@ const { current = 'home' } = Astro.props;
     <a class:list={[focusRing, 'flex min-h-11 min-w-11 items-center hover:opacity-75']} href="/" aria-label="Daniel Zuloaga — Home">
       <ZuloLogo />
     </a>
-    <span class="hidden text-xs text-muted md:block">Software, systems &amp; the work in between</span>
+    <span class="hidden text-xs text-muted md:block">Products, business &amp; the work in between</span>
     <nav class="flex flex-wrap items-center gap-x-lg gap-y-xs text-sm" aria-label="Primary">
       <a class:list={[focusRing, 'inline-flex min-h-11 items-center hover:text-accent', current === 'blog' && 'text-accent']} href="/blog" aria-current={current === 'blog' ? 'page' : undefined}>Writing</a>
       <a class:list={[focusRing, 'inline-flex min-h-11 items-center gap-xs hover:text-accent', current === 'contact' && 'text-accent']} href="/contact" aria-current={current === 'contact' ? 'page' : undefined}>Say hello <span aria-hidden="true">↗</span></a>

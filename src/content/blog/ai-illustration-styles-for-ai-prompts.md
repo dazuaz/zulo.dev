@@ -29,7 +29,7 @@ Models used for the recreations:
 - `gpt-image-1.5`
 - `gemini-3-pro-image-preview`
 
-The useful product decision is which visual language fits the job. These examples give a team something concrete to compare before committing to a direction. The prompts make that direction easier to repeat.
+I like being able to explore a visual direction before committing much time or budget to it. These examples make the choices concrete. The prompts make a chosen direction easier to repeat across a product or launch.
 
 ## The prompt method
 

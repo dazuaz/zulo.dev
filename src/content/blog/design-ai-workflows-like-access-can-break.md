@@ -15,7 +15,7 @@ tags:
 
 AI access is now a business dependency, and dependencies fail. Build workflows that can fall back to another model or run in a reduced mode. Losing the frontier model should reduce capability without stopping the work.
 
-The lesson from Fable 5 is operational. If a team depends on AI to do its work, product and engineering leaders need to decide what happens when that access changes.
+The lesson from Fable 5 reaches into the business. If I sell a product that depends on AI, the customer is relying on a promise I made. A provider changing its access rules does not make that promise disappear.
 
 Anthropic said a U.S. government directive required it to suspend access to Fable 5 and Mythos 5 for foreign nationals, so the company disabled both models globally. David Sacks argued on X that the government acted because Fable was a guarded version of Mythos whose restrictions had been bypassed.
 
@@ -71,7 +71,7 @@ In finance operations, a private model could handle document intake and extracti
 
 A home or device could keep basic intent recognition and routine automation local, then use cloud intelligence for complex requests. The house should not forget how to work because an API is down.
 
-## Make continuity someone's responsibility
+## Decide what the business can promise
 
 Before calling a workflow ready, I would ask the team to demonstrate an outage: disable the primary provider, run a representative workload, and show what completes, what waits, and what the operator sees.
 
@@ -79,6 +79,6 @@ That exercise needs an owner and an acceptable recovery time. It also needs a ca
 
 A provider can rate-limit, region-block, deprecate, reprice, filter, or withdraw a model. If the response is "wait for the vendor," the workflow is fragile. A lower-capability mode lets the work continue.
 
-The investment should match the consequence of interruption. Some work can wait. Core operations need a tested way to continue, with responsibility for that decision agreed before access disappears.
+I would weigh the cost of continuity against the cost of interruption: lost business, extra support, and damage to customer trust. Some work can wait. Where a customer depends on the product to operate, the price and the operating plan need to support the promise we make.
 
 Sources: [Anthropic's statement](https://www.anthropic.com/news/fable-mythos-access), [Anthropic on X](https://x.com/AnthropicAI/status/2065597531644743999), [David Sacks on X](https://x.com/DavidSacks/status/2065853007619588171), [FreeFable open letter](https://freefable.org/), and the Open Source Initiative's [Open Source AI Definition](https://opensource.org/ai/open-source-ai-definition).

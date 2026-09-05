@@ -12,7 +12,7 @@ const recentPosts = (await getCollection('blog', ({ data }) => !data.draft))
 
 <Layout
   title="Daniel Zuloaga"
-  description="Daniel Zuloaga works across product and engineering in lending. Notes on leading AI product work, setting priorities, and building dependable operations."
+  description="Daniel Zuloaga builds AI products for lending. Notes on finding opportunities, earning customer trust, and making the business and technology work together."
   nav="home"
 >
   <main id="main-content">
@@ -24,10 +24,10 @@ const recentPosts = (await getCollection('blog', ({ data }) => !data.draft))
 
       <section class="introduction" aria-labelledby="introduction-heading">
         <div class="bio">
-          <p class="eyebrow text-accent">Product &amp; engineering</p>
-          <h2 id="introduction-heading">I lead AI product work.<br /><em>And write about<br />what I learn.</em></h2>
-          <p>My work is in lending: connecting product direction, engineering, and day-to-day operations. <a class={accentLink} href="/blog/building-products-for-agents">Loan onboarding</a> is one example of how I think about that work.</p>
-          <p>My background spans engineering, product, and an MBA. I care about choosing the right problems and giving teams a clear path to dependable software.</p>
+          <p class="eyebrow text-accent">Business, product &amp; technology</p>
+          <h2 id="introduction-heading">I build useful products.<br /><em>And write about<br />what I learn.</em></h2>
+          <p>My work is in lending, finding places where AI can solve a problem worth paying to fix. <a class={accentLink} href="/blog/building-products-for-agents">Loan onboarding</a> is one example of how I think about that opportunity.</p>
+          <p>Engineering, product, and an MBA. I’m comfortable moving between the business case and the code, and taking responsibility for what happens after launch.</p>
           <a class:list={[focusRing, 'hello-link']} href="/contact">Let’s talk <span aria-hidden="true">↗</span></a>
         </div>
         <figure>

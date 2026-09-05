@@ -1,6 +1,6 @@
 ---
 title: "The uneven days of building with agents"
-description: "Building with agents keeps bringing me back to scope, priorities, and the judgment it takes to help a team ship useful work."
+description: "Building gets faster. Deciding what deserves the time, finding customers, and making the economics work still take judgment."
 pubDate: 2026-06-05
 updatedDate: 2026-09-05
 heroImage: "/blog/the-uneven-days-of-agentic-building/hero-ink-line-art.webp"
@@ -14,7 +14,7 @@ tags:
   - Product
 ---
 
-I have been building applications with agents for a while now. The honest summary is that it feels like weather. Staying close to the work keeps reminding me how much depends on the direction we give it.
+I have been building applications with agents for a while now. The honest summary is that it feels like weather. Staying close to the work keeps reminding me how easy it is to confuse building momentum with business progress.
 
 Some days everything clicks. You describe what you want, the agent runs with it, and you end the day further along than you had any right to be. You are not fighting the tool or second-guessing every turn. For a few hours, building software feels light again.
 
@@ -34,7 +34,7 @@ When they disagree, flow inverts. You spend more time cleaning up than creating.
 
 I have started treating flow as a signal instead of a mood. A good day usually means the task had a clear boundary and mistakes surfaced early. On a bad day, I often tried to force an unclear task forward with more prompts.
 
-That distinction changes what I need to do next. Clarify the outcome, narrow the scope, or decide which uncertainty we need to resolve before committing more time. A team needs those decisions as much as an agent does.
+That distinction changes what I need to do next. Sometimes the next step is a smaller build. Sometimes it is a conversation with a customer, or a decision to stop. I can spend a very productive afternoon answering a question that has little bearing on whether anyone needs the product.
 
 ## The new mess
 
@@ -56,7 +56,7 @@ Revenue is a crude test, but it cuts through the fog. Excitement scales easily. 
 
 Documentation should teach the next person and the next agent how the system works. Operations need readable errors. Production failures need tests. Domain knowledge captured this way ages better than a prompt trick.
 
-These are investments I can explain in terms of the team's ability to deliver and support the product, even when the tooling changes.
+These investments affect what it costs to serve a customer and whether that customer can depend on us. That gives me a way to judge their value even when the tooling changes.
 
 ## Differentiation in a world where code is cheap
 
@@ -82,12 +82,12 @@ I am learning to notice earlier when a path widens scope without reducing risk. 
 
 On a good day, that willingness to explore is useful. I can test two approaches before lunch, then send the agent through the boring work of hardening the better one. Experiments stay in another worktree, and the main branch stays calm.
 
-Before exploring, I want to know what decision the experiment will inform, how much time it deserves, and what evidence would make us stop. That gives curiosity a useful boundary and protects the team's commitments.
+Before exploring, I want to know what decision the experiment will inform, how much time and money it deserves, and what evidence would make us stop. Every promising idea competes with time we could spend talking to customers, improving the existing product, or finding a way to reach the next buyer.
 
 ## What I am learning
 
-Leading this work means making the outcome clear, keeping scope honest, and deciding when there is enough evidence to ship. Technical involvement helps me see the tradeoffs. It also gives me a responsibility to turn what I learn into decisions the team can act on.
+I want to stay close enough to build, sell, and understand what happens when someone depends on the result. Each gives me information the others miss. A customer conversation can change the product. A difficult implementation can change the economics. A support problem can change what we promise.
 
-Users still need help on Monday morning regardless of which model launched over the weekend. I want the team to know what matters that morning, who owns the next decision, and what can wait.
+My responsibility is to put those pieces together and decide where to commit. Users still need help on Monday morning regardless of which model launched over the weekend.
 
 Some days that direction is easy to see. Other days you have to walk back out of an alley first. Both are part of the job now.

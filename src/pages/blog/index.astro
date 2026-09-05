@@ -8,13 +8,13 @@ import { accentLink, displayTitle, proseBody } from '../../lib/classes'
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
 ---
 
-<Layout title="Writing | Daniel Zuloaga" description="Notes on leading AI product work, making engineering decisions, and building operations that teams can trust." nav="blog">
+<Layout title="Writing | Daniel Zuloaga" description="Notes on finding opportunities, building with AI, earning customer trust, and making the business work." nav="blog">
   <main id="main-content">
     <PageShell class="py-page-intro">
       <div class="flex flex-col gap-md">
         <h1 class={displayTitle}>Fieldnotes</h1>
         <p class={proseBody}>
-          Notes on where AI belongs in a product, how teams decide what to build, and what it takes to make the result dependable.
+          Notes on what’s worth building, how to find the people who need it, and what it takes to turn useful software into a business.
           Subscribe via <a class={accentLink} href="/rss.xml">RSS</a>.
         </p>
       </div>
