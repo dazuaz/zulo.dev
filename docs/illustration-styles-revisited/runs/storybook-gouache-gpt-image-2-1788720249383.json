@@ -1,0 +1,105 @@
+{
+  "style": "storybook-gouache",
+  "transport": "Vercel AI Gateway",
+  "requestedModel": "openai/gpt-image-2",
+  "startedAt": "2026-09-06T18:44:09.383Z",
+  "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: storybook gouache painting, matte opaque brush strokes,\nrich warm palette, layered painted texture.",
+  "sdkVersions": {
+    "ai": "7.0.93",
+    "gateway": "4.0.75"
+  },
+  "requests": [
+    {
+      "endpoint": "https://ai-gateway.vercel.sh/v4/ai/image-model",
+      "body": {
+        "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: storybook gouache painting, matte opaque brush strokes,\nrich warm palette, layered painted texture.",
+        "n": 1,
+        "size": "1024x1024",
+        "providerOptions": {
+          "openai": {
+            "quality": "high",
+            "output_format": "png"
+          }
+        }
+      }
+    }
+  ],
+  "settings": {
+    "size": "1024x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "completedAt": "2026-09-06T18:46:52.826Z",
+  "providerMetadata": {
+    "openai": {
+      "images": [
+        {
+          "created": 1788720412,
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "opaque",
+          "outputFormat": "png",
+          "imageTokens": 0,
+          "textTokens": 72
+        }
+      ]
+    },
+    "gateway": {
+      "routing": {
+        "originalModelId": "openai/gpt-image-2",
+        "resolvedProvider": "openai",
+        "fallbacksAvailable": [],
+        "planningReasoning": "System credentials planned for: openai. Total execution order: openai(system)",
+        "canonicalSlug": "openai/gpt-image-2",
+        "finalProvider": "openai",
+        "modelAttemptCount": 1,
+        "modelAttempts": [
+          {
+            "canonicalSlug": "openai/gpt-image-2",
+            "success": true,
+            "providerAttemptCount": 1,
+            "providerAttempts": [
+              {
+                "provider": "openai",
+                "credentialType": "system",
+                "success": true,
+                "startTime": 1788720249445,
+                "endTime": 1788720412530,
+                "statusCode": 200
+              }
+            ]
+          }
+        ],
+        "totalProviderAttemptCount": 1
+      },
+      "cost": "0.21108",
+      "marketCost": "0.21108",
+      "surchargeCost": "0",
+      "gatewayCost": "0.21108",
+      "inferenceCost": "0.21108",
+      "inputInferenceCost": "0",
+      "outputInferenceCost": "0.21108",
+      "generationId": "gen_01M1W0HYHWB2F182VSCAF3QH36"
+    }
+  },
+  "usage": {
+    "inputTokens": 72,
+    "outputTokens": 7024,
+    "totalTokens": 7096
+  },
+  "warnings": [],
+  "responses": [
+    {
+      "modelId": "openai/gpt-image-2",
+      "timestamp": "2026-09-06T18:46:52.826Z"
+    }
+  ],
+  "dimensions": {
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "8c1c2e48bc8e9b9aaca85bb171526c109138a311039f2cc045cc0e9aaf4616a9",
+  "output": "output/imagegen/illustration-styles-revisited/storybook-gouache-gpt-image-2.png",
+  "status": "success"
+}

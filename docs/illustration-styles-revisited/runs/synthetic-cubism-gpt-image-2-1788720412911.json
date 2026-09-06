@@ -1,0 +1,105 @@
+{
+  "style": "synthetic-cubism",
+  "transport": "Vercel AI Gateway",
+  "requestedModel": "openai/gpt-image-2",
+  "startedAt": "2026-09-06T18:46:52.911Z",
+  "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: bright colored Synthetic Cubism illustration, angular fractured planes,\noverlapping geometric forms, bold contrasting color blocks, subtle painted texture.",
+  "sdkVersions": {
+    "ai": "7.0.93",
+    "gateway": "4.0.75"
+  },
+  "requests": [
+    {
+      "endpoint": "https://ai-gateway.vercel.sh/v4/ai/image-model",
+      "body": {
+        "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: bright colored Synthetic Cubism illustration, angular fractured planes,\noverlapping geometric forms, bold contrasting color blocks, subtle painted texture.",
+        "n": 1,
+        "size": "1024x1024",
+        "providerOptions": {
+          "openai": {
+            "quality": "high",
+            "output_format": "png"
+          }
+        }
+      }
+    }
+  ],
+  "settings": {
+    "size": "1024x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "completedAt": "2026-09-06T18:49:10.562Z",
+  "providerMetadata": {
+    "openai": {
+      "images": [
+        {
+          "created": 1788720549,
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "opaque",
+          "outputFormat": "png",
+          "imageTokens": 0,
+          "textTokens": 78
+        }
+      ]
+    },
+    "gateway": {
+      "routing": {
+        "originalModelId": "openai/gpt-image-2",
+        "resolvedProvider": "openai",
+        "fallbacksAvailable": [],
+        "planningReasoning": "System credentials planned for: openai. Total execution order: openai(system)",
+        "canonicalSlug": "openai/gpt-image-2",
+        "finalProvider": "openai",
+        "modelAttemptCount": 1,
+        "modelAttempts": [
+          {
+            "canonicalSlug": "openai/gpt-image-2",
+            "success": true,
+            "providerAttemptCount": 1,
+            "providerAttempts": [
+              {
+                "provider": "openai",
+                "credentialType": "system",
+                "success": true,
+                "startTime": 1788720413042,
+                "endTime": 1788720549954,
+                "statusCode": 200
+              }
+            ]
+          }
+        ],
+        "totalProviderAttemptCount": 1
+      },
+      "cost": "0.21111",
+      "marketCost": "0.21111",
+      "surchargeCost": "0",
+      "gatewayCost": "0.21111",
+      "inferenceCost": "0.21111",
+      "inputInferenceCost": "0",
+      "outputInferenceCost": "0.21111",
+      "generationId": "gen_01M1W0PYB4C52AT2NKK344AS4N"
+    }
+  },
+  "usage": {
+    "inputTokens": 78,
+    "outputTokens": 7024,
+    "totalTokens": 7102
+  },
+  "warnings": [],
+  "responses": [
+    {
+      "modelId": "openai/gpt-image-2",
+      "timestamp": "2026-09-06T18:49:10.562Z"
+    }
+  ],
+  "dimensions": {
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "1ca6f93cb0bdb919e334b59ea984d4a6365a3d70d049fd0c31f37dc13075a101",
+  "output": "output/imagegen/illustration-styles-revisited/synthetic-cubism-gpt-image-2.png",
+  "status": "success"
+}

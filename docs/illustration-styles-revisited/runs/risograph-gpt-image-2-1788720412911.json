@@ -1,0 +1,105 @@
+{
+  "style": "risograph",
+  "transport": "Vercel AI Gateway",
+  "requestedModel": "openai/gpt-image-2",
+  "startedAt": "2026-09-06T18:46:52.911Z",
+  "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: risograph print aesthetic, two-color spot inks\n(fluorescent pink and teal), halftone dots, slight misregistration,\nvintage poster feel.",
+  "sdkVersions": {
+    "ai": "7.0.93",
+    "gateway": "4.0.75"
+  },
+  "requests": [
+    {
+      "endpoint": "https://ai-gateway.vercel.sh/v4/ai/image-model",
+      "body": {
+        "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: risograph print aesthetic, two-color spot inks\n(fluorescent pink and teal), halftone dots, slight misregistration,\nvintage poster feel.",
+        "n": 1,
+        "size": "1024x1024",
+        "providerOptions": {
+          "openai": {
+            "quality": "high",
+            "output_format": "png"
+          }
+        }
+      }
+    }
+  ],
+  "settings": {
+    "size": "1024x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "completedAt": "2026-09-06T18:49:09.887Z",
+  "providerMetadata": {
+    "openai": {
+      "images": [
+        {
+          "created": 1788720548,
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "opaque",
+          "outputFormat": "png",
+          "imageTokens": 0,
+          "textTokens": 85
+        }
+      ]
+    },
+    "gateway": {
+      "routing": {
+        "originalModelId": "openai/gpt-image-2",
+        "resolvedProvider": "openai",
+        "fallbacksAvailable": [],
+        "planningReasoning": "System credentials planned for: openai. Total execution order: openai(system)",
+        "canonicalSlug": "openai/gpt-image-2",
+        "finalProvider": "openai",
+        "modelAttemptCount": 1,
+        "modelAttempts": [
+          {
+            "canonicalSlug": "openai/gpt-image-2",
+            "success": true,
+            "providerAttemptCount": 1,
+            "providerAttempts": [
+              {
+                "provider": "openai",
+                "credentialType": "system",
+                "success": true,
+                "startTime": 1788720413038,
+                "endTime": 1788720548851,
+                "statusCode": 200
+              }
+            ]
+          }
+        ],
+        "totalProviderAttemptCount": 1
+      },
+      "cost": "0.211145",
+      "marketCost": "0.211145",
+      "surchargeCost": "0",
+      "gatewayCost": "0.211145",
+      "inferenceCost": "0.211145",
+      "inputInferenceCost": "0",
+      "outputInferenceCost": "0.211145",
+      "generationId": "gen_01M1W0PYB1RXAR6DQ67NJMJECM"
+    }
+  },
+  "usage": {
+    "inputTokens": 85,
+    "outputTokens": 7024,
+    "totalTokens": 7109
+  },
+  "warnings": [],
+  "responses": [
+    {
+      "modelId": "openai/gpt-image-2",
+      "timestamp": "2026-09-06T18:49:09.886Z"
+    }
+  ],
+  "dimensions": {
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "ab16598d44ccfb07445099aaab7f4c0b265b84c6247d96f4899c9645c18e3a28",
+  "output": "output/imagegen/illustration-styles-revisited/risograph-gpt-image-2.png",
+  "status": "success"
+}

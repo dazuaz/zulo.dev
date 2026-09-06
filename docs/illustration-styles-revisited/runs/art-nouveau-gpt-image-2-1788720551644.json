@@ -1,0 +1,105 @@
+{
+  "style": "art-nouveau",
+  "transport": "Vercel AI Gateway",
+  "requestedModel": "openai/gpt-image-2",
+  "startedAt": "2026-09-06T18:49:11.644Z",
+  "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: Art Nouveau poster illustration, flowing organic lines, ornamental botanical motifs,\nflat decorative color fields, vintage print texture, elegant composition, no typography.",
+  "sdkVersions": {
+    "ai": "7.0.93",
+    "gateway": "4.0.75"
+  },
+  "requests": [
+    {
+      "endpoint": "https://ai-gateway.vercel.sh/v4/ai/image-model",
+      "body": {
+        "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: Art Nouveau poster illustration, flowing organic lines, ornamental botanical motifs,\nflat decorative color fields, vintage print texture, elegant composition, no typography.",
+        "n": 1,
+        "size": "1024x1024",
+        "providerOptions": {
+          "openai": {
+            "quality": "high",
+            "output_format": "png"
+          }
+        }
+      }
+    }
+  ],
+  "settings": {
+    "size": "1024x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "completedAt": "2026-09-06T18:51:32.120Z",
+  "providerMetadata": {
+    "openai": {
+      "images": [
+        {
+          "created": 1788720691,
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "opaque",
+          "outputFormat": "png",
+          "imageTokens": 0,
+          "textTokens": 81
+        }
+      ]
+    },
+    "gateway": {
+      "routing": {
+        "originalModelId": "openai/gpt-image-2",
+        "resolvedProvider": "openai",
+        "fallbacksAvailable": [],
+        "planningReasoning": "System credentials planned for: openai. Total execution order: openai(system)",
+        "canonicalSlug": "openai/gpt-image-2",
+        "finalProvider": "openai",
+        "modelAttemptCount": 1,
+        "modelAttempts": [
+          {
+            "canonicalSlug": "openai/gpt-image-2",
+            "success": true,
+            "providerAttemptCount": 1,
+            "providerAttempts": [
+              {
+                "provider": "openai",
+                "credentialType": "system",
+                "success": true,
+                "startTime": 1788720552087,
+                "endTime": 1788720691659,
+                "statusCode": 200
+              }
+            ]
+          }
+        ],
+        "totalProviderAttemptCount": 1
+      },
+      "cost": "0.211125",
+      "marketCost": "0.211125",
+      "surchargeCost": "0",
+      "gatewayCost": "0.211125",
+      "inferenceCost": "0.211125",
+      "inputInferenceCost": "0",
+      "outputInferenceCost": "0.211125",
+      "generationId": "gen_01M1W0V5QCYCQP5SBAJ19T2GEJ"
+    }
+  },
+  "usage": {
+    "inputTokens": 81,
+    "outputTokens": 7024,
+    "totalTokens": 7105
+  },
+  "warnings": [],
+  "responses": [
+    {
+      "modelId": "openai/gpt-image-2",
+      "timestamp": "2026-09-06T18:51:32.120Z"
+    }
+  ],
+  "dimensions": {
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "77b7a5ed0b7f17a4c3e2ea07f9d68f9aaa4604c9df66cc0f894606b697f30fd8",
+  "output": "output/imagegen/illustration-styles-revisited/art-nouveau-gpt-image-2.png",
+  "status": "success"
+}

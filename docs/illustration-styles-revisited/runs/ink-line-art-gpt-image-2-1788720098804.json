@@ -1,0 +1,105 @@
+{
+  "style": "ink-line-art",
+  "transport": "Vercel AI Gateway",
+  "requestedModel": "openai/gpt-image-2",
+  "startedAt": "2026-09-06T18:41:38.804Z",
+  "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: black and white ink line art, varied line weight,\ncross-hatching for shadows, hand-drawn texture on off-white paper.",
+  "sdkVersions": {
+    "ai": "7.0.93",
+    "gateway": "4.0.75"
+  },
+  "requests": [
+    {
+      "endpoint": "https://ai-gateway.vercel.sh/v4/ai/image-model",
+      "body": {
+        "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: black and white ink line art, varied line weight,\ncross-hatching for shadows, hand-drawn texture on off-white paper.",
+        "n": 1,
+        "size": "1024x1024",
+        "providerOptions": {
+          "openai": {
+            "quality": "high",
+            "output_format": "png"
+          }
+        }
+      }
+    }
+  ],
+  "settings": {
+    "size": "1024x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "completedAt": "2026-09-06T18:44:09.275Z",
+  "providerMetadata": {
+    "openai": {
+      "images": [
+        {
+          "created": 1788720248,
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "opaque",
+          "outputFormat": "png",
+          "imageTokens": 0,
+          "textTokens": 79
+        }
+      ]
+    },
+    "gateway": {
+      "routing": {
+        "originalModelId": "openai/gpt-image-2",
+        "resolvedProvider": "openai",
+        "fallbacksAvailable": [],
+        "planningReasoning": "System credentials planned for: openai. Total execution order: openai(system)",
+        "canonicalSlug": "openai/gpt-image-2",
+        "finalProvider": "openai",
+        "modelAttemptCount": 1,
+        "modelAttempts": [
+          {
+            "canonicalSlug": "openai/gpt-image-2",
+            "success": true,
+            "providerAttemptCount": 1,
+            "providerAttempts": [
+              {
+                "provider": "openai",
+                "credentialType": "system",
+                "success": true,
+                "startTime": 1788720098961,
+                "endTime": 1788720248872,
+                "statusCode": 200
+              }
+            ]
+          }
+        ],
+        "totalProviderAttemptCount": 1
+      },
+      "cost": "0.211115",
+      "marketCost": "0.211115",
+      "surchargeCost": "0",
+      "gatewayCost": "0.211115",
+      "inferenceCost": "0.211115",
+      "inputInferenceCost": "0",
+      "outputInferenceCost": "0.211115",
+      "generationId": "gen_01M1W0DBKFSYMAFGE0GVCNP214"
+    }
+  },
+  "usage": {
+    "inputTokens": 79,
+    "outputTokens": 7024,
+    "totalTokens": 7103
+  },
+  "warnings": [],
+  "responses": [
+    {
+      "modelId": "openai/gpt-image-2",
+      "timestamp": "2026-09-06T18:44:09.275Z"
+    }
+  ],
+  "dimensions": {
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "fc316a859b3c0b4d123fd2343fd0a92cc04a8adcdbc4e2359f385588ee668db1",
+  "output": "output/imagegen/illustration-styles-revisited/ink-line-art-gpt-image-2.png",
+  "status": "success"
+}

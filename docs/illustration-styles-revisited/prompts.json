@@ -1,5 +1,5 @@
 {
-  "status": "awaiting_api_keys",
+  "status": "generated_and_inspected",
   "source_post": "ai-illustration-styles-for-ai-prompts",
   "base_prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.",
   "protocol": {
@@ -108,5 +108,10 @@
       "style": "Style treatment: Art Nouveau poster illustration, flowing organic lines, ornamental botanical motifs,\nflat decorative color fields, vintage print texture, elegant composition, no typography.",
       "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: Art Nouveau poster illustration, flowing organic lines, ornamental botanical motifs,\nflat decorative color fields, vintage print texture, elegant composition, no typography."
     }
-  ]
+  ],
+  "transport": "Vercel AI Gateway",
+  "gateway_models": {
+    "openai": "openai/gpt-image-2",
+    "google": "google/gemini-3.1-flash-image"
+  }
 }

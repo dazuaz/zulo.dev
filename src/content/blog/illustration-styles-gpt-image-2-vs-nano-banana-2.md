@@ -1,8 +1,12 @@
 ---
 title: "11 illustration styles, revisited: GPT Image 2 vs. Nano Banana 2"
-description: "The same bicycle scene and 11 illustration prompts, prepared for a fresh visual comparison of GPT Image 2 and Nano Banana 2."
+description: "22 fresh images, 11 unchanged prompts: a side-by-side comparison of GPT Image 2 and Nano Banana 2, with notes on style, detail, and composition."
 pubDate: 2026-09-06
 draft: true
+heroImage: "/blog/illustration-styles-revisited/paper-cut-gpt-image-2.webp"
+heroImageAlt: "GPT Image 2 paper-cut illustration of a red bicycle courier on an arched stone bridge, framed by layered paper trees at sunrise."
+heroImageWidth: 1024
+heroImageHeight: 1024
 tags:
   - AI
   - Illustration
@@ -11,9 +15,9 @@ tags:
   - Creative Workflow
 ---
 
-> Working draft: image generation and observations are pending. The sections below describe what to inspect, not results from completed tests.
+> The images and draft prose were produced with AI tools. The notes describe the specific outputs shown. The hero is GPT Image 2’s paper-cut result, also included below.
 
-A red bicycle courier crosses a stone bridge at sunrise. There is a river below, a city behind, and enough morning mist to soften the distance. It is the same scene from my [original illustration style comparison](/blog/ai-illustration-styles-for-ai-prompts/), and I want to keep it that way.
+A red bicycle courier crosses a stone bridge at sunrise. There is a river below, a city behind, and enough morning mist to soften the distance. It is the same scene from my [original illustration style comparison](/blog/ai-illustration-styles-for-ai-prompts/), with the same 11 style prompts.
 
 Keeping the scene gives us something useful to compare. The bridge has broad surfaces, the bicycle has fine structure, and the water has reflections. Each style has to decide what to do with all three.
 
@@ -27,11 +31,13 @@ Nano Banana 2 is Google's Gemini 3.1 Flash Image (`gemini-3.1-flash-image`). Goo
 
 That makes this a continuation of the original exercise with a new pair. The old examples remain in the old post with their original model labels.
 
-## How this comparison will work
+## How I ran the comparison
 
-Each model will receive the original scene prompt followed by exactly one original style block. There are no reference images, follow-up edits, or search tools. The plan is one successful image per style and model: 22 images, with no rerolls to choose a more flattering result.
+On September 6, 2026, I generated these 22 images through Vercel AI Gateway, selecting `openai/gpt-image-2` and `google/gemini-3.1-flash-image`. [Gateway image generation guide](https://vercel.com/docs/ai-gateway/modalities/image-generation/ai-sdk).
 
-Both outputs will be square: GPT Image 2 at 1024 × 1024 with high quality, and Nano Banana 2 at its 1K setting with a 1:1 aspect ratio. Those are documented controls, not equivalent compute budgets. This is a visual exercise, not a cost or latency benchmark. [OpenAI output controls](https://developers.openai.com/api/docs/guides/image-generation#customize-image-output), [Gemini image controls](https://ai.google.dev/gemini-api/docs/image-generation).
+Each request used the original scene prompt followed by exactly one original style block. There are no reference images, follow-up edits, or search tools. I kept the first successful image per style and model, with no rerolls to choose a more flattering result.
+
+The requested outputs were square: GPT Image 2 at 1024 × 1024 with high quality, and Nano Banana 2 at its 1K setting with a 1:1 aspect ratio. Those are documented controls, not equivalent compute budgets. These settings make the visual comparison practical; they do not support a cost or latency ranking. [OpenAI output controls](https://developers.openai.com/api/docs/guides/image-generation#customize-image-output), [Gemini image controls](https://ai.google.dev/gemini-api/docs/image-generation).
 
 I am also preserving the original ambiguities: “red bicycle courier” leaves open whether the bicycle, clothing, or both should be red, and some style palettes conflict with that color. Those interpretations belong in the observations, not automatically in a list of errors.
 
@@ -45,13 +51,13 @@ small city skyline in the background, trees on both sides, soft morning mist,
 centered composition, full scene, no text or logos.
 ```
 
-Append one of the following treatments without changing the scene. In each pair, GPT Image 2 will appear first and Nano Banana 2 second.
+Append one treatment to the base prompt. In each pair, GPT Image 2 appears first and Nano Banana 2 second. Select an image to see it at full size.
 
 ## 1) Flat Vector Editorial
 
-Flat illustration makes a useful opening test because there is little texture to hide behind. The courier, bridge, and skyline have to read through silhouettes and color blocks. At thumbnail size, look for a bicycle that remains distinct from the rider and a bridge that does not dissolve into the river.
+Nano Banana 2 gives the trees distinct geometric silhouettes and keeps large areas of the sky cream. GPT Image 2 fills the banks with smaller leaves, rocks, and layered shading. Both produce an inviting sunrise, but Nano Banana's output is closer to the simplified shapes in the style block.
 
-The palette instruction also creates a tension: the base prompt includes “red,” while the style specifies teal, coral, and cream. Notice how each model resolves that choice.
+They also interpret the courier differently: GPT uses a conventional bicycle; Nano Banana adds a front cargo box. That is a scene choice, separate from the question of which image feels more convincingly flat.
 
 Prompt adjustment:
 
@@ -61,13 +67,26 @@ crisp edges, minimal shading, limited palette of teal coral cream,
 subtle grain texture.
 ```
 
-<!-- comparison:flat-vector — insert verified image pair and observed differences after generation -->
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">GPT Image 2</figcaption>
+<a href="/blog/illustration-styles-revisited/flat-vector-gpt-image-2.webp" aria-label="View GPT Image 2 flat vector editorial image at full size">
+<img src="/blog/illustration-styles-revisited/flat-vector-gpt-image-2.webp" alt="GPT Image 2: A small courier on a conventional bicycle crosses a bridge amid detailed teal foliage and a warm orange skyline." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">Nano Banana 2</figcaption>
+<a href="/blog/illustration-styles-revisited/flat-vector-nano-banana-2.webp" aria-label="View Nano Banana 2 flat vector editorial image at full size">
+<img src="/blog/illustration-styles-revisited/flat-vector-nano-banana-2.webp" alt="Nano Banana 2: A courier rides a red cargo bicycle across a bridge, surrounded by geometric teal and coral trees." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+</div>
 
 ## 2) Isometric Illustration
 
-Here the test is perspective. Follow the bridge edges and the building faces: do they suggest a coherent set of axes, or does the scene slip back into ordinary perspective? A raised camera angle alone does not establish an isometric treatment.
+The bridge runs diagonally through both images, but the treatment differs sharply. GPT Image 2 produces a detailed aerial scene with textured stone, leafy trees, and atmospheric distance. Nano Banana 2 uses clean parallel bridge edges, outlined tree shapes, and a small cluster of geometric buildings.
 
-The prompt leaves the exact angle open. That gives each model room to interpret the scene, but it also means differences in framing should be described separately from differences in geometric consistency.
+For this technical illustration brief, I would start with Nano Banana's version. GPT's is appealing as an environment rendering, but looking down at a bridge is not by itself the same as adopting an isometric drawing language.
 
 Prompt adjustment:
 
@@ -76,13 +95,26 @@ Style treatment: isometric technical illustration, axonometric perspective,
 precise geometry, long soft shadows, muted cyan and warm orange palette.
 ```
 
-<!-- comparison:isometric — insert verified image pair and observed differences after generation -->
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">GPT Image 2</figcaption>
+<a href="/blog/illustration-styles-revisited/isometric-gpt-image-2.webp" aria-label="View GPT Image 2 isometric illustration image at full size">
+<img src="/blog/illustration-styles-revisited/isometric-gpt-image-2.webp" alt="GPT Image 2: An aerial view of a stone bridge, a small bicycle courier, leafy trees, and a detailed city at sunrise." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">Nano Banana 2</figcaption>
+<a href="/blog/illustration-styles-revisited/isometric-nano-banana-2.webp" aria-label="View Nano Banana 2 isometric illustration image at full size">
+<img src="/blog/illustration-styles-revisited/isometric-nano-banana-2.webp" alt="Nano Banana 2: An outlined diagonal bridge with parallel edges, a bicycle courier, geometric trees, and pale cyan buildings." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+</div>
 
 ## 3) Ink Line Art
 
-Ink removes most of the palette and puts the work into marks. Look at how each image separates the mist, water, and distant buildings with line weight, spacing, or hatching. A gray gradient may look attractive while sidestepping the requested technique.
+GPT Image 2 commits to monochrome. Dense marks build the trees and riverbanks around a single broad bridge arch, while the distant city fades into the paper. Nano Banana 2 draws a lighter three-arch bridge and presents the illustration as a sheet casting a small shadow.
 
-The bicycle is a useful stress point. Its thin frame and overlapping spokes ask the model to keep small structures legible without turning the whole foreground into a knot of black lines.
+Nano Banana also retains red on the backpack and bicycle. The base scene includes “red”; the style asks for black and white. Here the models visibly resolve that conflict differently, and I prefer GPT's choice for a strictly monochrome brief.
 
 Prompt adjustment:
 
@@ -91,13 +123,26 @@ Style treatment: black and white ink line art, varied line weight,
 cross-hatching for shadows, hand-drawn texture on off-white paper.
 ```
 
-<!-- comparison:ink-line-art — insert verified image pair and observed differences after generation -->
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">GPT Image 2</figcaption>
+<a href="/blog/illustration-styles-revisited/ink-line-art-gpt-image-2.webp" aria-label="View GPT Image 2 ink line art image at full size">
+<img src="/blog/illustration-styles-revisited/ink-line-art-gpt-image-2.webp" alt="GPT Image 2: Monochrome ink drawing of a courier above one broad bridge arch, with dense hatching in the riverbanks and trees." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">Nano Banana 2</figcaption>
+<a href="/blog/illustration-styles-revisited/ink-line-art-nano-banana-2.webp" aria-label="View Nano Banana 2 ink line art image at full size">
+<img src="/blog/illustration-styles-revisited/ink-line-art-nano-banana-2.webp" alt="Nano Banana 2: Ink drawing on a depicted sheet of paper: a courier with red accents crosses a three-arch bridge." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+</div>
 
 ## 4) Watercolor
 
-Watercolor asks for softness without losing the subject. The river and morning mist offer room for transparent washes; the bicycle still needs enough definition to be recognizable. Look for changes in pigment density and edges that feel absorbed into paper.
+GPT Image 2 lets the washes fill the frame, with a bright warm orange reflection and darker, granular banks. The courier is small against that landscape. Nano Banana 2 leaves an irregular white margin, outlines more of the stonework, and makes the rider larger.
 
-A paper texture laid over a smooth digital painting is a different interpretation. The comparison should make that distinction visible, rather than treating every pale, softly colored image as equally successful watercolor.
+Both show paper texture and softened pigment edges. The distinction I notice is between a landscape painting that contains a courier and an illustration organized around that courier. For a small editorial image, Nano Banana's larger subject is easier to pick out.
 
 Prompt adjustment:
 
@@ -106,13 +151,26 @@ Style treatment: watercolor illustration on cold-press paper,
 transparent washes, soft edges, pigment blooms, light granulation.
 ```
 
-<!-- comparison:watercolor — insert verified image pair and observed differences after generation -->
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">GPT Image 2</figcaption>
+<a href="/blog/illustration-styles-revisited/watercolor-gpt-image-2.webp" aria-label="View GPT Image 2 watercolor image at full size">
+<img src="/blog/illustration-styles-revisited/watercolor-gpt-image-2.webp" alt="GPT Image 2: A small courier crosses a bridge in a full-frame watercolor landscape with granular banks and a bright orange reflection." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">Nano Banana 2</figcaption>
+<a href="/blog/illustration-styles-revisited/watercolor-nano-banana-2.webp" aria-label="View Nano Banana 2 watercolor image at full size">
+<img src="/blog/illustration-styles-revisited/watercolor-nano-banana-2.webp" alt="Nano Banana 2: A larger courier and outlined stone bridge sit within soft watercolor washes and an irregular white paper margin." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+</div>
 
 ## 5) Storybook Gouache
 
-Gouache gives us a neighboring style with a different material logic. The prompt asks for opaque paint, matte surfaces, and layered brushwork. Compare the bridge and skyline with their watercolor counterparts: do the painted shapes feel built up rather than washed in?
+Both models move toward warmer, more opaque-looking paint than in the watercolor pair. GPT Image 2 uses a saturated yellow sky, dense foliage, and a broad arch reflected in the river. Nano Banana 2 gives the courier more space and uses larger, easier-to-read painted shapes in the water and clouds.
 
-For a storybook illustration, I would also want an inviting focal point. That is a preference beyond the literal prompt. Rich surface texture may appeal less to me if it makes the courier difficult to find.
+I prefer GPT's atmosphere as a landscape and Nano Banana's clearer character emphasis for a storybook page. Those are choices about the intended use; neither preference proves that one model reproduces gouache more faithfully in general.
 
 Prompt adjustment:
 
@@ -121,13 +179,26 @@ Style treatment: storybook gouache painting, matte opaque brush strokes,
 rich warm palette, layered painted texture.
 ```
 
-<!-- comparison:storybook-gouache — insert verified image pair and observed differences after generation -->
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">GPT Image 2</figcaption>
+<a href="/blog/illustration-styles-revisited/storybook-gouache-gpt-image-2.webp" aria-label="View GPT Image 2 storybook gouache image at full size">
+<img src="/blog/illustration-styles-revisited/storybook-gouache-gpt-image-2.webp" alt="GPT Image 2: A courier crosses one broad bridge arch beneath a saturated yellow sky and dense painted foliage." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">Nano Banana 2</figcaption>
+<a href="/blog/illustration-styles-revisited/storybook-gouache-nano-banana-2.webp" aria-label="View Nano Banana 2 storybook gouache image at full size">
+<img src="/blog/illustration-styles-revisited/storybook-gouache-nano-banana-2.webp" alt="Nano Banana 2: A prominent courier crosses a three-arch bridge, with broad painted shapes in the warm sky and reflected water." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+</div>
 
 ## 6) Paper-Cut Collage
 
-Does the bicycle seem made from the same paper as the bridge? That is the first detail I would inspect here. Paper-cut collage turns depth into layers, with cut edges and small cast shadows separating the rider, river, and skyline.
+This is one of the clearest material comparisons. GPT Image 2 gives the clouds, leaves, and foreground reeds thick-looking edges and pronounced shadows. Its paper grain is visible across the scene. Nano Banana 2 uses smoother layers, a lighter palette, and a winding river assembled from pale shapes.
 
-A photographed miniature can satisfy this prompt too. The useful question is whether paper fibers, cut edges, and layering remain visible. Preferring a flatter composition would be an aesthetic choice, not evidence that the model ignored the instruction.
+Both read as paper constructions. GPT's version feels more tactile to me; Nano Banana's feels cleaner and more graphic. The bicycle remains finely detailed in both, which creates a contrast with the broad cut-paper forms around it.
 
 Prompt adjustment:
 
@@ -136,13 +207,26 @@ Style treatment: paper-cut collage illustration, layered cut-paper shapes,
 tactile paper fibers, soft depth shadows between layers.
 ```
 
-<!-- comparison:paper-cut — insert verified image pair and observed differences after generation -->
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">GPT Image 2</figcaption>
+<a href="/blog/illustration-styles-revisited/paper-cut-gpt-image-2.webp" aria-label="View GPT Image 2 paper-cut collage image at full size">
+<img src="/blog/illustration-styles-revisited/paper-cut-gpt-image-2.webp" alt="GPT Image 2: A red bicycle courier crosses a bridge framed by thick layered paper leaves, pronounced shadows, and visible paper grain." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">Nano Banana 2</figcaption>
+<a href="/blog/illustration-styles-revisited/paper-cut-nano-banana-2.webp" aria-label="View Nano Banana 2 paper-cut collage image at full size">
+<img src="/blog/illustration-styles-revisited/paper-cut-nano-banana-2.webp" alt="Nano Banana 2: A bicycle courier crosses a pale stone bridge in a smooth paper-cut scene with a winding layered river." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+</div>
 
 ## 7) Risograph Print
 
-The risograph treatment is a test of restraint. Two spot colors, halftone dots, and slight misregistration give it a specific print vocabulary. Extra colors and smooth lighting may enrich the scene while weakening that vocabulary.
+GPT Image 2 pushes the pink and teal much harder: the sky is pink, the banks are teal, and coarse speckling covers the printed surface. Nano Banana 2 is more restrained in its color, with a finely screened landscape and conspicuous pink-and-teal offsets around the rider and rectangular image border.
 
-Look where the inks appear to overlap. Does the image suggest separate printed layers, or simply use pink and teal as a general palette? The distinction is small in words and easy to see when the images sit together.
+Both retain substantial scenery detail. For a bold two-color poster, I would choose GPT's output from this pair. Nano Banana's version interests me more as an image of a worn printed photograph.
 
 Prompt adjustment:
 
@@ -152,13 +236,26 @@ Style treatment: risograph print aesthetic, two-color spot inks
 vintage poster feel.
 ```
 
-<!-- comparison:risograph — insert verified image pair and observed differences after generation -->
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">GPT Image 2</figcaption>
+<a href="/blog/illustration-styles-revisited/risograph-gpt-image-2.webp" aria-label="View GPT Image 2 risograph print image at full size">
+<img src="/blog/illustration-styles-revisited/risograph-gpt-image-2.webp" alt="GPT Image 2: A courier and bridge rendered in strongly saturated pink and teal with coarse speckling across the printed scene." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">Nano Banana 2</figcaption>
+<a href="/blog/illustration-styles-revisited/risograph-nano-banana-2.webp" aria-label="View Nano Banana 2 risograph print image at full size">
+<img src="/blog/illustration-styles-revisited/risograph-nano-banana-2.webp" alt="Nano Banana 2: A finely screened bridge landscape with pink and teal offsets around a large courier and the rectangular print border." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+</div>
 
 ## 8) Clay 3D / Claymation Look
 
-What happens to the river when the scene becomes clay? It could become another sculpted surface or retain the look of real water. That choice may do as much to establish a miniature world as the rounded courier and handmade bridge. Surface irregularities and soft lighting offer other clues.
+Both outputs convincingly turn the rider, bridge, and trees into a miniature scene. GPT Image 2 gives the stones and foliage rougher surfaces, with a softly blurred city behind them. Nano Banana 2 builds more regular cobbles and trees covered in small, repeated leaf shapes.
 
-Shallow depth of field is part of this prompt, so background softness is expected. Check whether it supports the miniature effect without blurring away the requested city skyline entirely.
+The water stays glossy and reflective in both. That keeps the sunrise legible while contrasting with the modeled surfaces around it. This pair feels closer in overall interpretation than the flat-vector or isometric examples; the differences are mostly in surface texture and construction.
 
 Prompt adjustment:
 
@@ -167,13 +264,26 @@ Style treatment: 3D claymation miniature style, rounded handcrafted forms,
 soft studio lighting, tactile clay texture, shallow depth of field.
 ```
 
-<!-- comparison:clay-3d — insert verified image pair and observed differences after generation -->
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">GPT Image 2</figcaption>
+<a href="/blog/illustration-styles-revisited/clay-3d-gpt-image-2.webp" aria-label="View GPT Image 2 clay 3d / claymation look image at full size">
+<img src="/blog/illustration-styles-revisited/clay-3d-gpt-image-2.webp" alt="GPT Image 2: A clay courier crosses a rough stone miniature bridge, with lumpy foliage, glossy water, and a blurred skyline." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">Nano Banana 2</figcaption>
+<a href="/blog/illustration-styles-revisited/clay-3d-nano-banana-2.webp" aria-label="View Nano Banana 2 clay 3d / claymation look image at full size">
+<img src="/blog/illustration-styles-revisited/clay-3d-nano-banana-2.webp" alt="Nano Banana 2: A clay courier crosses a cobbled miniature bridge between trees covered in small repeated leaf shapes." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+</div>
 
 ## 9) Synthetic Cubism
 
-Synthetic Cubism gives the models permission to break the scene into overlapping planes. The challenge is to preserve enough relationships for the courier, bridge, and river to remain readable while changing how space is represented.
+GPT Image 2 spreads colored planes across the sky, bridge, water, and trees, with painted texture connecting the pieces. Nano Banana 2 gives those planes dark outlines and a strong rectangular border, producing something closer to a stained-glass or mosaic effect. Its larger courier is broken into angular shapes too.
 
-Look beyond a layer of triangles. Does the geometry reorganize the scene, or merely decorate an otherwise conventional picture? This is a useful place to separate an adventurous interpretation from a recognizable subject wearing a geometric surface treatment.
+Both keep a recognizable, conventionally arranged bridge scene. I would describe these as geometric interpretations of the prompt rather than use either image as a definitive example of Synthetic Cubism. GPT's continuous color planes are my preference here.
 
 Prompt adjustment:
 
@@ -182,13 +292,26 @@ Style treatment: bright colored Synthetic Cubism illustration, angular fractured
 overlapping geometric forms, bold contrasting color blocks, subtle painted texture.
 ```
 
-<!-- comparison:synthetic-cubism — insert verified image pair and observed differences after generation -->
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">GPT Image 2</figcaption>
+<a href="/blog/illustration-styles-revisited/synthetic-cubism-gpt-image-2.webp" aria-label="View GPT Image 2 synthetic cubism image at full size">
+<img src="/blog/illustration-styles-revisited/synthetic-cubism-gpt-image-2.webp" alt="GPT Image 2: Painted colored planes extend continuously across a bicycle courier, arched bridge, sunrise, and reflected water." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">Nano Banana 2</figcaption>
+<a href="/blog/illustration-styles-revisited/synthetic-cubism-nano-banana-2.webp" aria-label="View Nano Banana 2 synthetic cubism image at full size">
+<img src="/blog/illustration-styles-revisited/synthetic-cubism-nano-banana-2.webp" alt="Nano Banana 2: A large faceted courier rides through a bridge scene with dark-outlined mosaic shapes and a rectangular border." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+</div>
 
 ## 10) Linocut Print
 
-The bridge offers broad shapes; the bicycle asks for fine detail. Linocut puts those competing demands into the relationship between ink and the areas left unprinted. Does simplifying the bicycle keep it readable beside the larger printed forms?
+GPT Image 2 interprets “two-tone” as rusty red against cream paper. Fine scraped-looking marks describe the water, foliage, and stone. Nano Banana 2 adds heavy black shapes alongside the red, carving the leaves and reflections into a much stronger contrast.
 
-The prompt asks for carved marks, rough edges, and two-tone contrast. Shadows that seem constructed from cuts carry a different character from soft shading. This pair should make the models’ choices about detail and simplification particularly visible.
+The difference changes how the bridge reads: GPT's arch sits within a broad printed landscape; Nano Banana's dark foreground makes the structure feel heavier and the rider more prominent. I would choose Nano Banana's version for a forceful print treatment, and GPT's for the quieter single-ink effect.
 
 Prompt adjustment:
 
@@ -197,13 +320,26 @@ Style treatment: linocut print illustration, carved line textures, high contrast
 rough hand-carved edges, handmade press texture.
 ```
 
-<!-- comparison:linocut — insert verified image pair and observed differences after generation -->
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">GPT Image 2</figcaption>
+<a href="/blog/illustration-styles-revisited/linocut-gpt-image-2.webp" aria-label="View GPT Image 2 linocut print image at full size">
+<img src="/blog/illustration-styles-revisited/linocut-gpt-image-2.webp" alt="GPT Image 2: Rusty red ink on cream paper forms a courier and bridge, with fine scraped-looking marks in foliage and water." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">Nano Banana 2</figcaption>
+<a href="/blog/illustration-styles-revisited/linocut-nano-banana-2.webp" aria-label="View Nano Banana 2 linocut print image at full size">
+<img src="/blog/illustration-styles-revisited/linocut-nano-banana-2.webp" alt="Nano Banana 2: Heavy black and rusty red carved shapes frame a prominent courier and bridge above sharply patterned reflections." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+</div>
 
 ## 11) Art Nouveau Poster Illustration
 
-Art Nouveau brings ornament into the composition. Flowing lines and botanical motifs can connect the trees, bridge, and frame, but they can also compete with the courier. Look for decoration that helps organize the scene.
+GPT Image 2 wraps the landscape in long gold curves, red flowers, and an oval opening. Nano Banana 2 uses a denser rectangular botanical border and carries the ornament onto the bridge itself. Both leave out lettering, as requested.
 
-The prompt explicitly excludes typography, even though it asks for a poster treatment. That makes any invented lettering worth recording. Decorative richness and instruction following are separate observations, and neither should disappear inside a single overall judgment.
+The distinction is where the decoration lives. GPT's sweeping border frames a relatively naturalistic landscape; Nano Banana's outlines and repeated motifs extend further into the scene. I prefer Nano Banana's more integrated ornament here, though GPT's broad curves give it a strong poster silhouette.
 
 Prompt adjustment:
 
@@ -212,15 +348,28 @@ Style treatment: Art Nouveau poster illustration, flowing organic lines, ornamen
 flat decorative color fields, vintage print texture, elegant composition, no typography.
 ```
 
-<!-- comparison:art-nouveau — insert verified image pair and observed differences after generation -->
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">GPT Image 2</figcaption>
+<a href="/blog/illustration-styles-revisited/art-nouveau-gpt-image-2.webp" aria-label="View GPT Image 2 art nouveau poster illustration image at full size">
+<img src="/blog/illustration-styles-revisited/art-nouveau-gpt-image-2.webp" alt="GPT Image 2: A bicycle courier and stone bridge are enclosed by an oval opening, sweeping gold curves, and red flowers." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">Nano Banana 2</figcaption>
+<a href="/blog/illustration-styles-revisited/art-nouveau-nano-banana-2.webp" aria-label="View Nano Banana 2 art nouveau poster illustration image at full size">
+<img src="/blog/illustration-styles-revisited/art-nouveau-nano-banana-2.webp" alt="Nano Banana 2: A bicycle courier crosses an ornate bridge surrounded by a dense rectangular botanical border and repeated leaf motifs." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+</div>
 
-## What to look for across the pairs
+## What I would take into the next image
 
-Start with the scene, then the style. Is the courier crossing a recognizable bridge? Does the bicycle hold together? Can you still find the river and skyline? After that, inspect the treatment: edges, palette, materials, and the way depth is constructed.
+In these outputs, Nano Banana 2 is my starting point for flat or technical illustration. Its geometric trees and cleaner isometric bridge respond more directly to those style blocks. GPT Image 2 gives me the paper texture I prefer and resolves the ink prompt's color conflict in favor of monochrome.
 
-An image can be appealing and miss part of the instruction. It can also follow the prompt closely without being the picture you would choose for a particular page. Keeping those judgments separate makes the comparison more useful than assigning a winner from first impressions.
+Framing matters too. Nano Banana's courier is larger in the watercolor, gouache, and cubism pairs, which helps at small display sizes. GPT often gives more space to the landscape. Neither choice is automatically better; a storybook page and a landscape print ask different things of the same scene.
 
-For your own project, choose a few styles that fit the intended use and repeat the exercise with your actual subject. A technique that works for this bicycle scene may behave differently with a portrait, a crowded room, or a diagram. Keep the prompt blocks as a starting point, and judge the result at the size and in the context where you actually plan to use it.
+For your next project, pick two or three treatments and run them with the subject you actually need. Inspect the image where it will be used: the thumbnail, the page, the poster. A beautiful river reflection is little help if the courier disappears at that size.
 
 ## References
 

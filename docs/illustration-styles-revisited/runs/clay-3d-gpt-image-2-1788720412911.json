@@ -1,0 +1,105 @@
+{
+  "style": "clay-3d",
+  "transport": "Vercel AI Gateway",
+  "requestedModel": "openai/gpt-image-2",
+  "startedAt": "2026-09-06T18:46:52.911Z",
+  "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: 3D claymation miniature style, rounded handcrafted forms,\nsoft studio lighting, tactile clay texture, shallow depth of field.",
+  "sdkVersions": {
+    "ai": "7.0.93",
+    "gateway": "4.0.75"
+  },
+  "requests": [
+    {
+      "endpoint": "https://ai-gateway.vercel.sh/v4/ai/image-model",
+      "body": {
+        "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: 3D claymation miniature style, rounded handcrafted forms,\nsoft studio lighting, tactile clay texture, shallow depth of field.",
+        "n": 1,
+        "size": "1024x1024",
+        "providerOptions": {
+          "openai": {
+            "quality": "high",
+            "output_format": "png"
+          }
+        }
+      }
+    }
+  ],
+  "settings": {
+    "size": "1024x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "completedAt": "2026-09-06T18:49:11.590Z",
+  "providerMetadata": {
+    "openai": {
+      "images": [
+        {
+          "created": 1788720551,
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "opaque",
+          "outputFormat": "png",
+          "imageTokens": 0,
+          "textTokens": 79
+        }
+      ]
+    },
+    "gateway": {
+      "routing": {
+        "originalModelId": "openai/gpt-image-2",
+        "resolvedProvider": "openai",
+        "fallbacksAvailable": [],
+        "planningReasoning": "System credentials planned for: openai. Total execution order: openai(system)",
+        "canonicalSlug": "openai/gpt-image-2",
+        "finalProvider": "openai",
+        "modelAttemptCount": 1,
+        "modelAttempts": [
+          {
+            "canonicalSlug": "openai/gpt-image-2",
+            "success": true,
+            "providerAttemptCount": 1,
+            "providerAttempts": [
+              {
+                "provider": "openai",
+                "credentialType": "system",
+                "success": true,
+                "startTime": 1788720412987,
+                "endTime": 1788720551381,
+                "statusCode": 200
+              }
+            ]
+          }
+        ],
+        "totalProviderAttemptCount": 1
+      },
+      "cost": "0.211115",
+      "marketCost": "0.211115",
+      "surchargeCost": "0",
+      "gatewayCost": "0.211115",
+      "inferenceCost": "0.211115",
+      "inputInferenceCost": "0",
+      "outputInferenceCost": "0.211115",
+      "generationId": "gen_01M1W0PY87J52K52XT0J5KQ64W"
+    }
+  },
+  "usage": {
+    "inputTokens": 79,
+    "outputTokens": 7024,
+    "totalTokens": 7103
+  },
+  "warnings": [],
+  "responses": [
+    {
+      "modelId": "openai/gpt-image-2",
+      "timestamp": "2026-09-06T18:49:11.590Z"
+    }
+  ],
+  "dimensions": {
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "9b110e53423b846c0d083de1ea16f76a902b02cae496ffb5e5d29ea5a573b2a0",
+  "output": "output/imagegen/illustration-styles-revisited/clay-3d-gpt-image-2.png",
+  "status": "success"
+}

@@ -1,0 +1,105 @@
+{
+  "style": "isometric",
+  "transport": "Vercel AI Gateway",
+  "requestedModel": "openai/gpt-image-2",
+  "startedAt": "2026-09-06T18:41:38.794Z",
+  "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: isometric technical illustration, axonometric perspective,\nprecise geometry, long soft shadows, muted cyan and warm orange palette.",
+  "sdkVersions": {
+    "ai": "7.0.93",
+    "gateway": "4.0.75"
+  },
+  "requests": [
+    {
+      "endpoint": "https://ai-gateway.vercel.sh/v4/ai/image-model",
+      "body": {
+        "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: isometric technical illustration, axonometric perspective,\nprecise geometry, long soft shadows, muted cyan and warm orange palette.",
+        "n": 1,
+        "size": "1024x1024",
+        "providerOptions": {
+          "openai": {
+            "quality": "high",
+            "output_format": "png"
+          }
+        }
+      }
+    }
+  ],
+  "settings": {
+    "size": "1024x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "completedAt": "2026-09-06T18:44:01.215Z",
+  "providerMetadata": {
+    "openai": {
+      "images": [
+        {
+          "created": 1788720240,
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "opaque",
+          "outputFormat": "png",
+          "imageTokens": 0,
+          "textTokens": 78
+        }
+      ]
+    },
+    "gateway": {
+      "routing": {
+        "originalModelId": "openai/gpt-image-2",
+        "resolvedProvider": "openai",
+        "fallbacksAvailable": [],
+        "planningReasoning": "System credentials planned for: openai. Total execution order: openai(system)",
+        "canonicalSlug": "openai/gpt-image-2",
+        "finalProvider": "openai",
+        "modelAttemptCount": 1,
+        "modelAttempts": [
+          {
+            "canonicalSlug": "openai/gpt-image-2",
+            "success": true,
+            "providerAttemptCount": 1,
+            "providerAttempts": [
+              {
+                "provider": "openai",
+                "credentialType": "system",
+                "success": true,
+                "startTime": 1788720098951,
+                "endTime": 1788720240630,
+                "statusCode": 200
+              }
+            ]
+          }
+        ],
+        "totalProviderAttemptCount": 1
+      },
+      "cost": "0.21111",
+      "marketCost": "0.21111",
+      "surchargeCost": "0",
+      "gatewayCost": "0.21111",
+      "inferenceCost": "0.21111",
+      "inputInferenceCost": "0",
+      "outputInferenceCost": "0.21111",
+      "generationId": "gen_01M1W0DBK06SEQV69CZXCA4G1W"
+    }
+  },
+  "usage": {
+    "inputTokens": 78,
+    "outputTokens": 7024,
+    "totalTokens": 7102
+  },
+  "warnings": [],
+  "responses": [
+    {
+      "modelId": "openai/gpt-image-2",
+      "timestamp": "2026-09-06T18:44:01.213Z"
+    }
+  ],
+  "dimensions": {
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "d683bce01a7812dee2d06a68a67fcae07718f684b3d230a4270d3335de2abdfe",
+  "output": "output/imagegen/illustration-styles-revisited/isometric-gpt-image-2.png",
+  "status": "success"
+}

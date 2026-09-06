@@ -1,0 +1,178 @@
+{
+  "style": "storybook-gouache",
+  "transport": "Vercel AI Gateway",
+  "requestedModel": "google/gemini-3.1-flash-image",
+  "startedAt": "2026-09-06T18:40:50.671Z",
+  "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: storybook gouache painting, matte opaque brush strokes,\nrich warm palette, layered painted texture.",
+  "sdkVersions": {
+    "ai": "7.0.93",
+    "gateway": "4.0.75"
+  },
+  "requests": [
+    {
+      "endpoint": "https://ai-gateway.vercel.sh/v4/ai/language-model",
+      "body": {
+        "toolChoice": {
+          "type": "auto"
+        },
+        "prompt": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: storybook gouache painting, matte opaque brush strokes,\nrich warm palette, layered painted texture."
+              }
+            ]
+          }
+        ],
+        "providerOptions": {
+          "google": {
+            "responseModalities": [
+              "IMAGE"
+            ],
+            "imageConfig": {
+              "aspectRatio": "1:1",
+              "imageSize": "1K"
+            }
+          }
+        },
+        "headers": {
+          "user-agent": "ai/7.0.93"
+        }
+      }
+    }
+  ],
+  "settings": {
+    "responseModalities": [
+      "IMAGE"
+    ],
+    "imageConfig": {
+      "aspectRatio": "1:1",
+      "imageSize": "1K"
+    }
+  },
+  "completedAt": "2026-09-06T18:41:02.396Z",
+  "providerMetadata": {
+    "googleVertex": {
+      "promptFeedback": null,
+      "groundingMetadata": null,
+      "urlContextMetadata": null,
+      "safetyRatings": null,
+      "usageMetadata": {
+        "promptTokenCount": 69,
+        "candidatesTokenCount": 1120,
+        "totalTokenCount": 1189,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 69
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1120
+          }
+        ]
+      },
+      "finishMessage": null,
+      "serviceTier": null
+    },
+    "vertex": {
+      "promptFeedback": null,
+      "groundingMetadata": null,
+      "urlContextMetadata": null,
+      "safetyRatings": null,
+      "usageMetadata": {
+        "promptTokenCount": 69,
+        "candidatesTokenCount": 1120,
+        "totalTokenCount": 1189,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 69
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1120
+          }
+        ]
+      },
+      "finishMessage": null,
+      "serviceTier": null
+    },
+    "gateway": {
+      "routing": {
+        "originalModelId": "google/gemini-3.1-flash-image",
+        "resolvedProvider": "vertex",
+        "fallbacksAvailable": [
+          "google"
+        ],
+        "planningReasoning": "System credentials planned for: vertex, google. Total execution order: vertex(system) → google(system)",
+        "canonicalSlug": "google/gemini-3.1-flash-image",
+        "finalProvider": "vertex",
+        "modelAttemptCount": 1,
+        "modelAttempts": [
+          {
+            "canonicalSlug": "google/gemini-3.1-flash-image",
+            "success": true,
+            "providerAttemptCount": 1,
+            "providerAttempts": [
+              {
+                "provider": "vertex",
+                "credentialType": "system",
+                "success": true,
+                "startTime": 1788720050749,
+                "endTime": 1788720061606,
+                "statusCode": 200,
+                "providerResponseId": "srOdapLQMKKJl7oPo_bQgAo"
+              }
+            ]
+          }
+        ],
+        "totalProviderAttemptCount": 1
+      },
+      "cost": "0.0670345",
+      "marketCost": "0.0670345",
+      "surchargeCost": "0",
+      "gatewayCost": "0.0670345",
+      "inferenceCost": "0.0670345",
+      "inputInferenceCost": "0.0000345",
+      "outputInferenceCost": "0.067",
+      "generationId": "gen_01M1W0BWGK3Y9G5EMJ6EXDZ9J1"
+    }
+  },
+  "usage": {
+    "inputTokens": 69,
+    "inputTokenDetails": {
+      "noCacheTokens": 69,
+      "cacheReadTokens": 0
+    },
+    "outputTokens": 1120,
+    "outputTokenDetails": {
+      "textTokens": 1120,
+      "reasoningTokens": 0
+    },
+    "totalTokens": 1189
+  },
+  "warnings": [],
+  "responses": [
+    {
+      "modelId": "google/gemini-3.1-flash-image",
+      "timestamp": "2026-09-06T18:41:02.396Z",
+      "id": "aitxt-nsTRv795ZOqR2Fe9O6H68acd"
+    }
+  ],
+  "dimensions": {
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "0b0934152e3c1ada01b644213a8038e9bdc4a1279e2ed8e85a2b2ce6463d8c47",
+  "output": "output/imagegen/illustration-styles-revisited/storybook-gouache-nano-banana-2.png",
+  "status": "success"
+}

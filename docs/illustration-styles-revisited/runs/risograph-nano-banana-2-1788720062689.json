@@ -1,0 +1,178 @@
+{
+  "style": "risograph",
+  "transport": "Vercel AI Gateway",
+  "requestedModel": "google/gemini-3.1-flash-image",
+  "startedAt": "2026-09-06T18:41:02.689Z",
+  "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: risograph print aesthetic, two-color spot inks\n(fluorescent pink and teal), halftone dots, slight misregistration,\nvintage poster feel.",
+  "sdkVersions": {
+    "ai": "7.0.93",
+    "gateway": "4.0.75"
+  },
+  "requests": [
+    {
+      "endpoint": "https://ai-gateway.vercel.sh/v4/ai/language-model",
+      "body": {
+        "toolChoice": {
+          "type": "auto"
+        },
+        "prompt": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: risograph print aesthetic, two-color spot inks\n(fluorescent pink and teal), halftone dots, slight misregistration,\nvintage poster feel."
+              }
+            ]
+          }
+        ],
+        "providerOptions": {
+          "google": {
+            "responseModalities": [
+              "IMAGE"
+            ],
+            "imageConfig": {
+              "aspectRatio": "1:1",
+              "imageSize": "1K"
+            }
+          }
+        },
+        "headers": {
+          "user-agent": "ai/7.0.93"
+        }
+      }
+    }
+  ],
+  "settings": {
+    "responseModalities": [
+      "IMAGE"
+    ],
+    "imageConfig": {
+      "aspectRatio": "1:1",
+      "imageSize": "1K"
+    }
+  },
+  "completedAt": "2026-09-06T18:41:12.460Z",
+  "providerMetadata": {
+    "googleVertex": {
+      "promptFeedback": null,
+      "groundingMetadata": null,
+      "urlContextMetadata": null,
+      "safetyRatings": null,
+      "usageMetadata": {
+        "promptTokenCount": 79,
+        "candidatesTokenCount": 1120,
+        "totalTokenCount": 1199,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 79
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1120
+          }
+        ]
+      },
+      "finishMessage": null,
+      "serviceTier": null
+    },
+    "vertex": {
+      "promptFeedback": null,
+      "groundingMetadata": null,
+      "urlContextMetadata": null,
+      "safetyRatings": null,
+      "usageMetadata": {
+        "promptTokenCount": 79,
+        "candidatesTokenCount": 1120,
+        "totalTokenCount": 1199,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 79
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1120
+          }
+        ]
+      },
+      "finishMessage": null,
+      "serviceTier": null
+    },
+    "gateway": {
+      "routing": {
+        "originalModelId": "google/gemini-3.1-flash-image",
+        "resolvedProvider": "vertex",
+        "fallbacksAvailable": [
+          "google"
+        ],
+        "planningReasoning": "System credentials planned for: vertex, google. Total execution order: vertex(system) → google(system)",
+        "canonicalSlug": "google/gemini-3.1-flash-image",
+        "finalProvider": "vertex",
+        "modelAttemptCount": 1,
+        "modelAttempts": [
+          {
+            "canonicalSlug": "google/gemini-3.1-flash-image",
+            "success": true,
+            "providerAttemptCount": 1,
+            "providerAttempts": [
+              {
+                "provider": "vertex",
+                "credentialType": "system",
+                "success": true,
+                "startTime": 1788720062743,
+                "endTime": 1788720071818,
+                "statusCode": 200,
+                "providerResponseId": "vrOdar3gMaLll7oPwdSSyAE"
+              }
+            ]
+          }
+        ],
+        "totalProviderAttemptCount": 1
+      },
+      "cost": "0.0670395",
+      "marketCost": "0.0670395",
+      "surchargeCost": "0",
+      "gatewayCost": "0.0670395",
+      "inferenceCost": "0.0670395",
+      "inputInferenceCost": "0.0000395",
+      "outputInferenceCost": "0.067",
+      "generationId": "gen_01M1W0C87KZ2K9R9MV95D4ECMV"
+    }
+  },
+  "usage": {
+    "inputTokens": 79,
+    "inputTokenDetails": {
+      "noCacheTokens": 79,
+      "cacheReadTokens": 0
+    },
+    "outputTokens": 1120,
+    "outputTokenDetails": {
+      "textTokens": 1120,
+      "reasoningTokens": 0
+    },
+    "totalTokens": 1199
+  },
+  "warnings": [],
+  "responses": [
+    {
+      "modelId": "google/gemini-3.1-flash-image",
+      "timestamp": "2026-09-06T18:41:12.460Z",
+      "id": "aitxt-c5ZcWQar2Nw62oSS9QxW5XBb"
+    }
+  ],
+  "dimensions": {
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "e33514ce9e1bc0170775e86594742aa87b942fbb564297aeaf6ac8c8954433fe",
+  "output": "output/imagegen/illustration-styles-revisited/risograph-nano-banana-2.png",
+  "status": "success"
+}

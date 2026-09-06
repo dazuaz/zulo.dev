@@ -1,0 +1,460 @@
+{
+  "generated_at": "2026-09-06",
+  "transport": "Vercel AI Gateway",
+  "successful_images": 22,
+  "failed_requests": 0,
+  "recorded_cost_usd": 3.059785,
+  "images": [
+    {
+      "style": "flat-vector",
+      "requestedModel": "openai/gpt-image-2",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/flat-vector-gpt-image-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "23ae331ac86a986cbc62fa866cc7c6e42b5a324ba4cbbe62221fe4c7fe80f011",
+      "settings": {
+        "size": "1024x1024",
+        "quality": "high",
+        "output_format": "png",
+        "n": 1
+      },
+      "startedAt": "2026-09-06T18:39:00.926Z",
+      "completedAt": "2026-09-06T18:41:14.977Z"
+    },
+    {
+      "style": "art-nouveau",
+      "requestedModel": "openai/gpt-image-2",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/art-nouveau-gpt-image-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "77b7a5ed0b7f17a4c3e2ea07f9d68f9aaa4604c9df66cc0f894606b697f30fd8",
+      "settings": {
+        "size": "1024x1024",
+        "quality": "high",
+        "output_format": "png",
+        "n": 1
+      },
+      "startedAt": "2026-09-06T18:49:11.644Z",
+      "completedAt": "2026-09-06T18:51:32.120Z"
+    },
+    {
+      "style": "isometric",
+      "requestedModel": "google/gemini-3.1-flash-image",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/isometric-nano-banana-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "e0c1c174ba9977c9f8e2238410b4929a49e3da12a4314373dc7151252c10ac38",
+      "settings": {
+        "responseModalities": [
+          "IMAGE"
+        ],
+        "imageConfig": {
+          "aspectRatio": "1:1",
+          "imageSize": "1K"
+        }
+      },
+      "startedAt": "2026-09-06T18:40:40.140Z",
+      "completedAt": "2026-09-06T18:40:49.708Z"
+    },
+    {
+      "style": "clay-3d",
+      "requestedModel": "openai/gpt-image-2",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/clay-3d-gpt-image-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "9b110e53423b846c0d083de1ea16f76a902b02cae496ffb5e5d29ea5a573b2a0",
+      "settings": {
+        "size": "1024x1024",
+        "quality": "high",
+        "output_format": "png",
+        "n": 1
+      },
+      "startedAt": "2026-09-06T18:46:52.911Z",
+      "completedAt": "2026-09-06T18:49:11.590Z"
+    },
+    {
+      "style": "paper-cut",
+      "requestedModel": "openai/gpt-image-2",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/paper-cut-gpt-image-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "9924325eb9f108fb880a212ef06b4427c2020ea489449a0b00d8ad2c6eec94e6",
+      "settings": {
+        "size": "1024x1024",
+        "quality": "high",
+        "output_format": "png",
+        "n": 1
+      },
+      "startedAt": "2026-09-06T18:44:09.383Z",
+      "completedAt": "2026-09-06T18:46:26.013Z"
+    },
+    {
+      "style": "isometric",
+      "requestedModel": "openai/gpt-image-2",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/isometric-gpt-image-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "d683bce01a7812dee2d06a68a67fcae07718f684b3d230a4270d3335de2abdfe",
+      "settings": {
+        "size": "1024x1024",
+        "quality": "high",
+        "output_format": "png",
+        "n": 1
+      },
+      "startedAt": "2026-09-06T18:41:38.794Z",
+      "completedAt": "2026-09-06T18:44:01.215Z"
+    },
+    {
+      "style": "synthetic-cubism",
+      "requestedModel": "google/gemini-3.1-flash-image",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/synthetic-cubism-nano-banana-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "2b539ec5ec7407896583ca25cf85a3710e2306b1f8920be7ccc471e8143acf99",
+      "settings": {
+        "responseModalities": [
+          "IMAGE"
+        ],
+        "imageConfig": {
+          "aspectRatio": "1:1",
+          "imageSize": "1K"
+        }
+      },
+      "startedAt": "2026-09-06T18:41:02.689Z",
+      "completedAt": "2026-09-06T18:41:13.167Z"
+    },
+    {
+      "style": "risograph",
+      "requestedModel": "openai/gpt-image-2",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/risograph-gpt-image-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "ab16598d44ccfb07445099aaab7f4c0b265b84c6247d96f4899c9645c18e3a28",
+      "settings": {
+        "size": "1024x1024",
+        "quality": "high",
+        "output_format": "png",
+        "n": 1
+      },
+      "startedAt": "2026-09-06T18:46:52.911Z",
+      "completedAt": "2026-09-06T18:49:09.887Z"
+    },
+    {
+      "style": "linocut",
+      "requestedModel": "google/gemini-3.1-flash-image",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/linocut-nano-banana-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "79658c598dd685f4da719b0fce019b0dd009be3e168d50be6faf4981486d1650",
+      "settings": {
+        "responseModalities": [
+          "IMAGE"
+        ],
+        "imageConfig": {
+          "aspectRatio": "1:1",
+          "imageSize": "1K"
+        }
+      },
+      "startedAt": "2026-09-06T18:41:14.051Z",
+      "completedAt": "2026-09-06T18:41:24.178Z"
+    },
+    {
+      "style": "storybook-gouache",
+      "requestedModel": "openai/gpt-image-2",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/storybook-gouache-gpt-image-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "8c1c2e48bc8e9b9aaca85bb171526c109138a311039f2cc045cc0e9aaf4616a9",
+      "settings": {
+        "size": "1024x1024",
+        "quality": "high",
+        "output_format": "png",
+        "n": 1
+      },
+      "startedAt": "2026-09-06T18:44:09.383Z",
+      "completedAt": "2026-09-06T18:46:52.826Z"
+    },
+    {
+      "style": "storybook-gouache",
+      "requestedModel": "google/gemini-3.1-flash-image",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/storybook-gouache-nano-banana-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "0b0934152e3c1ada01b644213a8038e9bdc4a1279e2ed8e85a2b2ce6463d8c47",
+      "settings": {
+        "responseModalities": [
+          "IMAGE"
+        ],
+        "imageConfig": {
+          "aspectRatio": "1:1",
+          "imageSize": "1K"
+        }
+      },
+      "startedAt": "2026-09-06T18:40:50.671Z",
+      "completedAt": "2026-09-06T18:41:02.396Z"
+    },
+    {
+      "style": "ink-line-art",
+      "requestedModel": "google/gemini-3.1-flash-image",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/ink-line-art-nano-banana-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "2405b67e3ad3f0a07d092c0ef37cac0ecdcef378e335573c30c94c4a6e8913fb",
+      "settings": {
+        "responseModalities": [
+          "IMAGE"
+        ],
+        "imageConfig": {
+          "aspectRatio": "1:1",
+          "imageSize": "1K"
+        }
+      },
+      "startedAt": "2026-09-06T18:40:40.153Z",
+      "completedAt": "2026-09-06T18:40:50.561Z"
+    },
+    {
+      "style": "linocut",
+      "requestedModel": "openai/gpt-image-2",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/linocut-gpt-image-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "ca2f968ad36dc354174cb8c5e0c3daf15d183b5fa0572e4c825e46cb7515655d",
+      "settings": {
+        "size": "1024x1024",
+        "quality": "high",
+        "output_format": "png",
+        "n": 1
+      },
+      "startedAt": "2026-09-06T18:49:11.643Z",
+      "completedAt": "2026-09-06T18:51:24.227Z"
+    },
+    {
+      "style": "clay-3d",
+      "requestedModel": "google/gemini-3.1-flash-image",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/clay-3d-nano-banana-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "e85aa033a5e89484cb2c60b6aed76d05333d67aeebde4840b3b841dc09396018",
+      "settings": {
+        "responseModalities": [
+          "IMAGE"
+        ],
+        "imageConfig": {
+          "aspectRatio": "1:1",
+          "imageSize": "1K"
+        }
+      },
+      "startedAt": "2026-09-06T18:41:02.689Z",
+      "completedAt": "2026-09-06T18:41:13.985Z"
+    },
+    {
+      "style": "paper-cut",
+      "requestedModel": "google/gemini-3.1-flash-image",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/paper-cut-nano-banana-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "f8d43a7d6c8555ddd7e76b9ff90c61b7f9ff4f64ae89992a9935ebcb2722898b",
+      "settings": {
+        "responseModalities": [
+          "IMAGE"
+        ],
+        "imageConfig": {
+          "aspectRatio": "1:1",
+          "imageSize": "1K"
+        }
+      },
+      "startedAt": "2026-09-06T18:40:50.672Z",
+      "completedAt": "2026-09-06T18:41:01.197Z"
+    },
+    {
+      "style": "flat-vector",
+      "requestedModel": "google/gemini-3.1-flash-image",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/flat-vector-nano-banana-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "a932c529aca01c2232c569141f6c9deccee41faa4ee1415ee17bde38ed6455e3",
+      "settings": {
+        "responseModalities": [
+          "IMAGE"
+        ],
+        "imageConfig": {
+          "aspectRatio": "1:1",
+          "imageSize": "1K"
+        }
+      },
+      "startedAt": "2026-09-06T18:39:00.940Z",
+      "completedAt": "2026-09-06T18:39:10.604Z"
+    },
+    {
+      "style": "watercolor",
+      "requestedModel": "google/gemini-3.1-flash-image",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/watercolor-nano-banana-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "50e5c8ec80d63d2bdcc3b876acf0abe51d022504a144cbcab9b0240a1474a9c2",
+      "settings": {
+        "responseModalities": [
+          "IMAGE"
+        ],
+        "imageConfig": {
+          "aspectRatio": "1:1",
+          "imageSize": "1K"
+        }
+      },
+      "startedAt": "2026-09-06T18:40:50.670Z",
+      "completedAt": "2026-09-06T18:41:02.609Z"
+    },
+    {
+      "style": "ink-line-art",
+      "requestedModel": "openai/gpt-image-2",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/ink-line-art-gpt-image-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "fc316a859b3c0b4d123fd2343fd0a92cc04a8adcdbc4e2359f385588ee668db1",
+      "settings": {
+        "size": "1024x1024",
+        "quality": "high",
+        "output_format": "png",
+        "n": 1
+      },
+      "startedAt": "2026-09-06T18:41:38.804Z",
+      "completedAt": "2026-09-06T18:44:09.275Z"
+    },
+    {
+      "style": "risograph",
+      "requestedModel": "google/gemini-3.1-flash-image",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/risograph-nano-banana-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "e33514ce9e1bc0170775e86594742aa87b942fbb564297aeaf6ac8c8954433fe",
+      "settings": {
+        "responseModalities": [
+          "IMAGE"
+        ],
+        "imageConfig": {
+          "aspectRatio": "1:1",
+          "imageSize": "1K"
+        }
+      },
+      "startedAt": "2026-09-06T18:41:02.689Z",
+      "completedAt": "2026-09-06T18:41:12.460Z"
+    },
+    {
+      "style": "watercolor",
+      "requestedModel": "openai/gpt-image-2",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/watercolor-gpt-image-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "f318bbee970efcd44e808eefac548c348b89832e7d9966b564c7a1a7edfc0411",
+      "settings": {
+        "size": "1024x1024",
+        "quality": "high",
+        "output_format": "png",
+        "n": 1
+      },
+      "startedAt": "2026-09-06T18:44:09.383Z",
+      "completedAt": "2026-09-06T18:46:46.219Z"
+    },
+    {
+      "style": "synthetic-cubism",
+      "requestedModel": "openai/gpt-image-2",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/synthetic-cubism-gpt-image-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "1ca6f93cb0bdb919e334b59ea984d4a6365a3d70d049fd0c31f37dc13075a101",
+      "settings": {
+        "size": "1024x1024",
+        "quality": "high",
+        "output_format": "png",
+        "n": 1
+      },
+      "startedAt": "2026-09-06T18:46:52.911Z",
+      "completedAt": "2026-09-06T18:49:10.562Z"
+    },
+    {
+      "style": "art-nouveau",
+      "requestedModel": "google/gemini-3.1-flash-image",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/art-nouveau-nano-banana-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "b660b253769c909399176703be2eb5ae60cc9691f52d2671a5ed432e50511cfd",
+      "settings": {
+        "responseModalities": [
+          "IMAGE"
+        ],
+        "imageConfig": {
+          "aspectRatio": "1:1",
+          "imageSize": "1K"
+        }
+      },
+      "startedAt": "2026-09-06T18:41:14.052Z",
+      "completedAt": "2026-09-06T18:41:24.712Z"
+    }
+  ]
+}

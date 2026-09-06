@@ -1,0 +1,186 @@
+{
+  "style": "isometric",
+  "transport": "Vercel AI Gateway",
+  "requestedModel": "google/gemini-3.1-flash-image",
+  "startedAt": "2026-09-06T18:40:40.140Z",
+  "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: isometric technical illustration, axonometric perspective,\nprecise geometry, long soft shadows, muted cyan and warm orange palette.",
+  "sdkVersions": {
+    "ai": "7.0.93",
+    "gateway": "4.0.75"
+  },
+  "requests": [
+    {
+      "endpoint": "https://ai-gateway.vercel.sh/v4/ai/language-model",
+      "body": {
+        "toolChoice": {
+          "type": "auto"
+        },
+        "prompt": [
+          {
+            "role": "user",
+            "content": [
+              {
+                "type": "text",
+                "text": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: isometric technical illustration, axonometric perspective,\nprecise geometry, long soft shadows, muted cyan and warm orange palette."
+              }
+            ]
+          }
+        ],
+        "providerOptions": {
+          "google": {
+            "responseModalities": [
+              "IMAGE"
+            ],
+            "imageConfig": {
+              "aspectRatio": "1:1",
+              "imageSize": "1K"
+            }
+          }
+        },
+        "headers": {
+          "user-agent": "ai/7.0.93"
+        }
+      }
+    }
+  ],
+  "settings": {
+    "responseModalities": [
+      "IMAGE"
+    ],
+    "imageConfig": {
+      "aspectRatio": "1:1",
+      "imageSize": "1K"
+    }
+  },
+  "completedAt": "2026-09-06T18:40:49.708Z",
+  "providerMetadata": {
+    "googleVertex": {
+      "promptFeedback": null,
+      "groundingMetadata": null,
+      "urlContextMetadata": null,
+      "safetyRatings": null,
+      "usageMetadata": {
+        "promptTokenCount": 72,
+        "candidatesTokenCount": 1169,
+        "totalTokenCount": 1241,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 72
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1120
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 49
+          }
+        ]
+      },
+      "finishMessage": null,
+      "serviceTier": null
+    },
+    "vertex": {
+      "promptFeedback": null,
+      "groundingMetadata": null,
+      "urlContextMetadata": null,
+      "safetyRatings": null,
+      "usageMetadata": {
+        "promptTokenCount": 72,
+        "candidatesTokenCount": 1169,
+        "totalTokenCount": 1241,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 72
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "IMAGE",
+            "tokenCount": 1120
+          },
+          {
+            "modality": "TEXT",
+            "tokenCount": 49
+          }
+        ]
+      },
+      "finishMessage": null,
+      "serviceTier": null
+    },
+    "gateway": {
+      "routing": {
+        "originalModelId": "google/gemini-3.1-flash-image",
+        "resolvedProvider": "vertex",
+        "fallbacksAvailable": [
+          "google"
+        ],
+        "planningReasoning": "System credentials planned for: vertex, google. Total execution order: vertex(system) → google(system)",
+        "canonicalSlug": "google/gemini-3.1-flash-image",
+        "finalProvider": "vertex",
+        "modelAttemptCount": 1,
+        "modelAttempts": [
+          {
+            "canonicalSlug": "google/gemini-3.1-flash-image",
+            "success": true,
+            "providerAttemptCount": 1,
+            "providerAttempts": [
+              {
+                "provider": "vertex",
+                "credentialType": "system",
+                "success": true,
+                "startTime": 1788720040386,
+                "endTime": 1788720049363,
+                "statusCode": 200,
+                "providerResponseId": "qLOdasvwGs-ZotQP8Iy_AQ"
+              }
+            ]
+          }
+        ],
+        "totalProviderAttemptCount": 1
+      },
+      "cost": "0.067183",
+      "marketCost": "0.067183",
+      "surchargeCost": "0",
+      "gatewayCost": "0.067183",
+      "inferenceCost": "0.067183",
+      "inputInferenceCost": "0.000036",
+      "outputInferenceCost": "0.067147",
+      "generationId": "gen_01M1W0BJCA0AEFV8F8KXSA1HAK"
+    }
+  },
+  "usage": {
+    "inputTokens": 72,
+    "inputTokenDetails": {
+      "noCacheTokens": 72,
+      "cacheReadTokens": 0
+    },
+    "outputTokens": 1169,
+    "outputTokenDetails": {
+      "textTokens": 1169,
+      "reasoningTokens": 0
+    },
+    "totalTokens": 1241
+  },
+  "warnings": [],
+  "responses": [
+    {
+      "modelId": "google/gemini-3.1-flash-image",
+      "timestamp": "2026-09-06T18:40:49.707Z",
+      "id": "aitxt-rUAGoyCYhmeYfwWXF4ci5s87"
+    }
+  ],
+  "dimensions": {
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "e0c1c174ba9977c9f8e2238410b4929a49e3da12a4314373dc7151252c10ac38",
+  "output": "output/imagegen/illustration-styles-revisited/isometric-nano-banana-2.png",
+  "status": "success"
+}
