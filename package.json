@@ -7,7 +7,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check:seo": "python3 scripts/check-seo.py"
+    "check:seo": "python3 scripts/check-seo.py",
+    "test:images": "node --test tests/blog-images.test.ts"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.5",
@@ -21,8 +22,10 @@
     "botid": "^1.5.11",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "parse5": "^8.0.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
+    "sharp": "^0.35.4",
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4.3.3"
   },

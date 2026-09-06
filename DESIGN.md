@@ -29,7 +29,7 @@ Write original, specific copy about strategy, implementation, and adoption. Iden
 
 ## Interaction and access
 
-- Keep the contact form’s existing validation, status announcements, BotID protection, and Notion integration.
+- Keep the contact form’s existing validation, status announcements, BotID protection, and Resend email delivery.
 - Use native details elements for mobile navigation and FAQs.
 - Provide visible keyboard focus, at least 44px action targets, a skip link, and reduced-motion handling.
 - Collapse multi-column content for small screens; keep diagrams readable without horizontal scrolling.

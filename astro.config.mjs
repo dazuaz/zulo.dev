@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
+import { defineConfig, sharpImageService } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
 
@@ -9,9 +9,12 @@ import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://zulo.dev',
+  site: 'https://www.zulo.dev',
   output: 'server',
   trailingSlash: 'never',
+  image: {
+    service: sharpImageService({ webp: { effort: 6, smartSubsample: true } }),
+  },
   adapter: vercel({
     webAnalytics: { enabled: true }
   }),

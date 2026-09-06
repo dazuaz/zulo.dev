@@ -11,7 +11,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / '.vercel/output/static'
-ORIGIN = 'https://zulo.dev'
+ORIGIN = 'https://www.zulo.dev'
 NS = {'s': 'http://www.sitemaps.org/schemas/sitemap/0.9'}
 
 
@@ -86,6 +86,7 @@ def check():
         assert 'noindex' not in page.meta('robots')
         assert 'max-image-preview:large' in page.meta('robots')
         assert page.meta('og:url') == url
+        assert 'https://zulo.dev' not in path.read_text(), f'{url}: stale non-www URL'
         assert page.meta('og:title') not in titles, f'{url}: duplicate title'
         titles.add(page.meta('og:title'))
         assert page.meta('description') not in descriptions, f'{url}: duplicate description'
@@ -124,6 +125,15 @@ def check():
             crumbs = nodes[url + '#breadcrumb']['itemListElement']
             assert [crumb['position'] for crumb in crumbs] == [1, 2, 3]
             assert crumbs[-1]['item'] == url
+        for image in page.elements('img'):
+            assert int(image.get('width', 0)) > 0 and int(image.get('height', 0)) > 0, f'{url}: missing dimensions'
+            if image.get('src', '').startswith(('/_astro/', '/blog/')):
+                assert image.get('sizes'), f'{url}: missing responsive sizes'
+                candidates = [candidate.strip().split() for candidate in image.get('srcset', '').split(',')]
+                assert len(candidates) >= 2, f'{url}: missing responsive variants'
+                for src, width in candidates:
+                    assert width.endswith('w') and int(width[:-1]) > 0
+                    assert output_path(src).is_file(), f'{url}: missing responsive image {src}'
         # Check internal links and fragments against actual output, including Markdown links.
         for tag, attrs in page.tags:
             target = attrs.get('href') if tag == 'a' else attrs.get('src') if tag == 'img' else None

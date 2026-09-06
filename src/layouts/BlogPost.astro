@@ -6,6 +6,8 @@ import PromptCopyEnhancer from '../components/PromptCopyEnhancer';
 import { displayTitle, focusRing, metaText, proseLead } from '../lib/classes';
 import { cn } from '../lib/utils';
 import { canonicalUrl, siteIdentity } from '../lib/seo';
+import { getBlogImage } from '../lib/blog-images';
+import { articleImageSizes } from '../lib/blog-image-markup';
 
 const {
   title,
@@ -22,6 +24,8 @@ const {
   newerPost,
   olderPost,
 } = Astro.props;
+const responsiveHero = heroImage ? await getBlogImage(heroImage) : undefined;
+const heroSource = responsiveHero?.src ?? heroImage;
 const pageUrl = canonicalUrl(`/blog/${slug}`, Astro.site!);
 const home = canonicalUrl('/', Astro.site!);
 const articleSchema = [
@@ -38,7 +42,7 @@ const articleSchema = [
     mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
     inLanguage: 'en-US',
     keywords: tags,
-    ...(heroImage ? { image: new URL(heroImage, Astro.site).toString() } : {}),
+    ...(heroImage ? { image: new URL(heroSource, Astro.site).toString() } : {}),
   },
   {
     '@type': 'BreadcrumbList',
@@ -59,7 +63,7 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
   title={`${title} | Daniel Zuloaga`}
   description={description}
   ogType="article"
-  ogImage={heroImage ?? siteIdentity.image}
+  ogImage={heroSource ?? siteIdentity.image}
   ogImageAlt={heroImage ? (heroImageAlt ?? title) : siteIdentity.imageAlt}
   structuredData={articleSchema}
   pubDate={pubDate}
@@ -103,9 +107,11 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
             <figure class="w-full py-xl">
               <img
                 class="block h-auto w-full rounded-lg border border-border"
-                src={heroImage}
-                width={heroImageWidth}
-                height={heroImageHeight}
+                src={heroSource}
+                srcset={responsiveHero?.srcset}
+                sizes={responsiveHero ? articleImageSizes : undefined}
+                width={responsiveHero?.width ?? heroImageWidth}
+                height={responsiveHero?.height ?? heroImageHeight}
                 alt={heroImageAlt ?? `${title} main image`}
                 loading="eager"
                 decoding="async"

@@ -43,9 +43,13 @@ Local HTTP checks returned 200 for public pages and discovery endpoints, and 404
 
 ## After deployment
 
-1. Submit `https://zulo.dev/sitemap.xml` in Google Search Console and Bing Webmaster Tools; inspect the homepage and a representative article.
+1. Submit `https://www.zulo.dev/sitemap.xml` in Google Search Console and Bing Webmaster Tools; inspect the homepage and a representative article.
 2. Run the public article through Google's Rich Results Test and check rendered HTML in URL Inspection. Confirm hosting protection permits search crawlers.
 3. Monitor indexed pages, search queries, organic contact conversions, and identifiable AI referrals. Compare real observations over time rather than treating markup as proof of visibility.
 4. Measure mobile Core Web Vitals. Some original article images remain large (the newest PNG is about 3 MB); responsive image derivatives and font delivery are the next performance opportunities. Intrinsic dimensions reserve space but do not reduce download size.
 
 Search Console ownership, production indexing, crawler access at the hosting layer, and field performance were not verified in this local implementation.
+
+## Live-review follow-up
+
+Canonical metadata now uses `https://www.zulo.dev`, matching the existing primary host. Image delivery now uses Astro’s native optimizer, with responsive source selection and automatic dimensions for inline images as well as heroes. See [Image delivery](image-delivery.md) for the implementation and high-DPI validation. The Vercel project-domain redirect is managed separately from the application route configuration.

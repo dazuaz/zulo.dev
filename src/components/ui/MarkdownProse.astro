@@ -1,5 +1,9 @@
 ---
 import { cn } from '../../lib/utils';
+import { getBlogImage } from '../../lib/blog-images';
+import { optimizeBlogImages } from '../../lib/blog-image-markup';
+
+const html = await optimizeBlogImages(await Astro.slots.render('default'), getBlogImage);
 
 const { class: className = '' } = Astro.props;
 
@@ -20,6 +24,4 @@ const proseClasses = cn(
 );
 ---
 
-<div class={proseClasses}>
-  <slot />
-</div>
+<div class={proseClasses} set:html={html} />
