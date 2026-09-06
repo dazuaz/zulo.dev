@@ -1,11 +1,12 @@
 ---
 title: "The uneven days of building with agents"
-description: "Some days agentic coding feels like flight. Other days you wander into alleys you did not mean to enter. A personal note on flow, dread, tools, and what still matters when the frontier keeps moving."
+description: "Building gets faster. Deciding what deserves the time, finding customers, and making the economics work still take judgment."
 pubDate: 2026-06-05
+updatedDate: 2026-09-05
 heroImage: "/blog/the-uneven-days-of-agentic-building/hero-ink-line-art.webp"
 heroImageWidth: 1536
 heroImageHeight: 1024
-heroImageAlt: "Ink line drawing on cream paper: a developer at a fork between a calm sailing path and tangled alleyways, with sun and cloud above and abstract code on a laptop."
+heroImageAlt: "Ink line drawing on cream paper of a developer choosing between a calm sailing path and tangled alleys, with abstract code on a laptop."
 draft: false
 tags:
   - Codex
@@ -15,90 +16,80 @@ tags:
   - Product
 ---
 
-I have been building applications differently for a while now, and the honest summary is that it does not feel like one experience. It feels like weather.
+I have been building applications with agents for a while now. The honest summary is that it feels like weather. Staying close to the work keeps reminding me how easy it is to confuse building momentum with business progress.
 
-Some days everything clicks. You describe what you want, the agent runs with it, the pieces land in the right places, and you end the day further along than you had any right to be. The work has momentum. You are not fighting the tools. You are not second-guessing every turn. It feels like smooth sailing, and for a few hours you remember why you got into this in the first place.
+Some days everything clicks. You describe what you want, the agent runs with it, and you end the day further along than you had any right to be. You are not fighting the tool or second-guessing every turn. For a few hours, building software feels light again.
 
 Other days are the opposite.
 
-You move slowly. You re-explain things you thought were already clear. You follow a path that looked promising an hour ago and realize it has taken you further from the goal, not closer. You end up in alleys: refactors nobody asked for, abstractions that seemed clever at 2 p.m. and embarrassing by 5, dependency rabbit holes, a pile of half-finished branches and a product that is somehow more confusing than when you started.
+You move slowly. You re-explain things you thought were clear. A path that looked promising an hour ago has taken you further from the goal. You end up with a refactor nobody asked for, an abstraction that seemed clever at 2 p.m. and embarrassing by 5, and a pile of half-finished branches. Somehow the product is more confusing than when you started.
 
 Both kinds of days can happen in the same week. Sometimes in the same afternoon.
 
 ## Flow is real, and it is not a personality trait
 
-I used to think flow was mostly about focus: good sleep, fewer meetings, the right music. Agentic building added a second variable. Now flow also depends on whether the problem, the codebase, and the agent are aligned on what "done" means.
+I used to think flow was mostly about focus. Good sleep helped. Fewer meetings helped. Agentic building added another variable. The problem, the codebase, and the agent have to agree on what "done" means.
 
-When that alignment is there, the feeling is almost unfair. You are not typing every line. You are steering. You make a judgment call, the agent carries the mechanical work, you review, you correct, you move on. Hours compress. You ship something that would have taken days before, and it mostly works.
+When they agree, the feeling is almost unfair. You make a judgment call, the agent carries the mechanical work, and you review the result. Hours compress. You ship something that would have taken days before, and it mostly works.
 
-When alignment is missing, flow does not just slow down. It inverts. You spend more time cleaning up than creating. You argue with generated code that is plausible but wrong in subtle ways. You lose the thread of what you were building because the conversation forked three times and each fork seemed reasonable at the time. The agent is not failing on purpose. It is doing exactly what you asked, or what it inferred you asked, which is often worse.
+When they disagree, flow inverts. You spend more time cleaning up than creating. The generated code looks plausible but is wrong in ways that take an hour to explain. The conversation forks three times, each fork sounds reasonable, and you lose the thread. The agent is doing exactly what you asked, or what it inferred you asked. The second version is often worse.
 
-I have started treating flow as a signal, not a mood. A good day usually means the task was well-scoped, the interfaces were clear, and the feedback loop was tight enough that mistakes got caught early. A bad day usually means one of those was missing, and I tried to brute-force through it with more prompts instead of fixing the shape of the work.
+I have started treating flow as a signal instead of a mood. A good day usually means the task had a clear boundary and mistakes surfaced early. On a bad day, I often tried to force an unclear task forward with more prompts.
 
-That reframe helps a little. It turns "I am bad at this today" into "something about this problem is not legible yet."
+That distinction changes what I need to do next. Sometimes the next step is a smaller build. Sometimes it is a conversation with a customer, or a decision to stop. I can spend a very productive afternoon answering a question that has little bearing on whether anyone needs the product.
 
 ## The new mess
 
-Every previous shift in how we build software came with mess. This one is just faster.
+The growing list of models, agents, worktrees, and MCP servers creates decisions for the whole team. A promising tool still needs a reason to become part of how we work.
 
-More tools. More models. More agents. More ways to run code in parallel, more worktrees, more MCP servers, more "just connect your repo and it will figure it out" promises. More half-adopted conventions in every team chat. More screenshots of workflows that worked once.
+The mess gets into your head. You have to decide what to delegate, what to verify, and what to throw away. New failure modes appear. A confident answer is wrong. A change passes lint and still misses the point. An entire feature follows a requirement you never wrote down.
 
-The mess is not only technical. It is cognitive. You are constantly deciding what to delegate, what to verify, what to throw away, and what to keep even though you did not write it yourself. You are learning new failure modes: confident wrong answers, changes that compile and pass lint and still miss the point, entire features built against requirements you only implied.
+I still feel the uncertainty of investing in tools that may look dated in six months. The user problem will remain, but the integration we spent weeks on may need to change. I want an experiment to answer a specific question before it becomes another dependency the team has to maintain.
 
-And because the tooling changes every few months, there is a low-grade dread sitting under the excitement.
+## What still seems worth the time
 
-You finish something hard, a pipeline, an integration, a product slice, and part of you wonders whether it will matter in six months. Not because the user problem will disappear, but because the next frontier model might make your current scaffolding feel antique. The prompting patterns, the guardrails, the custom tooling, the careful abstractions you built so agents would not wreck the repo: all of it up for revision again.
+If the technical floor keeps moving, what is worth the time?
 
-I feel that dread regularly, and I do not think it is irrational. The frontier does move. What felt like a clever orchestration layer in January can feel like overhead by June. Skills, hooks, subagents, new context windows, new image models, new "just do the whole app" demos. Each one whispers that you should have waited, or built less, or built differently.
+People still need loans onboarded and records corrected. They need workflows that do not depend on heroics and software that explains a failure. An agent can change how fast I get there. It cannot tell me whether the destination was worth reaching.
 
-The trap is letting that whisper turn into paralysis.
+The best work I have done with agents keeps a person involved where judgment carries consequences. Someone must make the policy call and accept responsibility for it. That is part of the product, not a temporary patch until models get smarter.
 
-## What I am trying not to waste
+Revenue is a crude test, but it cuts through the fog. Excitement scales easily. Shipping something a customer will pay for does not. Cheap code makes that test more useful.
 
-If everything technical is on a moving floor, the question becomes: what is actually worth the time? I keep coming back to a short list.
+Documentation should teach the next person and the next agent how the system works. Operations need readable errors. Production failures need tests. Domain knowledge captured this way ages better than a prompt trick.
 
-**User value that survives the model cycle.** People still need loans onboarded, records corrected, workflows that do not depend on heroics, software that explains itself when something breaks. An agent can change how fast you get there. It does not change whether the destination was worth reaching.
-
-**Judgment made visible.** The best work I have done with agents still has a human in the loop at the points that matter: policy, taste, accountability, the call you are willing to sign your name to. That is not a temporary patch until models get smarter. It is the product.
-
-**Revenue as a forcing function.** Excitement scales easily. Shipping something someone will pay for does not. Revenue is crude, but it cuts through a lot of fog. It asks whether the thing you built actually mattered to someone outside your terminal. In a period where it is cheap to generate code, that question feels more important, not less.
-
-**Assets that compound.** Documentation that teaches the next person (or the next agent) how the system actually works. Callable operations with readable errors. Tests around the parts that break in production. Domain knowledge encoded in code instead of trapped in someone's head. These age better than prompt tricks.
-
-I am not pretending this list solves the dread. It just gives me somewhere to stand when the tools change again.
+These investments affect what it costs to serve a customer and whether that customer can depend on us. That gives me a way to judge their value even when the tooling changes.
 
 ## Differentiation in a world where code is cheap
 
-If more people can spin up an app in an afternoon, differentiation stops being "we have software" and starts being everything around the software:
+If more people can spin up an app in an afternoon, "we have software" is no longer much of an advantage. The hard parts sit around the code.
 
-- **Speed to trust.** How fast a new user believes the product will not make their life worse.
-- **Specificity.** Whether the product understands a real workflow deeply enough to handle the boring edge cases, not just the demo path.
-- **Operational fit.** Whether it plugs into the systems, habits, and constraints that already exist, instead of asking everyone to pretend they work at a greenfield startup.
-- **Distribution and reputation.** Whether the right people hear about it, and whether past users would recommend it.
-- **Accountability.** Whether there is a human on the other side when the import fails at 4:47 p.m.
+- A new user needs evidence that the product will not make the day worse.
+- The product has to handle boring edge cases after the demo.
+- It has to fit the systems and habits people already use.
+- The right people still have to hear about it from someone they trust.
+- A person has to answer when the import fails at 4:47 p.m.
 
 Agents raise the floor on implementation. They do not automatically raise the ceiling on product.
 
-That is uncomfortable if you spent years being the person who could "just build it." It is also freeing. The differentiator is less about whether you can produce code and more about whether you can see the real problem, earn trust, and stay with the work long enough to make it reliable.
+That is uncomfortable if you spent years being the person who could "just build it." It is also freeing. Producing code matters less than seeing the real problem and staying long enough to make the result reliable.
 
 ## Paths and alleys
 
-One thing I did not expect: how often agentic building feels like navigation rather than construction.
+I did not expect agentic building to feel so much like navigation.
 
-You start with a destination. The agent proposes a route. Sometimes it is a highway. Sometimes it is a scenic detour through dependencies you did not know you had. Sometimes you end up in an alley, turn around, and realize the alley taught you something: a bad assumption, a missing interface, a requirement you had not written down.
+You start with a destination, and the agent proposes a route. Sometimes it is a highway. Sometimes it detours through dependencies you did not know you had. An alley can still expose a bad assumption or a requirement you forgot to write down.
 
-I am learning to notice earlier when a path is widening scope instead of reducing risk. A refactor that "will only take a minute." A new abstraction because the current file is annoying. A tool integration because it looked cool in a demo. The agent will happily walk with you into any of these. It does not feel tired, and it does not have a launch date. That part is on you.
+I am learning to notice earlier when a path widens scope without reducing risk. A refactor will "only take a minute." A new abstraction makes an annoying file more interesting. A tool integration looked good in a demo. The agent will walk into any of them. It does not get tired, and it does not have a launch date. That part is on me.
 
-On the good days, the same tendency becomes leverage. You can explore three approaches before lunch. You can harden the boring path because the agent will actually do the boring part. You can keep the main branch calm while experiments run somewhere else.
+On a good day, that willingness to explore is useful. I can test two approaches before lunch, then send the agent through the boring work of hardening the better one. Experiments stay in another worktree, and the main branch stays calm.
 
-The difference between a good day and a bad day is often whether you knew which kind of path you were on.
+Before exploring, I want to know what decision the experiment will inform, how much time and money it deserves, and what evidence would make us stop. Every promising idea competes with time we could spend talking to customers, improving the existing product, or finding a way to reach the next buyer.
 
-## What I think I am actually learning
+## What I am learning
 
-I am learning that agentic coding is not a single skill. It is a bundle of them: scoping, reviewing, knowing when to stop prompting and fix the system, knowing when to accept "good enough" and ship, knowing when the emotional drag is really fear of obsolescence dressed up as perfectionism.
+I want to stay close enough to build, sell, and understand what happens when someone depends on the result. Each gives me information the others miss. A customer conversation can change the product. A difficult implementation can change the economics. A support problem can change what we promise.
 
-I am learning that excitement and dread can coexist without canceling each other out. The excitement is real: whole categories of work are finally movable. The dread is real too: the floor keeps rising, and your old advantages decay faster.
+My responsibility is to put those pieces together and decide where to commit. Users still need help on Monday morning regardless of which model launched over the weekend.
 
-I am learning that the work still has a center, even when the tools do not. Users, revenue, trust, problems that exist on Monday morning regardless of which model launched over the weekend.
-
-Some days that center is easy to see. Other days you have to walk back out of an alley first. Both are part of the job now.
+Some days that direction is easy to see. Other days you have to walk back out of an alley first. Both are part of the job now.

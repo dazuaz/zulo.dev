@@ -1,7 +1,8 @@
 ---
 title: "How Git worktrees work"
-description: "A practical mental model for using Git worktrees so you and your AI agents can work in parallel."
+description: "Git worktrees give each Codex task its own folder and branch without duplicating the repository."
 pubDate: 2026-02-17
+updatedDate: 2026-09-05
 tags:
   - Codex
   - Git
@@ -10,7 +11,7 @@ tags:
   - Developer Experience
 ---
 
-Once you start using Codex daily, it is worth understanding Git worktrees and when to use them.
+When several tasks move at once, each needs a clear scope and a place to be reviewed. Git worktrees provide that separation for code. They are worth understanding if you are coordinating work with coding agents, even when you are not writing every change yourself.
 
 Worktrees do not make a full copy of your repository. They create an additional working directory that shares the same underlying Git history and object database. Each worktree has its own working directory and index, so uncommitted changes stay isolated to the folder where they were made, but all commits still go into the same shared repository.
 
@@ -18,7 +19,7 @@ Worktrees do not make a full copy of your repository. They create an additional 
 
 ## The problem worktrees solve
 
-If an agent is actively editing your repository for 15 to 60 minutes, your main working directory is no longer a safe place to do unrelated work. You can wait, but that wastes time. You can interrupt, but that breaks momentum.
+If an agent is editing your repository for 15 to 60 minutes, your main working directory is no longer a safe place for unrelated work. Waiting wastes time. Interrupting throws away momentum.
 
 Worktrees solve this by giving you multiple working directories for the same repository, each with its own checked-out branch.
 
@@ -44,7 +45,7 @@ This command:
 2. Creates a new branch `agent/track-17` from `main`
 3. Checks that branch out in the new folder
 
-Now your main folder can stay on `main` (or any other branch) while the agent works in the worktree.
+Now your main folder can stay on `main` while the agent works in the worktree. Your main folder can use another branch too.
 
 ## Core rules and gotchas
 
@@ -71,7 +72,7 @@ For quick inspection, switch to the latest commit in detached HEAD state:
 git switch --detach agent/track-17
 ```
 
-Detached HEAD simply means you are looking at a specific commit instead of a branch pointer. As long as you do not create new commits there, it is perfectly safe for inspection and testing. If you need to make edits, either:
+Detached HEAD means you are looking at a specific commit instead of a branch pointer. It is safe for inspection and testing as long as you do not create new commits there. If you need to make edits, choose one of these options:
 
 1. Move into the worktree folder, or
 2. Create a new branch from that detached commit
@@ -89,10 +90,6 @@ git worktree prune
 
 In my workflow, each agent creates its own worktree and branch before writing code. The agent only touches that folder. I keep working in my main folder.
 
-That gives me:
+Concurrent tasks stay isolated, I rarely have to stash work, and every agent leaves behind a branch I can review.
 
-1. Isolation between concurrent tasks
-2. Fewer stash/checkout interruptions
-3. Clean, reviewable branches and PRs
-
-If you remember one sentence, use this: Git worktrees let you keep multiple branches checked out at the same time, in separate folders, on the same machine.
+I like the freedom to test an idea without disturbing the product people already use. Each experiment still needs a reason to exist and a decision about whether it should ship. More parallel work is useful when it helps answer those questions sooner.

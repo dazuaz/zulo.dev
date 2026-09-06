@@ -1,11 +1,12 @@
 ---
 title: "What changes when an agent can do the boring part?"
-description: "A personal note on loan onboarding, AI agents, and the small shift that happens when software can run the work, show its mistakes, and get corrected."
+description: "A proposed loan onboarding workflow, and how I would judge whether faster fixes create a better product and a stronger business."
 pubDate: 2026-03-24
+updatedDate: 2026-09-05
 heroImage: "/blog/building-products-for-agents/hero-ink-line-art.webp"
 heroImageWidth: 1376
 heroImageHeight: 768
-heroImageAlt: "Ink line drawing on cream paper: a code terminal, a circular human-and-agent workflow loop, and a hand correcting a form that feeds back into code, with black ink and cross-hatched shadows."
+heroImageAlt: "Ink line drawing on cream paper of a code terminal, a human and agent workflow loop, and a hand correcting a form that feeds back into code."
 tags:
   - Codex
   - Workflow
@@ -14,21 +15,32 @@ tags:
   - Product
 ---
 
-AI Feedback loop inside product features.
+Most loan onboarding software does a plain job. It reads a record from one system, reshapes the fields, moves the documents, and writes everything to another API.
 
-Imagine a simple tool that takes the data from one system and onboards it onto another system. It's a pretty simple tool that uses APIs, takes shapes of data from the source and converts into it's destination shapes. With legacy tools and poorly documented APIs, there will alwyas be edge cases when you actually use with production data. Most of the work is the kind people only notice when it breaks: map this field, normalize that date, move these documents, make sure the resulting record is complete.
+The happy path is easy. Production data is not. A date arrives in an unexpected format. A legacy API returns a field nobody documented. One loan has six documents where the test fixture had two. People notice this work only when the transfer fails or the new record is incomplete.
 
-So, when something breaks or is not working as expected, the users need to identify the issues, or the developers need to review the logs, or you could have a QA tool that points out the issues, then you create a ticket or github issue to track the problem.
+The usual response is familiar. A user reports the problem, a developer searches the logs, and somebody opens an issue. The fix waits in a queue.
 
-But instead of clicking the button that runs the app, you tell the AI coding agent to run the extraction with accesss to the source code of the program, for example onboard Loan 1234, the AI agent calls the onboarding function, it reads the output, it reads the logs and will be aware of a failing parse or validation, then right there it will fix the code, run it again and validate the source and the target match.
+A coding agent could shorten that loop. The workflow below is a design proposal. It describes how I would connect an operational failure to a reviewed product change.
 
-## The ideal AI loop
+Consider a loan transfer that fails because a date arrives in an unexpected format. The agent would inspect the result and logs, locate the parsing code, and propose a fix. It would test that change against a controlled reproduction of the failure. A reviewer would then have the original error, the proposed change, and the test result together.
 
-1. Run the real production operation 
-2. Great observability and evals.
-3. Allow AI Agent to handle fixes.
-4. Users provide validation or steering.
-5. Turn the users input into product feedback.
-6. AI Agent implements the new changes.
+## The loop I want
 
-Over time the AI agent learns from the feedback and improves its ability to handle issues and implement changes. The Applications are constantly learning and adapting to new production data and user feedback.
+1. Define the operation, its owner, and what a complete loan record must contain.
+2. Capture failures with enough detail to reproduce them in a controlled environment.
+3. Let the agent propose a fix and test it against both the failed case and existing cases.
+4. Have engineering review the change and the operational owner confirm the expected behavior before release.
+5. Retry the approved operation with checks for duplicate records and documents, then verify the destination against the source.
+
+The regression test stays with the product. The person handling the loan gets an explanation of what changed and whether the record is now complete.
+
+## What would make this worth building?
+
+Before investing in this, I would want to understand how often transfers fail, what each failure costs the customer, and who has a reason to pay for a better result. An occasional annoyance and a daily operational bottleneck deserve different products.
+
+I would measure time to a verified resolution, repeat failures, and the amount of review the workflow asks of the operations team. Then I would compare the cost of running and supporting it with the value it creates for the customer. Faster fixes need to translate into something the customer notices and values.
+
+Product and engineering need to agree on which failures qualify for this loop, who can approve a change, and which cases should stop for a policy decision. Those boundaries are part of the design.
+
+That is the opportunity I want to pursue: each difficult production case making the next transfer more reliable. I would start with one recurring failure, prove the improvement with the people doing the work, and use that evidence to decide whether to expand.
