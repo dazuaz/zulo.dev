@@ -1,15 +1,21 @@
 ---
 const { current = 'home' } = Astro.props;
+const links = [
+  { href: '/services', label: 'Services', key: 'services' },
+  { href: '/work', label: 'Work', key: 'work' },
+  { href: '/approach', label: 'Approach', key: 'approach' },
+  { href: '/about', label: 'About', key: 'about' },
+  { href: '/blog', label: 'Insights', key: 'blog' },
+];
 ---
 <header class="site-header dark-surface">
   <div class="site-container nav-inner">
     <a class="brand" href="/" aria-label="Zulo home">zulo<span class="brand-dot">.</span><span class="brand-descriptor">AI TRANSFORMATION</span></a>
     <nav class="desktop-nav" aria-label="Primary">
-      <a href="/#services">What we do</a><a href="/#approach">How we work</a><a href="/#about">About</a>
-      <a href="/blog" aria-current={current === 'blog' ? 'page' : undefined}>Insights</a>
+      {links.map(link => <a href={link.href} aria-current={current === link.key ? 'page' : undefined}>{link.label}</a>)}
     </nav>
     <a class="action action-nav" href="/contact" aria-current={current === 'contact' ? 'page' : undefined}>Let’s talk <span aria-hidden="true">↗</span></a>
-    <details class="mobile-menu"><summary aria-label="Navigation menu">Menu <span aria-hidden="true">＋</span></summary><nav aria-label="Mobile"><a href="/#services">What we do</a><a href="/#approach">How we work</a><a href="/#about">About</a><a href="/blog">Insights</a><a href="/contact">Let’s talk ↗</a></nav></details>
+    <details class="mobile-menu"><summary aria-label="Navigation menu">Menu <span aria-hidden="true">＋</span></summary><nav aria-label="Mobile">{links.map(link => <a href={link.href} aria-current={current === link.key ? 'page' : undefined}>{link.label}</a>)}<a href="/contact">Let’s talk ↗</a></nav></details>
   </div>
 </header>
 <script>

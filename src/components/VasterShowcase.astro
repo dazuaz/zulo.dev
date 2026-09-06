@@ -1,0 +1,153 @@
+---
+interface Props { eager?: boolean }
+const { eager = false } = Astro.props;
+const chapters = [
+  { label: 'Intake', title: 'One application. Several ways in.', description: 'Borrowers, loan officers, and connected assistants contribute to a shared application that carries the work forward.', anchor: 'connected-records' },
+  { label: 'CRM', title: 'Information becomes working records.', description: 'Contacts, properties, documents, and the deal arrive connected in HubSpot. Existing pipeline decisions stay with the lending team.', anchor: 'connected-records' },
+  { label: 'Identity', title: 'Sensitive access is a deliberate step.', description: 'Masked SSNs, encrypted storage, credit authorization, and recorded access give identity information a considered handling process.', anchor: 'identity-consent' },
+  { label: 'Signing', title: 'The signed document finds its way home.', description: 'Box Sign coordinates applicant signatures. The completed PDF returns to the application and its HubSpot deal.', anchor: 'signing' },
+  { label: 'Oscar + MCP', title: 'Operations can work from the conversation.', description: 'Oscar connects Slack to application discovery, validation, PDFs, and approved updates through Vaster’s MCP tools.', anchor: 'oscar-mcp' },
+];
+---
+<vaster-showcase class="showcase" aria-label="Vaster connected lending presentation">
+  <div class="showcase-stage">
+    <div class="showcase-topline"><span>VASTER <i>/</i> CONNECTED LENDING</span><span class="showcase-edition">INSIDE THE WORKFLOW</span></div>
+    <div class="showcase-scenes">
+      <div class="showcase-scene is-active" aria-hidden="false">
+        <div class="scene-copy"><span class="scene-overline">01 / THE STARTING POINT</span><h3>Every route in.<br /><em>One connected record.</em></h3><p>Capture the details once. Keep them useful across the operation.</p><div class="source-list"><span>Borrower portal</span><span>Encompass import</span><span>Oscar + MCP</span></div></div>
+        <div class="intake-visual"><div class="app-window"><div class="window-bar"><span aria-hidden="true">● ● ●</span><span>vaster.app</span><span>↗</span></div><img src="/work/vaster/terms.webp" alt="Actual Vaster loan application showing a demonstration refinance and its loan summary." width="1440" height="1000" loading={eager ? 'eager' : 'lazy'} /></div><div class="connection-caption"><span class="pulse-dot"></span> A shared application for the work ahead</div></div>
+      </div>
+      <div class="showcase-scene" aria-hidden="true">
+        <div class="scene-copy"><span class="scene-overline">02 / THE CRM HANDOFF</span><h3>A deal the team<br /><em>can work with.</em></h3><p>The application becomes structured information inside HubSpot.</p><div class="scene-detail">Existing pipeline, stage, and close date are preserved when a deal is updated.</div></div>
+        <div class="record-visual"><div class="record-header"><span class="system-icon hubspot-icon">H</span><div><small>HUBSPOT / EXAMPLE DEAL</small><strong>1200 Example Avenue</strong></div><span class="status-tag">Connected</span></div><div class="record-metrics"><div><small>LOAN REQUEST</small><strong>$450,000</strong></div><div><small>LOAN PURPOSE</small><strong>Refinance</strong></div></div><div class="record-row"><span class="record-symbol">↗</span><div><strong>Alex Morgan</strong><small>Applicant · Guarantor</small></div><span class="row-state">Contact linked</span></div><div class="record-row"><span class="record-symbol">↗</span><div><strong>Jordan Lee</strong><small>Broker</small></div><span class="row-state">Contact linked</span></div><div class="record-row"><span class="record-symbol">⌂</span><div><strong>Subject property</strong><small>One listing for each property</small></div><span class="row-state">Listing linked</span></div><div class="record-row"><span class="record-symbol">≡</span><div><strong>Application & supporting files</strong><small>Available on the deal</small></div><span class="row-state">Files attached</span></div><div class="record-footer"><span>✓</span> The relationships travel with the information.</div></div>
+      </div>
+      <div class="showcase-scene" aria-hidden="true">
+        <div class="scene-copy"><span class="scene-overline">03 / IDENTITY & CONSENT</span><h3>The right access.<br /><em>A record of why.</em></h3><p>Credit work needs sensitive information. Each disclosure deserves care.</p><div class="scene-detail">Authorization receipts preserve the disclosure version, time, and context of acceptance.</div></div>
+        <div class="identity-visual"><div class="vault-card"><div class="vault-heading"><span class="system-icon">⌘</span><span>APPLICANT IDENTITY</span><span class="status-tag">Protected</span></div><small>SSN / ITIN</small><div class="masked-value">***–**–0000</div><div class="vault-rule"><span>✓</span> Credit authorization required</div><div class="vault-rule"><span>✓</span> Reason for access recorded</div><div class="vault-rule"><span>✓</span> Revealed value hides after 30 seconds</div></div><div class="receipt-card"><span class="receipt-icon">≡</span><div><strong>Credit authorization receipt</strong><p>Disclosure + acceptance + evidence</p></div><span class="receipt-file">PDF</span></div><div class="connection-caption"><span class="pulse-dot"></span> Encrypted storage · masked routine views</div></div>
+      </div>
+      <div class="showcase-scene" aria-hidden="true">
+        <div class="scene-copy"><span class="scene-overline">04 / THE SIGNED PACKAGE</span><h3>From application<br /><em>to signed record.</em></h3><p>Coordinate the signatures and bring the completed document back to the deal.</p><div class="scene-detail">Parallel invitations, reminders, and staff controls for resending or cancelling requests.</div></div>
+        <div class="signing-visual"><div class="signing-card"><div class="record-header"><span class="box-wordmark">box</span><div><small>BOX SIGN</small><strong>Private loan application</strong></div></div><div class="signer-row"><span class="person-avatar">AM</span><div><strong>Alex Morgan</strong><small>Applicant 1</small></div><span class="signature-mark">Signed ✓</span></div><div class="signer-row"><span class="person-avatar">TM</span><div><strong>Taylor Morgan</strong><small>Applicant 2</small></div><span class="signature-mark">Signed ✓</span></div></div><div class="flow-connector" aria-hidden="true"><span></span>↓<span></span></div><div class="signed-destination"><span class="receipt-icon">≡</span><div><strong>Signed application.pdf</strong><p>Stored with the application</p></div><span class="status-tag">Complete</span></div><div class="return-line"><span>↳</span> Attached to the linked HubSpot deal</div></div>
+      </div>
+      <div class="showcase-scene" aria-hidden="true">
+        <div class="scene-copy"><span class="scene-overline">05 / THE OPERATIONS ASSISTANT</span><h3>Meet Oscar.<br /><em>Closer to the work.</em></h3><p>Find, review, and prepare applications from the team’s Slack conversations.</p><div class="scene-detail">MCP connects Oscar to the same application records and validation. Staff approve changes before they run.</div></div>
+        <div class="oscar-visual"><div class="conversation-header"><span class="oscar-avatar">o.</span><div><strong>Oscar</strong><small>Vaster operations · Slack</small></div><span class="status-tag">MCP connected</span></div><div class="chat-message operator-message"><small>OPERATIONS TEAM</small><p>What’s missing from the Example Avenue application?</p></div><div class="chat-message oscar-message"><small>OSCAR / ILLUSTRATIVE EXCHANGE</small><p>The draft still needs the borrower’s ID and property details. Here’s the application for review.</p><div class="tool-receipt"><span>✓ Find application</span><span>✓ Validate draft</span></div></div><div class="approval-strip"><span class="approval-symbol">◎</span><div><strong>People stay in control.</strong><p>Updates and document attachments require approval.</p></div></div></div>
+      </div>
+    </div>
+    <div class="showcase-stage-footer"><span>WORKFLOW ILLUSTRATIONS · DEMONSTRATION DATA</span><a data-detail href="/work/vaster#connected-records">Explore this capability <span aria-hidden="true">↗</span></a></div>
+  </div>
+  <div class="showcase-console">
+    <div class="showcase-story">{chapters.map((chapter, index) => <div data-story hidden={index !== 0}><p class="showcase-count">0{index + 1} / 05</p><h3>{chapter.title}</h3><p>{chapter.description}</p></div>)}</div>
+    <div class="showcase-controls" hidden><div class="showcase-chapters" aria-label="Presentation chapters">{chapters.map((chapter,index) => <button type="button" data-chapter={index} data-anchor={chapter.anchor} aria-pressed={index === 0}><span class="chapter-track"><span></span></span><span class="chapter-label">{chapter.label}</span></button>)}</div><button class="showcase-play" type="button" data-play aria-label="Pause presentation"><span data-play-icon aria-hidden="true">Ⅱ</span></button></div>
+  </div>
+  <noscript><p class="showcase-note">Explore the connected workflow: <a href="/work/vaster#connected-records">CRM</a> · <a href="/work/vaster#identity-consent">Identity & consent</a> · <a href="/work/vaster#signing">Signing</a> · <a href="/work/vaster#oscar-mcp">Oscar & MCP</a></p></noscript>
+</vaster-showcase>
+<script>
+  class VasterShowcase extends HTMLElement {
+    private cleanup?: () => void;
+    connectedCallback() {
+      const scenes = Array.from(this.querySelectorAll<HTMLElement>('.showcase-scene'));
+      const stories = Array.from(this.querySelectorAll<HTMLElement>('[data-story]'));
+      const chapters = Array.from(this.querySelectorAll<HTMLButtonElement>('[data-chapter]'));
+      const play = this.querySelector<HTMLButtonElement>('[data-play]')!;
+      const icon = this.querySelector<HTMLElement>('[data-play-icon]')!;
+      const detail = this.querySelector<HTMLAnchorElement>('[data-detail]')!;
+      const media = matchMedia('(prefers-reduced-motion: reduce)');
+      this.querySelector<HTMLElement>('.showcase-controls')!.hidden = false;
+      let index = 0, elapsed = 0, previous = 0, frame = 0;
+      let playing = !media.matches, visible = false;
+      const duration = 7500;
+      const controller = new AbortController();
+      const { signal } = controller;
+      const show = (next: number) => {
+        index = next; elapsed = 0;
+        scenes.forEach((scene, i) => { scene.classList.toggle('is-active', i === index); scene.setAttribute('aria-hidden', String(i !== index)); });
+        stories.forEach((story, i) => { story.hidden = i !== index; });
+        chapters.forEach((chapter, i) => { chapter.setAttribute('aria-pressed', String(i === index)); chapter.style.setProperty('--progress', i < index ? '1' : '0'); });
+        detail.href = `/work/vaster#${chapters[index].dataset.anchor}`;
+      };
+      const tick = (time: number) => {
+        if (previous) elapsed += Math.min(time - previous, 100);
+        previous = time;
+        if (elapsed >= duration) show((index + 1) % scenes.length);
+        chapters[index].style.setProperty('--progress', String(elapsed / duration));
+        frame = requestAnimationFrame(tick);
+      };
+      const sync = () => {
+        cancelAnimationFrame(frame); previous = 0;
+        if (playing && visible && !document.hidden) frame = requestAnimationFrame(tick);
+        play.setAttribute('aria-label', playing ? 'Pause presentation' : 'Play presentation');
+        icon.textContent = playing ? 'Ⅱ' : '▶';
+      };
+      chapters.forEach((chapter, i) => chapter.addEventListener('click', () => { playing = false; show(i); sync(); }, { signal }));
+      play.addEventListener('click', () => { playing = !playing; sync(); }, { signal });
+      media.addEventListener('change', () => { playing = !media.matches; sync(); }, { signal });
+      document.addEventListener('visibilitychange', sync, { signal });
+      const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }, { threshold: .15 });
+      observer.observe(this); sync();
+      this.cleanup = () => { observer.disconnect(); controller.abort(); cancelAnimationFrame(frame); };
+    }
+    disconnectedCallback() { this.cleanup?.(); }
+  }
+  if (!customElements.get('vaster-showcase')) customElements.define('vaster-showcase', VasterShowcase);
+</script>
+<style>
+  .showcase { display: block; }
+  .showcase-stage { overflow: hidden; padding: 1.6rem 2.8rem 1rem; border-radius: 6px 6px 0 0; background: radial-gradient(ellipse at 85% 45%, #26465c 0%, #142635 48%, #101d27 100%); color: #e5edf2; }
+  .showcase-topline,.showcase-stage-footer { display:flex;justify-content:space-between;align-items:center;gap:1rem;font:.65rem/1.6 var(--font-mono);letter-spacing:.1em; }
+  .showcase-topline i {font-style:normal;color:#849dab;margin-inline:.7rem;} .showcase-edition {color:#a6bbc9;}
+  .showcase-scenes {display:grid;} .showcase-scene {grid-area:1/1;display:grid;grid-template-columns:.85fr 1.15fr;align-items:center;gap:3.2rem;min-height:490px;padding-block:2.5rem;min-width:0;opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .6s ease,transform .8s cubic-bezier(.2,.75,.3,1),visibility .6s;}
+  .showcase-scene.is-active {opacity:1;visibility:visible;transform:translateY(0);} .showcase-scene > * {min-width:0;}
+  .scene-overline {font:.65rem/1.6 var(--font-mono);letter-spacing:.09em;color:#91bbc9;display:block;margin-bottom:1.5rem;}
+  .scene-copy h3 {font:500 clamp(1.8rem,3vw,2.75rem)/1.18 var(--font-display);letter-spacing:-.05em;} .scene-copy h3 em {font-style:normal;color:#a5c9d4;}
+  .scene-copy > p {font-size:1rem;line-height:1.8;color:#c0cdd7;margin-top:1.5rem;max-width:34ch;} .scene-detail {font-size:.8rem;line-height:1.8;color:#a6bdca;border-top:1px solid #45606e;padding-top:1.2rem;margin-top:1.5rem;max-width:39ch;}
+  .source-list {display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.8rem;} .source-list span {font:.65rem/1.5 var(--font-mono);border:1px solid #506675;padding:.5rem .6rem;border-radius:3px;color:#c9d8e0;}
+  .app-window {background:white;border:1px solid #9ab0bd;border-radius:5px;overflow:hidden;box-shadow:0 20px 50px #0004;}
+  .window-bar {display:flex;justify-content:space-between;align-items:center;gap:1rem;height:25px;padding-inline:12px;color:#6a7781;background:#edf1f5;font:9px var(--font-mono);}
+  .app-window img {display:block;width:100%;height:auto;} .connection-caption {font:.65rem/1.6 var(--font-mono);color:#bcd0db;display:flex;justify-content:center;align-items:center;gap:.55rem;margin-top:1.4rem;}
+  .pulse-dot {width:5px;height:5px;border-radius:50%;background:#9ecebc;flex-shrink:0;}
+  .record-visual,.vault-card,.signing-card,.oscar-visual {background:#f5f8fa;color:#203447;border:1px solid #b5c7d3;border-radius:6px;box-shadow:0 20px 50px #0003;overflow:hidden;}
+  .record-header {display:flex;align-items:center;gap:.8rem;padding:1.3rem 1.4rem;border-bottom:1px solid #d5dfe6;} .record-header div {flex:1;}
+  .system-icon {width:34px;height:34px;display:grid;place-items:center;background:#e5edf2;color:#29576c;border-radius:6px;font-weight:600;} .hubspot-icon {background:#fff0e8;color:#c45b33;}
+  .record-header small,.record-metrics small {display:block;font:.6rem/1.7 var(--font-mono);color:#64788a;letter-spacing:.05em;} .record-header strong {font-size:.95rem;display:block;margin-top:.3rem;font-weight:600;}
+  .status-tag {font:.6rem/1.5 var(--font-mono);color:#2b6453;background:#e2eee8;padding:.35rem .5rem;border-radius:3px;white-space:nowrap;}
+  .record-metrics {display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:1.3rem 1.5rem;background:#eaf0f5;} .record-metrics strong {display:block;font:500 1.2rem/1.5 var(--font-display);margin-top:.2rem;}
+  .record-row {display:flex;align-items:center;gap:.85rem;padding:.85rem 1.4rem;border-bottom:1px solid #e1e7ec;} .record-row > div {flex:1;} .record-row strong {display:block;font-size:.8rem;font-weight:600;} .record-row small {display:block;font-size:.7rem;color:#667c8d;margin-top:.2rem;}
+  .record-symbol {color:#578198;font-size:1.2rem;width:20px;text-align:center;} .row-state {font:.55rem/1.5 var(--font-mono);color:#527a6e;} .record-footer {font-size:.7rem;color:#536e80;padding:1rem 1.4rem;display:flex;gap:.55rem;}
+  .vault-card {padding:1.5rem;} .vault-heading {display:flex;align-items:center;gap:.7rem;margin-bottom:2rem;font:.6rem var(--font-mono);} .vault-heading .status-tag {margin-left:auto;}
+  .vault-card > small {font:.65rem var(--font-mono);color:#678093;letter-spacing:.08em;} .masked-value {font:400 clamp(1.6rem,3vw,2.5rem)/1.6 var(--font-mono);letter-spacing:.1em;margin:.5rem 0 1.7rem;}
+  .vault-rule {display:flex;gap:.65rem;font-size:.8rem;padding-block:.55rem;border-top:1px solid #d9e2e8;} .vault-rule span {color:#477d66;}
+  .receipt-card,.signed-destination {display:flex;align-items:center;gap:.85rem;border:1px solid #8ca6b7;border-radius:5px;background:#e7eff5;color:#264356;padding:1.2rem;margin-top:1rem;}
+  .receipt-icon {font-size:1.8rem;color:#5f879c;} .receipt-card > div,.signed-destination > div {flex:1;} .receipt-card strong,.signed-destination strong {font-size:.85rem;font-weight:600;} .receipt-card p,.signed-destination p {font-size:.7rem;color:#637f92;margin-top:.3rem;} .receipt-file {font:.65rem var(--font-mono);color:#648191;}
+  .box-wordmark {color:#1679c4;font:500 1.6rem/1 var(--font-display);letter-spacing:-.08em;}
+  .signer-row {display:flex;align-items:center;gap:.8rem;margin:0 1.4rem;padding:1.2rem 0;border-bottom:1px solid #dbe4eb;} .signer-row:last-child {border:0;} .signer-row > div {flex:1;} .signer-row strong {font-size:.85rem;display:block;font-weight:600;} .signer-row small {font-size:.7rem;color:#667e90;display:block;margin-top:.2rem;}
+  .person-avatar {width:30px;height:30px;display:grid;place-items:center;background:#e4ebf1;border-radius:50%;font:.6rem var(--font-mono);color:#416680;} .signature-mark {font-size:.75rem;color:#3d785e;}
+  .flow-connector {display:flex;align-items:center;justify-content:center;color:#acc9d8;font-size:1.4rem;height:48px;gap:.8rem;} .flow-connector span {height:1px;background:#547587;width:55px;} .signed-destination {margin:0;} .return-line {font-size:.8rem;color:#c8dce8;display:flex;align-items:center;gap:.6rem;margin-top:1rem;padding-left:1rem;}
+  .conversation-header {display:flex;align-items:center;gap:.7rem;padding:1.25rem;background:#e8eef3;border-bottom:1px solid #d1dfe8;} .conversation-header > div {flex:1;} .conversation-header strong {display:block;font-size:.95rem;} .conversation-header small {font-size:.65rem;color:#657f8e;display:block;margin-top:.2rem;}
+  .oscar-avatar {display:grid;place-items:center;width:38px;height:38px;background:#1e3b4c;color:#c9e7df;border-radius:6px;font:500 1.5rem/1 var(--font-display);letter-spacing:-.08em;}
+  .chat-message {margin:1.25rem;padding:1rem;border-radius:5px;} .chat-message > small {display:block;font:.55rem/1.6 var(--font-mono);letter-spacing:.05em;color:#5a758a;} .chat-message p {font-size:.85rem;line-height:1.8;margin-top:.45rem;}
+  .operator-message {background:#eaf0f5;margin-bottom:.8rem;} .oscar-message {margin-top:0;border:1px solid #c7d6df;}
+  .tool-receipt {display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.9rem;font:.55rem/1.7 var(--font-mono);color:#477063;} .tool-receipt span {background:#e8f1ed;padding:.3rem .4rem;border-radius:3px;}
+  .approval-strip {display:flex;align-items:center;gap:.8rem;background:#e5eee9;padding:1rem 1.3rem;} .approval-symbol {font-size:1.7rem;color:#3f705b;} .approval-strip strong {font-size:.8rem;} .approval-strip p {font-size:.7rem;line-height:1.6;margin-top:.25rem;color:#576e64;}
+  .showcase-stage-footer {border-top:1px solid #38505f;padding-top:.6rem;color:#93aebf;font-size:.55rem;letter-spacing:.06em;} .showcase-stage-footer a {color:#d4e5ec;min-height:44px;display:inline-flex;align-items:center;gap:.6rem;letter-spacing:0;}
+  .showcase-console {border:1px solid var(--color-border);border-top:0;background:white;padding:1.7rem 2rem;display:grid;grid-template-columns:.9fr 1.1fr;gap:2.5rem;align-items:center;border-radius:0 0 6px 6px;}
+  .showcase-count {font:.6rem var(--font-mono);letter-spacing:.1em;color:#637686;margin-bottom:.5rem;} .showcase-story {min-height:135px;}
+  .showcase-story h3 {font:500 1.15rem/1.45 var(--font-display);letter-spacing:-.035em;margin-bottom:.6rem;}
+  .showcase-story p:not(.showcase-count) {color:var(--color-muted);font-size:.8rem;line-height:1.8;max-width:53ch;}
+  .showcase-controls {display:flex;align-items:center;gap:1rem;} .showcase-controls[hidden],[data-story][hidden] {display:none;}
+  .showcase-chapters {display:grid;grid-template-columns:repeat(5,1fr);gap:.8rem;flex:1;} .showcase-chapters button {text-align:left;cursor:pointer;padding-block:15px;color:#68717a;min-height:44px;}
+  .chapter-track {display:block;height:2px;background:#dce2e7;margin-bottom:.8rem;overflow:hidden;} .chapter-track > span {display:block;width:100%;height:100%;background:#1f537c;transform:scaleX(var(--progress,0));transform-origin:left;}
+  .chapter-label {font:500 .65rem/1.6 var(--font-ui);white-space:nowrap;} .showcase-chapters button[aria-pressed="true"] {color:#173e5b;} .showcase-chapters button[aria-pressed="true"] .chapter-track {background:#a2b9cc;}
+  .showcase-play {flex:0 0 44px;height:44px;border:1px solid #cbd5df;border-radius:50%;color:#244964;cursor:pointer;font-size:.875rem;} .showcase-play:hover {background:#edf3f8;}
+  .showcase-note {margin-top:.7rem;color:var(--color-meta);font-size:.75rem;} .showcase-note a {text-decoration:underline;}
+  .record-row, .vault-rule, .signer-row, .signed-destination, .chat-message, .approval-strip { opacity: 0; transform: translateY(8px); transition: opacity .5s ease, transform .65s cubic-bezier(.2,.75,.3,1); }
+  .is-active .record-row, .is-active .vault-rule, .is-active .signer-row, .is-active .signed-destination, .is-active .chat-message, .is-active .approval-strip { opacity: 1; transform: translateY(0); }
+  .is-active .record-row:nth-of-type(3), .is-active .vault-rule:nth-of-type(3), .is-active .signer-row:nth-of-type(2), .is-active .operator-message { transition-delay: .12s; }
+  .is-active .record-row:nth-of-type(4), .is-active .vault-rule:nth-of-type(4), .is-active .signer-row:nth-of-type(3) { transition-delay: .25s; }
+  .is-active .record-row:nth-of-type(5), .is-active .vault-rule:nth-of-type(5), .is-active .oscar-message { transition-delay: .4s; }
+  .is-active .record-row:nth-of-type(6), .is-active .signed-destination, .is-active .approval-strip { transition-delay: .55s; }
+  @media (max-width:1000px) {.showcase-stage {padding-inline:1.8rem;}.showcase-scene {gap:2rem;min-height:490px;}.showcase-console {grid-template-columns:1fr;gap:.5rem;}.showcase-story {min-height:100px;}.showcase-story p:not(.showcase-count) {max-width:70ch;}.scene-copy h3 {font-size:1.9rem;}.row-state {display:none;}}
+  @media (max-width:700px) {.showcase-stage {padding:1.2rem 1.2rem .5rem;}.showcase-edition {display:none;}.showcase-scene {grid-template-columns:1fr;align-content:start;gap:1.5rem;min-height:760px;padding-block:2rem 1.5rem;}.scene-copy h3 {font-size:2rem;}.scene-overline {margin-bottom:1rem;}.scene-copy > p {font-size:.9rem;max-width:none;margin-top:1rem;}.scene-detail {margin-top:.9rem;padding-top:.9rem;max-width:none;font-size:.75rem;}.source-list {margin-top:1rem;}.showcase-stage-footer {flex-direction:column;align-items:flex-start;gap:0;}.showcase-console {padding:1.5rem 1.2rem;gap:.8rem;}.showcase-story {min-height:130px;}.showcase-controls {gap:.75rem;}.showcase-chapters {gap:.5rem;grid-template-columns:repeat(3,1fr);}.chapter-label {font-size:.65rem;}.record-header {padding:1rem;}.record-header strong {font-size:.8rem;}.record-row {padding:.8rem 1rem;}.status-tag {font-size:.55rem;}.masked-value {font-size:1.8rem;}.vault-card {padding:1.2rem;}.vault-heading {gap:.5rem;font-size:.55rem;}.record-metrics strong {font-size:1rem;}.conversation-header {padding:1rem;}.chat-message {margin:1rem;padding:.8rem;}.chat-message p {font-size:.8rem;}.connection-caption {font-size:.55rem;}.receipt-card strong,.signed-destination strong {font-size:.75rem;}}
+  @media (max-width:370px) {.showcase-stage {padding-inline:.9rem;}.scene-copy h3 {font-size:1.75rem;}.showcase-topline {font-size:.6rem;}.showcase-scene {min-height:780px;}.vault-heading .system-icon {display:none;}.signer-row {margin-inline:1rem;gap:.5rem;}.signature-mark {font-size:.65rem;}.conversation-header .status-tag {display:none;}.signed-destination {padding:.9rem;gap:.5rem;}.receipt-file {display:none;}}
+  @media (prefers-reduced-motion:reduce) {.showcase-scene {transition:none;transform:none;}}
+</style>

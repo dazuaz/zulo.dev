@@ -10,7 +10,7 @@ const escapeXml = (value: string) => value.replace(/[<>&"']/g, character => ({
 
 export const GET: APIRoute = async ({ site }) => {
   const posts = await getPublishedPosts();
-  const pages = ['/', '/blog', '/contact'].map(path => ({ url: canonicalUrl(path, site!), lastmod: undefined as Date | undefined }));
+  const pages = ['/', '/services', '/approach', '/about', '/work', '/work/vaster', '/work/expenses', '/blog', '/contact'].map(path => ({ url: canonicalUrl(path, site!), lastmod: undefined as Date | undefined }));
   pages.push(...posts.map(post => ({
     url: canonicalUrl(`/blog/${post.id}`, site!),
     lastmod: post.data.updatedDate ?? post.data.pubDate,

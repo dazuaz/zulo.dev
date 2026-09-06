@@ -33,7 +33,7 @@ export function identityGraph(site: URL) {
       '@type': 'Person',
       '@id': `${home}#person`,
       name: siteIdentity.author,
-      url: `${home}#about`,
+      url: canonicalUrl('/about', site),
       jobTitle: 'AI Transformation Partner',
       sameAs: siteIdentity.profiles,
       worksFor: { '@id': `${home}#organization` },

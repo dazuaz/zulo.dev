@@ -1,0 +1,38 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ExpensesShowcase from '../../components/ExpensesShowcase.astro';
+import ProjectCTA from '../../components/ProjectCTA.astro';
+export const prerender = true;
+---
+<Layout title="Vaster Expenses — From Receipt to Finance | Zulo" description="AI-assisted expense capture, connected receipts, and clear approval and finance handoffs. Inside the expense and payment workspace built for Vaster." nav="work">
+  <main id="main-content" class="transformation-page">
+    <section class="page-masthead site-container case-intro">
+      <a class="case-back" href="/work">← Selected work</a>
+      <div class="case-title-row"><h1>Vaster Expenses<span class="case-dot">.</span></h1><a class="text-action light-link" href="https://expenses.vaster.app" target="_blank" rel="noopener noreferrer">Visit the application <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div>
+      <p class="case-deck">From scattered receipts<br />to a request finance can act on.</p>
+      <dl class="project-facts"><div><dt>CLIENT</dt><dd>Vaster</dd></div><div><dt>SECTOR</dt><dd>Private lending</dd></div><div><dt>THE WORK</dt><dd>Expense &amp; payment operations</dd></div><div><dt>PLATFORM</dt><dd>AI-assisted internal workspace</dd></div></dl>
+    </section>
+    <div class="site-container"><ExpensesShowcase /></div>
+    <section class="case-narrative site-container section-pad">
+      <div><p class="section-kicker">THE CHALLENGE</p><h2>A receipt is only<br />part of the request.</h2></div>
+      <div class="case-prose"><p class="case-prose-lead">Someone needs to explain the expense. Someone needs to approve it. Finance needs the evidence and instructions to take it forward.</p><p>Vaster Expenses connects those responsibilities in one workspace. Vendor invoices, employee reimbursements, and company-card approvals each follow the appropriate request structure, with supporting documents and a visible history that carry through the handoff.</p></div>
+    </section>
+    <section class="opportunities section-pad"><div class="site-container"><div class="section-heading"><div><p class="section-kicker">THE PRODUCT</p><h2>AI handles the preparation.<br />People own the decisions.</h2></div><p>The detail is in how a conversation becomes a usable request—and how that request reaches the right team.</p></div>
+      <div class="case-principles">
+        <article><span>01 / CAPTURE WITH CONTEXT</span><h3>Start with what you have.</h3><p>Upload an invoice, a receipt, or a transaction-history screenshot and describe the request. AI extracts the available details, identifies expense categories, and builds a draft the requester can review and edit.</p></article>
+        <article><span>02 / A WORKING CONVERSATION</span><h3>The draft follows the discussion.</h3><p>Ask to change an amount, correct a description, or remove an item. Targeted chat edits update the structured draft, while ambiguous instructions prompt a follow-up. The conversation and the request stay connected.</p></article>
+        <article><span>03 / EVIDENCE AT THE ITEM</span><h3>Keep the receipt with the cost.</h3><p>Documents are associated with individual expense items using extracted references, vendors, and amounts. Transaction deduplication helps reconcile overlapping inputs, so reviewers can trace the supporting evidence.</p></article>
+        <article><span>04 / THREE FINANCIAL WORKFLOWS</span><h3>The request fits the work.</h3><p>Pay a vendor, reimburse an employee, or seek approval before a company-card purchase. Each uses a tailored draft, including vendor payment preferences, invoice references, and reimbursement context. Submission creates the request, its items, attachment links, and initial activity together.</p></article>
+        <article><span>05 / DELIBERATE HANDOFFS</span><h3>Approval has a next step.</h3><p>Approvers see pending requests. Finance sees approved requests that need follow-up. Notifications move the work between those roles and keep the requester informed, with comments alongside the request.</p></article>
+        <article><span>06 / ROOM FOR REAL OPERATIONS</span><h3>Corrections keep their context.</h3><p>Authorized staff can correct a request’s workflow type and review every affected item. Decisions, comments, and notification delivery events create a history the team can return to as the request moves toward completion.</p></article>
+      </div>
+    </div></section>
+    <section class="case-narrative site-container section-pad"><div><p class="section-kicker">WHAT THIS ENABLES</p><h2>Less reconstruction.<br />A clearer next action.</h2></div><div class="case-prose"><p class="case-prose-lead">Vaster’s team can work from a shared request instead of piecing together an explanation, an attachment, and an approval.</p><p>The product brings preparation, evidence, review, and finance follow-up into a connected process. AI helps assemble and refine the information; permissions, explicit decisions, and recorded activity support the operational work around it.</p><a class="text-action light-link" href="/work/vaster">Explore Vaster’s lending application <span aria-hidden="true">↗</span></a></div></section>
+    <ProjectCTA />
+  </main>
+</Layout>
+<style>
+  .case-title-row h1 { font-size: clamp(2.4rem, 6vw, 5rem); }
+  .case-title-row { flex-wrap: wrap; }
+  .case-principles { row-gap: 3.5rem; }
+</style>

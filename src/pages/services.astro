@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCTA from '../components/ProjectCTA.astro';
+import { services, workflows } from '../lib/business';
+import { canonicalUrl } from '../lib/seo';
+const home = canonicalUrl('/', Astro.site!);
+const url = canonicalUrl('/services', Astro.site!);
+const serviceSchema = services.map(service => ({
+  '@type': 'Service', '@id': `${url}#service-${service.number}`,
+  name: service.title, serviceType: service.tag, description: service.description,
+  url: `${url}#service-${service.number}`, provider: { '@id': `${home}#organization` },
+}));
+export const prerender = true;
+---
+<Layout title="AI Strategy & Custom Systems | Zulo" description="AI strategy, custom engineering, and adoption support. Explore how Zulo turns operational problems into practical systems." nav="services" structuredData={serviceSchema}>
+  <main id="main-content" class="transformation-page">
+    <section class="page-masthead site-container">
+      <p class="section-kicker">WHAT WE DO</p>
+      <h1>Useful systems.<br />Built around your business.</h1>
+      <p class="page-lead">From deciding where AI belongs to building the tools your team uses every day.</p>
+    </section>
+        <section id="services" class="section-pad site-container">
+            <div class="section-heading"><div><p class="section-kicker">STRATEGY / ENGINEERING / ADOPTION</p><h2>From possibility<br />to everyday practice.</h2></div><p>One partner across strategy, product, and engineering. A clear path from your first question to a system your team can depend on.</p></div>
+            <div class="service-grid">{services.map(service => <article id={`service-${service.number}`} class="service-card"><div class="service-card-top"><span>{service.number}</span><span class="service-symbol" aria-hidden="true">{service.symbol}</span></div><p class="service-tag">{service.tag}</p><h3>{service.title}</h3><p>{service.description}</p><ul>{service.deliverables.map(item => <li><span aria-hidden="true">↗</span>{item}</li>)}</ul></article>)}</div>
+        </section>
+
+        <section id="opportunities" class="opportunities section-pad">
+            <div class="site-container"><div class="section-heading"><div><p class="section-kicker">WHERE AI CAN HELP</p><h2>Real work.<br />A better way through it.</h2></div><p>Illustrative opportunities, not one-size-fits-all solutions. The right starting point depends on where your team loses time and where quality matters most.</p></div>
+            <div class="workflow-examples">{workflows.map(item => <article class="example-row"><div class="example-title"><span class="section-kicker">{item.number} / {item.category}</span><h3>{item.title}</h3></div><div><span class="example-label">THE FRICTION</span><p>{item.before}</p></div><div class="example-after"><span class="example-label">THE OPPORTUNITY <span aria-hidden="true">↗</span></span><p>{item.after}</p><span class="measure">Measure: {item.measure}</span></div></article>)}</div>
+            </div>
+        </section>
+    <ProjectCTA />
+  </main>
+</Layout>

@@ -1,0 +1,188 @@
+---
+const chapters = [
+  { label: 'Capture', title: 'The document starts the request.', description: 'AI extracts invoice details and uses the conversation to build an editable draft.' },
+  { label: 'Structure', title: 'A request with its evidence attached.', description: 'The draft brings the vendor, category, invoice reference, amount, and source document together for review.' },
+  { label: 'Approve', title: 'Give the decision its context.', description: 'An approver reviews the request with supporting evidence and records the decision in its history.' },
+  { label: 'Handoff', title: 'Finance knows what comes next.', description: 'An approved request reaches the finance queue with its details, evidence, and approval history.' },
+];
+---
+<expenses-showcase class="expense-showcase" aria-label="Vaster Expenses illustrated workflow">
+  <div class="expense-stage">
+    <div class="stage-label"><span>VASTER <i>/</i> EXPENSES</span><span>ONE REQUEST. CONNECTED WORK.</span></div>
+    <div class="expense-demo">
+      <div class="demo-bar"><span class="demo-brand">vaster<span>expenses</span></span><span class="demo-label">ILLUSTRATIVE DEMO</span></div>
+      <div class="demo-body">
+        <aside class="demo-sidebar" aria-hidden="true"><span class="sidebar-label">WORKSPACE</span><span class="sidebar-item selected">＋ &nbsp; New request</span><span class="sidebar-item">▤ &nbsp; My requests</span><span class="sidebar-label second-label">TEAM</span><span class="sidebar-item">○ &nbsp; Approval queue</span><span class="sidebar-item">↗ &nbsp; Finance queue</span><div class="sidebar-bottom"><span class="avatar">V</span><span>Vaster team<br /><small>Demo workspace</small></span></div></aside>
+        <div class="demo-content">
+          <section class="expense-scene is-active" data-scene aria-hidden="false">
+            <div class="scene-heading"><span class="eyebrow">01 / PREPARE</span><h3>A conversation. A working draft.</h3></div>
+            <div class="capture-layout"><div class="chat-column"><div class="chat-bubble">Please prepare a vendor payment for this property inspection.</div><div class="attachment"><span class="file-icon">PDF</span><span>inspection-demo.pdf<small>Invoice · demonstration data</small></span></div><div class="assistant-reply"><span class="ai-mark">✳</span><p>I found the vendor, invoice reference, and amount. Your draft is ready to review.</p></div><div class="chat-input">Describe an expense…<span aria-hidden="true">↑</span></div></div><div class="invoice-paper"><span class="invoice-kicker">DEMO INVOICE</span><h4>Example Inspection Co.</h4><p>Invoice DEMO-1042</p><div class="invoice-rule"></div><div class="invoice-row"><span>Property inspection</span><strong>$480.00</strong></div><div class="invoice-total"><span>TOTAL · USD</span><strong>$480.00</strong></div><div class="extracted-stamp">✓ &nbsp; Details extracted</div></div></div>
+          </section>
+          <section class="expense-scene" data-scene aria-hidden="true" hidden>
+            <div class="scene-heading"><span class="eyebrow">02 / ORGANIZE</span><h3>Ready for a closer look.</h3></div>
+            <div class="request-card"><div class="request-title"><div><span class="small-label">VENDOR PAYMENT</span><h4>Property inspection</h4></div><span class="status">Draft</span></div><div class="request-fields"><div><span>Vendor</span><strong>Example Inspection Co.</strong></div><div><span>Invoice reference</span><strong>DEMO-1042</strong></div><div><span>Category</span><strong>Loan &amp; Property Costs</strong></div><div><span>Request total</span><strong>USD 480.00</strong></div></div><div class="linked-evidence"><span class="file-icon">PDF</span><span>inspection-demo.pdf<small>Supporting document attached to this item</small></span><span class="evidence-check" aria-hidden="true">✓</span></div></div>
+          </section>
+          <section class="expense-scene" data-scene aria-hidden="true" hidden>
+            <div class="scene-heading"><span class="eyebrow">03 / REVIEW</span><h3>A decision with a record.</h3></div>
+            <div class="review-layout"><div class="request-card compact"><span class="small-label">APPROVAL QUEUE</span><h4>Property inspection</h4><p class="review-amount">$480.00 <small>USD</small></p><p class="review-vendor">Example Inspection Co.<br />Supporting invoice attached</p><div class="review-evidence">✓ &nbsp; Supporting invoice available</div><span class="decision">✓ &nbsp; Approved</span></div><div class="activity-card"><span class="small-label">REQUEST HISTORY</span><ol><li><span class="activity-dot"></span><strong>Request submitted</strong><small>Requester · Demo event</small></li><li><span class="activity-dot"></span><strong>Invoice reviewed</strong><small>“Inspection invoice attached.”</small></li><li><span class="activity-dot active"></span><strong>Request approved</strong><small>Approver · Demo event</small></li></ol></div></div>
+          </section>
+          <section class="expense-scene" data-scene aria-hidden="true" hidden>
+            <div class="scene-heading"><span class="eyebrow">04 / HAND OVER</span><h3>The next team has the context.</h3></div>
+            <div class="handoff-banner"><span class="handoff-symbol" aria-hidden="true">↗</span><div><span class="small-label">FINANCE QUEUE</span><h4>Ready for finance follow-up</h4><p>Property inspection · USD 480.00</p></div></div><div class="handoff-details"><div><span aria-hidden="true">✓</span><strong>Request details</strong><small>Vendor, amount &amp; invoice</small></div><div><span aria-hidden="true">✓</span><strong>Connected evidence</strong><small>Supporting document</small></div><div><span aria-hidden="true">✓</span><strong>Recorded decision</strong><small>Approval &amp; activity</small></div></div><div class="handoff-footer"><span class="notification-icon" aria-hidden="true">↗</span><p>Finance notified of the approved request.<br /><strong>The requester can follow its status.</strong></p></div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="stage-label stage-bottom"><span>CAPTURE → REVIEW → FINANCE</span><span>BUILT AROUND THE HANDOFF.</span></div>
+  </div>
+  <div class="expense-console"><div class="expense-story">{chapters.map((chapter, index) => <div data-story hidden={index !== 0}><p class="story-count">0{index + 1} / 04</p><h3>{chapter.title}</h3><p>{chapter.description}</p></div>)}</div><div class="expense-controls" hidden><div class="expense-chapters" aria-label="Workflow chapters">{chapters.map((chapter, index) => <button type="button" data-chapter={index} aria-pressed={index === 0}><span class="chapter-track"><span></span></span><span class="chapter-title"><i>0{index + 1}</i>{chapter.label}</span></button>)}</div><button type="button" class="expense-play" data-play aria-label="Pause presentation"><span data-play-icon aria-hidden="true">Ⅱ</span></button></div></div>
+  <p class="expense-note">Illustrated product workflow. Fictional request and demonstration data.</p>
+</expenses-showcase>
+<script>
+  class ExpensesShowcase extends HTMLElement {
+    private cleanup?: () => void;
+    connectedCallback() {
+      this.cleanup?.();
+      const scenes = Array.from(this.querySelectorAll<HTMLElement>('[data-scene]'));
+      const stories = Array.from(this.querySelectorAll<HTMLElement>('[data-story]'));
+      const chapters = Array.from(this.querySelectorAll<HTMLButtonElement>('[data-chapter]'));
+      const play = this.querySelector<HTMLButtonElement>('[data-play]')!;
+      const icon = this.querySelector<HTMLElement>('[data-play-icon]')!;
+      const media = matchMedia('(prefers-reduced-motion: reduce)');
+      this.querySelector<HTMLElement>('.expense-controls')!.hidden = false;
+      let index = 0, elapsed = 0, previous = 0, frame = 0;
+      let playing = !media.matches, visible = false;
+      const controller = new AbortController();
+      const { signal } = controller;
+      const show = (next: number) => {
+        index = next; elapsed = 0;
+        scenes.forEach((scene, i) => { scene.hidden = i !== index; scene.classList.toggle('is-active', i === index); scene.setAttribute('aria-hidden', String(i !== index)); });
+        stories.forEach((story, i) => { story.hidden = i !== index; });
+        chapters.forEach((chapter, i) => { chapter.setAttribute('aria-pressed', String(i === index)); chapter.style.setProperty('--progress', i < index ? '1' : '0'); });
+      };
+      const tick = (time: number) => {
+        if (previous) elapsed += Math.min(time - previous, 100);
+        previous = time;
+        if (elapsed >= 7000) show((index + 1) % scenes.length);
+        chapters[index].style.setProperty('--progress', String(elapsed / 7000));
+        frame = requestAnimationFrame(tick);
+      };
+      const sync = () => {
+        cancelAnimationFrame(frame); previous = 0;
+        if (playing && visible && !document.hidden) frame = requestAnimationFrame(tick);
+        play.setAttribute('aria-label', playing ? 'Pause presentation' : 'Play presentation');
+        icon.textContent = playing ? 'Ⅱ' : '▶';
+      };
+      chapters.forEach((chapter, i) => chapter.addEventListener('click', () => { playing = false; show(i); sync(); }, { signal }));
+      play.addEventListener('click', () => { playing = !playing; sync(); }, { signal });
+      media.addEventListener('change', () => { playing = !media.matches; sync(); }, { signal });
+      document.addEventListener('visibilitychange', sync, { signal });
+      const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; sync(); }, { threshold: .15 });
+      observer.observe(this); sync();
+      this.cleanup = () => { controller.abort(); observer.disconnect(); cancelAnimationFrame(frame); };
+    }
+    disconnectedCallback() { this.cleanup?.(); }
+  }
+  if (!customElements.get('expenses-showcase')) customElements.define('expenses-showcase', ExpensesShowcase);
+</script>
+<style>
+  .expense-showcase { display: block; }
+  .expense-stage { padding: 1.7rem 3.5rem 1.25rem; color: #deece9; border-radius: 6px 6px 0 0; background: radial-gradient(ellipse at 60% 45%, #315d57, #172c2b 70%); overflow: hidden; }
+  .stage-label { display: flex; justify-content: space-between; gap: 1rem; font: .65rem/1.6 var(--font-mono); letter-spacing: .1em; color: #bdd2cc; }
+  .stage-label i { font-style: normal; color: #759c91; margin-inline: .7rem; }
+  .expense-demo { background: #fcfdfd; border: 1px solid #91b3a955; border-radius: 8px; margin: 2rem auto; max-width: 1000px; box-shadow: 0 20px 65px #0005; overflow: hidden; color: #253b37; }
+  .demo-bar { display: flex; align-items: center; justify-content: space-between; height: 60px; padding: 0 1.6rem; border-bottom: 1px solid #e5ebe8; background: #fff; }
+  .demo-brand { font: 600 1.6rem/1 var(--font-display); letter-spacing: -.08em; }
+  .demo-brand > span { font: 400 .7rem/1 var(--font-mono); margin-left: .7rem; letter-spacing: 0; color: #657b73; }
+  .demo-label { font: .55rem/1.5 var(--font-mono); color: #687971; letter-spacing: .08em; }
+  .demo-body { display: grid; grid-template-columns: 165px 1fr; }
+  .demo-sidebar { position: relative; background: #f5f8f6; border-right: 1px solid #e5ebe8; padding: 1.8rem .65rem; font-size: .67rem; }
+  .sidebar-label { display: block; font: .53rem/1.5 var(--font-mono); letter-spacing: .09em; color: #778780; margin: 0 .65rem .7rem; }
+  .sidebar-item { display: block; padding: .65rem; border-radius: 5px; color: #5d7068; }
+  .sidebar-item.selected { background: #e2eee7; color: #28553f; }
+  .second-label { margin-top: 2rem; }
+  .sidebar-bottom { display: flex; gap: .5rem; align-items: center; position: absolute; bottom: 1rem; left: 1.25rem; font-size: .6rem; line-height: 1.7; }
+  .sidebar-bottom small { color: #79857f; font-size: .55rem; }
+  .avatar { display: grid; place-items: center; background: #dae6df; height: 28px; width: 28px; border-radius: 50%; }
+  .demo-content { min-width: 0; min-height: 425px; padding: 2rem; }
+  .expense-scene[hidden], [data-story][hidden], .expense-controls[hidden] { display: none; }
+  .expense-scene.is-active { animation: scene-in .65s ease both; }
+  @keyframes scene-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  .eyebrow, .small-label { font: .56rem/1.5 var(--font-mono); letter-spacing: .09em; color: #668176; }
+  .scene-heading { margin-bottom: 1.65rem; }
+  .scene-heading h3 { font: 500 1.15rem/1.4 var(--font-display); letter-spacing: -.03em; margin-top: .4rem; }
+  .capture-layout { display: grid; grid-template-columns: 1.15fr 1fr; gap: 1.8rem; align-items: start; }
+  .chat-bubble { font-size: .75rem; line-height: 1.7; background: #edf3ef; padding: .85rem 1rem; border-radius: 10px 10px 2px 10px; }
+  .attachment { display: flex; align-items: center; gap: .55rem; padding: .75rem 0; font-size: .64rem; }
+  .attachment small, .linked-evidence small { display: block; font-size: .54rem; color: #7b8882; margin-top: .2rem; }
+  .file-icon { display: grid; place-items: center; flex-shrink: 0; width: 29px; height: 36px; border: 1px solid #d8e3dd; border-radius: 4px; font: .48rem/1 var(--font-mono); color: #5f7e6f; background: #fff; }
+  .assistant-reply { display: flex; align-items: start; gap: .55rem; font-size: .72rem; line-height: 1.7; margin: .6rem 0 1rem; }
+  .ai-mark { color: #668d75; font-size: 1.25rem; line-height: 1; }
+  .chat-input { border: 1px solid #dce4df; border-radius: 6px; padding: .7rem; color: #8b9691; display: flex; justify-content: space-between; font-size: .6rem; }
+  .invoice-paper { background: white; padding: 1.45rem 1.15rem; border: 1px solid #e0e7e3; box-shadow: 0 7px 18px #243d3610; transform: rotate(2deg); }
+  .invoice-kicker { font: .52rem/1.4 var(--font-mono); letter-spacing: .1em; color: #7d8c83; }
+  .invoice-paper h4 { font-size: .85rem; font-weight: 600; line-height: 1.5; margin: 1.2rem 0 .35rem; }
+  .invoice-paper > p { color: #819086; font-size: .57rem; }
+  .invoice-rule { border-top: 1px solid #e4e9e6; margin: 1.25rem 0; }
+  .invoice-row { display: flex; justify-content: space-between; gap: .5rem; font-size: .57rem; }
+  .invoice-total { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e4e9e6; padding-top: 1rem; margin-top: 1.5rem; }
+  .invoice-total span { font: .48rem/1.4 var(--font-mono); color: #73847b; }
+  .invoice-total strong { font-size: 1.05rem; font-weight: 500; }
+  .extracted-stamp { color: #497257; background: #edf6ee; border-radius: 4px; text-align: center; padding: .4rem; font-size: .57rem; margin-top: 1rem; }
+  .request-card { border: 1px solid #dce6e0; border-radius: 8px; padding: 1.5rem; background: #fff; }
+  .request-title { display: flex; justify-content: space-between; align-items: center; }
+  .request-card h4 { font-size: 1rem; font-weight: 500; margin-top: .35rem; }
+  .status { padding: .3rem .6rem; background: #f0f1ed; border: 1px solid #e4e5dc; font-size: .6rem; border-radius: 30px; }
+  .request-fields { display: grid; grid-template-columns: 1fr 1fr; gap: 1.15rem; margin: 1.5rem 0; }
+  .request-fields span, .request-fields strong { display: block; }
+  .request-fields span { font-size: .56rem; color: #7e8c84; margin-bottom: .25rem; }
+  .request-fields strong { font-size: .74rem; font-weight: 500; }
+  .linked-evidence { display: flex; align-items: center; gap: .65rem; padding-top: .8rem; border-top: 1px solid #e6ece8; font-size: .65rem; }
+  .evidence-check { margin-left: auto; color: #537e60; }
+  .review-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+  .review-amount { font: 500 1.8rem/1.4 var(--font-display); margin: 1rem 0 .5rem; letter-spacing: -.04em; }
+  .review-amount small { font: .55rem/1.5 var(--font-mono); color: #7c8b82; letter-spacing: 0; }
+  .review-vendor { font-size: .65rem; color: #697f71; line-height: 1.8; }
+  .review-evidence { font-size: .56rem; color: #5c7b66; margin: .8rem 0; }
+  .decision { display: block; background: #e3f0e7; color: #376548; padding: .55rem; text-align: center; border-radius: 4px; font-size: .68rem; }
+  .activity-card { padding: 1.25rem .25rem; }
+  .activity-card ol { list-style: none; padding: 0 0 0 1.1rem; margin-top: 1.1rem; }
+  .activity-card li { position: relative; border-left: 1px solid #dce6df; padding: 0 0 1.6rem 1.1rem; }
+  .activity-card li:last-child { border-left-color: transparent; }
+  .activity-card strong, .activity-card small { display: block; font-size: .69rem; font-weight: 500; }
+  .activity-card small { color: #7e8d84; font-size: .55rem; margin-top: .3rem; font-weight: 400; }
+  .activity-dot { position: absolute; left: -4px; top: 4px; width: 7px; height: 7px; background: #a7bbad; border-radius: 50%; }
+  .activity-dot.active { background: #578060; box-shadow: 0 0 0 4px #e8f0e9; }
+  .handoff-banner { background: #eaf3ed; border: 1px solid #d3e4d9; border-radius: 8px; padding: 1.5rem; display: flex; align-items: center; gap: 1rem; }
+  .handoff-symbol { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; color: #476c54; background: #d7e7dc; font-size: 1.3rem; flex-shrink: 0; }
+  .handoff-banner h4 { font-size: .95rem; font-weight: 500; margin: .35rem 0; }
+  .handoff-banner p { color: #708577; font-size: .68rem; }
+  .handoff-details { display: grid; grid-template-columns: repeat(3, 1fr); gap: .9rem; padding: 1.3rem .3rem; }
+  .handoff-details span, .handoff-details strong, .handoff-details small { display: block; }
+  .handoff-details span { font-size: .75rem; color: #60866b; margin-bottom: .5rem; }
+  .handoff-details strong { font-size: .61rem; font-weight: 500; }
+  .handoff-details small { font-size: .54rem; color: #839187; margin-top: .3rem; }
+  .handoff-footer { display: flex; align-items: center; gap: .75rem; border-top: 1px solid #e1e8e3; padding-top: 1rem; font-size: .62rem; line-height: 1.8; color: #647c6c; }
+  .handoff-footer strong { color: #839187; font-weight: 400; }
+  .notification-icon { border: 1px solid #dbe5dd; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; }
+  .expense-console { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; background: #e7eddf; padding: 2rem 2.5rem; border-radius: 0 0 6px 6px; }
+  .story-count { color: #75816b; font: .62rem/1.6 var(--font-mono); letter-spacing: .08em; }
+  .expense-story { min-height: 120px; }
+  .expense-story h3 { font: 500 1.45rem/1.4 var(--font-display); letter-spacing: -.04em; color: #263023; margin: .55rem 0; }
+  .expense-story [data-story] > p:last-child { color: #65705c; font-size: .8rem; line-height: 1.8; max-width: 52ch; }
+  .expense-controls { display: flex; align-items: center; gap: 1.4rem; }
+  .expense-chapters { flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: .8rem; }
+  .expense-chapters button { min-height: 44px; border: 0; padding: .6rem 0; background: transparent; cursor: pointer; text-align: left; color: #7d8675; }
+  .expense-chapters button[aria-pressed="true"] { color: #2d3c26; }
+  .chapter-track { display: block; background: #cdd6c4; height: 2px; margin-bottom: .7rem; overflow: hidden; }
+  .chapter-track > span { display: block; height: 100%; background: #60724e; transform: scaleX(var(--progress, 0)); transform-origin: left; }
+  .chapter-title { display: block; font: .62rem/1.5 var(--font-mono); white-space: nowrap; }
+  .chapter-title i { display: block; font-style: normal; font-size: .52rem; opacity: .7; margin-bottom: .2rem; }
+  .expense-play { width: 44px; height: 44px; border-radius: 50%; border: 1px solid #b6c2ab; background: transparent; color: #4b5d3e; cursor: pointer; flex-shrink: 0; font-size: .75rem; }
+  button:focus-visible { outline: 2px solid #3c694a; outline-offset: 5px; }
+  .expense-note { margin-top: .8rem; color: #7b8473; font: .58rem/1.6 var(--font-mono); }
+  @media (max-width: 1050px) { .expense-stage { padding: 1.3rem 1.5rem 1rem; } .demo-sidebar { display: none; } .demo-body { grid-template-columns: 1fr; } .expense-console { gap: 1.5rem; padding: 1.5rem; } }
+  @media (max-width: 760px) { .expense-console { grid-template-columns: 1fr; gap: 1rem; } .expense-story { min-height: 105px; } .demo-content { padding: 1.5rem; } .stage-label { font-size: .52rem; } .stage-label > span:last-child { display: none; } .expense-demo { margin: 1.3rem auto; } }
+  @media (max-width: 480px) { .expense-stage { padding: 1rem .7rem; } .demo-bar { padding: 0 .9rem; height: 48px; } .demo-brand { font-size: 1.3rem; } .demo-label { font-size: .43rem; } .demo-content { padding: 1.25rem .85rem; min-height: 440px; } .capture-layout { grid-template-columns: 1fr; gap: 1rem; } .invoice-paper { display: none; } .chat-column { min-height: 295px; display: flex; flex-direction: column; justify-content: center; } .chat-bubble, .assistant-reply { font-size: .78rem; } .chat-input { margin-top: 1rem; } .request-card { padding: 1rem; } .request-fields { gap: 1.3rem .65rem; } .request-fields strong { font-size: .68rem; } .review-layout { grid-template-columns: 1fr; gap: .6rem; } .compact { display: grid; grid-template-columns: 1fr auto; gap: .3rem .8rem; } .compact .small-label { grid-column: 1 / -1; } .compact h4 { font-size: .8rem; } .review-amount { margin: 0; font-size: 1.2rem; } .review-vendor { grid-column: 1 / -1; } .review-evidence { margin: .3rem 0; } .decision { align-self: center; font-size: .55rem; } .activity-card { padding: .3rem .5rem; } .activity-card ol { margin-top: .6rem; } .activity-card li { padding-bottom: .9rem; } .activity-card strong { font-size: .62rem; } .handoff-banner { padding: 1rem .7rem; gap: .6rem; } .handoff-banner h4 { font-size: .85rem; } .handoff-symbol { width: 30px; height: 30px; } .handoff-details { grid-template-columns: 1fr; gap: .7rem; } .handoff-details > div { display: grid; grid-template-columns: 16px 1fr; align-items: center; gap: 0 .35rem; } .handoff-details span { grid-row: 1 / 3; margin: 0; } .handoff-details small { grid-column: 2; } .expense-console { padding: 1.2rem; } .expense-story h3 { font-size: 1.25rem; } .expense-chapters { gap: .55rem; } .expense-controls { gap: .8rem; } .chapter-title { font-size: .54rem; } }
+  @media (prefers-reduced-motion: reduce) { .expense-scene.is-active { animation: none; } }
+</style>

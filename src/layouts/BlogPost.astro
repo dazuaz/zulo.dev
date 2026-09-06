@@ -84,7 +84,7 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
         <p class={proseLead}>{description}</p>
 
         <div class={cn(metaText, 'flex flex-wrap items-center gap-sm')}>
-          <a href="/#about" rel="author" class={focusRing}>By {siteIdentity.author}</a>
+          <a href="/about" rel="author" class={focusRing}>By {siteIdentity.author}</a>
           <time datetime={pubDate.toISOString()}>{publishedLabel}</time>
           {minutes && <span>{minutes} min read</span>}
           {updatedLabel && <span>Updated <time datetime={updatedDate.toISOString()}>{updatedLabel}</time></span>}

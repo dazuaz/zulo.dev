@@ -67,7 +67,7 @@ def check():
     for path in (ROOT / 'src/content/blog').glob('*.md'):
         frontmatter = path.read_text().split('---', 2)[1]
         (drafts if re.search(r'^draft:\s*true\s*$', frontmatter, re.M) else posts).append(path.stem)
-    expected = {ORIGIN + p for p in ['/', '/blog', '/contact'] + ['/blog/' + slug for slug in posts]}
+    expected = {ORIGIN + p for p in ['/', '/services', '/approach', '/about', '/work', '/work/vaster', '/work/expenses', '/blog', '/contact'] + ['/blog/' + slug for slug in posts]}
     assert len(urls) == len(set(urls)) and set(urls) == expected, 'Sitemap differs from published routes'
     robots = (OUTPUT / 'robots.txt').read_text()
     assert 'User-agent: *\nAllow: /\nDisallow: /api/' in robots
@@ -109,7 +109,7 @@ def check():
             article = nodes[url + '#article']
             assert article['@type'] == 'BlogPosting'
             assert article['headline'] in visible and article['description'] in visible
-            assert page.elements('a', rel='author', href='/#about'), f'{url}: missing visible author'
+            assert page.elements('a', rel='author', href='/about'), f'{url}: missing visible author'
             assert 'Daniel Zuloaga' in visible
             assert page.elements('time', datetime=article['datePublished'])
             assert article['datePublished'] == page.meta('article:published_time')

@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCTA from '../components/ProjectCTA.astro';
+export const prerender = true;
+---
+<Layout title="About Daniel Zuloaga | Zulo" description="Meet Daniel Zuloaga, the engineer, product lead, and MBA behind Zulo. Twenty years connecting business decisions with working software." nav="about">
+  <main id="main-content" class="transformation-page">
+    <section class="page-masthead site-container">
+      <p class="section-kicker">ABOUT ZULO</p>
+      <h1>Business judgment.<br />A builder’s perspective.</h1>
+      <p class="page-lead">Work directly with the person shaping the product and building the system.</p>
+    </section>
+        <section id="about" class="about-section dark-surface">
+            <div class="site-container about-grid"><div class="about-monogram" aria-hidden="true"><span>dz<span>.</span></span><div>PRODUCT × ENGINEERING × BUSINESS</div></div><div><p class="section-kicker">YOUR PARTNER</p><h2>A builder who sees<br />the whole business</h2><p class="about-intro">I’m Daniel Zuloaga. Engineer, product lead, MBA. I’ve spent twenty years building software and working with the people who depend on it.</p><p>That work has taught me to look beyond the software itself. A solution has to make sense for the business, fit how the team works, and be worth the time and money it takes to build.</p><p>Most recently, I’ve been shipping AI in regulated finance, helping teams review documents, find information, and spend less time on repetitive tasks. Accuracy matters there, and people need to trust a system before they’ll use it.</p><p>At Zulo, you work directly with me. We figure out where AI could be useful in your business, build around your constraints, and help your team get comfortable using it.</p><a class="text-action" href="https://www.linkedin.com/in/daniel-zuloaga/" target="_blank" rel="noopener noreferrer">Meet Daniel on LinkedIn <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a></div></div>
+        </section>
+    <ProjectCTA />
+  </main>
+</Layout>

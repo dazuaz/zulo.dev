@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import VasterShowcase from '../../components/VasterShowcase.astro';
+import ExpensesShowcase from '../../components/ExpensesShowcase.astro';
+import ProjectCTA from '../../components/ProjectCTA.astro';
+export const prerender = true;
+---
+<Layout title="Selected Work | Zulo" description="Explore Zulo’s client work. A closer look at the products, interfaces, and systems built around real business operations." nav="work" pageType="CollectionPage">
+  <main id="main-content" class="transformation-page">
+    <section class="page-masthead site-container work-intro">
+      <p class="section-kicker">SELECTED WORK</p>
+      <h1>The thinking matters.<br /><span class="muted-heading">Here’s the working part.</span></h1>
+      <p class="page-lead">A closer look at the products we build, the details we work through, and the people we build them for.</p>
+    </section>
+    <section class="site-container work-feature">
+      <div class="work-project-heading"><span class="section-kicker">01 / VASTER</span><span class="project-category">LENDING OPERATIONS · INTEGRATIONS · AI</span></div>
+      <VasterShowcase eager />
+      <div class="project-caption"><div><h2><a href="/work/vaster">A connected operation, from intake to signature. <span aria-hidden="true">↗</span></a></h2><p>Borrower intake, CRM records, protected identity data, Box Sign, and Oscar’s operations workflow—connected through one application.</p></div><a class="action action-outline" href="/work/vaster">Explore the project <span aria-hidden="true">↗</span></a></div>
+    </section>
+    <section class="site-container work-feature">
+      <div class="work-project-heading"><span class="section-kicker">02 / VASTER EXPENSES</span><span class="project-category">FINANCE OPERATIONS · AI-ASSISTED CAPTURE</span></div>
+      <ExpensesShowcase />
+      <div class="project-caption"><div><h2><a href="/work/expenses">From receipts to a request finance can act on. <span aria-hidden="true">↗</span></a></h2><p>AI-assisted capture, connected evidence, and a deliberate handoff from requester to approval to finance.</p></div><a class="action action-outline" href="/work/expenses">Explore the project <span aria-hidden="true">↗</span></a></div>
+    </section>
+    <ProjectCTA />
+  </main>
+</Layout>

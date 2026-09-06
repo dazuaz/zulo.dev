@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import VasterShowcase from '../../components/VasterShowcase.astro';
+import ProjectCTA from '../../components/ProjectCTA.astro';
+export const prerender = true;
+const capabilities = [
+  { id: 'connected-records', number: '01', category: 'CONNECTED RECORDS', title: 'Give the team a deal\nthey can work with.', lead: 'Turn borrower information into the records, relationships, and documents that Vaster’s team uses to move a loan forward.', text: 'Submission creates or updates HubSpot contacts and deals, connects applicants, guarantors, co-guarantors, and brokers, and creates a listing for each subject property. Encompass imports bring existing loan information into the application, with missing fields surfaced for completion.', detail: 'An update preserves an existing deal’s pipeline, stage, and close date. The application adds information without overwriting the lending team’s decisions.', tags: ['HubSpot contacts & deals', 'Property listings', 'Encompass imports'] },
+  { id: 'identity-consent', number: '02', category: 'IDENTITY & CONSENT', title: 'Make sensitive access\na considered action.', lead: 'Give staff a controlled way to use identity information, with evidence of the authorization behind it.', text: 'Dedicated SSN handling uses encrypted storage and masked values. Revealing an SSN requires credit authorization and a stated reason; the access result is recorded, and the displayed value hides again after 30 seconds.', detail: 'Credit authorization creates a companion PDF with the disclosure version, acceptance time, and context. Staff can also record phone authorization through a dedicated workflow.', tags: ['Masked identity information', 'Recorded access', 'Authorization receipts'] },
+  { id: 'signing', number: '03', category: 'SIGNATURES & DOCUMENTS', title: 'Carry the application\nthrough to a signed record.', lead: 'Connect signature collection to the application and the working CRM deal.', text: 'Box Sign receives a generated application with signature fields and invites applicants in parallel. Reminders and staff controls support follow-up, resending, and cancellation. When signing is complete, the system retrieves and stores the signed PDF, then attaches it to the linked HubSpot deal.', detail: 'Existing signature requests can be reused, and completed callbacks are recognized so repeated deliveries can be skipped. The signed document has a defined destination.', tags: ['Box Sign', 'Parallel signatures', 'Automatic CRM attachment'] },
+];
+---
+<Layout title="Vaster — Connected Lending Operations | Zulo" description="Connecting Vaster’s borrower intake, HubSpot CRM, Encompass, protected identity data, Box Sign, and Oscar’s MCP-powered operations workflow." nav="work">
+  <main id="main-content" class="transformation-page">
+    <section class="page-masthead site-container case-intro">
+      <a class="case-back" href="/work">← Selected work</a>
+      <div class="case-title-row"><h1>Vaster<span class="case-dot">.</span></h1><a class="text-action light-link" href="https://vaster.app" target="_blank" rel="noopener noreferrer">Visit the application <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a></div>
+      <p class="case-deck">A connected lending operation.<br />From first detail to signed application.</p>
+      <dl class="project-facts"><div><dt>CLIENT</dt><dd>Vaster</dd></div><div><dt>SECTOR</dt><dd>Private lending</dd></div><div><dt>THE WORK</dt><dd>Intake, integrations & agents</dd></div><div><dt>TOUCHPOINTS</dt><dd>Borrower portal · Staff tools · Slack</dd></div></dl>
+    </section>
+    <div class="site-container"><VasterShowcase eager /></div>
+    <section class="case-narrative site-container section-pad">
+      <div><p class="section-kicker">THE OPERATION BEHIND THE INTERFACE</p><h2>Every handoff<br />is part of the product.</h2></div>
+      <div class="case-prose"><p class="case-prose-lead">A loan application has to become something the lending team can act on: a connected deal, a complete set of documents, recorded authorization, and a signed application.</p><p>The work brings borrower intake, internal operations, and Vaster’s existing systems into a shared workflow. The details matter at every boundary—what gets updated, who can see sensitive information, where a document belongs, and which actions need a person’s approval.</p></div>
+    </section>
+    <div class="capability-sections">
+      {capabilities.map(capability => <section id={capability.id} class="capability-section"><div class="site-container capability-grid"><div><p class="section-kicker">{capability.number} / {capability.category}</p><h2>{capability.title.split('\n').map((line,index) => <>{index > 0 && <br />}{line}</>)}</h2><div class="capability-tags">{capability.tags.map(tag => <span>{tag}</span>)}</div></div><div class="case-prose"><p class="case-prose-lead">{capability.lead}</p><p>{capability.text}</p><div class="detail-note"><span class="detail-label">THE DETAIL THAT MATTERS</span><p>{capability.detail}</p></div></div></div></section>)}
+    </div>
+    <section id="oscar-mcp" class="oscar-section dark-surface section-pad">
+      <div class="site-container">
+        <div class="oscar-intro"><div><p class="section-kicker">04 / OSCAR + MCP</p><h2>An operations assistant<br />connected to the actual work.</h2></div><p>Oscar brings application tools into Slack, where Vaster’s operations team can find, review, and prepare a loan file in conversation.</p></div>
+        <div class="oscar-capabilities"><article><span>01 / FIND</span><h3>Start with a real reference.</h3><p>Find applications by address, deal name, owner, status, or recency. Retrieve a staff review link or an existing application PDF.</p></article><article><span>02 / REVIEW</span><h3>Ask what’s missing.</h3><p>Inspect a draft and check it against the application’s validation rules. Bring missing or inconsistent information back to the team.</p></article><article><span>03 / PREPARE</span><h3>Make the next step easier.</h3><p>Update a draft, attach an original Slack document to the right applicant, or generate a missing PDF—with approval for changes.</p></article></div>
+        <div class="mcp-connection"><div><span class="mcp-label">ONE SET OF APPLICATION TOOLS</span><p>Slack <span aria-hidden="true">↔</span> Oscar <span aria-hidden="true">↔</span> MCP <span aria-hidden="true">↔</span> Vaster</p></div><p>MCP also gives supported assistants a way to draft, validate, and attach documents to the same application. Work can continue in the browser for borrower review and signing.</p></div>
+        <p class="oscar-ownership">Access is restricted to authorized operations staff. Changes and document attachments require approval. Borrower consent and lending decisions remain with people.</p>
+      </div>
+    </section>
+    <section class="site-container section-pad interface-section"><div class="section-heading"><div><p class="section-kicker">THE BORROWER EXPERIENCE</p><h2>The care extends<br />to the front door.</h2></div><p>A guided application keeps the loan details, people, properties, and documents connected while the borrower works.</p></div><details class="interface-details"><summary>Explore the actual application screens <span aria-hidden="true">＋</span></summary><div class="interface-gallery">{[{file:'terms',label:'Transaction terms'},{file:'property',label:'Subject property'},{file:'borrower',label:'Borrower entity'}].map(screen => <figure><a href={`/work/vaster/${screen.file}.webp`} target="_blank" rel="noopener noreferrer"><img src={`/work/vaster/${screen.file}.webp`} alt={`Actual Vaster ${screen.label.toLowerCase()} screen, using demonstration data.`} width="1440" height="1000" loading="lazy" /><span class="sr-only">Open full-size image in a new tab</span></a><figcaption>{screen.label}</figcaption></figure>)}</div><p>Actual application captures with demonstration data.</p></details></section>
+    <div class="site-container case-related"><a class="related-project" href="/work/expenses"><div><span class="section-kicker">MORE WORK WITH VASTER</span><h3>Vaster Expenses <span aria-hidden="true">↗</span></h3><p>AI-assisted receipt capture, connected evidence, and a clear handoff to approval and finance.</p></div><span class="related-project-path" aria-hidden="true">CAPTURE → APPROVE → FINANCE</span></a></div>
+    <ProjectCTA />
+  </main>
+</Layout>
+<style>
+  .capability-section {padding-block:4.5rem;border-top:1px solid var(--color-border);}
+  .capability-section:nth-child(odd) {background:#edf1e9;}
+  .capability-grid {display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;}
+  .capability-tags {display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.8rem;max-width:34rem;}
+  .capability-tags span {font:.65rem/1.7 var(--font-mono);color:#586b4e;border:1px solid #becbb5;border-radius:3px;padding:.35rem .55rem;}
+  .detail-note {margin-top:1.8rem;padding:1.25rem 1.5rem;border-left:2px solid #8ca278;background:#e5ecde;}
+  .detail-label {font:.6rem/1.7 var(--font-mono);letter-spacing:.07em;color:#597247;}
+  .case-prose .detail-note p {font-size:.875rem;margin:.6rem 0 0;line-height:1.8;color:#42543a;}
+  .oscar-intro {display:grid;grid-template-columns:1.2fr 1fr;gap:4rem;align-items:end;}
+  .oscar-intro .section-kicker {color:var(--lime);}
+  .oscar-intro > p {color:#b9c8ae;font-size:1.1rem;line-height:1.85;max-width:42ch;}
+  .oscar-capabilities {display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;margin-top:3.5rem;}
+  .oscar-capabilities article {padding-top:1.5rem;border-top:1px solid #4a5b40;}
+  .oscar-capabilities article > span {font:.65rem var(--font-mono);letter-spacing:.06em;color:#a8bd96;}
+  .oscar-capabilities h3 {font:500 1.35rem/1.4 var(--font-display);letter-spacing:-.04em;margin-block:1.3rem 1rem;}
+  .oscar-capabilities p {font-size:.95rem;line-height:1.85;color:#b7c3ad;}
+  .mcp-connection {display:grid;grid-template-columns:1fr 1fr;gap:3rem;padding:1.75rem 2rem;background:#222d1d;border:1px solid #46583a;border-radius:5px;margin-top:3rem;align-items:center;}
+  .mcp-label {font:.6rem/1.8 var(--font-mono);letter-spacing:.08em;color:#a7bd91;}
+  .mcp-connection > div > p {font:500 clamp(1rem,1.7vw,1.4rem)/1.7 var(--font-display);letter-spacing:-.025em;margin-top:.5rem;}
+  .mcp-connection > div > p > span {color:var(--lime);margin-inline:.4rem;}
+  .mcp-connection > p {color:#b9c9ad;font-size:.875rem;line-height:1.8;}
+  .oscar-ownership {font-size:.8rem;line-height:1.8;color:#a6b99a;max-width:95ch;margin-top:1.5rem;}
+  .interface-details {border-block:1px solid var(--color-border);}
+  .interface-details summary {display:flex;align-items:center;justify-content:space-between;gap:1rem;cursor:pointer;list-style:none;font:500 .95rem/1.7 var(--font-ui);padding-block:1.4rem;}
+  .interface-details summary::-webkit-details-marker {display:none;}
+  .interface-details summary > span {color:#53763d;font-size:1.4rem;}
+  .interface-details[open] summary > span {transform:rotate(45deg);}
+  .interface-gallery {display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-block:.75rem 1.5rem;}
+  .interface-gallery img {width:100%;height:auto;border:1px solid #c4d0d8;border-radius:4px;}
+  .interface-gallery figcaption {font-size:.8rem;color:var(--color-muted);margin-top:.75rem;}
+  .interface-details > p {font-size:.75rem;color:var(--color-meta);margin-bottom:1.5rem;}
+  @media(max-width:850px){.capability-grid,.oscar-intro {grid-template-columns:1fr;gap:2rem;}.oscar-intro > p {max-width:60ch;}.oscar-capabilities {gap:1.5rem;}.mcp-connection {grid-template-columns:1fr;gap:1.5rem;}.capability-section {padding-block:3.5rem;}}
+  @media(max-width:640px){.oscar-capabilities,.interface-gallery {grid-template-columns:1fr;gap:2rem;}.mcp-connection {padding:1.3rem;}.mcp-connection > div > p {font-size:.9rem;}.mcp-connection > div > p > span {margin-inline:.15rem;}.detail-note {padding:1rem;}}
+</style>
