@@ -1,137 +1,90 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Button from "../components/ui/Button.astro";
-import PageShell from "../components/ui/PageShell.astro";
+import WorkflowVisual from "../components/WorkflowVisual.astro";
 import PostList from "../components/PostList.astro";
-import { getCollection } from "astro:content";
-import {
-    displayTitle,
-    proseBody,
-    proseLead,
-    sectionTitle,
-} from "../lib/classes";
+import { getPublishedPosts } from '../lib/posts';
+import { canonicalUrl, siteIdentity } from '../lib/seo';
 
-const contactHref = "/contact";
+export const prerender = true;
 
-const recentPosts = (await getCollection("blog", ({ data }) => !data.draft))
-    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-    .slice(0, 4);
+const recentPosts = (await getPublishedPosts()).slice(0, 3);
+const services = [
+    { number: '01', symbol: '↗', title: 'Find the right opportunity.', description: 'Make a clear decision about where AI belongs in your business. Assess your workflows, data, and constraints, then prioritize what is worth building.', deliverables: ['Workflow & opportunity assessment', 'Prioritized implementation roadmap', 'Success measures & risk review'], tag: 'AI STRATEGY' },
+    { number: '02', symbol: '⌘', title: 'Build it into the business.', description: 'Connect AI to the tools and information your team uses. Create dependable agents, automations, and products around the way your operation runs.', deliverables: ['Custom agents & workflow automation', 'Knowledge systems & integrations', 'Interfaces built for your team'], tag: 'SYSTEMS & ENGINEERING' },
+    { number: '03', symbol: '◎', title: 'Make the change stick.', description: 'Get the system into daily use. Work through adoption, define human oversight, and improve performance as the team learns what is possible.', deliverables: ['Team training & practical playbooks', 'Evaluation, monitoring & safeguards', 'Ongoing iteration & support'], tag: 'ADOPTION & GROWTH' },
+];
+const workflows = [
+    { number: '01', title: 'Documents that move work forward.', category: 'OPERATIONS', before: 'People copy information between documents, spreadsheets, and business systems.', after: 'Extract and validate the key information, flag exceptions for review, and route it to the next step.', measure: 'Processing time · Rework · Exception rate' },
+    { number: '02', title: 'Answers with the context behind them.', category: 'KNOWLEDGE', before: 'Teams search scattered files or wait for the one person who knows the answer.', after: 'Find answers across approved sources, with references and access controls that follow the user.', measure: 'Search time · Answer quality · Adoption' },
+    { number: '03', title: 'Workflows with fewer loose ends.', category: 'ORCHESTRATION', before: 'Routine follow-ups and handoffs rely on someone remembering the next action.', after: 'Connect the steps, prepare the next action, and bring people in when a decision needs their judgment.', measure: 'Cycle time · Missed handoffs · Manual touches' },
+];
+const steps = [
+    { title: 'Understand', text: 'Map the work with the people doing it. Identify the bottleneck, the available data, and what a better outcome would look like.', output: 'A focused opportunity' },
+    { title: 'Prove', text: 'Build a small, useful version. Test it with representative work and compare the result against a baseline.', output: 'Evidence to move forward' },
+    { title: 'Integrate', text: 'Connect the system, handle exceptions, and give the team the controls and training they need to use it confidently.', output: 'A working capability' },
+    { title: 'Improve', text: 'Track quality and usage, learn from the edge cases, and expand where the results justify the next investment.', output: 'A stronger operation' },
+];
+const faqs = [
+    { question: 'We know AI matters. Where do we start?', answer: 'Start with a recurring bottleneck: a slow process, repeated manual work, or information that is hard to use. Our first conversation is about that business problem. From there, we can scope an assessment or a focused pilot.' },
+    { question: 'Do we need to replace our existing tools?', answer: 'Often, the useful work is connecting and extending what you already have. We assess your current systems first, then choose whether configuration, integration, or custom development makes the most sense.' },
+    { question: 'How do you handle sensitive data and AI mistakes?', answer: 'We define data access, appropriate model use, evaluation criteria, and human review as part of the design. Higher-risk actions need stronger controls. The scope and safeguards depend on your information, systems, and operating requirements.' },
+    { question: 'What does an engagement look like?', answer: 'We agree on a defined problem, deliverables, and success measures before starting. Work can begin with an assessment or a focused build, then continue into rollout and ongoing improvement. Timing and fees are scoped to the actual work.' },
+];
+const home = canonicalUrl('/', Astro.site!);
+const serviceSchema = services.map(service => ({
+    '@type': 'Service',
+    '@id': `${home}#service-${service.number}`,
+    name: service.title,
+    serviceType: service.tag,
+    description: service.description,
+    url: `${home}#service-${service.number}`,
+    provider: { '@id': `${home}#organization` },
+}));
 ---
-
-<Layout
-    title="Daniel Zuloaga"
-    description="AI product and engineering in regulated fintech. Notes on building production systems, agents, and the work behind them."
-    nav="home"
->
-    <main id="main-content">
-        <PageShell class="py-page-intro">
-            <div
-                class="grid items-start gap-xl md:grid-cols-[minmax(11rem,15rem)_minmax(0,1fr)] md:gap-2xl lg:grid-cols-[minmax(13rem,17.5rem)_minmax(0,1fr)] lg:gap-3xl"
-            >
-                <figure class="m-0 hidden md:block">
-                    <img
-                        class="block aspect-3/4 h-auto w-full rounded-lg border border-border object-cover object-[center_20%]"
-                        src="/hero-kitesurf.webp"
-                        alt="Watercolor of Daniel kitesurfing with his son on a sunny day in Miami"
-                        width="1086"
-                        height="1448"
-                        loading="eager"
-                        decoding="async"
-                    />
-                </figure>
-                <div class="flex flex-col gap-lg">
-                    <h1 class={displayTitle}>Daniel Zuloaga</h1>
-                    <p class={proseLead}>
-                        Building AI-powered products that solve real business
-                        problems.
-                    </p>
-                    <p class={proseBody}>
-                        Software engineer • Technical product manager • MBA. I
-                        build AI-first products, automate complex workflows, and
-                        turn ambitious ideas into scalable software.
-                    </p>
-                    <div>
-                        <Button href={contactHref}>Get in touch</Button>
+<Layout title={siteIdentity.title} description={siteIdentity.description} structuredData={serviceSchema} nav="home">
+    <main id="main-content" class="transformation-page">
+        <section class="hero dark-surface">
+            <div class="site-container hero-grid">
+                <div class="hero-copy">
+                    <p class="eyebrow"><span class="signal-dot"></span> YOUR AI TRANSFORMATION PARTNER</p>
+                    <h1>Better operations.<br />Stronger teams.<br /><span>Powered by AI.</span></h1>
+                    <p class="hero-lead">AI strategy, custom systems, and hands-on implementation for businesses whose work runs through documents, internal systems, and handoffs between people.</p>
+                    <div class="hero-actions">
+                        <a class="action action-lime" href="/contact">Let’s find your first opportunity <span aria-hidden="true">↗</span></a>
+                        <a class="text-action" href="#approach">Explore the approach <span aria-hidden="true">↓</span></a>
                     </div>
+                    <p class="hero-footnote">Led by Daniel Zuloaga: software engineer, technical product manager, and MBA, with experience building AI systems in regulated fintech.</p>
                 </div>
+                <WorkflowVisual />
             </div>
-        </PageShell>
+            <div class="site-container hero-bottom"><span>Built around your business. Connected to your systems.</span><span>STRATEGY <i>/</i> BUILD <i>/</i> ADOPTION</span></div>
+        </section>
 
-        <PageShell
-            class="grid gap-xl py-section md:grid-cols-2 md:gap-2xl lg:grid-cols-[1.12fr_0.88fr] lg:gap-3xl"
-        >
-            <div class="flex flex-col gap-md">
-                <h2 class={sectionTitle}>What I'm building now</h2>
-                <p class={proseBody}>
-                    I'm working on agent orchestration across lending workflows,
-                    from lead generation to loan servicing: document ingestion,
-                    tool-calling pipelines, custom MCP servers, tailored RAG
-                    pipelines and more. <strong
-                        >The technical complexity is fading away, but the build
-                        is just a small part of the equation;</strong
-                    > the real challenge is the rest: knowing what to work on to get
-                    adoption, governance, training, and getting your team and your
-                    clients delighted with your products.
-                </p>
-            </div>
-            <div class="flex flex-col gap-md">
-                <h2 class={sectionTitle}>What's new</h2>
-                <p class={proseBody}>
-                    AI collapsed product and engineering into one role for me. I
-                    can go from a workflow problem to a shipped agent in hours,
-                    not weeks, but the abstractions to solve the real problems
-                    and the interfaces that bring a quality experience are
-                    harder to get right.
-                </p>
-            </div>
-        </PageShell>
+        <section id="services" class="section-pad site-container">
+            <div class="section-heading"><div><p class="section-kicker">01 / WHAT WE DO</p><h2>From possibility<br />to everyday practice.</h2></div><p>One partner across strategy, product, and engineering. A clear path from your first question to a system your team can depend on.</p></div>
+            <div class="service-grid">{services.map(service => <article id={`service-${service.number}`} class="service-card"><div class="service-card-top"><span>{service.number}</span><span class="service-symbol" aria-hidden="true">{service.symbol}</span></div><p class="service-tag">{service.tag}</p><h3>{service.title}</h3><p>{service.description}</p><ul>{service.deliverables.map(item => <li><span aria-hidden="true">↗</span>{item}</li>)}</ul></article>)}</div>
+        </section>
 
-        <PageShell class="py-section">
-            <div class="flex flex-wrap items-end justify-between gap-md">
-                <div class="flex flex-col gap-xs">
-                    <h2 class={sectionTitle}>Recent notes</h2>
-                    <p class={proseBody}>
-                        Systems, constraints, and notes from the build.
-                    </p>
-                </div>
-                <Button href="/blog" variant="secondary">
-                    View all writing
-                </Button>
+        <section id="opportunities" class="opportunities section-pad">
+            <div class="site-container"><div class="section-heading"><div><p class="section-kicker">02 / WHERE AI CAN HELP</p><h2>Real work.<br />A better way through it.</h2></div><p>Illustrative opportunities, not one-size-fits-all solutions. The right starting point depends on where your team loses time and where quality matters most.</p></div>
+            <div class="workflow-examples">{workflows.map(item => <article class="example-row"><div class="example-title"><span class="section-kicker">{item.number} / {item.category}</span><h3>{item.title}</h3></div><div><span class="example-label">THE FRICTION</span><p>{item.before}</p></div><div class="example-after"><span class="example-label">THE OPPORTUNITY <span aria-hidden="true">↗</span></span><p>{item.after}</p><span class="measure">Measure: {item.measure}</span></div></article>)}</div>
             </div>
+        </section>
 
-            <PostList posts={recentPosts} class="mt-lg" />
-        </PageShell>
+        <section id="approach" class="section-pad site-container">
+            <div class="section-heading"><div><p class="section-kicker">03 / HOW WE WORK</p><h2>Start focused.<br />Build with conviction.</h2></div><p>Transformation is a sequence of useful changes. Each step creates something concrete and tells us what deserves to happen next.</p></div>
+            <ol class="steps">{steps.map((step, index) => <li><span class="step-number">0{index + 1}<span aria-hidden="true">↗</span></span><h3>{step.title}</h3><p>{step.text}</p><div class="step-output">{step.output}</div></li>)}</ol>
+            <div class="approach-note"><span aria-hidden="true">◎</span><p><strong>People stay in the loop.</strong> Clear ownership, deliberate review points, and usable interfaces are part of the system from the start.</p></div>
+        </section>
 
-        <PageShell class="pb-page-end">
-            <div
-                class="rounded-lg bg-ink-deep p-section-lg text-[oklch(0.94_0.01_255)]"
-            >
-                <div
-                    class="flex flex-col gap-lg sm:flex-row sm:items-center sm:justify-between"
-                >
-                    <div class="flex flex-col gap-sm">
-                        <h2
-                            class="text-balance font-display text-section font-semibold leading-heading tracking-[-0.015em] text-[oklch(0.97_0.005_255)]"
-                        >
-                            Have a problem worth solving?
-                        </h2>
-                    </div>
-                    <div class="flex shrink-0 flex-wrap items-center gap-sm">
-                        <Button href={contactHref} variant="primaryOnDark">
-                            Get in touch
-                        </Button>
-                        <Button
-                            href="https://www.linkedin.com/in/daniel-zuloaga/"
-                            variant="outlineOnDark"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            Connect on LinkedIn
-                            <span class="sr-only"> (opens in new tab)</span>
-                        </Button>
-                    </div>
-                </div>
-            </div>
-        </PageShell>
+        <section id="about" class="about-section dark-surface">
+            <div class="site-container about-grid"><div class="about-monogram" aria-hidden="true"><span>dz<span>.</span></span><div>PRODUCT × ENGINEERING × BUSINESS</div></div><div><p class="section-kicker">04 / YOUR PARTNER</p><h2>A builder who sees<br />the whole business.</h2><p class="about-intro">I’m Daniel Zuloaga. I bring software engineering, technical product management, and an MBA to the same table.</p><p>My work in regulated fintech spans agent orchestration, document ingestion, knowledge retrieval, and lending workflows. That experience shapes how I approach AI: the system needs to work within real constraints, and people need a reason to use it.</p><p>At Zulo, you work directly with me—from understanding the problem to building the solution and helping your team make it their own.</p><a class="text-action" href="https://www.linkedin.com/in/daniel-zuloaga/" target="_blank" rel="noopener noreferrer">Meet Daniel on LinkedIn <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a></div></div>
+        </section>
+
+        <section class="section-pad site-container insights-section"><div class="section-heading"><div><p class="section-kicker">05 / FROM THE BUILD</p><h2>Thinking, tested in practice.</h2></div><a class="text-action light-link" href="/blog">Explore all insights <span aria-hidden="true">↗</span></a></div><PostList posts={recentPosts} showReadingTime /></section>
+
+        <section class="site-container faq-section section-pad"><div><p class="section-kicker">A FEW GOOD QUESTIONS</p><h2>Before we<br />get started.</h2><a class="text-action light-link" href="/contact">Talk it through <span aria-hidden="true">↗</span></a></div><div class="faq-list">{faqs.map(faq => <details><summary>{faq.question}<span aria-hidden="true">＋</span></summary><p>{faq.answer}</p></details>)}</div></section>
+
+        <section class="closing-section dark-surface"><div class="site-container closing-inner"><p class="eyebrow"><span class="signal-dot"></span> THE NEXT STEP</p><h2>What would you change<br />if you had more <span>capacity?</span></h2><div class="closing-bottom"><p>Tell me where the work gets stuck.<br />We’ll explore what a better version could look like.</p><a class="action action-lime" href="/contact">Let’s find your first opportunity <span aria-hidden="true">↗</span></a></div></div></section>
     </main>
 </Layout>

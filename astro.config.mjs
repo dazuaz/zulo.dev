@@ -11,6 +11,7 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
   site: 'https://zulo.dev',
   output: 'server',
+  trailingSlash: 'never',
   adapter: vercel({
     webAnalytics: { enabled: true }
   }),

@@ -3,6 +3,8 @@ title: "Design AI workflows like access can break"
 description: "AI access is now a business dependency. Dependencies fail. Here is how to build workflows that survive."
 pubDate: 2026-06-16
 heroImage: "/blog/design-ai-workflows-like-access-can-break/hero-ai-workflows-access.webp"
+heroImageWidth: 1672
+heroImageHeight: 941
 heroImageAlt: "Editorial ink illustration of a resilient AI workflow map connecting finance documents, a central routing model, cloud compute, local private compute, and home edge devices with fallback paths."
 tags:
   - AI

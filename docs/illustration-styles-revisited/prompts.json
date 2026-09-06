@@ -1,0 +1,112 @@
+{
+  "status": "awaiting_api_keys",
+  "source_post": "ai-illustration-styles-for-ai-prompts",
+  "base_prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.",
+  "protocol": {
+    "selection": "first successful image per model and style; no aesthetic rerolls",
+    "reference_images": [],
+    "edits": false,
+    "search_grounding": false,
+    "aspect_ratio": "1:1"
+  },
+  "models": {
+    "openai": {
+      "model": "gpt-image-2",
+      "size": "1024x1024",
+      "quality": "high",
+      "output_format": "png",
+      "n": 1
+    },
+    "gemini": {
+      "model": "gemini-3.1-flash-image",
+      "generationConfig": {
+        "responseModalities": [
+          "IMAGE"
+        ],
+        "imageConfig": {
+          "aspectRatio": "1:1",
+          "imageSize": "1K"
+        }
+      }
+    }
+  },
+  "styles": [
+    {
+      "number": 1,
+      "name": "Flat Vector Editorial",
+      "slug": "flat-vector",
+      "style": "Style treatment: flat vector editorial illustration, clean geometric shapes,\ncrisp edges, minimal shading, limited palette of teal coral cream,\nsubtle grain texture.",
+      "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: flat vector editorial illustration, clean geometric shapes,\ncrisp edges, minimal shading, limited palette of teal coral cream,\nsubtle grain texture."
+    },
+    {
+      "number": 2,
+      "name": "Isometric Illustration",
+      "slug": "isometric",
+      "style": "Style treatment: isometric technical illustration, axonometric perspective,\nprecise geometry, long soft shadows, muted cyan and warm orange palette.",
+      "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: isometric technical illustration, axonometric perspective,\nprecise geometry, long soft shadows, muted cyan and warm orange palette."
+    },
+    {
+      "number": 3,
+      "name": "Ink Line Art",
+      "slug": "ink-line-art",
+      "style": "Style treatment: black and white ink line art, varied line weight,\ncross-hatching for shadows, hand-drawn texture on off-white paper.",
+      "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: black and white ink line art, varied line weight,\ncross-hatching for shadows, hand-drawn texture on off-white paper."
+    },
+    {
+      "number": 4,
+      "name": "Watercolor",
+      "slug": "watercolor",
+      "style": "Style treatment: watercolor illustration on cold-press paper,\ntransparent washes, soft edges, pigment blooms, light granulation.",
+      "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: watercolor illustration on cold-press paper,\ntransparent washes, soft edges, pigment blooms, light granulation."
+    },
+    {
+      "number": 5,
+      "name": "Storybook Gouache",
+      "slug": "storybook-gouache",
+      "style": "Style treatment: storybook gouache painting, matte opaque brush strokes,\nrich warm palette, layered painted texture.",
+      "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: storybook gouache painting, matte opaque brush strokes,\nrich warm palette, layered painted texture."
+    },
+    {
+      "number": 6,
+      "name": "Paper-Cut Collage",
+      "slug": "paper-cut",
+      "style": "Style treatment: paper-cut collage illustration, layered cut-paper shapes,\ntactile paper fibers, soft depth shadows between layers.",
+      "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: paper-cut collage illustration, layered cut-paper shapes,\ntactile paper fibers, soft depth shadows between layers."
+    },
+    {
+      "number": 7,
+      "name": "Risograph Print",
+      "slug": "risograph",
+      "style": "Style treatment: risograph print aesthetic, two-color spot inks\n(fluorescent pink and teal), halftone dots, slight misregistration,\nvintage poster feel.",
+      "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: risograph print aesthetic, two-color spot inks\n(fluorescent pink and teal), halftone dots, slight misregistration,\nvintage poster feel."
+    },
+    {
+      "number": 8,
+      "name": "Clay 3D / Claymation Look",
+      "slug": "clay-3d",
+      "style": "Style treatment: 3D claymation miniature style, rounded handcrafted forms,\nsoft studio lighting, tactile clay texture, shallow depth of field.",
+      "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: 3D claymation miniature style, rounded handcrafted forms,\nsoft studio lighting, tactile clay texture, shallow depth of field."
+    },
+    {
+      "number": 9,
+      "name": "Synthetic Cubism",
+      "slug": "synthetic-cubism",
+      "style": "Style treatment: bright colored Synthetic Cubism illustration, angular fractured planes,\noverlapping geometric forms, bold contrasting color blocks, subtle painted texture.",
+      "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: bright colored Synthetic Cubism illustration, angular fractured planes,\noverlapping geometric forms, bold contrasting color blocks, subtle painted texture."
+    },
+    {
+      "number": 10,
+      "name": "Linocut Print",
+      "slug": "linocut",
+      "style": "Style treatment: linocut print illustration, carved line textures, high contrast two-tone ink,\nrough hand-carved edges, handmade press texture.",
+      "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: linocut print illustration, carved line textures, high contrast two-tone ink,\nrough hand-carved edges, handmade press texture."
+    },
+    {
+      "number": 11,
+      "name": "Art Nouveau Poster Illustration",
+      "slug": "art-nouveau",
+      "style": "Style treatment: Art Nouveau poster illustration, flowing organic lines, ornamental botanical motifs,\nflat decorative color fields, vintage print texture, elegant composition, no typography.",
+      "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: Art Nouveau poster illustration, flowing organic lines, ornamental botanical motifs,\nflat decorative color fields, vintage print texture, elegant composition, no typography."
+    }
+  ]
+}

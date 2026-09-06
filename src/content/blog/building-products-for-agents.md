@@ -3,6 +3,8 @@ title: "What changes when an agent can do the boring part?"
 description: "A personal note on loan onboarding, AI agents, and the small shift that happens when software can run the work, show its mistakes, and get corrected."
 pubDate: 2026-03-24
 heroImage: "/blog/building-products-for-agents/hero-ink-line-art.webp"
+heroImageWidth: 1376
+heroImageHeight: 768
 heroImageAlt: "Ink line drawing on cream paper: a code terminal, a circular human-and-agent workflow loop, and a hand correcting a form that feeds back into code, with black ink and cross-hatched shadows."
 tags:
   - Codex

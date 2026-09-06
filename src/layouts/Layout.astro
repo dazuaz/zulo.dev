@@ -4,36 +4,60 @@ import SiteNav from '../components/SiteNav.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import BotIdProtection from '../components/BotIdProtection';
 
+import { canonicalUrl, identityGraph, serializeJsonLd, siteIdentity } from '../lib/seo';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  ogImageAlt?: string;
+  ogType?: 'website' | 'article';
+  pubDate?: Date;
+  updatedDate?: Date;
+  nav?: 'home' | 'blog' | 'contact';
+  noindex?: boolean;
+  pageType?: 'WebPage' | 'CollectionPage' | 'ContactPage';
+  structuredData?: Record<string, unknown>[];
+}
+
 const {
-	title = 'Daniel Zuloaga — software, systems, and useful tools',
-	description = 'Notes, experiments, and essays on building useful software, clearer operational systems, and better ways to work with AI.',
-	ogImage = '/og.jpg',
-	ogType = 'website',
-	pubDate,
-	updatedDate,
-	nav = 'home',
+  title = siteIdentity.title,
+  description = siteIdentity.description,
+  ogImage = siteIdentity.image,
+  ogImageAlt = siteIdentity.imageAlt,
+  ogType = 'website',
+  pubDate,
+  updatedDate,
+  nav = 'home',
+  noindex = false,
+  pageType = 'WebPage',
+  structuredData = [],
 } = Astro.props;
 
-const siteOrigin = Astro.site ?? new URL(Astro.url.origin);
-const canonicalURL = new URL(Astro.url.pathname, siteOrigin).toString();
+const siteOrigin = Astro.site!;
+const canonicalURL = canonicalUrl(Astro.url.pathname, siteOrigin);
 const ogImageURL = new URL(ogImage, siteOrigin).toString();
-const isHome = Astro.url.pathname === '/';
-
-const personJsonLd = {
-	'@context': 'https://schema.org',
-	'@type': 'Person',
-	name: 'Daniel Zuloaga',
-	url: siteOrigin.toString(),
-	jobTitle: 'Product Leader and Engineer',
-	sameAs: [
-		'https://x.com/danielzuloaga',
-		'https://www.linkedin.com/in/daniel-zuloaga/',
-		'https://github.com/dazuaz',
-	],
+const home = canonicalUrl('/', siteOrigin);
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    ...identityGraph(siteOrigin),
+    {
+      '@type': pageType,
+      '@id': `${canonicalURL}#webpage`,
+      url: canonicalURL,
+      name: title,
+      description,
+      inLanguage: 'en-US',
+      isPartOf: { '@id': `${home}#website` },
+      ...(ogType === 'article' ? { mainEntity: { '@id': `${canonicalURL}#article` } } : {}),
+    },
+    ...structuredData,
+  ],
 };
 
 const fontHref =
-	'https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,400;7..72,500&family=Sora:wght@500;600&display=swap';
+	'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Sora:wght@400;500;600&display=swap';
 ---
 
 <!doctype html>
@@ -45,7 +69,9 @@ const fontHref =
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
-		<link rel="canonical" href={canonicalURL} />
+		{!noindex && <link rel="canonical" href={canonicalURL} />}
+		<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow, max-image-preview:large'} />
+		{ogType === 'article' && <meta name="author" content={siteIdentity.author} />}
 		<link
 			rel="alternate"
 			type="application/rss+xml"
@@ -58,7 +84,11 @@ const fontHref =
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={ogImageURL} />
-		<meta property="og:site_name" content="Daniel Zuloaga" />
+		<meta property="og:image:alt" content={ogImageAlt} />
+		<meta property="og:locale" content="en_US" />
+		{ogImage === siteIdentity.image && <meta property="og:image:width" content="1200" />}
+		{ogImage === siteIdentity.image && <meta property="og:image:height" content="630" />}
+		<meta property="og:site_name" content="Zulo" />
 		{pubDate && <meta property="article:published_time" content={pubDate.toISOString()} />}
 		{updatedDate && <meta property="article:modified_time" content={updatedDate.toISOString()} />}
 
@@ -68,16 +98,15 @@ const fontHref =
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={ogImageURL} />
+		<meta name="twitter:image:alt" content={ogImageAlt} />
 
-		{isHome && (
-			<script type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
-		)}
+		{!noindex && <script type="application/ld+json" set:html={serializeJsonLd(jsonLd)} />}
 
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link rel="preload" as="style" href={fontHref} />
 		<link href={fontHref} rel="stylesheet" />
-		{import.meta.env.PROD && <BotIdProtection />}
+		{import.meta.env.PROD && nav === 'contact' && <BotIdProtection />}
 	</head>
 	<body class="min-h-screen bg-bg font-body text-base leading-body text-ink antialiased [font-kerning:normal] [font-optical-sizing:auto]">
 		<a

@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PageShell from '../components/ui/PageShell.astro';
+import Button from '../components/ui/Button.astro';
+import { displayTitle, proseBody } from '../lib/classes';
+
+export const prerender = true;
+---
+<Layout title="Page not found | Zulo" description="This page does not exist or is not publicly available." noindex>
+  <main id="main-content">
+    <PageShell class="py-page-intro">
+      <div class="flex flex-col gap-lg">
+        <h1 class={displayTitle}>Page not found</h1>
+        <p class={proseBody}>This page does not exist or is not publicly available.</p>
+        <Button href="/blog" variant="secondary" class="self-start">Explore the insights</Button>
+      </div>
+    </PageShell>
+  </main>
+</Layout>

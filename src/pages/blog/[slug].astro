@@ -1,65 +1,29 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
 import BlogPost from '../../layouts/BlogPost.astro';
-import Button from '../../components/ui/Button.astro';
-import Layout from '../../layouts/Layout.astro';
-import PageShell from '../../components/ui/PageShell.astro';
+import { getPublishedPosts } from '../../lib/posts';
 import { readingTimeMinutes } from '../../lib/reading-time';
-import { displayTitle, proseBody } from '../../lib/classes';
 
-const slug = Astro.params.slug;
-const publishedPosts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
-const postIndex = publishedPosts.findIndex(({ id }) => id === slug);
-const post = postIndex === -1 ? undefined : publishedPosts[postIndex];
+export const prerender = true;
+export const getStaticPaths = (async () => {
+  const posts = await getPublishedPosts();
+  return posts.map((post, index) => ({
+    params: { slug: post.id },
+    props: { post, newerPost: posts[index - 1], olderPost: posts[index + 1] },
+  }));
+}) satisfies GetStaticPaths;
 
-if (!post) {
-  Astro.response.status = 404;
-}
-
-// Posts are sorted newest first: "newer" sits before this one, "older" after.
-const newerPost = postIndex > 0 ? publishedPosts[postIndex - 1] : undefined;
-const olderPost = postIndex === -1 ? undefined : publishedPosts[postIndex + 1];
-
-const renderedPost = post ? await render(post) : undefined;
-const Content = renderedPost?.Content;
+const { post, newerPost, olderPost } = Astro.props;
+const { Content } = await render(post);
 ---
 
-{
-  post && Content ? (
-    <BlogPost
-      slug={post.id}
-      title={post.data.title}
-      description={post.data.description}
-      pubDate={post.data.pubDate}
-      updatedDate={post.data.updatedDate}
-      heroImage={post.data.heroImage}
-      heroImageAlt={post.data.heroImageAlt}
-      tags={post.data.tags}
-      minutes={readingTimeMinutes(post.body ?? '')}
-      newerPost={newerPost ? { slug: newerPost.id, title: newerPost.data.title } : undefined}
-      olderPost={olderPost ? { slug: olderPost.id, title: olderPost.data.title } : undefined}
-    >
-      <Content />
-    </BlogPost>
-  ) : (
-    <Layout title="Post not found | Daniel Zuloaga" description="The requested blog post could not be found." nav="blog">
-      <main id="main-content">
-        <PageShell class="py-page-intro">
-          <div class="flex flex-col gap-lg">
-            <div class="flex flex-col gap-md">
-              <h1 class={displayTitle}>Post not found</h1>
-              <p class={proseBody}>
-                The blog post you requested does not exist or is not publicly available.
-              </p>
-            </div>
-            <Button href="/blog" variant="secondary" class="self-start">
-              Back to writing
-            </Button>
-          </div>
-        </PageShell>
-      </main>
-    </Layout>
-  )
-}
+<BlogPost
+  slug={post.id}
+  {...post.data}
+  minutes={readingTimeMinutes(post.body ?? '')}
+  newerPost={newerPost ? { slug: newerPost.id, title: newerPost.data.title } : undefined}
+  olderPost={olderPost ? { slug: olderPost.id, title: olderPost.data.title } : undefined}
+>
+  <Content />
+</BlogPost>

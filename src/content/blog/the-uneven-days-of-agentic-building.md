@@ -3,6 +3,8 @@ title: "The uneven days of building with agents"
 description: "Some days agentic coding feels like flight. Other days you wander into alleys you did not mean to enter. A personal note on flow, dread, tools, and what still matters when the frontier keeps moving."
 pubDate: 2026-06-05
 heroImage: "/blog/the-uneven-days-of-agentic-building/hero-ink-line-art.webp"
+heroImageWidth: 1536
+heroImageHeight: 1024
 heroImageAlt: "Ink line drawing on cream paper: a developer at a fork between a calm sailing path and tangled alleyways, with sun and cloud above and abstract code on a laptop."
 draft: false
 tags:

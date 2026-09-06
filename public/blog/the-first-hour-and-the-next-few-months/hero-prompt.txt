@@ -1,0 +1,8 @@
+Use case: illustration-story
+Asset type: wide editorial hero illustration for a personal software development blog post, "The first hour and the next few months".
+Primary request: convey that an AI-built application can appear finished quickly while understanding its architecture and extending it takes patient work.
+Subject and scene: an imaginative architectural cutaway of a small application represented as a handmade model building on a worktable. A simple, complete front facade resembles an abstract application window with a few blank rectangular controls. Behind it, the cutaway reveals interconnected rooms, stairs, structural beams and carefully routed lines. One small human builder sits beside the model, studying a folded architectural plan and tracing a connection into the exposed interior. Make the structure intricate but comprehensible: patient discovery, not chaos or failure.
+Style/medium: sophisticated hand-drawn black pen and ink editorial illustration on warm cream paper, fine irregular lines, restrained crosshatching and generous unmarked paper. Match a thoughtful independent developer's blog with existing ink line art. Tactile, understated, human, no glossy digital rendering.
+Composition/framing: landscape 16:9, one cohesive scene centered with breathing room around all edges, silhouette and main contrast legible at thumbnail size. Architecture occupies the center and right with the seated builder naturally beside it. No split panels.
+Color palette: black ink and warm ivory only.
+Constraints: no text, no letters, no numbers, no logos, no watermarks, no robot, no glowing circuitry, no decorative AI symbols. The facade and the interior must clearly belong to the same model.

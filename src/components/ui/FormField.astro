@@ -7,6 +7,7 @@ const {
   label,
   type = 'text',
   autocomplete,
+  placeholder,
   maxlength,
   rows,
   required = false,
@@ -29,6 +30,7 @@ const errorId = `${id}-error`;
         required={required}
         rows={rows}
         maxlength={maxlength}
+        placeholder={placeholder}
         class={cn(fieldInput, 'min-h-36 resize-y py-sm')}
         aria-describedby={errorId}
       />
@@ -39,6 +41,7 @@ const errorId = `${id}-error`;
         type={type}
         required={required}
         maxlength={maxlength}
+        placeholder={placeholder}
         autocomplete={autocomplete}
         class={fieldInput}
         aria-describedby={errorId}

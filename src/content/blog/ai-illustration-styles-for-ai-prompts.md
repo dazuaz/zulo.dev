@@ -3,6 +3,8 @@ title: "11 illustration styles that work well with AI image models"
 description: "The same scene recreated in 11 styles across GPT Image and Gemini, with the exact prompt blocks I used and notes on what held up."
 pubDate: 2026-02-20
 heroImage: "/blog/ai-illustration-styles/main-image-gemini-paper-cut.webp"
+heroImageWidth: 1376
+heroImageHeight: 768
 heroImageAlt: "Paper-cut collage illustration of an artist looking for inspiration in an infinite canvas world."
 tags:
   - AI

@@ -5,6 +5,7 @@ import PageShell from '../components/ui/PageShell.astro';
 import PromptCopyEnhancer from '../components/PromptCopyEnhancer';
 import { displayTitle, focusRing, metaText, proseLead } from '../lib/classes';
 import { cn } from '../lib/utils';
+import { canonicalUrl, siteIdentity } from '../lib/seo';
 
 const {
   title,
@@ -14,12 +15,42 @@ const {
   tags,
   heroImage,
   heroImageAlt,
+  heroImageWidth,
+  heroImageHeight,
   slug,
   minutes,
   newerPost,
   olderPost,
 } = Astro.props;
-const formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' });
+const pageUrl = canonicalUrl(`/blog/${slug}`, Astro.site!);
+const home = canonicalUrl('/', Astro.site!);
+const articleSchema = [
+  {
+    '@type': 'BlogPosting',
+    '@id': `${pageUrl}#article`,
+    url: pageUrl,
+    headline: title,
+    description,
+    datePublished: pubDate.toISOString(),
+    ...(updatedDate ? { dateModified: updatedDate.toISOString() } : {}),
+    author: { '@id': `${home}#person` },
+    publisher: { '@id': `${home}#organization` },
+    mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
+    inLanguage: 'en-US',
+    keywords: tags,
+    ...(heroImage ? { image: new URL(heroImage, Astro.site).toString() } : {}),
+  },
+  {
+    '@type': 'BreadcrumbList',
+    '@id': `${pageUrl}#breadcrumb`,
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: home },
+      { '@type': 'ListItem', position: 2, name: 'Insights', item: canonicalUrl('/blog', Astro.site!) },
+      { '@type': 'ListItem', position: 3, name: title, item: pageUrl },
+    ],
+  },
+];
+const formatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'long', timeZone: 'UTC' });
 const publishedLabel = formatter.format(pubDate);
 const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
 ---
@@ -28,7 +59,9 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
   title={`${title} | Daniel Zuloaga`}
   description={description}
   ogType="article"
-  ogImage={heroImage ?? '/og.jpg'}
+  ogImage={heroImage ?? siteIdentity.image}
+  ogImageAlt={heroImage ? (heroImageAlt ?? title) : siteIdentity.imageAlt}
+  structuredData={articleSchema}
   pubDate={pubDate}
   updatedDate={updatedDate}
   nav="blog"
@@ -39,7 +72,7 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
         <nav class="flex items-center gap-xs font-ui text-sm font-medium leading-ui text-accent" aria-label="Breadcrumb">
           <a class={focusRing} href="/">Home</a>
           <span class="select-none text-meta" aria-hidden="true">/</span>
-          <a class={focusRing} href="/blog">Writing</a>
+          <a class={focusRing} href="/blog">Insights</a>
           <span class="select-none text-meta" aria-hidden="true">/</span>
           <span class="text-ink" aria-current="page">{title}</span>
         </nav>
@@ -47,9 +80,10 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
         <p class={proseLead}>{description}</p>
 
         <div class={cn(metaText, 'flex flex-wrap items-center gap-sm')}>
+          <a href="/#about" rel="author" class={focusRing}>By {siteIdentity.author}</a>
           <time datetime={pubDate.toISOString()}>{publishedLabel}</time>
           {minutes && <span>{minutes} min read</span>}
-          {updatedLabel && <span>Updated {updatedLabel}</span>}
+          {updatedLabel && <span>Updated <time datetime={updatedDate.toISOString()}>{updatedLabel}</time></span>}
         </div>
 
         {
@@ -70,6 +104,8 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
               <img
                 class="block h-auto w-full rounded-lg border border-border"
                 src={heroImage}
+                width={heroImageWidth}
+                height={heroImageHeight}
                 alt={heroImageAlt ?? `${title} main image`}
                 loading="eager"
                 decoding="async"

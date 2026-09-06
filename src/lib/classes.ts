@@ -1,7 +1,9 @@
 export const focusRing =
   'outline-none focus-visible:rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
 
-export const pageShell = 'mx-auto w-[min(calc(100%_-_2rem),68rem)]';
+// Shares the marketing container so writing pages line up with the nav and
+// footer; reading measure is constrained per element (max-w-[65ch] etc.).
+export const pageShell = 'site-container';
 
 export const displayTitle =
   'text-balance font-display text-display font-semibold leading-display tracking-[-0.025em] text-ink';
