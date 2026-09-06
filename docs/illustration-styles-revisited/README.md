@@ -1,6 +1,6 @@
 # Illustration styles, revisited
 
-Status: all 22 images generated and visually inspected through Vercel AI Gateway. Completed article passed all three final editorial reviews. Original post unchanged. New post stays a draft.
+Status: all 22 images generated and visually inspected through Vercel AI Gateway. Completed article passed all three final editorial reviews. Original post unchanged. Publication authorized by the user on September 6, 2026; draft flag disabled for production.
 
 User brief: create a new post following the old pattern, comparing GPT Image 2 and Nano Banana 2 visually across the same 11 styles.
 

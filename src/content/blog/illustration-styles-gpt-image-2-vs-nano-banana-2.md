@@ -2,7 +2,7 @@
 title: "11 illustration styles, revisited: GPT Image 2 vs. Nano Banana 2"
 description: "22 fresh images, 11 unchanged prompts: a side-by-side comparison of GPT Image 2 and Nano Banana 2, with notes on style, detail, and composition."
 pubDate: 2026-09-06
-draft: true
+draft: false
 heroImage: "/blog/illustration-styles-revisited/paper-cut-gpt-image-2.webp"
 heroImageAlt: "GPT Image 2 paper-cut illustration of a red bicycle courier on an arched stone bridge, framed by layered paper trees at sunrise."
 heroImageWidth: 1024
