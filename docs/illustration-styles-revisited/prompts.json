@@ -107,6 +107,20 @@
       "slug": "art-nouveau",
       "style": "Style treatment: Art Nouveau poster illustration, flowing organic lines, ornamental botanical motifs,\nflat decorative color fields, vintage print texture, elegant composition, no typography.",
       "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: Art Nouveau poster illustration, flowing organic lines, ornamental botanical motifs,\nflat decorative color fields, vintage print texture, elegant composition, no typography."
+    },
+    {
+      "number": 12,
+      "name": "Cyanotype-Inspired Illustration",
+      "slug": "cyanotype",
+      "style": "Style treatment: cyanotype-inspired illustration, deep Prussian blue and paper white,\ndelicate negative silhouettes, soft exposure edges, brushed emulsion border,\ntextured cotton paper, strictly monochrome.",
+      "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: cyanotype-inspired illustration, deep Prussian blue and paper white,\ndelicate negative silhouettes, soft exposure edges, brushed emulsion border,\ntextured cotton paper, strictly monochrome."
+    },
+    {
+      "number": 13,
+      "name": "Embroidered Textile Illustration",
+      "slug": "embroidered-textile",
+      "style": "Style treatment: hand-embroidered textile illustration on natural linen,\nsatin-stitch color fields, fine backstitch outlines, directional thread shading,\nvisible woven ground, subtle raised fibers, entire scene rendered in stitches.",
+      "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: hand-embroidered textile illustration on natural linen,\nsatin-stitch color fields, fine backstitch outlines, directional thread shading,\nvisible woven ground, subtle raised fibers, entire scene rendered in stitches."
     }
   ],
   "transport": "Vercel AI Gateway",

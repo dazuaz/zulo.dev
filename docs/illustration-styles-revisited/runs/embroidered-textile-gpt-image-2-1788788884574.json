@@ -1,0 +1,105 @@
+{
+  "style": "embroidered-textile",
+  "transport": "Vercel AI Gateway",
+  "requestedModel": "openai/gpt-image-2",
+  "startedAt": "2026-09-07T13:48:04.574Z",
+  "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: hand-embroidered textile illustration on natural linen,\nsatin-stitch color fields, fine backstitch outlines, directional thread shading,\nvisible woven ground, subtle raised fibers, entire scene rendered in stitches.",
+  "sdkVersions": {
+    "ai": "7.0.93",
+    "gateway": "4.0.75"
+  },
+  "requests": [
+    {
+      "endpoint": "https://ai-gateway.vercel.sh/v4/ai/image-model",
+      "body": {
+        "prompt": "Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,\nsmall city skyline in the background, trees on both sides, soft morning mist,\ncentered composition, full scene, no text or logos.\n\nStyle treatment: hand-embroidered textile illustration on natural linen,\nsatin-stitch color fields, fine backstitch outlines, directional thread shading,\nvisible woven ground, subtle raised fibers, entire scene rendered in stitches.",
+        "n": 1,
+        "size": "1024x1024",
+        "providerOptions": {
+          "openai": {
+            "quality": "high",
+            "output_format": "png"
+          }
+        }
+      }
+    }
+  ],
+  "settings": {
+    "size": "1024x1024",
+    "quality": "high",
+    "output_format": "png",
+    "n": 1
+  },
+  "completedAt": "2026-09-07T13:50:46.052Z",
+  "providerMetadata": {
+    "openai": {
+      "images": [
+        {
+          "created": 1788789045,
+          "size": "1024x1024",
+          "quality": "high",
+          "background": "opaque",
+          "outputFormat": "png",
+          "imageTokens": 0,
+          "textTokens": 94
+        }
+      ]
+    },
+    "gateway": {
+      "routing": {
+        "originalModelId": "openai/gpt-image-2",
+        "resolvedProvider": "openai",
+        "fallbacksAvailable": [],
+        "planningReasoning": "System credentials planned for: openai. Total execution order: openai(system)",
+        "canonicalSlug": "openai/gpt-image-2",
+        "finalProvider": "openai",
+        "modelAttemptCount": 1,
+        "modelAttempts": [
+          {
+            "canonicalSlug": "openai/gpt-image-2",
+            "success": true,
+            "providerAttemptCount": 1,
+            "providerAttempts": [
+              {
+                "provider": "openai",
+                "credentialType": "system",
+                "success": true,
+                "startTime": 1788788884649,
+                "endTime": 1788789045776,
+                "statusCode": 200
+              }
+            ]
+          }
+        ],
+        "totalProviderAttemptCount": 1
+      },
+      "cost": "0.21119",
+      "marketCost": "0.21119",
+      "surchargeCost": "0",
+      "gatewayCost": "0.21119",
+      "inferenceCost": "0.21119",
+      "inputInferenceCost": "0",
+      "outputInferenceCost": "0.21119",
+      "generationId": "gen_01M1Y20H43XY2MJMTF8PWZDP5F"
+    }
+  },
+  "usage": {
+    "inputTokens": 94,
+    "outputTokens": 7024,
+    "totalTokens": 7118
+  },
+  "warnings": [],
+  "responses": [
+    {
+      "modelId": "openai/gpt-image-2",
+      "timestamp": "2026-09-07T13:50:46.052Z"
+    }
+  ],
+  "dimensions": {
+    "width": 1024,
+    "height": 1024
+  },
+  "sha256": "2ed1fdd168791ecbf153c0059d6b2a1bcbcbe86cdb71bfa48d896eb6d738f6c9",
+  "output": "output/imagegen/illustration-styles-revisited/embroidered-textile-gpt-image-2.png",
+  "status": "success"
+}

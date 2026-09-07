@@ -1,6 +1,6 @@
 # Illustration styles, revisited
 
-Status: all 22 images generated and visually inspected through Vercel AI Gateway. Completed article passed all three final editorial reviews. Original post unchanged. Publication authorized by the user on September 6, 2026; draft flag disabled for production.
+Status: all 26 images generated and visually inspected through Vercel AI Gateway. Completed article passed all three final editorial reviews. Original post unchanged. Publication authorized by the user on September 6, 2026; draft flag disabled for production.
 
 User brief: create a new post following the old pattern, comparing GPT Image 2 and Nano Banana 2 visually across the same 11 styles.
 
@@ -56,3 +56,15 @@ All three independent editors returned ready after reviewing the completed manus
 Desktop and mobile rendering checks confirmed 11 pairs, all 23 images (including the reused hero) loaded at 1024×1024, two desktop columns, one mobile column, no horizontal overflow, and no browser errors.
 
 Final validation: `pnpm build` and `git diff --check` passed. The build includes the unchanged original post and excludes the new draft. Temporary preview route removed.
+
+## September 7 expansion brief
+
+User request: “just update and rewrite to 13 styles.” Integrate cyanotype-inspired and embroidered textile treatments as sections 12 and 13, with four new model-specific outputs and a revised title, introduction, method, and ending. Preserve the published URL, original publication date, first 11 prompts and outputs, and separate original post. Same audience and thesis: designers should judge how a material changes the scene, alongside framing and their intended use. Retain the established AI disclosure and one-output limits.
+
+New prompts are stored verbatim in prompts.json. Generation continues through the previously authorized AI Gateway with unchanged model/settings/selection protocol. Cyanotype process reference: https://www.kew.org/read-and-watch/cyanotype-photography (read September 7). Embroidery visual context: https://www.vam.ac.uk/collections/textiles (read September 7). Generated appearances will be inspected before comparison prose is written; neither is evidence of a physical craft process.
+
+Expansion evidence: all four added requests succeeded, bringing the set to 26 images. Each requested model matched the routing record, all outputs are 1024×1024 PNGs, prompts and hashes verified, and both new pairs visually inspected at 600px per image. Four WebP display copies generated. Added cost approximately $0.56; recorded set total $3.616227. Specific observations are in observations.json. The expanded article passed all three independent editorial reviews.
+
+Final expansion review: idea, technical, and voice editors all returned ready with fidelity 5/5. Article is 1,770 prose words. The synthesis integrates both styles into the title, method, numbered sequence, and conclusion; retains the material-legibility observation; and distinguishes generated cyanotype appearance from a physical process. An optional ending rephrase was not necessary: the existing sentence is explained concretely by the preceding embroidery comparison. No factual or fidelity blockers remain. An isolated production-baseline build and SEO audit passed, covering 16 pages and 7 articles.
+
+Browser verification: all 27 rendered images loaded (26 comparisons plus the reused hero), two desktop columns, one mobile column, no horizontal overflow, and no page errors.

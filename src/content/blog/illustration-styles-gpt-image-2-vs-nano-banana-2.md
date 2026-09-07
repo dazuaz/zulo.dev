@@ -1,7 +1,8 @@
 ---
-title: "11 illustration styles, revisited: GPT Image 2 vs. Nano Banana 2"
-description: "22 fresh images, 11 unchanged prompts: a side-by-side comparison of GPT Image 2 and Nano Banana 2, with notes on style, detail, and composition."
+title: "13 illustration styles, revisited: GPT Image 2 vs. Nano Banana 2"
+description: "26 images, 13 styles, one shared scene: a side-by-side comparison of GPT Image 2 and Nano Banana 2, with notes on style, detail, and composition."
 pubDate: 2026-09-06
+updatedDate: 2026-09-07
 draft: false
 heroImage: "/blog/illustration-styles-revisited/paper-cut-gpt-image-2.webp"
 heroImageAlt: "GPT Image 2 paper-cut illustration of a red bicycle courier on an arched stone bridge, framed by layered paper trees at sunrise."
@@ -15,33 +16,25 @@ tags:
   - Creative Workflow
 ---
 
-> The images and draft prose were produced with AI tools. The notes describe the specific outputs shown. The hero is GPT Image 2’s paper-cut result, also included below.
+> The images and prose were produced with AI tools. The notes describe the specific outputs shown. The hero is GPT Image 2’s paper-cut result, also included below.
 
-A red bicycle courier crosses a stone bridge at sunrise. There is a river below, a city behind, and enough morning mist to soften the distance. It is the same scene from my [original illustration style comparison](/blog/ai-illustration-styles-for-ai-prompts/), with the same 11 style prompts.
+A red bicycle courier crosses a stone bridge at sunrise, with a river below and a city behind. This comparison keeps the scene and 11 treatments from my [original illustration style post](/blog/ai-illustration-styles-for-ai-prompts/), then adds cyanotype and embroidery: **13 styles, 26 images, two models**.
 
-Keeping the scene gives us something useful to compare. The bridge has broad surfaces, the bicycle has fine structure, and the water has reflections. Each style has to decide what to do with all three.
-
-This time the pair is **GPT Image 2** and **Nano Banana 2**. The question is how each interprets a recognizable illustration technique when it receives the same words. Which parts of the scene remain clear? Where does the requested material change the image, and where does it become decoration?
+The bridge has broad surfaces, the bicycle has fine structure, and the water has reflections. Each treatment has to decide what to do with all three. Does the requested material shape the scene, or become decoration over it?
 
 ## Two models, one set of prompts
 
-OpenAI describes GPT Image 2 (`gpt-image-2`) as its current image generation and editing model, with flexible dimensions and high-fidelity image inputs. [OpenAI model documentation](https://developers.openai.com/api/docs/models/gpt-image-2).
-
-Nano Banana 2 is Google's Gemini 3.1 Flash Image (`gemini-3.1-flash-image`). Google positions it as a general-purpose image model balancing quality, speed, and cost. It is a different model from Nano Banana Pro, which appeared in the original post. [Google image generation guide](https://ai.google.dev/gemini-api/docs/image-generation).
-
-That makes this a continuation of the original exercise with a new pair. The old examples remain in the old post with their original model labels.
+The pair is **[GPT Image 2](https://developers.openai.com/api/docs/models/gpt-image-2)** and **[Nano Banana 2](https://ai.google.dev/gemini-api/docs/image-generation)**, Google's Gemini 3.1 Flash Image. Nano Banana 2 is distinct from the Pro model in the original post.
 
 ## How I ran the comparison
 
-On September 6, 2026, I generated these 22 images through Vercel AI Gateway, selecting `openai/gpt-image-2` and `google/gemini-3.1-flash-image`. [Gateway image generation guide](https://vercel.com/docs/ai-gateway/modalities/image-generation/ai-sdk).
+I generated the first 11 pairs on September 6, 2026, and the cyanotype and embroidery pairs on September 7. All used [Vercel AI Gateway](https://vercel.com/docs/ai-gateway/modalities/image-generation/ai-sdk), selecting `openai/gpt-image-2` and `google/gemini-3.1-flash-image`.
 
-Each request used the original scene prompt followed by exactly one original style block. There are no reference images, follow-up edits, or search tools. I kept the first successful image per style and model, with no rerolls to choose a more flattering result.
+Each model received the same base prompt plus one style block. The first 11 blocks are unchanged; the final two are new. I kept the first successful output, with no aesthetic rerolls, reference images, edits, or search tools.
 
-The requested outputs were square: GPT Image 2 at 1024 × 1024 with high quality, and Nano Banana 2 at its 1K setting with a 1:1 aspect ratio. Those are documented controls, not equivalent compute budgets. These settings make the visual comparison practical; they do not support a cost or latency ranking. [OpenAI output controls](https://developers.openai.com/api/docs/guides/image-generation#customize-image-output), [Gemini image controls](https://ai.google.dev/gemini-api/docs/image-generation).
+GPT Image 2 used 1024 × 1024 at high quality; Nano Banana 2 used 1K at 1:1. These are practical output settings, not equal compute budgets or a cost benchmark. [OpenAI controls](https://developers.openai.com/api/docs/guides/image-generation#customize-image-output), [Gemini controls](https://ai.google.dev/gemini-api/docs/image-generation).
 
-I am also preserving the original ambiguities: “red bicycle courier” leaves open whether the bicycle, clothing, or both should be red, and some style palettes conflict with that color. Those interpretations belong in the observations, not automatically in a list of errors.
-
-The identical prompt keeps the instructions comparable. It does not guarantee identical framing, a recurring character, or the same interpretation of every word. One output per style can reveal a difference worth investigating; it cannot establish how reliably either model repeats it.
+“Red bicycle courier” leaves open whether the bicycle, clothing, or both should be red. Some palettes conflict with that color. Those interpretations belong in the observations. One output per style shows a result worth examining, not how reliably a model repeats it.
 
 ## Base prompt
 
@@ -363,11 +356,69 @@ flat decorative color fields, vintage print texture, elegant composition, no typ
 </figure>
 </div>
 
+## 12) Cyanotype-Inspired Illustration
+
+Cyanotype is a photographic printing process; these images imitate its appearance. [Kew’s process guide](https://www.kew.org/read-and-watch/cyanotype-photography) shows the characteristic Prussian blue and white.
+
+Both outputs use blue tones and brushed borders, but neither makes the courier a pale negative silhouette. GPT Image 2 builds a clouded sky and detailed banks around one broad arch. Nano Banana 2 uses three arches, a larger rider, and a visible sun. I prefer GPT’s atmospheric print effect; Nano Banana’s simpler silhouette reads faster.
+
+Prompt adjustment:
+
+```text
+Style treatment: cyanotype-inspired illustration, deep Prussian blue and paper white,
+delicate negative silhouettes, soft exposure edges, brushed emulsion border,
+textured cotton paper, strictly monochrome.
+```
+
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">GPT Image 2</figcaption>
+<a href="/blog/illustration-styles-revisited/cyanotype-gpt-image-2.webp" aria-label="View GPT Image 2 cyanotype-inspired image at full size">
+<img src="/blog/illustration-styles-revisited/cyanotype-gpt-image-2.webp" alt="GPT Image 2: A small blue courier crosses one broad bridge arch beneath a clouded sky, with detailed trees and brushed blue print edges." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">Nano Banana 2</figcaption>
+<a href="/blog/illustration-styles-revisited/cyanotype-nano-banana-2.webp" aria-label="View Nano Banana 2 cyanotype-inspired image at full size">
+<img src="/blog/illustration-styles-revisited/cyanotype-nano-banana-2.webp" alt="Nano Banana 2: A larger blue courier crosses a three-arch bridge below a pale sun, framed by blue brush marks and cream paper." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+</div>
+
+## 13) Embroidered Textile Illustration
+
+GPT Image 2 uses fine stitch-like marks to hold a soft mist, distant skyline, and glowing reflection together. Nano Banana 2 makes the construction more obvious: long diagonal threads cross the sky, horizontal stitches fill the water, and chunky leaves rise from the linen.
+
+Both keep the red courier. Nano Banana’s larger rider and outlined bridge feel closer to a stitched illustration; GPT’s dense detail approaches a landscape reproduced in thread. For a brief where the embroidery must remain visible at small sizes, I would choose Nano Banana’s result.
+
+Prompt adjustment:
+
+```text
+Style treatment: hand-embroidered textile illustration on natural linen,
+satin-stitch color fields, fine backstitch outlines, directional thread shading,
+visible woven ground, subtle raised fibers, entire scene rendered in stitches.
+```
+
+<div class="mt-sm grid grid-cols-1 gap-md md:grid-cols-2">
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">GPT Image 2</figcaption>
+<a href="/blog/illustration-styles-revisited/embroidered-textile-gpt-image-2.webp" aria-label="View GPT Image 2 embroidered textile image at full size">
+<img src="/blog/illustration-styles-revisited/embroidered-textile-gpt-image-2.webp" alt="GPT Image 2: Fine stitch-like marks on linen depict a small red courier, misty skyline, stone arch, and warm reflection." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+<figure class="m-0">
+<figcaption class="mb-2xs font-ui text-sm font-semibold leading-ui text-meta">Nano Banana 2</figcaption>
+<a href="/blog/illustration-styles-revisited/embroidered-textile-nano-banana-2.webp" aria-label="View Nano Banana 2 embroidered textile image at full size">
+<img src="/blog/illustration-styles-revisited/embroidered-textile-nano-banana-2.webp" alt="Nano Banana 2: A prominent red courier crosses an outlined stone bridge surrounded by raised leaves, diagonal sky threads, and horizontal water stitches." width="1024" height="1024" loading="lazy" decoding="async" />
+</a>
+</figure>
+</div>
+
 ## What I would take into the next image
 
 In these outputs, Nano Banana 2 is my starting point for flat or technical illustration. Its geometric trees and cleaner isometric bridge respond more directly to those style blocks. GPT Image 2 gives me the paper texture I prefer and resolves the ink prompt's color conflict in favor of monochrome.
 
-Framing matters too. Nano Banana's courier is larger in the watercolor, gouache, and cubism pairs, which helps at small display sizes. GPT often gives more space to the landscape. Neither choice is automatically better; a storybook page and a landscape print ask different things of the same scene.
+The embroidery pair adds another distinction: fine detail can soften the very stitches that make the material recognizable. Framing matters too. Nano Banana's courier is larger in the watercolor, gouache, and cubism pairs, which helps at small display sizes. GPT often gives more space to the landscape. Neither choice is automatically better; a storybook page and a landscape print ask different things of the same scene.
 
 For your next project, pick two or three treatments and run them with the subject you actually need. Inspect the image where it will be used: the thumbnail, the page, the poster. A beautiful river reflection is little help if the courier disappears at that size.
 

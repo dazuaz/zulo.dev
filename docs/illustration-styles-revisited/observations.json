@@ -15,7 +15,7 @@
     "linocut": "Black and rusty red on cream; carved shapes and hatching; dense leaf frame; paper border.",
     "art-nouveau": "Botanical ornamental full border integrated with large curving trees; muted cream green rust colors; decorative bridge with gold accents."
   },
-  "note": "All 11 pairs visually inspected at 600px per image, with original 1024px PNGs retained. Reviewed pair notes are the evidence for article comparisons; preferences apply to this one-output sample.",
+  "note": "All 13 pairs visually inspected at 600px per image, with original 1024px PNGs retained. Notes describe the particular outputs, not physical craft processes or model reliability.",
   "reviewed_pairs": {
     "1": "Nano Banana 2 gives the trees distinct geometric silhouettes and keeps large areas of the sky cream. GPT Image 2 fills the banks with smaller leaves, rocks, and layered shading. Both produce an inviting sunrise, but Nano Banana's output is closer to the simplified shapes in the style block.\n\nThey also interpret the courier differently: GPT uses a conventional bicycle; Nano Banana adds a front cargo box. That is a scene choice, separate from the question of which image feels more convincingly flat.",
     "2": "The bridge runs diagonally through both images, but the treatment differs sharply. GPT Image 2 produces a detailed aerial scene with textured stone, leafy trees, and atmospheric distance. Nano Banana 2 uses clean parallel bridge edges, outlined tree shapes, and a small cluster of geometric buildings.\n\nFor this technical illustration brief, I would start with Nano Banana's version. GPT's is appealing as an environment rendering, but looking down at a bridge is not by itself the same as adopting an isometric drawing language.",
@@ -28,5 +28,15 @@
     "9": "GPT Image 2 spreads colored planes across the sky, bridge, water, and trees, with painted texture connecting the pieces. Nano Banana 2 gives those planes dark outlines and a strong rectangular border, producing something closer to a stained-glass or mosaic effect. Its larger courier is broken into angular shapes too.\n\nBoth keep a recognizable, conventionally arranged bridge scene. I would describe these as geometric interpretations of the prompt rather than use either image as a definitive example of Synthetic Cubism. GPT's continuous color planes are my preference here.",
     "10": "GPT Image 2 interprets \u201ctwo-tone\u201d as rusty red against cream paper. Fine scraped-looking marks describe the water, foliage, and stone. Nano Banana 2 adds heavy black shapes alongside the red, carving the leaves and reflections into a much stronger contrast.\n\nThe difference changes how the bridge reads: GPT's arch sits within a broad printed landscape; Nano Banana's dark foreground makes the structure feel heavier and the rider more prominent. I would choose Nano Banana's version for a forceful print treatment, and GPT's for the quieter single-ink effect.",
     "11": "GPT Image 2 wraps the landscape in long gold curves, red flowers, and an oval opening. Nano Banana 2 uses a denser rectangular botanical border and carries the ornament onto the bridge itself. Both leave out lettering, as requested.\n\nThe distinction is where the decoration lives. GPT's sweeping border frames a relatively naturalistic landscape; Nano Banana's outlines and repeated motifs extend further into the scene. I prefer Nano Banana's more integrated ornament here, though GPT's broad curves give it a strong poster silhouette."
+  },
+  "cyanotype": {
+    "gpt-image-2": "Blue tonal print appearance with brushed edges, clouded sky, one broad arch and small dark courier, detailed leafy banks and reflective river.",
+    "nano-banana-2": "Blue and cream print on depicted paper with blue brush border, three arches, larger dark courier and visible pale sun.",
+    "comparison": "Both retain dark rider silhouettes rather than interpreting the negative-silhouette instruction literally. GPT has more atmospheric tonal detail; Nano has a more prominent subject."
+  },
+  "embroidered-textile": {
+    "gpt-image-2": "Small red courier on fine-textured bridge; fine stitch-like marks throughout misty skyline, warm sky and reflective water. Linen exposed around irregular scene edges.",
+    "nano-banana-2": "Large red courier; obvious long diagonal sky stitches, horizontal water stitches, outlined stonework, raised clustered leaves, rectangular linen border.",
+    "comparison": "GPT approaches a finely detailed landscape in thread, Nano emphasizes construction and larger stitches. Nano preferred when the material needs to remain legible at small size."
   }
 }

@@ -1,9 +1,10 @@
 {
   "generated_at": "2026-09-06",
+  "updated_at": "2026-09-07",
   "transport": "Vercel AI Gateway",
-  "successful_images": 22,
+  "successful_images": 26,
   "failed_requests": 0,
-  "recorded_cost_usd": 3.059785,
+  "recorded_cost_usd": 3.616227,
   "images": [
     {
       "style": "flat-vector",
@@ -455,6 +456,88 @@
       },
       "startedAt": "2026-09-06T18:41:14.052Z",
       "completedAt": "2026-09-06T18:41:24.712Z"
+    },
+    {
+      "style": "cyanotype",
+      "requestedModel": "openai/gpt-image-2",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/cyanotype-gpt-image-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "9d88278ccc0b52f525e6e252fb02fbdd2c8411932e48a004a536f656edf3c2b8",
+      "settings": {
+        "size": "1024x1024",
+        "quality": "high",
+        "output_format": "png",
+        "n": 1
+      },
+      "startedAt": "2026-09-07T13:45:24.026Z",
+      "completedAt": "2026-09-07T13:48:04.468Z"
+    },
+    {
+      "style": "cyanotype",
+      "requestedModel": "google/gemini-3.1-flash-image",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/cyanotype-nano-banana-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "5451fd5ed64c381c056ffc600c81f2b55720fbedaf1d8e3f1d452b0d67ccdbfc",
+      "settings": {
+        "responseModalities": [
+          "IMAGE"
+        ],
+        "imageConfig": {
+          "aspectRatio": "1:1",
+          "imageSize": "1K"
+        }
+      },
+      "startedAt": "2026-09-07T13:45:24.066Z",
+      "completedAt": "2026-09-07T13:45:34.561Z"
+    },
+    {
+      "style": "embroidered-textile",
+      "requestedModel": "openai/gpt-image-2",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/embroidered-textile-gpt-image-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "2ed1fdd168791ecbf153c0059d6b2a1bcbcbe86cdb71bfa48d896eb6d738f6c9",
+      "settings": {
+        "size": "1024x1024",
+        "quality": "high",
+        "output_format": "png",
+        "n": 1
+      },
+      "startedAt": "2026-09-07T13:48:04.574Z",
+      "completedAt": "2026-09-07T13:50:46.052Z"
+    },
+    {
+      "style": "embroidered-textile",
+      "requestedModel": "google/gemini-3.1-flash-image",
+      "status": "success",
+      "output": "output/imagegen/illustration-styles-revisited/embroidered-textile-nano-banana-2.png",
+      "dimensions": {
+        "width": 1024,
+        "height": 1024
+      },
+      "sha256": "140bc364770ee6aff55f266330dfc90d167fe7314b7e06a03f9e70e1e2bc72cb",
+      "settings": {
+        "responseModalities": [
+          "IMAGE"
+        ],
+        "imageConfig": {
+          "aspectRatio": "1:1",
+          "imageSize": "1K"
+        }
+      },
+      "startedAt": "2026-09-07T13:48:04.574Z",
+      "completedAt": "2026-09-07T13:48:16.554Z"
     }
   ]
 }
