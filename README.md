@@ -29,6 +29,19 @@ SEO and AI discoverability: [Review, implementation, and deployment checks](docs
 
 Article images use Astro’s native `getImage()` pipeline, including raw HTML in Markdown. Responsive widths, original-file compatibility, and high-DPI checks are documented in [Image delivery](docs/image-delivery.md). Run `pnpm test:images` for markup regression checks.
 
+## Social share card
+
+The default Open Graph and Twitter card is `/og/zulo.png`, a 1200×630 PNG
+prerendered with [Vercel OG](https://vercel.com/docs/og-image-generation) on every
+build. Edit `src/lib/social-card.tsx` to change the artwork. Sora and Manrope font
+files and their SIL Open Font Licenses live in `src/assets/fonts`; rendering needs
+no external font requests. Shared metadata lives in `src/lib/seo.ts`. Articles
+with a hero image continue to use that image. The original `/og.jpg` remains
+available for existing links. A future redesign should use a new image path to
+help social platforms refresh their image caches. `@vercel/og` is pinned to
+0.11.1 because 1.0.2 fails in Node ESM during Astro prerendering with a dynamic
+`require("fs")` error; verify `pnpm build` before upgrading.
+
 ## Contact form email
 
 `/api/contact` validates submissions, checks BotID, then sends the inquiry through

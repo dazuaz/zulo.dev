@@ -86,6 +86,7 @@ const fontHref =
 		<meta property="og:image" content={ogImageURL} />
 		<meta property="og:image:alt" content={ogImageAlt} />
 		<meta property="og:locale" content="en_US" />
+		{ogImage === siteIdentity.image && <meta property="og:image:type" content="image/png" />}
 		{ogImage === siteIdentity.image && <meta property="og:image:width" content="1200" />}
 		{ogImage === siteIdentity.image && <meta property="og:image:height" content="630" />}
 		<meta property="og:site_name" content="Zulo" />

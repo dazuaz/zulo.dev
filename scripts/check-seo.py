@@ -7,6 +7,7 @@ from pathlib import Path
 from urllib.parse import urlsplit, unquote
 import json
 import re
+import struct
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -95,6 +96,12 @@ def check():
         assert page.meta('twitter:image') == page.meta('og:image')
         assert page.meta('og:image:alt') and page.meta('twitter:image:alt')
         assert output_path(page.meta('og:image')).exists(), f'{url}: missing social image'
+        if urlsplit(page.meta('og:image')).path == '/og/zulo.png':
+            image = output_path(page.meta('og:image')).read_bytes()
+            assert image[:8] == b'\x89PNG\r\n\x1a\n', f'{url}: social image is not a PNG'
+            assert struct.unpack('>II', image[16:24]) == (1200, 630), f'{url}: wrong social image dimensions'
+            assert page.meta('og:image:type') == 'image/png'
+            assert page.meta('og:image:width') == '1200' and page.meta('og:image:height') == '630'
         assert page.elements('link', rel='alternate', type='application/rss+xml')
         assert len(page.schemas) == 1
         graph = page.schemas[0]['@graph']
