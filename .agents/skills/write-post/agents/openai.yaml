@@ -1,4 +1,4 @@
 interface:
   display_name: "Write a Post"
   short_description: "Write thoughtful essays with three editorial judges"
-  default_prompt: "Use $write-post to turn my idea into a distinctive 1,200–1,800-word zulo.dev blog draft, reviewed by three editorial judges and faithful to my original thesis."
+  default_prompt: "Use $write-post to turn my idea into a distinctive zulo.dev blog draft, reviewed by three editorial judges and faithful to my original thesis."

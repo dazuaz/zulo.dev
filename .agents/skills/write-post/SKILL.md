@@ -1,11 +1,11 @@
 ---
 name: write-post
-description: Turn an idea, notes, or an existing draft into a distinctive 1,200–1,800-word zulo.dev blog post through a publisher and three independent editorial judges. Use for substantive blog drafting or rewriting in this repo, not small copy edits or site development.
+description: Turn an idea, notes, or an existing draft into a distinctive zulo.dev blog post through a publisher and three independent editorial judges. Use for blog drafting or rewriting in this repo, not small copy edits or site development.
 ---
 
 # Write a post
 
-Act as Daniel Zuloaga's professional publisher and editor. Deliver one coherent, original essay of **1,200–1,800 words**, synthesizing the strongest editorial improvements while staying close to the author's original idea. Target roughly 1,500 words; a later explicit user length request takes precedence.
+Act as Daniel Zuloaga's professional publisher and editor. Deliver one coherent, original essay, synthesizing the strongest editorial improvements while staying close to the author's original idea.
 
 The three judges are editorial roles inspired by public work, not the actual writers or their endorsements. Borrow broad craft principles; preserve Daniel's voice rather than mimicking signature phrasing, anecdotes, or literary mannerisms.
 
@@ -63,23 +63,3 @@ Resolve factual and fidelity problems first. Then favor changes that sharpen the
 Combine compatible suggestions, reject changes that pull the piece away from the brief, and keep a short decision record outside the article for important disagreements. Do not concatenate three voices or average away the author's strongest observation. A judge's preferred style does not override the user.
 
 Revise and return the revised manuscript to all three judges for a concise final check against the same brief. Aim for fidelity of at least 4/5 from every judge and no unresolved factual or fidelity blockers. Allow up to two substantive revision cycles; do not loop indefinitely to chase unanimous praise. If material issues remain, deliver the best draft clearly marked as needing work, identify the specific gap, and never label it ready. Do not silently change the core thesis to obtain approval.
-
-## Package for this repo
-
-For a requested repo post, save Markdown at `src/content/blog/<descriptive-kebab-case-slug>.md`. For a chat-only request, return the manuscript in chat. Keep reviews and working notes out of the blog content collection; save them in a temporary location only if useful, and summarize the verdict in the delivery note.
-
-Use the current schema as the authority. At creation time it requires `title`, `description`, and `pubDate`; it supports `updatedDate`, `heroImage`, `heroImageAlt`, `tags`, and `draft`. The layout renders the frontmatter title, so do not duplicate it as an H1 in the body.
-
-For a new draft, use a concrete title, a short accurate description, the requested date or today's date, relevant tags, and `draft: true` unless the user has already asked to make it public. For an existing post, preserve its slug, publication date, assets, and publication state unless the request calls for a change. Use an image only if an appropriate asset exists or the user requested one; never invent asset paths. Image generation and deployment are separate work, not implicit parts of writing a draft.
-
-Run the bundled prose count from the repo root:
-
-```bash
-python3 .agents/skills/write-post/scripts/count_words.py src/content/blog/<slug>.md
-```
-
-The count includes headings, lists, captions, quoted prose, and link labels. It excludes YAML frontmatter, fenced code blocks, image markup, link targets/definitions, HTML comments/tags, and bare URLs. Contractions and internally hyphenated words count as one. It is a deterministic convention for ordinary Markdown, not an MDX renderer. Indented blocks are rejected because they can be code or nested prose; use fenced code and flat lists, or count a separate plain-prose export for complex Markdown/MDX. Stay comfortably within the range rather than gaming markup. Use `--min` and `--max` only to reflect an explicit user length override.
-
-After the last substantive edit, verify the length, frontmatter, relative assets, citations, and thesis against the brief. If post files changed, run `pnpm build` to catch content and rendering errors; report an unavailable or failed check honestly. The existing reading-time helper is a display estimate, not the manuscript word counter.
-
-Deliver one final post, with its file link or full text as appropriate. Add a brief note outside the article with the measured word count, the three judges' final verdicts, the main synthesis decision, and any remaining limitation. Include detailed critiques only if requested. Do not claim the post is unique across all published work or that editorial scores prove its quality.
