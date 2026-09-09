@@ -22,7 +22,7 @@ export const prerender = true;
         <form id="contact-form" class="flex flex-col gap-lg" novalidate>
           <FormField id="name" label="Your name" required maxlength="120" autocomplete="name" />
           <FormField id="email" label="Email" type="email" required maxlength="254" autocomplete="email" />
-          <FormField id="message" label="What would you like to improve?" placeholder="A process that takes too long, a tool your team needs, or an AI idea you want to explore…" required textarea rows="7" maxlength="5000" />
+          <FormField id="message" label="What would you like to improve?" placeholder="A prototype you want to take to production, a process that takes too long, or an AI idea you want to explore…" required textarea rows="7" maxlength="5000" />
           <p id="contact-error" class={cn(fieldError, 'hidden')} role="alert"></p>
           <div><Button type="submit" id="contact-submit"><span id="contact-submit-label">Start the conversation ↗</span></Button></div>
         </form>

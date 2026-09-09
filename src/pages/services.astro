@@ -17,10 +17,10 @@ export const prerender = true;
     <section class="page-masthead site-container">
       <p class="section-kicker">WHAT WE DO</p>
       <h1>Useful systems.<br />Built around your business.</h1>
-      <p class="page-lead">From deciding where AI belongs to building the tools your team uses every day.</p>
+      <p class="page-lead">From assessing what you’ve already built to shipping the tools your team uses every day.</p>
     </section>
         <section id="services" class="section-pad site-container">
-            <div class="section-heading"><div><p class="section-kicker">STRATEGY / ENGINEERING / ADOPTION</p><h2>From possibility<br />to everyday practice.</h2></div><p>One partner across strategy, product, and engineering. A clear path from your first question to a system your team can depend on.</p></div>
+            <div class="section-heading"><div><p class="section-kicker">ASSESS / BUILD / EVOLVE</p><h2>From v0 to software<br />that keeps up.</h2></div><p>One partner across strategy, product, and engineering. A clear path from the prototype you have to a system your team depends on, and someone who stays on it.</p></div>
             <div class="service-grid">{services.map(service => <article id={`service-${service.number}`} class="service-card"><div class="service-card-top"><span>{service.number}</span><span class="service-symbol" aria-hidden="true">{service.symbol}</span></div><p class="service-tag">{service.tag}</p><h3>{service.title}</h3><p>{service.description}</p><ul>{service.deliverables.map(item => <li><span aria-hidden="true">↗</span>{item}</li>)}</ul></article>)}</div>
         </section>
 

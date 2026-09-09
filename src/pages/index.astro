@@ -16,18 +16,18 @@ const recentPosts = (await getPublishedPosts()).slice(0, 3);
         <section class="hero dark-surface">
             <div class="site-container hero-grid">
                 <div class="hero-copy">
-                    <p class="eyebrow"><span class="signal-dot"></span> YOUR AI TRANSFORMATION PARTNER</p>
-                    <h1>Better operations.<br />Stronger teams.<br /><span>Powered by AI.</span></h1>
-                    <p class="hero-lead">AI strategy, custom systems, and hands-on implementation for businesses whose work runs through documents, internal systems, and handoffs between people.</p>
+                    <p class="eyebrow"><span class="signal-dot"></span> FOR TEAMS ALREADY BUILDING WITH AI</p>
+                    <h1>You have the prototype.<br /><span>We build.</span></h1>
+                    <p class="hero-lead">Your AI demo works. Making it reliable, connected, and trusted by your team is the hard part. That’s what we do.</p>
                     <div class="hero-actions">
-                        <a class="action action-lime" href="/contact">Let’s find your first opportunity <span aria-hidden="true">↗</span></a>
-                        <a class="text-action" href="/approach">Explore the approach <span aria-hidden="true">↗</span></a>
+                        <a class="action action-lime" href="/contact">Let’s look at what you’ve built <span aria-hidden="true">↗</span></a>
+                        <a class="text-action" href="/approach">See how we work <span aria-hidden="true">↗</span></a>
                     </div>
-                    <p class="hero-footnote">Led by Daniel Zuloaga: software engineer, technical product manager, and MBA, with experience building AI systems in regulated fintech.</p>
+                    <ul class="hero-proof" aria-label="Why Zulo"><li>20 years building software</li><li>AI in regulated fintech</li></ul>
                 </div>
                 <WorkflowVisual />
             </div>
-            <div class="site-container hero-bottom"><span>Built around your business. Connected to your systems.</span><span>STRATEGY <i>/</i> BUILD <i>/</i> ADOPTION</span></div>
+            <div class="site-container hero-bottom"><span>Bring what you’ve built. We’ll show you what it takes to run it for real.</span><span>PROTOTYPE <i>/</i> HARDEN <i>/</i> SHIP <i>/</i> EVOLVE</span></div>
         </section>
     <section class="section-pad site-container">
       <div class="section-heading"><div><p class="section-kicker">SELECTED WORK / 01</p><h2>The interface is only<br />the beginning.</h2></div><a class="text-action light-link" href="/work">Explore our work <span aria-hidden="true">↗</span></a></div>
@@ -36,8 +36,8 @@ const recentPosts = (await getPublishedPosts()).slice(0, 3);
       <a class="related-project" href="/work/expenses"><div><span class="section-kicker">MORE WORK WITH VASTER</span><h3>Vaster Expenses <span aria-hidden="true">↗</span></h3><p>AI-assisted receipt capture, connected evidence, and a clear handoff to approval and finance.</p></div><span class="related-project-path" aria-hidden="true">CAPTURE → APPROVE → FINANCE</span></a>
     </section>
     <section class="home-directory opportunities"><div class="site-container directory-grid">
-      <a id="services" href="/services"><span class="section-kicker">01 / SERVICES</span><h2>Find it. Build it.<br />Put it to work.</h2><p>Strategy, engineering, and adoption support around a defined business problem.</p><span class="directory-link">What we do ↗</span></a>
-      <a id="approach" href="/approach"><span class="section-kicker">02 / APPROACH</span><h2>A useful first step.<br />A clear way forward.</h2><p>Prove the idea with real work, then integrate and improve it with your team.</p><span class="directory-link">How we work ↗</span></a>
+      <a id="services" href="/services"><span class="section-kicker">01 / SERVICES</span><h2>Assess it. Harden it.<br />Keep it moving.</h2><p>Strategy, engineering, and ongoing support, from your first prototype to the features that come after.</p><span class="directory-link">What we do ↗</span></a>
+      <a id="approach" href="/approach"><span class="section-kicker">02 / APPROACH</span><h2>Start from what works.<br />Ship what holds up.</h2><p>Review what you’ve built, rebuild what matters, then integrate and improve it with your team.</p><span class="directory-link">How we work ↗</span></a>
       <a id="about" href="/about"><span class="section-kicker">03 / YOUR PARTNER</span><h2>Product. Engineering.<br />Business.</h2><p>Work directly with Daniel Zuloaga. Twenty years building software with the people who depend on it.</p><span class="directory-link">Meet Daniel ↗</span></a>
     </div></section>
         <section class="section-pad site-container insights-section"><div class="section-heading"><div><p class="section-kicker">FROM THE BUILD</p><h2>Thinking, tested in practice.</h2></div><a class="text-action light-link" href="/blog">Explore all insights <span aria-hidden="true">↗</span></a></div><PostList posts={recentPosts} showReadingTime /></section>
