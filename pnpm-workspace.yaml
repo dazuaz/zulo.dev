@@ -7,3 +7,9 @@ minimumReleaseAgeExclude:
 onlyBuiltDependencies:
   - esbuild
   - sharp
+packageExtensions:
+  '@vercel/og@1.0.2':
+    dependencies:
+      harfbuzzjs: 0.10.0
+patchedDependencies:
+  '@vercel/og@1.0.2': patches/@vercel__og@1.0.2.patch
