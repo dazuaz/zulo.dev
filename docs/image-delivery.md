@@ -19,7 +19,7 @@ A 1920px variant can support 3× at this reading width only when the source cont
 
 ## Validation
 
-`pnpm build`, `pnpm check:seo`, and `pnpm test:images` verify the production pages, actual variant files, dimensions, canonical host, and safe image-markup transformations.
+`bun run build`, `bun run check:seo`, and `bun run test:images` verify the production pages, actual variant files, dimensions, canonical host, and safe image-markup transformations.
 
 An isolated Chrome review exercised a 390px viewport at 3× and a 1440px viewport at 2× and 3×. It loaded the hero, inline diagram, and comparison images and verified that the selected resource met the rendered width × device density, limited by source resolution. Desktop comparison images selected 640px at 2× and 960px at 3×. Mobile ink and diagram images selected 1280px; desktop 3× used their full available source resolution. The mobile ink image and a pixel-scale desktop diagram crop were visually inspected for legibility and detail.
 

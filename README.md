@@ -8,11 +8,11 @@ Positioning research: [AI transformation research](docs/ai-transformation-resear
 
 | Command        | Action                                      |
 | :------------- | :------------------------------------------ |
-| `pnpm install` | Install dependencies                        |
-| `pnpm dev`     | Start dev server at `localhost:4321`        |
-| `pnpm build`   | Build for production to `./dist/`           |
-| `pnpm check:seo` | Audit production SEO output after building (Python 3) |
-| `pnpm preview` | Preview the production build locally        |
+| `bun install` | Install dependencies                        |
+| `bun run dev`     | Start dev server at `localhost:4321`        |
+| `bun run build`   | Build for production to `./dist/`           |
+| `bun run check:seo` | Audit production SEO output after building (Python 3) |
+| `bun run preview` | Preview the production build locally        |
 
 ## Structure
 
@@ -27,7 +27,7 @@ src/
 
 SEO and AI discoverability: [Review, implementation, and deployment checks](docs/seo-aio-review.md). Public pages and discovery feeds are prerendered; publish content changes with a new build/deployment. The contact API remains server-rendered.
 
-Article images use Astro’s native `getImage()` pipeline, including raw HTML in Markdown. Responsive widths, original-file compatibility, and high-DPI checks are documented in [Image delivery](docs/image-delivery.md). Run `pnpm test:images` for markup regression checks.
+Article images use Astro’s native `getImage()` pipeline, including raw HTML in Markdown. Responsive widths, original-file compatibility, and high-DPI checks are documented in [Image delivery](docs/image-delivery.md). Run `bun run test:images` for markup regression checks.
 
 ## Social share card
 
@@ -40,7 +40,7 @@ with a hero image continue to use that image. The original `/og.jpg` remains
 available for existing links. A future redesign should use a new image path to
 help social platforms refresh their image caches. `@vercel/og` is pinned to
 0.11.1 because 1.0.2 fails in Node ESM during Astro prerendering with a dynamic
-`require("fs")` error; verify `pnpm build` before upgrading.
+`require("fs")` error; verify `bun run build` before upgrading.
 
 ## Contact form email
 
