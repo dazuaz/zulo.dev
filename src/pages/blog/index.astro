@@ -12,7 +12,7 @@ const posts = await getPublishedPosts();
 
 <Layout pageType="CollectionPage" title="Applied AI & Agentic Workflows: Insights | Zulo" description="Notes on building with AI agents, agentic workflows, and the judgment calls that still belong to people." nav="blog">
   <main id="main-content">
-    <PageShell class="py-page-intro">
+    <PageShell class="pt-page-intro pb-lg">
       <div class="flex flex-col gap-md">
         <h1 class={displayTitle}>Field notes on applied AI</h1>
         <p class={proseBody}>
@@ -22,7 +22,7 @@ const posts = await getPublishedPosts();
       </div>
     </PageShell>
 
-    <PageShell class="py-section pb-section-lg">
+    <PageShell class="pb-section-lg">
       <PostList posts={posts} showReadingTime />
     </PageShell>
   </main>
