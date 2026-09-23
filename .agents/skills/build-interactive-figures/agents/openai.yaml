@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build Interactive Figures"
+  short_description: "Create accessible animated editorial diagrams"
+  default_prompt: "Use $build-interactive-figures to design and implement an explanatory figure for this blog post."
