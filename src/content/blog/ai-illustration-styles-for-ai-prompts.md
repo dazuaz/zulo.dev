@@ -2,7 +2,7 @@
 title: "11 illustration styles that work well with AI image models"
 description: "The same scene recreated in 11 styles across GPT Image and Gemini, with the exact prompt blocks I used and notes on what held up."
 pubDate: 2026-02-20
-updatedDate: 2026-09-05
+updatedDate: 2026-09-23
 heroImage: "/blog/ai-illustration-styles/main-image-gemini-paper-cut.webp"
 heroImageWidth: 1376
 heroImageHeight: 768
@@ -17,37 +17,21 @@ tags:
 
 > I used AI to draft much of this post and generate every image. I edited the copy and checked the factual details.
 
-Style is one of the strongest controls in an image prompt. A named medium with clear rules usually gives more predictable results than a loose mood such as "playful" or "cinematic."
+Naming a style is one of the strongest controls in an image prompt. A medium with clear rules, like linocut or risograph, gives more predictable results than a mood like "playful" or "cinematic."
 
-I tested 11 illustration styles against the same scene and changed only the style block between runs.
+To show this, I rendered one scene in 11 styles with two models, changing only the style block between runs: a red bicycle courier crossing a stone bridge at sunrise, with river reflections and a city skyline. Each style made the cut because it has recognizable rules for shape, texture, color, or perspective that a model can follow.
 
-The scene shows a red bicycle courier crossing a stone bridge at sunrise, with river reflections and a city skyline.
+Models: `gpt-image-1.5` and `gemini-3-pro-image-preview`.
 
-## How I selected these styles
-
-A useful test style needs recognizable rules for shape, texture, color, or perspective. The model also has to respond to the name consistently without producing the same composition every time. Eleven styles met that bar.
-
-Models used for the recreations:
-- `gpt-image-1.5`
-- `gemini-3-pro-image-preview`
-
-I like being able to explore a visual direction before committing much time or budget to it. These examples make the choices concrete. The prompts make a chosen direction easier to repeat across a product or launch.
-
-## The prompt method
-
-This article has been revised since its original publication. The method below draws on Google's February 26 Nano Banana 2 announcement and the Gemini API image guide, alongside the examples shown here.
-
-The method I now use for every style test:
+## The method
 
 1. Lock the subject, action, environment, and framing.
 2. Add one style block per run.
-3. State identity, object count, text, and exclusion rules in a control block.
-4. Set the aspect ratio and target size before generating.
-5. Keep the prompt stable and edit only what failed.
+3. Put identity, object count, text, and exclusion rules in a control block.
+4. Set the aspect ratio and size before generating.
+5. When something fails, edit that part of the prompt instead of rewriting it.
 
-Google's February 26, 2026 Nano Banana 2 announcement reports better consistency in complex scenes. Its examples include as many as five characters and 14 objects. That is why the control block spells out identity and object count.
-
-Reusable control block:
+Current models like [Nano Banana 2](https://blog.google/innovation-and-ai/technology/ai/nano-banana-2/) are better at keeping several characters and objects consistent in complex scenes, so it's worth stating identity and object count explicitly:
 
 ```text
 Control block:
@@ -60,7 +44,7 @@ Control block:
 
 ## Base scene prompt
 
-I used this in all style generations, then appended each style treatment:
+Every style below appends its treatment to this:
 
 ```text
 Draw a red bicycle courier crossing a stone bridge over a calm river at sunrise,
@@ -68,7 +52,7 @@ small city skyline in the background, trees on both sides, soft morning mist,
 centered composition, full scene, no text or logos.
 ```
 
-Main image prompt used with Gemini:
+The hero image at the top used the paper-cut treatment with Gemini:
 
 ```text
 Create a striking blog hero illustration of a solitary artist searching for inspiration inside an infinite canvas world.
@@ -82,7 +66,7 @@ soft depth shadows between layers.
 
 ## 1. Flat vector editorial
 
-Geometric forms and clean silhouettes give the model firm boundaries. A limited palette and minimal shading leave fewer choices to improvise.
+Geometric shapes and clean silhouettes give the model firm edges, and a limited palette with minimal shading leaves little to improvise.
 
 Prompt adjustment:
 
@@ -105,7 +89,7 @@ subtle grain texture.
 
 ## 2. Isometric illustration
 
-Isometric axes constrain the perspective before the model draws the scene. That fixed geometry helps objects keep their shape and spacing.
+Isometric axes fix the perspective before the model draws anything, which helps objects keep their shape and spacing.
 
 Prompt adjustment:
 
@@ -127,7 +111,7 @@ precise geometry, long soft shadows, muted cyan and warm orange palette.
 
 ## 3. Ink line art
 
-Line-only rendering is a strict constraint, and models usually follow instructions about hatching and line weight.
+Line-only rendering is a strict constraint, and models follow instructions about hatching and line weight well.
 
 Prompt adjustment:
 
@@ -149,7 +133,7 @@ cross-hatching for shadows, hand-drawn texture on off-white paper.
 
 ## 4. Watercolor
 
-Models recognize washes, soft edges, and pigment blooms. Small artifacts also look less out of place in watercolor than they do in crisp vector work.
+Models know washes, soft edges, and pigment blooms, and small artifacts look less out of place here than in crisp vector work.
 
 Prompt adjustment:
 
@@ -171,7 +155,7 @@ transparent washes, soft edges, pigment blooms, light granulation.
 
 ## 5. Storybook gouache
 
-Matte paint and opaque layers give the model a specific surface to imitate. Broad blocks of color tend to survive changes in subject and composition.
+Matte, opaque paint gives the model a specific surface to imitate, and broad color blocks hold up when the subject or composition changes.
 
 Prompt adjustment:
 
@@ -193,7 +177,7 @@ rich warm palette, layered painted texture.
 
 ## 6. Paper-cut collage
 
-Layered shapes and cast shadows define depth without realistic perspective. Words such as "paper fibers" and "cut edges" produce visible material cues reliably.
+Layered shapes and cast shadows create depth without realistic perspective. Terms like "paper fibers" and "cut edges" reliably show up in the result.
 
 Prompt adjustment:
 
@@ -215,7 +199,7 @@ tactile paper fibers, soft depth shadows between layers.
 
 ## 7. Risograph print
 
-Spot colors, halftone dots, and slight misregistration are concrete instructions. Small printing flaws belong in the style, so the result does not depend on perfect edges.
+Spot colors, halftone dots, and misregistration are concrete instructions, and because printing flaws are part of the style, the result doesn't need perfect edges.
 
 Prompt adjustment:
 
@@ -238,7 +222,7 @@ vintage poster feel.
 
 ## 8. Clay 3D and claymation
 
-"Miniature," "clay texture," and "stop-motion" point to a distinct physical look. Models usually carry the rounded forms and fingerprints across the whole scene.
+"Miniature," "clay texture," and "stop-motion" point to a distinct physical look, and models carry the rounded forms across the whole scene.
 
 Prompt adjustment:
 
@@ -260,7 +244,7 @@ soft studio lighting, tactile clay texture, shallow depth of field.
 
 ## 9. Synthetic Cubism
 
-Geometric decomposition gives the model a clear way to distort the subject. Fragmented planes can change the drawing sharply while the main composition remains recognizable.
+Fragmented planes give the model a clear way to distort the subject while the composition stays recognizable.
 
 Prompt adjustment:
 
@@ -282,7 +266,7 @@ overlapping geometric forms, bold contrasting color blocks, subtle painted textu
 
 ## 10. Linocut print
 
-Gouges, rough edges, and limited ink are easy to name and easy to see in the result. High contrast also keeps the composition readable when details change.
+Gouges, rough edges, and limited ink are easy to name and easy to see, and the high contrast keeps the composition readable.
 
 Prompt adjustment:
 
@@ -304,7 +288,7 @@ rough hand-carved edges, handmade press texture.
 
 ## 11. Art Nouveau poster illustration
 
-Flowing lines, botanical ornament, flat color, and print texture give the model a recognizable set of rules. The style is decorative, but its poster format still constrains the composition.
+Flowing lines, botanical ornament, flat color, and print texture are a recognizable rule set, and the poster format keeps the decoration from taking over the composition.
 
 Prompt adjustment:
 
@@ -326,7 +310,7 @@ flat decorative color fields, vintage print texture, elegant composition, no typ
 
 ## Reusable prompt template
 
-Use this pattern for your own style sweeps:
+For your own style sweeps:
 
 ```text
 Scene lock:
@@ -347,14 +331,12 @@ Output spec:
 - Target size: [1K | 2K | 4K]
 ```
 
-## Notes from testing
+## What held up
 
-1. Keep the subject and composition fixed when comparing styles.
-2. Change only the style block each run.
-3. Name the material or technique. Useful terms include halftone, gouache, cut paper, hatching, and carved ink.
-4. Use natural-language scene descriptions instead of short keyword piles.
-5. For harder scenes, run iterative edits rather than rewriting from scratch.
-6. Include "no text or logos" when you do not want typography.
+- Name the material or technique: halftone, gouache, cut paper, hatching, carved ink.
+- Describe the scene in sentences, not keyword piles.
+- For harder scenes, make targeted edits instead of starting over.
+- Say "no text or logos" when you don't want typography.
 
 ## References
 

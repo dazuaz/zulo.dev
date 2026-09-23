@@ -1,8 +1,8 @@
 ---
 title: "What changes when an agent can do the boring part?"
-description: "A proposed loan onboarding workflow, and how I would judge whether faster fixes create a better product and a stronger business."
+description: "A proposal for turning each failed loan transfer into a tested fix, and how I'd decide whether it's worth building."
 pubDate: 2026-03-24
-updatedDate: 2026-09-05
+updatedDate: 2026-09-23
 heroImage: "/blog/building-products-for-agents/hero-ink-line-art.webp"
 heroImageWidth: 1376
 heroImageHeight: 768
@@ -15,32 +15,42 @@ tags:
   - Product
 ---
 
-Most loan onboarding software does a plain job. It reads a record from one system, reshapes the fields, moves the documents, and writes everything to another API.
+Loan onboarding software does unglamorous work. It reads a record from one system, reshapes the fields, moves the documents, and writes it all to another API.
 
-The happy path is easy. Production data is not. A date arrives in an unexpected format. A legacy API returns a field nobody documented. One loan has six documents where the test fixture had two. People notice this work only when the transfer fails or the new record is incomplete.
+The happy path is easy. Production data isn't. A date arrives in a format nobody expected. A legacy API returns an undocumented field. A loan has six documents where the test fixture had two. When a transfer fails, a user reports it, a developer digs through logs, someone files an issue, and the fix sits in a queue.
 
-The usual response is familiar. A user reports the problem, a developer searches the logs, and somebody opens an issue. The fix waits in a queue.
+A coding agent can shorten that loop. What follows is a proposal, not something I've shipped.
 
-A coding agent could shorten that loop. The workflow below is a design proposal. It describes how I would connect an operational failure to a reviewed product change.
+## The loop
 
-Consider a loan transfer that fails because a date arrives in an unexpected format. The agent would inspect the result and logs, locate the parsing code, and propose a fix. It would test that change against a controlled reproduction of the failure. A reviewer would then have the original error, the proposed change, and the test result together.
+Say a transfer fails on a date format. The agent reads the logs, finds the parsing code, writes a fix, and runs it against a reproduction of the failure. The reviewer then gets the original error, the change, and the test result together.
 
-## The loop I want
+1. Define what a complete loan record must contain, and who owns the operation.
+2. Capture failures in enough detail to reproduce them.
+3. Have the agent propose a fix and test it against the failed case and the existing ones.
+4. Engineering reviews the code; the operations owner confirms the behavior.
+5. Retry the transfer, check for duplicate records and documents, and verify the destination against the source.
 
-1. Define the operation, its owner, and what a complete loan record must contain.
-2. Capture failures with enough detail to reproduce them in a controlled environment.
-3. Let the agent propose a fix and test it against both the failed case and existing cases.
-4. Have engineering review the change and the operational owner confirm the expected behavior before release.
-5. Retry the approved operation with checks for duplicate records and documents, then verify the destination against the source.
+The regression test stays in the codebase, so each hard case makes the next transfer more reliable. The person handling the loan is told what changed and whether the record is now complete.
 
-The regression test stays with the product. The person handling the loan gets an explanation of what changed and whether the record is now complete.
+<figure class="blog-figure blog-figure--wide" data-blog-figure="failure-loop" aria-labelledby="failure-loop-title">
+  <p class="blog-figure__kicker">Figure 01 · Hypothetical example</p>
+  <h3 id="failure-loop-title">One failed transfer, through the loop</h3>
+  <p class="blog-figure__intro">A loan transfer fails on a closing date the parser doesn't recognize. Each stage produces something a person can check, and people make the two calls the agent can't.</p>
+  <div data-figure-stage>
+    <ol>
+      <li><strong>Capture (system):</strong> the failed transfer is recorded with the field, the raw value <code>03/04/26</code>, the source API, and how many of its six documents were written.</li>
+      <li><strong>Reproduce (agent):</strong> the agent turns the record into a redacted fixture and a test that fails the same way.</li>
+      <li><strong>Fix (agent):</strong> the agent changes the date parser to accept the legacy format, and the new test passes along with the 214 existing cases.</li>
+      <li><strong>Review (engineer and operations owner):</strong> the engineer reviews the change. The operations owner confirms that <code>03/04/26</code> means March 4, not April 3.</li>
+      <li><strong>Retry and verify (system):</strong> the transfer is retried with no duplicate record or documents, the destination is checked against the source, and the loan officer is told the record is complete. The new test stays, so the next transfer in this format passes.</li>
+    </ol>
+  </div>
+  <figcaption>Hypothetical loan, values, and test counts, used to illustrate the proposed workflow.</figcaption>
+</figure>
 
-## What would make this worth building?
+## Is it worth building?
 
-Before investing in this, I would want to understand how often transfers fail, what each failure costs the customer, and who has a reason to pay for a better result. An occasional annoyance and a daily operational bottleneck deserve different products.
+That depends on how often transfers fail and what each failure costs. An occasional annoyance and a daily bottleneck call for different products. I'd measure time to a verified fix, repeat failures, and how much review the loop asks of the operations team, then check whether customers would notice and pay for the difference.
 
-I would measure time to a verified resolution, repeat failures, and the amount of review the workflow asks of the operations team. Then I would compare the cost of running and supporting it with the value it creates for the customer. Faster fixes need to translate into something the customer notices and values.
-
-Product and engineering need to agree on which failures qualify for this loop, who can approve a change, and which cases should stop for a policy decision. Those boundaries are part of the design.
-
-That is the opportunity I want to pursue: each difficult production case making the next transfer more reliable. I would start with one recurring failure, prove the improvement with the people doing the work, and use that evidence to decide whether to expand.
+Product and engineering would also have to agree on which failures qualify, who approves a change, and which cases stop for a policy decision. I'd start with one recurring failure and expand only if that worked.

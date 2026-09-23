@@ -1,0 +1,54 @@
+/* Shared frame for figures embedded in Markdown posts; each figure styles its own stage. */
+figure.blog-figure {
+  width: 100%;
+  max-width: none;
+  margin-block: 3rem;
+  margin-inline: 0;
+  color: var(--color-ink);
+  text-wrap: pretty;
+}
+
+@media (min-width: 64rem) {
+  figure.blog-figure--wide {
+    width: min(64rem, calc(100vw - 6rem));
+  }
+}
+
+figure.blog-figure > * {
+  margin: 0;
+}
+
+figure.blog-figure > .blog-figure__kicker {
+  font: 500 0.7rem/1.5 var(--font-mono);
+  letter-spacing: 0.09em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+}
+
+figure.blog-figure > h3 {
+  margin-top: 0.55rem;
+  max-width: 30ch;
+  font: 600 clamp(1.45rem, 2.5vw, 2rem)/1.2 var(--font-display);
+  letter-spacing: -0.035em;
+  color: var(--color-ink);
+}
+
+figure.blog-figure > .blog-figure__intro {
+  margin-top: 0.8rem;
+  max-width: 68ch;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+figure.blog-figure > [data-figure-stage] {
+  margin-top: 1.5rem;
+}
+
+figure.blog-figure > figcaption {
+  margin-top: 0.9rem;
+  max-width: 68ch;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--color-meta);
+}

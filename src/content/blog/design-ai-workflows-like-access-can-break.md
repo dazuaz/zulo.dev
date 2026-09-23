@@ -1,8 +1,8 @@
 ---
 title: "Design AI workflows like access can break"
-description: "AI access is now a business dependency. Dependencies fail. Here is how to build workflows that survive."
+description: "AI access is a business dependency, and dependencies fail. Give every workflow a reduced mode that keeps running without the frontier model."
 pubDate: 2026-06-16
-updatedDate: 2026-09-05
+updatedDate: 2026-09-23
 heroImage: "/blog/design-ai-workflows-like-access-can-break/hero-ai-workflows-access.webp"
 heroImageWidth: 1672
 heroImageHeight: 941
@@ -15,72 +15,56 @@ tags:
   - Infrastructure
 ---
 
-AI access is now a business dependency, and dependencies fail. Build workflows that can fall back to another model or run in a reduced mode. Losing the frontier model should reduce capability without stopping the work.
+If your product depends on a model, your customers are depending on that model's provider too. Losing it should cost you capability, not stop the work.
 
-The lesson from Fable 5 reaches into the business. If I sell a product that depends on AI, the customer is relying on a promise I made. A provider changing its access rules does not make that promise disappear.
+In June, Anthropic [suspended Fable 5 and Mythos 5 globally](https://www.anthropic.com/news/fable-mythos-access) after a U.S. government directive. Fable [came back on July 1](https://www.anthropic.com/news/redeploying-fable-5), but for a few weeks every workflow built on it had nothing to fall back on. Providers can also rate-limit, region-block, deprecate, reprice, or filter a model. If your plan for any of those is "wait for the vendor," the workflow is fragile.
 
-Anthropic said a U.S. government directive required it to suspend access to Fable 5 and Mythos 5 for foreign nationals, so the company disabled both models globally. David Sacks argued on X that the government acted because Fable was a guarded version of Mythos whose restrictions had been bypassed.
+## Most work doesn't need the best model
 
-*Update, September 5, 2026: Anthropic [announced Fable 5's global return for July 1](https://www.anthropic.com/news/redeploying-fable-5), with Mythos access restored for a set of U.S. organizations. This article was written during the June suspension. The interruption remains a useful case for planning continuity.*
+A typical business workflow is a chain of small steps: read a document, classify it, extract fields, compare them to policy, flag exceptions, ask a person when unsure, keep an audit trail.
 
-Depending on one provider may be reasonable for an experiment. For a core operation, I would want an explicit decision about which work can pause, which work must continue, and who owns the response.
+Classifying an invoice doesn't take the strongest model available. It takes one that passes your evaluations for that task and that you can still run during an outage. That might be a smaller model, a private deployment, or something local. Save the frontier model for the work where its extra capability pays for itself: hard reasoning, difficult exceptions, advanced coding.
 
-## The future stack should be hybrid
+## Give each model a job
 
-Frontier models still matter. Send them the work where their extra capability earns its cost, such as hard reasoning or advanced coding. Routine work should not route there by default.
+Instead of asking which model runs the system, ask what each model is responsible for:
 
-Imagine AI moving beyond the sidecar chatbot and into daily operations. It reads contracts, handles the first pass of support, and flags compliance exceptions. A weaker model can miss context, create more review work, and slow down the operator it was meant to help. Model quality changes the economics of the day.
+1. Routine work and sensitive data run on local or private models.
+2. Hard reasoning and escalations go to a frontier model.
+3. A router sends each task by its requirements, not a hardcoded provider.
+4. Every provider, region, or model that can fail has a fallback.
+5. Saved evaluations show whether a model swap made things better or worse.
+6. Written rules decide what data can leave the company, the device, or the home.
+7. Policy decisions and irreversible actions go to a person.
 
-Peak quality is one requirement. Another is a fallback model that passes the team's evaluations for a defined set of routine tasks, even if it cannot handle the hardest cases.
+In finance operations, that could mean a private model handles intake and extraction, a rules engine checks the known constraints, and the frontier model only sees redacted exceptions. At home, intent recognition and routine automation run locally and the cloud handles complex requests. The house shouldn't stop working because an API is down.
 
-That model may be the right choice for repetitive work, private data, or tasks that must remain available during an outage. Finance teams do not always need the strongest model to classify an invoice or extract fields from a document. They need one they can inspect and run when the business has to keep moving.
+<figure class="blog-figure blog-figure--wide" data-blog-figure="model-outage" aria-labelledby="model-outage-title">
+  <p class="blog-figure__kicker">Figure 01 · Illustrative</p>
+  <h3 id="model-outage-title">The same outage, three designs</h3>
+  <p class="blog-figure__intro">A day of 100 invoices, 12 of them hard exceptions. When the frontier model goes down, one design stops, one buries the operations team, and one keeps doing routine work and queues only what needs the frontier model.</p>
+  <div data-figure-stage>
+    <table>
+      <thead>
+        <tr><th scope="col">Step</th><th scope="col">One provider for everything</th><th scope="col">Send everything to people</th><th scope="col">A model for each job</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Read and classify</td><td>Frontier model: stopped</td><td>Operations team: by hand</td><td>Private model: running</td></tr>
+        <tr><td>Extract fields</td><td>Frontier model: stopped</td><td>Operations team: by hand</td><td>Private model: running</td></tr>
+        <tr><td>Check against policy</td><td>Frontier model: stopped</td><td>Operations team: by hand</td><td>Rules engine: running</td></tr>
+        <tr><td>Resolve hard exceptions</td><td>Frontier model: stopped</td><td>Operations team: by hand</td><td>Frontier model, redacted: queued</td></tr>
+        <tr><td>Decide policy calls</td><td>Person: nothing arrives</td><td>Operations team: behind</td><td>Person: waits on queued exceptions</td></tr>
+        <tr><th scope="row">Result with the frontier model down</th><td>0 of 100 finished, 100 stuck</td><td>20 of 100 finished, 80 backlogged</td><td>88 of 100 finished, 12 queued</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <figcaption>Illustrative volumes, not measurements. Assumes the operations team can work about 20 invoices a day by hand. With every provider up, all three designs finish all 100 invoices.</figcaption>
+</figure>
 
-Local availability can help with continuity, but it still needs to be tested against the work the team expects it to carry.
+## Rehearse the outage
 
-## Reliability beats peak intelligence for routine work
+Before calling a workflow ready, turn off the primary provider, run a realistic workload, and watch what finishes, what queues, and what the operator sees.
 
-Most business workflows are a chain of small decisions, not one clever answer.
+Watch the humans as well as the software. A reduced mode that routes every case to an already busy operations team just moves the bottleneck. Someone should own the response, and there should be an agreed recovery time.
 
-Read this document. Classify it. Extract the fields. Compare them against policy. Flag the exceptions. Ask a person for judgment when the system is uncertain. Keep the audit trail.
-
-That workflow does not need one magic model. It needs a reduced mode. A local model might handle classification and extraction while the system queues hard exceptions for later. Sensitive context can stay inside the company boundary.
-
-The operational owner should know what will continue, what will queue, and how much additional review the reduced mode requires.
-
-## Design workflows around model roles
-
-Stop asking which model should run the whole system. Ask what job each model owns.
-
-One model can route requests. Another can extract fields. A private model can search internal documents, while a frontier model handles difficult judgment calls. A small local model can keep a device working when the cloud is unavailable.
-
-Treating models as replaceable parts changes the architecture. Routing logic replaces a hardcoded provider. Evaluations show whether a swap helped. Data rules decide what may leave the environment. Logs record what the model saw and where a person corrected it.
-
-This work is less exciting than a demo. It is what keeps the demo running on a bad day.
-
-## A practical architecture pattern
-
-For business workflows, I would split the stack into explicit jobs:
-
-1. Run routine work and sensitive data on local or private models.
-2. Send hard reasoning and escalations to cloud frontier models.
-3. Route each task by its requirements.
-4. Keep a fallback for every provider, region, or model that can fail.
-5. Measure model swaps against saved evaluations.
-6. Define what data may leave the company, device, or home.
-7. Require human review for policy decisions and irreversible actions.
-
-In finance operations, a private model could handle document intake and extraction. A rules engine would check known constraints. The frontier model would see only redacted exceptions that need more reasoning.
-
-A home or device could keep basic intent recognition and routine automation local, then use cloud intelligence for complex requests. The house should not forget how to work because an API is down.
-
-## Decide what the business can promise
-
-Before calling a workflow ready, I would ask the team to demonstrate an outage: disable the primary provider, run a representative workload, and show what completes, what waits, and what the operator sees.
-
-That exercise needs an owner and an acceptable recovery time. It also needs a capacity check. A fallback that sends every case to an already busy operations team can move the bottleneck without resolving it.
-
-A provider can rate-limit, region-block, deprecate, reprice, filter, or withdraw a model. If the response is "wait for the vendor," the workflow is fragile. A lower-capability mode lets the work continue.
-
-I would weigh the cost of continuity against the cost of interruption: lost business, extra support, and damage to customer trust. Some work can wait. Where a customer depends on the product to operate, the price and the operating plan need to support the promise we make.
-
-Sources: [Anthropic's statement](https://www.anthropic.com/news/fable-mythos-access), [Anthropic on X](https://x.com/AnthropicAI/status/2065597531644743999), [David Sacks on X](https://x.com/DavidSacks/status/2065853007619588171), [FreeFable open letter](https://freefable.org/), and the Open Source Initiative's [Open Source AI Definition](https://opensource.org/ai/open-source-ai-definition).
+Continuity costs money, and so does an interruption: lost business, extra support, damaged trust. Some work can wait a day. For work that can't, the price and the operating plan have to support what you promised the customer.
