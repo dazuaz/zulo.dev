@@ -25,7 +25,7 @@ It's a relief to be able to say, honestly, that something is beyond you. You can
 
 AI takes some of that relief away. If I can get help with the unfamiliar parts and build a rough version, "I don't know how" stops being a good reason to wait. What's left is the question of whether I actually want it. Money, health, family, and expertise still limit what anyone can do, and a first attempt is a long way from a finished result. But more ideas survive the first objection.
 
-Take someone who has always wanted to start a small publication. Building the site, researching the subject, and making the illustrations might each have needed outside help. Now they can do all three. And once the publication looks possible, so do a newsletter to go with it, a tool for readers, and an edition in another language. Before the first issue is out, they have four projects.
+Take an electrician who has always wanted their own shop. Keeping the books, writing estimates, and building a website might each have needed outside help. Now they can do all three. And once the shop looks possible, so do a maintenance plan for past customers, an online booking tool, and a second crew. Before the first job is done, they have four projects.
 
 ## Where the saved time goes
 
@@ -41,7 +41,7 @@ There's some evidence that work is expanding. In a [2026 survey of 1,000 U.S. kn
 
 ## Starting is cheap, finishing isn't
 
-AI can help with several projects at once, but I still have to care about each of them. Someone has to check that the translated edition says what the original meant. The reader tool needs maintenance. The newsletter needs another issue.
+AI can help with several projects at once, but I still have to care about each of them. Someone has to check that the estimate the model drafted actually covers the job. The booking tool needs maintenance. The second crew needs training.
 
 With drafts everywhere and visible progress, it's easy to mistake motion for capacity, and taking on one more thing feels reasonable. Then everything comes back needing a decision.
 
@@ -53,7 +53,7 @@ AI makes execution cheap. Once it's cheap, the scarce thing is drive: wanting so
 
 You can see it in who built the tools. The frontier models came out of American labs, started by people who spent years chasing something most thought was out of reach. Many of them came here from somewhere else to do it. That wasn't luck. It was drive, aimed at the hardest problem they could find.
 
-The tools are only half of it, though. Drive matters most in what people do with them. Take the electrician who has spent fifteen years making someone else's business money. Running their own shop used to mean an office manager, a bookkeeper, and someone to chase invoices. Now a model handles most of that, and what's left is whether they want it badly enough. Here, they can form a company in an afternoon, find customers in the biggest market on earth, and own what they build. Nobody has to ask permission to start, and failing once doesn't end anyone's career. A great model gets them through the first job. Drive gets them to the hundredth, and a market that pays for good work makes the drive worth it.
+The tools are only half of it, though. Drive matters most in what people do with them. Back to the electrician. With a model handling the books and the estimates, what's left is whether they want the shop badly enough. Here, they can form a company in an afternoon, find customers in the biggest market on earth, and own what they build. Nobody has to ask permission to start, and failing once doesn't end anyone's career. A great model gets them through the first job. Drive gets them to the hundredth, and a market that pays for good work makes the drive worth it.
 
 That's the loop. Driven people build the tools, other driven people push those tools further than anyone planned, and the market rewards both. AI makes every turn of that loop faster.
 
