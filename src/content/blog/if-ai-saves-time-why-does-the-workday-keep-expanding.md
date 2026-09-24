@@ -47,16 +47,16 @@ With drafts everywhere and visible progress, it's easy to mistake motion for cap
 
 I'm more capable than I was six months ago and I feel further behind, because I'm measuring myself against a much larger set of things I could do. I don't want to be less ambitious. I want to get better at looking at an idea without committing to it, and at saying "I could do that, and I'm choosing not to," now that inability makes fewer of those decisions for me.
 
-## America's advantage
+## Where drive compounds
 
-America will win the AI era for the same reason it has won before: it's the best place in the world to build something.
+AI makes execution cheap. Once it's cheap, the scarce thing is drive: wanting something badly enough to keep going after the first version breaks. That's the real advantage of this era, and it's why I'm betting on America, which has rewarded drive better than anywhere else.
 
-The leading models come out of American labs, started by people who wanted something badly enough to spend years and fortunes chasing it. That's not luck. It's the same drive this post is about, aimed at the hardest problem around.
+You can see it in who built the tools. The frontier models came out of American labs, started by people who spent years chasing something most thought was out of reach. Many of them came here from somewhere else to do it. That wasn't luck. It was drive, aimed at the hardest problem they could find.
 
-Tools are only half of it, though. What counts is what people do with them. Here, the would-be publisher can form a company in an afternoon, sell to the biggest market on earth, find investors who have backed a hundred people like them, and keep what they earn. Nobody has to ask permission to start, and failing once doesn't end anyone's career. A great model helps them put out the first issue. A country that takes the project seriously, and rewards it when readers find it useful, gives them a reason to start and keep going.
+The tools are only half of it, though. Drive matters most in what people do with them. Take the electrician who has spent fifteen years making someone else's business money. Running their own shop used to mean an office manager, a bookkeeper, and someone to chase invoices. Now a model handles most of that, and what's left is whether they want it badly enough. Here, they can form a company in an afternoon, find customers in the biggest market on earth, and own what they build. Nobody has to ask permission to start, and failing once doesn't end anyone's career. A great model gets them through the first job. Drive gets them to the hundredth, and a market that pays for good work makes the drive worth it.
 
-That's the loop. Ambitious people build the tools, other ambitious people push those tools further than anyone planned, and the market pays both. AI makes every turn of that loop faster.
+That's the loop. Driven people build the tools, other driven people push those tools further than anyone planned, and the market rewards both. AI makes every turn of that loop faster.
 
-The restlessness that makes it hard to stop working is the same thing that turns cheaper execution into new businesses. It's the founder shipping at midnight, the electrician who finally opens their own shop, the parent building something to hand down to their kids. Here, working hard toward something of your own earns respect, and success is something to celebrate, not apologize for. That's why I'm betting on America.
+The restlessness that makes it hard to stop working is the same thing that turns cheaper execution into new businesses. It's the founder shipping at midnight, the electrician who finally put their own name on the truck, the parent building something to hand down to their kids. Here, working hard toward something of your own earns respect, and success is something to celebrate, not apologize for.
 
-The bet makes for long days, and some nights I have to make myself close the laptop and go be with my family. But I wouldn't trade the drive. My family is a big part of why I have it.
+Working this way makes for long days. Some nights I have to make myself close the laptop and go be with my family. They're a big part of why I don't mind.
