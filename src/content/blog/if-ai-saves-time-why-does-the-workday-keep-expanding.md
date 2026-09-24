@@ -1,8 +1,8 @@
 ---
 title: "If AI saves time, why does the workday keep expanding?"
-description: "AI makes more goals feel reachable, so ambitious people spend the saved time before they have it. Why that makes the workday heavier, and why it may be America's lasting AI advantage."
+description: "AI makes more goals feel reachable, so ambitious people spend the saved time before they have it. Why that makes the workday heavier, and why it's America's edge in AI."
 pubDate: 2026-09-08
-updatedDate: 2026-09-23
+updatedDate: 2026-09-24
 heroImage: "/blog/if-ai-saves-time-why-does-the-workday-keep-expanding/hero-embroidered-possibilities.png"
 heroImageAlt: "Embroidered textile illustration on natural linen of a small figure stitching one patch beneath branching threads and many finished and unfinished squares."
 heroImageWidth: 1672
@@ -49,10 +49,14 @@ I'm more capable than I was six months ago and I feel further behind, because I'
 
 ## America's advantage
 
-I think America's lasting AI advantage is cultural.
+America will win the AI era for the same reason it has won before: it's the best place in the world to build something.
 
-Having the labs that build the leading models matters today. But I expect the major models to converge on being very good at most of what people need. [Stanford's 2026 AI Index](https://hai.stanford.edu/ai-index/2026-ai-index-report) reports a sharply narrowed gap between the leading U.S. and Chinese models. That doesn't prove convergence, but I expect businesses to have several excellent options.
+The leading models come out of American labs, started by people who wanted something badly enough to spend years and fortunes chasing it. That's not luck. It's the same drive this post is about, aimed at the hardest problem around.
 
-When everyone has similar tools, what people choose to attempt matters more. The part of American culture I'm betting on rewards people for acting on ambition and building past what anyone asked for. A great model helps the would-be publisher produce the first issue. A culture that takes the project seriously, and rewards it if readers find it useful, gives them a reason to start and keep going.
+Tools are only half of it, though. What counts is what people do with them. Here, the would-be publisher can form a company in an afternoon, sell to the biggest market on earth, find investors who have backed a hundred people like them, and keep what they earn. Nobody has to ask permission to start, and failing once doesn't end anyone's career. A great model helps them put out the first issue. A country that takes the project seriously, and rewards it when readers find it useful, gives them a reason to start and keep going.
 
-The restlessness that makes it hard to stop working is the same thing that turns cheaper execution into new businesses. Ambition doesn't belong to any one country, and America has to keep making room for people from anywhere who want to build. But that's the bet I'd make, even while I struggle with what it does to my own workday.
+That's the loop. Ambitious people build the tools, other ambitious people push those tools further than anyone planned, and the market pays both. AI makes every turn of that loop faster.
+
+The restlessness that makes it hard to stop working is the same thing that turns cheaper execution into new businesses. It's the founder shipping at midnight, the electrician who finally opens their own shop, the parent building something to hand down to their kids. Here, working hard toward something of your own earns respect, and success is something to celebrate, not apologize for. That's why I'm betting on America.
+
+The bet makes for long days, and some nights I have to make myself close the laptop and go be with my family. But I wouldn't trade the drive. My family is a big part of why I have it.
