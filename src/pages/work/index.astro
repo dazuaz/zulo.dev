@@ -4,6 +4,19 @@ import VasterShowcase from '../../components/VasterShowcase.astro';
 import ExpensesShowcase from '../../components/ExpensesShowcase.astro';
 import ProjectCTA from '../../components/ProjectCTA.astro';
 export const prerender = true;
+
+type Desk = {
+	number: '01' | '02' | '03';
+	category: string;
+	title: 'Underwriting' | 'The loan file' | 'Servicing';
+	text: string;
+};
+
+const desks: Desk[] = [
+	{ number: '01', category: 'UNDERWRITING', title: 'Underwriting', text: 'Pipeline, collateral, comparable sales, and a committee brief.' },
+	{ number: '02', category: 'LOAN FILE', title: 'The loan file', text: 'A checklist, a document review, and the closing set.' },
+	{ number: '03', category: 'SERVICING', title: 'Servicing', text: 'Insurance expirations and month-end interest.' },
+];
 ---
 <Layout title="Selected Work | Zulo" description="Explore Zulo’s client work. A closer look at the products, interfaces, and systems built around real business operations." nav="work" pageType="CollectionPage">
   <main id="main-content" class="transformation-page">
@@ -18,10 +31,59 @@ export const prerender = true;
       <div class="project-caption"><div><h2><a href="/work/vaster">A connected operation, from intake to signature. <span aria-hidden="true">↗</span></a></h2><p>Borrower intake, CRM records, protected identity data, Box Sign, and Oscar’s operations workflow—connected through one application.</p></div><a class="action action-outline" href="/work/vaster">Explore the project <span aria-hidden="true">↗</span></a></div>
     </section>
     <section class="site-container work-feature">
-      <div class="work-project-heading"><span class="section-kicker">02 / VASTER EXPENSES</span><span class="project-category">FINANCE OPERATIONS · AI-ASSISTED CAPTURE</span></div>
+      <div class="work-project-heading"><span class="section-kicker">02 / VASTER AGENT</span><span class="project-category">LOAN OPERATIONS · UNDERWRITING · SERVICING</span></div>
+      <figure class="agent-board dark-surface" aria-label="Diagram of the Vaster staff workspace. Not a product screenshot.">
+        <div class="agent-board-top">
+          <span>VASTER AGENT</span>
+          <span>DIAGRAM · NOT A SCREENSHOT</span>
+        </div>
+        <div class="case-principles">
+          {desks.map(desk => (
+            <article>
+              <span>{desk.number} / {desk.category}</span>
+              <h3>{desk.title}</h3>
+              <p>{desk.text}</p>
+            </article>
+          ))}
+        </div>
+      </figure>
+      <div class="project-caption"><div><h2><a href="/work/vaster-agent">From the CRM deal to a file a person can approve. <span aria-hidden="true">↗</span></a></h2><p>Underwriting, the loan file, and servicing for Vaster’s team. Borrowers use the other product.</p></div><a class="action action-outline" href="/work/vaster-agent">Explore the project <span aria-hidden="true">↗</span></a></div>
+    </section>
+    <section class="site-container work-feature">
+      <div class="work-project-heading"><span class="section-kicker">03 / VASTER EXPENSES</span><span class="project-category">FINANCE OPERATIONS · AI-ASSISTED CAPTURE</span></div>
       <ExpensesShowcase />
       <div class="project-caption"><div><h2><a href="/work/expenses">From receipts to a request finance can act on. <span aria-hidden="true">↗</span></a></h2><p>AI-assisted capture, connected evidence, and a deliberate handoff from requester to approval to finance.</p></div><a class="action action-outline" href="/work/expenses">Explore the project <span aria-hidden="true">↗</span></a></div>
     </section>
     <ProjectCTA />
   </main>
 </Layout>
+<style>
+	.agent-board {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 2rem;
+		min-height: 22rem;
+		padding: 1.5rem 1.5rem 2rem;
+		border: 1px solid var(--color-border);
+		border-radius: 6px;
+	}
+	.agent-board-top {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		font: .65rem/1.6 var(--font-mono);
+		letter-spacing: .06em;
+		color: #c6d3b9;
+	}
+	.agent-board .case-principles span { color: #c6d3b9; }
+	.agent-board .case-principles h3 { color: #f5f7ef; }
+	.agent-board .case-principles p { color: #d5e0cc; }
+	.agent-board .case-principles article { border-top-color: #d7e3cc; }
+	@media (max-width: 850px) {
+		.agent-board { min-height: 0; }
+	}
+	@media (max-width: 640px) {
+		.agent-board-top { flex-direction: column; gap: .35rem; }
+	}
+</style>

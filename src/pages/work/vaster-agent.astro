@@ -1,0 +1,95 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import ProjectCTA from '../../components/ProjectCTA.astro';
+
+export const prerender = true;
+
+type Principle = {
+	number: '01' | '02' | '03' | '04' | '05' | '06';
+	category: string;
+	title: string;
+	text: string;
+};
+
+const principles: Principle[] = [
+	{ number: '01', category: 'UNDERWRITING', title: 'Underwriting', text: 'Underwriting is the HubSpot pipeline in one list, then a deal page for collateral, documents, comparable sales, a term sheet, and the loan summary. Comparable sales come from web search. A person picks the ones that stay.' },
+	{ number: '02', category: 'THE COMMITTEE BRIEF', title: 'Calculated tables, drafted words.', text: 'The loan summary is a two-page packet the committee can open from a link. Loan amount, value, LTV, sources and uses, and return are calculated. The short overview, and a few strengths and concerns, are drafted text. A person edits the brief.' },
+	{ number: '03', category: 'THE LOAN FILE', title: 'The loan file', text: 'Operations keeps the private-loan file. A Box folder is copied from a template. A checklist tracks the papers. Review compares what the papers say with the loan record. The closing set stays with that file.' },
+	{ number: '04', category: 'THE HANDOFF', title: 'Each system keeps its job.', text: 'HubSpot stays the intake CRM. This workspace keeps the origination record. The Mortgage Office keeps servicing after funding. Encompass is only a source for older loans being imported. When a deal is approved to proceed, the workspace creates one loan record and writes its link back onto the deal.' },
+	{ number: '05', category: 'APPROVAL', title: 'A person approves the write.', text: 'Staff sign in with Slack or Microsoft. An assistant can look up the deal and the saved research. Writing a HubSpot note or changing a deal field takes an explicit request and an approval. Heavier document comparison can run beside this workspace and file into the same Box folder. Generated text stays a draft.' },
+	{ number: '06', category: 'SERVICING', title: 'Servicing', text: 'Servicing tracks insurance expirations and month-end interest against The Mortgage Office. The workspace does not yet send the full loan contract into that system.' },
+];
+---
+<Layout title="Vaster Agent — The Staff Loan File | Zulo" description="Vaster’s internal loan workspace. Underwriting, document review, committee briefs with calculated tables, and servicing handoffs. People approve the facts and the decision to lend." nav="work">
+	<main id="main-content" class="transformation-page">
+		<section class="page-masthead site-container case-intro">
+			<a class="case-back" href="/work">← Selected work</a>
+			<div class="case-title-row"><h1>Vaster Agent<span class="case-dot">.</span></h1></div>
+			<p class="case-deck">The internal desk for a private bridge loan.<br />From the CRM deal to a file a person can approve.</p>
+			<dl class="project-facts">
+				<div><dt>CLIENT</dt><dd>Vaster</dd></div>
+				<div><dt>SECTOR</dt><dd>Private lending</dd></div>
+				<div><dt>THE WORK</dt><dd>Underwriting, loan operations, and servicing handoff</dd></div>
+				<div><dt>PLATFORM</dt><dd>Internal workspace</dd></div>
+			</dl>
+		</section>
+		<section class="case-narrative site-container section-pad">
+			<div>
+				<p class="section-kicker">THE FILE BEFORE THE DECISION</p>
+				<h2>The same deal was<br />being rebuilt by hand.</h2>
+			</div>
+			<div class="case-prose">
+				<p class="case-prose-lead">Vaster is a Miami private bridge lender. Underwriters, loan operations, and servicing were piecing one loan together from HubSpot, The Mortgage Office, a document folder, spreadsheets, and chat drafts.</p>
+				<p>Committee packets were drafted by hand. It was hard to see which number came from the CRM, which came from a document, and which was still a guess. The people who need the file work inside the company. Borrowers do not use this workspace.</p>
+			</div>
+		</section>
+		<section class="opportunities section-pad">
+			<div class="site-container">
+				<div class="section-heading">
+					<div>
+						<p class="section-kicker">THE WORKSPACE</p>
+						<h2>One loan record.<br />A person at each gate.</h2>
+					</div>
+					<p>Staff use this workspace. Borrowers do not.</p>
+				</div>
+				<div class="case-principles">
+					{principles.map(principle => (
+						<article>
+							<span>{principle.number} / {principle.category}</span>
+							<h3>{principle.title}</h3>
+							<p>{principle.text}</p>
+						</article>
+					))}
+				</div>
+			</div>
+		</section>
+		<section class="case-narrative site-container section-pad">
+			<div>
+				<p class="section-kicker">WHAT THIS ENABLES</p>
+				<h2>A person approves the file.</h2>
+			</div>
+			<div class="case-prose">
+				<p class="case-prose-lead">The committee can open a loan summary whose tables are calculated, and whose prose is still a draft a person can edit.</p>
+				<p>A person approves a fact, edits the brief, and decides whether to lend. The workspace does not issue an approval by itself.</p>
+				<!-- TODO: outcome figures are not approved. Do not add production counts here. -->
+				<a class="text-action light-link" href="/lending">Private lending systems <span aria-hidden="true">↗</span></a>
+			</div>
+		</section>
+		<div class="site-container case-related">
+			<a class="related-project" href="/work/vaster">
+				<div>
+					<span class="section-kicker">THE BORROWER PORTAL</span>
+					<h3>Vaster <span aria-hidden="true">↗</span></h3>
+					<p>Borrower intake, CRM records, protected identity data, and signing.</p>
+				</div>
+				<span class="related-project-path" aria-hidden="true">INTAKE → SIGNATURE</span>
+			</a>
+		</div>
+		<ProjectCTA />
+	</main>
+</Layout>
+<style>
+	.case-title-row h1 { font-size: clamp(2.4rem, 6vw, 5rem); }
+	.case-title-row { flex-wrap: wrap; }
+	.case-principles { row-gap: 3.5rem; }
+</style>
