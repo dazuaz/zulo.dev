@@ -16,18 +16,18 @@ export const prerender = true;
 >
   <main id="main-content">
     <section class="site-container section-pad contact-layout">
-      <div class="contact-intro"><p class="section-kicker">LET’S BUILD SOMETHING USEFUL</p><h1 class={displayTitle}>Your next chapter<br />starts with a<br />conversation.</h1><p>Tell us about the work you want to improve, what’s getting in the way, and what a better outcome would mean for your team.</p><div class="contact-next"><h2>What happens next</h2><ol><li>Daniel will review your note and follow up by email.</li><li>We’ll talk through the problem and see whether there’s a fit.</li><li>If there is, we’ll define a useful first step together.</li></ol><a class="text-action light-link" href="https://www.linkedin.com/in/daniel-zuloaga/" target="_blank" rel="noopener noreferrer">Connect with Daniel on LinkedIn <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a></div></div>
+      <div class="contact-intro"><p class="section-kicker">LET’S BUILD SOMETHING USEFUL</p><h1 class={displayTitle}>Your next chapter<br />starts with a<br />conversation.</h1><p>Tell us about the work you want to improve, what’s getting in the way, and what a better outcome would mean for your team.</p><div class="contact-next"><h2>What happens next</h2><ol><li>Daniel will review your note and follow up by email.</li><li>We’ll talk through the problem and see whether there’s a fit.</li><li>If there is, we’ll define a useful first step together.</li></ol><div class="flex flex-wrap gap-lg"><a class="text-action light-link" href="mailto:daniel@zulo.dev">Email daniel@zulo.dev</a><a class="text-action light-link" href="https://www.linkedin.com/in/daniel-zuloaga/" target="_blank" rel="noopener noreferrer">Connect with Daniel on LinkedIn <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a></div></div></div>
       <div class="contact-panel">
         <div id="contact-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
         <form id="contact-form" class="flex flex-col gap-lg" novalidate>
           <FormField id="name" label="Your name" required maxlength="120" autocomplete="name" />
           <FormField id="email" label="Email" type="email" required maxlength="254" autocomplete="email" />
-          <FormField id="message" label="What would you like to improve?" placeholder="A prototype you want to take to production, a process that takes too long, or an AI idea you want to explore…" required textarea rows="7" maxlength="5000" />
+          <FormField id="message" label="What would you like to improve?" placeholder="A process that takes too long, or a prototype you want to take to production…" required textarea rows="7" maxlength="5000" />
           <p id="contact-error" class={cn(fieldError, 'hidden')} role="alert"></p>
           <div><Button type="submit" id="contact-submit"><span id="contact-submit-label">Start the conversation ↗</span></Button></div>
         </form>
         <p class="contact-form-note">Your message goes directly to Daniel.</p>
-        <noscript><p class="mt-lg">Please enable JavaScript to send this form, or use the LinkedIn link to connect.</p></noscript>
+        <noscript><p class="mt-lg">Please enable JavaScript to send this form, or email <a href="mailto:daniel@zulo.dev">daniel@zulo.dev</a>. You can also connect on <a href="https://www.linkedin.com/in/daniel-zuloaga/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p></noscript>
         <div id="contact-success" class="hidden flex flex-col gap-md" role="region" aria-labelledby="contact-success-heading"><h2 id="contact-success-heading" class={sectionTitle} tabindex="-1">Thanks. Let’s see what’s possible.</h2><p class={proseBody}>Your message has been received. Daniel will reply to the email you provided. In the meantime, explore the <a class={accentLink} href="/blog">latest insights</a>.</p></div>
       </div>
     </section>
@@ -143,7 +143,7 @@ export const prerender = true;
             return;
           }
 
-          let message = 'Something went wrong. Please try again, or connect using the LinkedIn link.';
+          let message = 'Something went wrong. Please try again, email daniel@zulo.dev, or connect using the LinkedIn link.';
           let field: FieldName | null = null;
           try {
             const body = await res.json();

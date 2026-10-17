@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+export const prerender = true;
+---
+<Layout
+  title="What This Site Collects | Zulo"
+  description="What zulo.dev collects through the contact form, page views, fonts, and the contact-page bot check, and which of those facts this site cannot confirm."
+>
+  <main id="main-content" class="transformation-page">
+    <section class="page-masthead site-container">
+      <p class="section-kicker">PRIVACY</p>
+      <h1>What this site collects.</h1>
+      <p class="page-lead">Only what the code does. When the code doesn’t say, this page marks it unknown.</p>
+    </section>
+    <section class="section-pad site-container">
+      <div class="privacy-copy">
+        <h2>The contact form</h2>
+        <p>The form asks for your name, your email, and a message. Sending it posts those three fields to this site. The site then emails them once, as plain text, through Resend.</p>
+        <p>The inbox is an address configured where the site is hosted. This page does not name that inbox. A reply goes to the email address you typed. The site does not save the message in a database, and it does not email you a copy.</p>
+
+        <h2>Page views</h2>
+        <p>Every page loads Vercel Web Analytics. The public copy of that script sends a pageview with the page address, a script version, and the referring page when you came from another site.</p>
+        <p>This site’s code does not set cookies. It does not attach a user id or a group id. The site does not load Vercel Speed Insights.</p>
+
+        <h2>Fonts</h2>
+        <p>Every page loads Manrope and Sora from Google Fonts.</p>
+
+        <h2>Bot check</h2>
+        <p>The live contact page loads a bot check before the form is sent. The scripts come from Vercel, through this site, at api.vercel.com. What those scripts collect is not in this site’s code.</p>
+
+        <h2>Unknown</h2>
+        <ul>
+          <li>Unknown. Which inbox receives the form.</li>
+          <li>Unknown. Whether an older Notion connection is still configured in hosting. This site’s code does not send the form to Notion.</li>
+          <li>Unknown. What Vercel stores from a pageview, including an IP address or a location.</li>
+          <li>Unknown. What the bot-check scripts record.</li>
+        </ul>
+
+        <h2>Questions</h2>
+        <p>Email <a href="mailto:daniel@zulo.dev">daniel@zulo.dev</a>.</p>
+      </div>
+    </section>
+  </main>
+</Layout>
+<style>
+  .privacy-copy { max-width: 65ch; }
+  .privacy-copy h2 { font: 500 1.35rem/1.4 var(--font-display); letter-spacing: -.03em; margin: 2.5rem 0 1rem; }
+  .privacy-copy h2:first-child { margin-top: 0; }
+  .privacy-copy p,
+  .privacy-copy li { color: var(--color-muted); line-height: 1.85; }
+  .privacy-copy p { margin-bottom: 1rem; }
+  .privacy-copy li { margin-bottom: .5rem; }
+  .privacy-copy a { color: #365c23; }
+</style>
