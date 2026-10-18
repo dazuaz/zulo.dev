@@ -16,7 +16,7 @@ export const prerender = true;
 >
   <main id="main-content">
     <section class="site-container section-pad contact-layout">
-      <div class="contact-intro"><p class="section-kicker">LET’S BUILD SOMETHING USEFUL</p><h1 class={displayTitle}>Your next chapter<br />starts with a<br />conversation.</h1><p>Tell us about the work you want to improve, what’s getting in the way, and what a better outcome would mean for your team.</p><div class="contact-next"><h2>What happens next</h2><ol><li>Daniel will review your note and follow up by email.</li><li>We’ll talk through the problem and see whether there’s a fit.</li><li>If there is, we’ll define a useful first step together.</li></ol><div class="flex flex-wrap gap-lg"><a class="text-action light-link" href="mailto:daniel@zulo.dev">Email daniel@zulo.dev</a><a class="text-action light-link" href="https://www.linkedin.com/in/daniel-zuloaga/" target="_blank" rel="noopener noreferrer">Connect with Daniel on LinkedIn <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a></div></div></div>
+      <div class="contact-intro"><p class="section-kicker">LET’S BUILD SOMETHING USEFUL</p><h1 class={displayTitle}>Tell me what’s slow.<br />I’ll reply myself.</h1><p>Name the chore, the paperwork, or the handoff. A prototype can wait until after that.</p><div class="contact-next"><h2>What happens next</h2><ol><li>Daniel will review your note and follow up by email.</li><li>We’ll talk through the problem and see whether there’s a fit.</li><li>If there is, we’ll define a useful first step together.</li></ol><div class="flex flex-wrap gap-lg"><a class="text-action light-link" href="mailto:daniel@zulo.dev">Email daniel@zulo.dev</a><a class="text-action light-link" href="https://www.linkedin.com/in/daniel-zuloaga/" target="_blank" rel="noopener noreferrer">Connect with Daniel on LinkedIn <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a></div></div></div>
       <div class="contact-panel">
         <div id="contact-status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></div>
         <form id="contact-form" class="flex flex-col gap-lg" novalidate>
@@ -24,10 +24,13 @@ export const prerender = true;
           <FormField id="email" label="Email" type="email" required maxlength="254" autocomplete="email" />
           <FormField id="message" label="What would you like to improve?" placeholder="A process that takes too long, or a prototype you want to take to production…" required textarea rows="7" maxlength="5000" />
           <p id="contact-error" class={cn(fieldError, 'hidden')} role="alert"></p>
-          <div><Button type="submit" id="contact-submit"><span id="contact-submit-label">Start the conversation ↗</span></Button></div>
+          <div><Button type="submit" id="contact-submit"><span id="contact-submit-label">Send it to Daniel</span></Button></div>
         </form>
         <p class="contact-form-note">Your message goes directly to Daniel.</p>
-        <noscript><p class="mt-lg">Please enable JavaScript to send this form, or email <a href="mailto:daniel@zulo.dev">daniel@zulo.dev</a>. You can also connect on <a href="https://www.linkedin.com/in/daniel-zuloaga/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p></noscript>
+        <noscript>
+          <style>#contact-form, .contact-form-note { display: none !important; }</style>
+          <p class="mt-lg">Email <a href="mailto:daniel@zulo.dev">daniel@zulo.dev</a>. You can also connect on <a href="https://www.linkedin.com/in/daniel-zuloaga/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+        </noscript>
         <div id="contact-success" class="hidden flex flex-col gap-md" role="region" aria-labelledby="contact-success-heading"><h2 id="contact-success-heading" class={sectionTitle} tabindex="-1">Thanks. Let’s see what’s possible.</h2><p class={proseBody}>Your message has been received. Daniel will reply to the email you provided. In the meantime, explore the <a class={accentLink} href="/blog">latest insights</a>.</p></div>
       </div>
     </section>
@@ -172,9 +175,19 @@ export const prerender = true;
           announceStatus(networkMessage);
         } finally {
           submitBtn.disabled = false;
-          submitLabel.textContent = 'Start the conversation ↗';
+          submitLabel.textContent = 'Send it to Daniel';
         }
       });
     }
   </script>
+  <style>
+    @media (max-width: 850px) {
+      .contact-layout { display: flex; flex-direction: column; padding-top: 1rem; }
+      .contact-intro { display: contents; }
+      .contact-intro h1 { margin-bottom: .4rem; }
+      .contact-panel { order: 1; padding: 1rem; }
+      .contact-next { order: 2; }
+      :global(#message) { min-height: 4.5rem; height: 4.5rem; }
+    }
+  </style>
 </Layout>

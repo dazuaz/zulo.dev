@@ -3,161 +3,123 @@ import Layout from '../layouts/Layout.astro';
 
 export const prerender = true;
 
-type AudienceIllustration = {
-  readonly audience: string;
-  readonly friction: string;
-  readonly sample: string;
+type Example = {
+  readonly trade: string;
+  readonly chore: string;
+  readonly demo: string;
+  readonly steps: readonly [string, string, string];
   readonly proof?: {
     readonly href: '/work/expenses';
     readonly label: string;
   };
 };
 
-type WithProof = AudienceIllustration & {
-  readonly proof: { readonly href: '/work/expenses'; readonly label: string };
-};
-
-type WithoutProof = Omit<AudienceIllustration, 'proof'>;
-
-type DemoStep = {
-  readonly title: string;
-  readonly text: string;
-  readonly output: string;
-};
-
-type DemoSteps = readonly [DemoStep, DemoStep, DemoStep];
-
-const bookkeeping = {
-  audience: 'For bookkeeping and CPA firms',
-  friction: 'Documents come in late. Receipts don’t match the books. Someone spends the day chasing both.',
-  sample: 'The demo sets sample receipts next to sample book entries and marks the ones that don’t agree.',
-  // TODO: add a credit-card transaction case study when that work can be shown.
-  proof: {
-    href: '/work/expenses',
-    label: 'Vaster Expenses is the closest shipped work for receipt capture and a handoff to finance.',
+const examples: readonly Example[] = [
+  {
+    trade: 'Bookkeeping and CPA firms',
+    chore: 'Receipts come in late and don’t match the books. Someone spends the day chasing both.',
+    demo: 'Sample receipts sit next to sample entries. The ones that don’t agree are marked.',
+    steps: ['Receipt', 'Entry', 'Mismatch'],
+    // TODO: add a credit-card transaction case study when that work can be shown.
+    proof: {
+      href: '/work/expenses',
+      label: 'Vaster Expenses, from receipt to approval',
+    },
   },
-} as const satisfies WithProof;
-
-const propertyManagement = {
-  audience: 'For property management',
-  friction: 'Owners ask what happened. Repair requests arrive by text, phone, and email, and the next step sits with whoever saw them first.',
-  sample: 'The demo turns a sample repair text into an owner update and holds it until the manager says it can go.',
-} as const satisfies WithoutProof;
-
-const trades = {
-  audience: 'For trades',
-  friction: 'A quote goes out, and the next call doesn’t. The job sits while the crew is on another site.',
-  sample: 'The demo keeps each sample quote on a list with the date it went out, and it drafts the note a person would send next.',
-} as const satisfies WithoutProof;
-
-const illustrations = [bookkeeping, propertyManagement, trades] as const satisfies readonly [
-  WithProof,
-  WithoutProof,
-  WithoutProof,
+  {
+    trade: 'Property management',
+    chore: 'Repair texts and owner questions land in different places. The next step sits with whoever saw them first.',
+    demo: 'A sample repair becomes a note the manager can send the owner, and it waits until they say it can go.',
+    steps: ['Repair', 'Note', 'Owner'],
+  },
+  {
+    trade: 'Trades',
+    chore: 'A quote goes out and the next call doesn’t. The job sits while the crew is on another site.',
+    demo: 'Sample quotes stay on a list with the date they went out, and the next note is drafted.',
+    steps: ['Quote', 'Date', 'Follow-up'],
+  },
+  {
+    trade: 'Insurance agencies',
+    chore: 'Certificate requests and renewals sit in an inbox until someone remembers.',
+    demo: 'A sample request becomes a certificate note, and the renewals that are due show up on one list.',
+    steps: ['Request', 'Certificate', 'Renewal'],
+  },
 ];
-
-const demoSteps = [
-  {
-    title: 'Tell us what drags',
-    text: 'Name the follow-up, the paperwork, or the handoff. The contact form is enough to start.',
-    output: 'One workflow',
-  },
-  {
-    title: 'We build it on sample data',
-    text: 'The demo runs on made-up records. Your customer files stay put for this step.',
-    output: 'A working demo',
-  },
-  {
-    title: 'You get it by email',
-    text: 'We send the demo to the email you gave us. There is no charge.',
-    output: 'A demo in your inbox',
-  },
-] as const satisfies DemoSteps;
 ---
 <Layout
-  title="Free Demo on Sample Data | Zulo"
-  description="Name the follow-up, paperwork, or handoff that drags. Zulo builds a free demo with sample data and emails it to you. A later build is scoped to the work, with no price on this page."
+  title="A Free Demo of One Chore | Zulo"
+  description="Name one chore. Zulo builds a working demo of it on sample data and emails it to you, free. No access to your systems."
 >
   <main id="main-content" class="transformation-page">
-    <section class="page-masthead site-container">
-      <p class="section-kicker">FREE DEMO</p>
-      <h1>See it on sample data<br />before you spend anything.</h1>
-      <p class="page-lead">We build it with sample data, email it to you, and charge nothing for that step. You see the workflow before you decide on a build.</p>
+    <section class="hero dark-surface demo-hero">
+      <div class="site-container hero-grid">
+        <div class="hero-copy">
+          <h1>Name the chore.<br />We’ll build a working demo of it on sample data, <span>free.</span></h1>
+          <p class="hero-lead">No access to your systems. You get it by email and decide from there.</p>
+          <div class="hero-actions">
+            <a class="action action-lime" href="/contact">Tell me the chore <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <figure class="demo-path">
+          <ol>
+            <li><span>01</span><strong>You name the chore</strong><p>The follow-up, the paperwork, or the handoff.</p></li>
+            <li><span>02</span><strong>We use sample records</strong><p>Made-up data. Your files stay where they are.</p></li>
+            <li><span>03</span><strong>It arrives by email</strong><p>You forward it, or you don’t.</p></li>
+          </ol>
+          <figcaption>How the free demo works.</figcaption>
+        </figure>
+      </div>
     </section>
     <section class="section-pad site-container">
-      <div class="section-heading">
-        <div>
-          <p class="section-kicker">WHAT THIS LOOKS LIKE</p>
-          <h2>What this looks like.</h2>
-        </div>
-        <p>Illustrations, not client case studies.</p>
-      </div>
-      <div class="illustrations">
-        {illustrations.map((item) => (
+      <h2>Chores worth a demo.</h2>
+      <div class="demo-cards">
+        {examples.map((item) => (
           <article>
-            <h3>{item.audience}</h3>
-            <p>{item.friction}</p>
-            <p>{item.sample}</p>
-            {'proof' in item && item.proof ? (
+            <figure>
+              <ol class="sample-flow" aria-hidden="true">
+                {item.steps.map((step) => <li>{step}</li>)}
+              </ol>
+              <figcaption>Sample-data illustration</figcaption>
+            </figure>
+            <h3>{item.trade}</h3>
+            <p>{item.chore}</p>
+            <p>{item.demo}</p>
+            {item.proof && (
               <a class="text-action light-link" href={item.proof.href}>
                 {item.proof.label} <span aria-hidden="true">↗</span>
               </a>
-            ) : null}
+            )}
           </article>
         ))}
       </div>
-    </section>
-    <section class="section-pad site-container">
-      <div class="section-heading">
-        <div>
-          <p class="section-kicker">HOW THE DEMO WORKS</p>
-          <h2>Three steps. Then it’s yours to judge.</h2>
-        </div>
-      </div>
-      <ol class="steps demo-steps">
-        {demoSteps.map((step, index) => (
-          <li>
-            <span class="step-number">0{index + 1}<span aria-hidden="true">↗</span></span>
-            <h3>{step.title}</h3>
-            <p>{step.text}</p>
-            <div class="step-output">{step.output}</div>
-          </li>
-        ))}
-      </ol>
-    </section>
-    <section class="section-pad site-container">
-      <div class="section-heading">
-        <div>
-          <p class="section-kicker">A PAID NEXT STEP</p>
-          <h2>Fees are scoped to the work.</h2>
-        </div>
-        <p>If the demo is useful, the next step is a build on your real process. We agree on a defined problem, deliverables, and success measures. Timing and fees are scoped to the work. No price is listed here.</p>
-      </div>
-      <a class="text-action light-link" href="/services#opportunities">Real work <span aria-hidden="true">↗</span></a>
-    </section>
-    <section class="section-pad site-container">
-      <div class="section-heading">
-        <div>
-          <p class="section-kicker">WRITE TO DANIEL</p>
-          <h2>Send the process that takes too long.</h2>
-        </div>
-        <p>Use the contact form, or email daniel@zulo.dev.</p>
-      </div>
-      <div class="flex flex-wrap items-center gap-lg">
-        <a class="action action-lime" href="/contact">Go to the contact form <span aria-hidden="true">↗</span></a>
-        <a class="text-action light-link" href="mailto:daniel@zulo.dev">daniel@zulo.dev <span aria-hidden="true">↗</span></a>
-      </div>
+      <p class="demo-after">If you want the same thing on your real process, we scope that work and the fee follows the scope. There is no price on this page.</p>
     </section>
   </main>
 </Layout>
 <style>
-  .illustrations { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
-  .illustrations article { border-top: 1px solid #b9c6ae; padding-top: 1.5rem; }
-  .illustrations h3 { font: 500 1.45rem/1.4 var(--font-display); letter-spacing: -.04em; margin-bottom: 1rem; }
-  .illustrations p { color: var(--color-muted); font-size: .9375rem; line-height: 1.85; margin-bottom: 1rem; }
-  .demo-steps { grid-template-columns: repeat(3, 1fr); }
+  .demo-hero { background: #151915; }
+  .demo-hero h1 { max-width: 16ch; }
+  .demo-path { margin: 0; padding: 1.5rem 1.5rem 1.25rem; border: 1px solid #3a4634; border-radius: 6px; background: #1c2419; }
+  .demo-path ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.25rem; }
+  .demo-path li { display: grid; grid-template-columns: auto 1fr; column-gap: .9rem; row-gap: .2rem; }
+  .demo-path li span { grid-row: 1 / span 2; align-self: start; font: .75rem/1 var(--font-mono); color: var(--lime); padding-top: .35rem; }
+  .demo-path strong { font: 500 1.15rem/1.3 var(--font-display); letter-spacing: -.03em; }
+  .demo-path li p { margin: 0; color: #b7c3ad; font-size: .95rem; line-height: 1.55; }
+  .demo-path figcaption { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid #3a4634; font: .75rem/1.5 var(--font-mono); letter-spacing: .04em; color: #8e9f80; }
+  .demo-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem; }
+  .demo-cards article { border: 1px solid var(--color-border); border-radius: 6px; background: #fff; padding: 1.5rem; }
+  .demo-cards figure { margin: 0 0 1.25rem; }
+  .sample-flow { display: flex; align-items: center; gap: .5rem; list-style: none; margin: 0; padding: 0; }
+  .sample-flow li { flex: 1; text-align: center; font: .72rem/1.3 var(--font-mono); letter-spacing: .03em; color: #2a3824; background: #e7eedf; border: 1px solid #c5d4b8; border-radius: 4px; padding: .7rem .4rem; }
+  .sample-flow li:last-child { background: #151915; color: var(--lime); border-color: #151915; }
+  .demo-cards figcaption { margin-top: .6rem; font-size: .75rem; color: var(--color-meta); }
+  .demo-cards h3 { font: 500 1.45rem/1.25 var(--font-display); letter-spacing: -.04em; margin: 0 0 .75rem; }
+  .demo-cards p { color: var(--color-muted); font-size: .95rem; line-height: 1.7; margin: 0 0 .75rem; }
+  .demo-after { max-width: 62ch; margin-top: 2rem; color: var(--color-muted); line-height: 1.75; }
+  .demo-after a { color: #365c23; }
   @media (max-width: 850px) {
-    .illustrations { grid-template-columns: 1fr; }
-    .demo-steps { grid-template-columns: 1fr; }
+    .demo-hero .hero-grid { grid-template-columns: 1fr; }
+    .demo-cards { grid-template-columns: 1fr; }
+    .demo-hero h1 { max-width: none; }
   }
 </style>
