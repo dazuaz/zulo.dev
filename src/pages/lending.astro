@@ -11,14 +11,15 @@ const showNamedProof = false;
 		<section class="hero dark-surface lending-hero">
 			<div class="site-container hero-grid">
 				<div class="hero-copy">
-					<p class="eyebrow"><span class="signal-dot"></span> FOR PRIVATE LENDERS.</p>
-					<h1>Stop rebuilding the same loan<br />in five places.</h1>
+					<p class="eyebrow"><span class="signal-dot"></span> FOR PRIVATE LENDERS</p>
+					<h1>Stop rebuilding the same loan in five places.</h1>
 					<p class="hero-lead">We build the staff workspace that pulls a deal from your CRM, checks the documents against it, and drafts the committee packet. Your team still makes every credit decision.</p>
 					<div class="hero-actions">
-						<a class="action action-lime" href="/contact">Walk me through one of your files <span aria-hidden="true">↗</span></a>
+						<a class="action action-lime" href="/contact">Book a file walkthrough <span aria-hidden="true">↗</span></a>
 						<a class="text-action" href="/work/vaster-agent">See the Vaster workspace <span aria-hidden="true">↗</span></a>
 					</div>
-					{showNamedProof && <ul class="hero-proof" aria-label="Proof"><li>Built for Vaster, a private bridge lender</li><li>20 years building software</li></ul>}
+					<ul class="hero-proof" aria-label="Why Zulo"><li>20 years building software</li><li>AI in regulated fintech</li></ul>
+					{showNamedProof && <ul class="hero-proof" aria-label="Named proof"><li>Built for Vaster, a private bridge lender</li></ul>}
 				</div>
 				<figure class="loan-board" aria-label="Illustration of a committee packet. Sample data.">
 					<div class="loan-board-top"><span>SAMPLE PACKET</span><span>ILLUSTRATION</span></div>
@@ -27,15 +28,24 @@ const showNamedProof = false;
 						<p class="sheet-title">Example Holdings</p>
 						<p class="sheet-line">Sample bridge · one property</p>
 						<dl>
-							<div><dt>Loan amount</dt><dd>SAMPLE</dd></div>
-							<div><dt>Value</dt><dd>SAMPLE</dd></div>
-							<div><dt>LTV</dt><dd>Calculated</dd></div>
+							<div><dt>Loan amount</dt><dd>$1,400,000</dd></div>
+							<div><dt>Value</dt><dd>$2,150,000</dd></div>
+							<div><dt>LTV</dt><dd>65.1%</dd></div>
 							<div><dt>Sources and uses</dt><dd>Calculated</dd></div>
 						</dl>
 						<p class="sheet-status">Draft for a person to edit</p>
 					</div>
 					<figcaption><span class="signal-dot"></span> Illustration. Sample data. Not a client result.</figcaption>
 				</figure>
+			</div>
+		</section>
+		<section class="lending-row" aria-label="What the staff workspace does">
+			<div class="site-container">
+				<ol>
+					<li><span>Intake:</span> the CRM deal becomes one loan file, once.</li>
+					<li><span>Documents:</span> insurance, appraisal and entity papers are checked against that file.</li>
+					<li><span>Committee:</span> a packet with calculated tables, and a draft a person edits.</li>
+				</ol>
 			</div>
 		</section>
 		<section class="section-pad site-container lending-offer">
@@ -45,8 +55,9 @@ const showNamedProof = false;
 		<section class="closing-section dark-surface">
 			<div class="site-container closing-inner">
 				<p class="eyebrow"><span class="signal-dot"></span> THE NEXT STEP</p>
-				<h2>Send one loan file.<br />We’ll show you where it gets retyped, and mock up the fix on sample data, free.</h2>
+				<h2>Send one loan file.</h2>
 				<div class="closing-bottom">
+					<p>We’ll show you where it gets retyped and mock up the fix on sample data, free.</p>
 					<a class="action action-lime" href="/contact">Send me a file walkthrough <span aria-hidden="true">↗</span></a>
 				</div>
 			</div>
@@ -106,7 +117,26 @@ const showNamedProof = false;
 	.loan-sheet dt { color: #b7c3ad; }
 	.loan-sheet dd { margin: 0; font-weight: 500; }
 	.sheet-status { margin: 1rem 0 0; color: var(--lime); font-size: .85rem; }
-	.lending-offer { max-width: 78rem; }
+	.lending-hero .hero-proof { margin-top: 1.25rem; }
+	.lending-row { padding-block: 2.25rem; border-bottom: 1px solid var(--color-border); }
+	.lending-row ol {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1.5rem 2rem;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+	.lending-row li {
+		color: var(--color-muted);
+		font-size: .95rem;
+		line-height: 1.65;
+	}
+	.lending-row span {
+		color: var(--color-ink);
+		font-weight: 500;
+	}
+	.lending-offer { max-width: 78rem; padding-top: clamp(2.5rem, 5vw, 4rem); }
 	.lending-offer h2 { max-width: 18ch; }
 	.lending-offer p {
 		max-width: 58ch;
@@ -114,6 +144,9 @@ const showNamedProof = false;
 		color: var(--color-muted);
 		font-size: 1.125rem;
 		line-height: 1.75;
+	}
+	@media (max-width: 850px) {
+		.lending-row ol { grid-template-columns: 1fr; gap: 1.15rem; }
 	}
 	@media (max-width: 640px) {
 		.lending-hero .hero-grid { padding-block: 1rem .85rem; gap: .7rem; }
@@ -128,5 +161,7 @@ const showNamedProof = false;
 		.loan-sheet dl { margin-top: .6rem; }
 		.loan-sheet dl div { padding-block: .22rem; font-size: .85rem; }
 		.sheet-status { margin-top: .5rem; }
+		.lending-row { padding-block: 1.5rem; }
+		.lending-row ol { grid-template-columns: 1fr; gap: 1rem; }
 	}
 </style>

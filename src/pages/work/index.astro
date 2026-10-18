@@ -8,12 +8,12 @@ export const prerender = true;
 type Desk = {
 	number: '01' | '02' | '03';
 	category: string;
-	title: 'Underwriting' | 'The loan file' | 'Servicing';
+	title: 'From deal to brief' | 'The loan file' | 'Servicing';
 	text: string;
 };
 
 const desks: Desk[] = [
-	{ number: '01', category: 'UNDERWRITING', title: 'Underwriting', text: 'Pipeline, collateral, comparable sales, and a committee brief.' },
+	{ number: '01', category: 'UNDERWRITING', title: 'From deal to brief', text: 'Pipeline, collateral, and a committee brief.' },
 	{ number: '02', category: 'LOAN FILE', title: 'The loan file', text: 'A checklist, a document review, and the closing set.' },
 	{ number: '03', category: 'SERVICING', title: 'Servicing', text: 'Insurance expirations and month-end interest.' },
 ];
@@ -32,10 +32,10 @@ const desks: Desk[] = [
     </section>
     <section class="site-container work-feature">
       <div class="work-project-heading"><span class="section-kicker">02 / VASTER AGENT</span><span class="project-category">LOAN OPERATIONS · UNDERWRITING · SERVICING</span></div>
-      <figure class="agent-board dark-surface" aria-label="Diagram of the Vaster staff workspace. Not a product screenshot.">
+      <figure class="agent-board dark-surface" aria-label="Illustration of the Vaster staff workspace. Sample data.">
         <div class="agent-board-top">
           <span>VASTER AGENT</span>
-          <span>DIAGRAM · NOT A SCREENSHOT</span>
+          <span>ILLUSTRATION</span>
         </div>
         <div class="case-principles">
           {desks.map(desk => (

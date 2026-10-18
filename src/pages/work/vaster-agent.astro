@@ -46,14 +46,17 @@ export const prerender = true;
 			<div class="case-prose">
 				<p class="case-prose-lead">Committee packets were a document someone built from the CRM, a folder, and a spreadsheet. It was hard to see which number came from a record and which number was still a guess.</p>
 				<p>The staff workspace keeps one loan file. The committee opens a link. A person approves the facts, edits the brief, and decides whether to lend. Borrowers do not use this workspace.</p>
-				<p>Committee packets went from a hand-built document to a link.</p>
 			</div>
+		</section>
+		<section class="result-callout site-container">
+			<p class="eyebrow"><span class="signal-dot"></span> THE RESULT</p>
+			<p>Committee packets went from a hand-built document to a link.</p>
 		</section>
 		<div class="site-container case-related">
 			<a class="related-project" href="/work/vaster">
 				<div>
 					<span class="section-kicker">THE BORROWER PORTAL</span>
-					<h3>Vaster <span aria-hidden="true">↗</span></h3>
+					<h3>Vaster borrower portal <span aria-hidden="true">↗</span></h3>
 					<p>Borrower intake, CRM records, and signing. A different product from this workspace.</p>
 				</div>
 				<span class="related-project-path" aria-hidden="true">INTAKE → SIGNATURE</span>
@@ -62,8 +65,9 @@ export const prerender = true;
 		<section class="closing-section dark-surface">
 			<div class="site-container closing-inner">
 				<p class="eyebrow"><span class="signal-dot"></span> THE NEXT STEP</p>
-				<h2>Send one loan file.<br />We’ll show you where it gets retyped, and mock up the fix on sample data, free.</h2>
+				<h2>Send one loan file.</h2>
 				<div class="closing-bottom">
+					<p>We’ll show you where it gets retyped and mock up the fix on sample data, free.</p>
 					<a class="action action-lime" href="/contact">Send me a file walkthrough <span aria-hidden="true">↗</span></a>
 				</div>
 			</div>
@@ -117,6 +121,14 @@ export const prerender = true;
 		line-height: 1.7;
 	}
 	.file-flow figcaption { justify-content: flex-start; }
+	.result-callout { padding-block: 1rem 3.5rem; }
+	.result-callout .eyebrow { margin-bottom: 1rem; }
+	.result-callout > p:last-child {
+		max-width: 16ch;
+		margin: 0;
+		font: 500 clamp(2.2rem, 4.5vw, 3.6rem)/1.15 var(--font-display);
+		letter-spacing: -.05em;
+	}
 	@media (max-width: 850px) {
 		.file-flow-body { grid-template-columns: 1fr; }
 		.file-flow-body article + article { border-left: 0; border-top: 1px solid #d5dece; }
