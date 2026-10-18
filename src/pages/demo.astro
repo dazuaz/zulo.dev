@@ -1,0 +1,125 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+export const prerender = true;
+
+type Example = {
+  readonly trade: string;
+  readonly chore: string;
+  readonly demo: string;
+  readonly steps: readonly [string, string, string];
+  readonly proof?: {
+    readonly href: '/work/expenses';
+    readonly label: string;
+  };
+};
+
+const examples: readonly Example[] = [
+  {
+    trade: 'Bookkeeping and CPA firms',
+    chore: 'Receipts come in late and don’t match the books. Someone spends the day chasing both.',
+    demo: 'Sample receipts sit next to sample entries. The ones that don’t agree are marked.',
+    steps: ['Receipt', 'Entry', 'Mismatch'],
+    // TODO: add a credit-card transaction case study when that work can be shown.
+    proof: {
+      href: '/work/expenses',
+      label: 'Vaster Expenses, from receipt to approval',
+    },
+  },
+  {
+    trade: 'Property management',
+    chore: 'Repair texts and owner questions land in different places. The next step sits with whoever saw them first.',
+    demo: 'A sample repair becomes a note the manager can send the owner, and it waits until they say it can go.',
+    steps: ['Repair', 'Note', 'Owner'],
+  },
+  {
+    trade: 'Trades',
+    chore: 'A quote goes out and the next call doesn’t. The job sits while the crew is on another site.',
+    demo: 'Sample quotes stay on a list with the date they went out, and the next note is drafted.',
+    steps: ['Quote', 'Date', 'Follow-up'],
+  },
+  {
+    trade: 'Insurance agencies',
+    chore: 'Certificate requests and renewals sit in an inbox until someone remembers.',
+    demo: 'A sample request becomes a certificate note, and the renewals that are due show up on one list.',
+    steps: ['Request', 'Certificate', 'Renewal'],
+  },
+];
+---
+<Layout
+  title="A Free Demo of One Chore | Zulo"
+  description="Name one chore. Zulo builds a working demo of it on sample data and emails it to you, free. No access to your systems."
+>
+  <main id="main-content" class="transformation-page">
+    <section class="hero dark-surface demo-hero">
+      <div class="site-container hero-grid">
+        <div class="hero-copy">
+          <h1>Name the chore.<br />We’ll build a working demo of it on sample data, <span>free.</span></h1>
+          <p class="hero-lead">No access to your systems. You get it by email and decide from there.</p>
+          <div class="hero-actions">
+            <a class="action action-lime" href="/contact">Tell me the chore <span aria-hidden="true">↗</span></a>
+          </div>
+        </div>
+        <figure class="demo-path">
+          <ol>
+            <li><span>01</span><strong>You name the chore</strong><p>The follow-up, the paperwork, or the handoff.</p></li>
+            <li><span>02</span><strong>We use sample records</strong><p>Made-up data. Your files stay where they are.</p></li>
+            <li><span>03</span><strong>It arrives by email</strong><p>You forward it, or you don’t.</p></li>
+          </ol>
+          <figcaption>How the free demo works.</figcaption>
+        </figure>
+      </div>
+    </section>
+    <section class="section-pad site-container">
+      <h2>Chores worth a demo.</h2>
+      <div class="demo-cards">
+        {examples.map((item) => (
+          <article>
+            <figure>
+              <ol class="sample-flow" aria-hidden="true">
+                {item.steps.map((step) => <li>{step}</li>)}
+              </ol>
+              <figcaption>Sample-data illustration</figcaption>
+            </figure>
+            <h3>{item.trade}</h3>
+            <p>{item.chore}</p>
+            <p>{item.demo}</p>
+            {item.proof && (
+              <a class="text-action light-link" href={item.proof.href}>
+                {item.proof.label} <span aria-hidden="true">↗</span>
+              </a>
+            )}
+          </article>
+        ))}
+      </div>
+      <p class="demo-after">If you want the same thing on your real process, we scope that work and the fee follows the scope. There is no price on this page.</p>
+    </section>
+  </main>
+</Layout>
+<style>
+  .demo-hero { background: #151915; }
+  .demo-hero h1 { max-width: 16ch; }
+  .demo-path { margin: 0; padding: 1.5rem 1.5rem 1.25rem; border: 1px solid #3a4634; border-radius: 6px; background: #1c2419; }
+  .demo-path ol { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1.25rem; }
+  .demo-path li { display: grid; grid-template-columns: auto 1fr; column-gap: .9rem; row-gap: .2rem; }
+  .demo-path li span { grid-row: 1 / span 2; align-self: start; font: .75rem/1 var(--font-mono); color: var(--lime); padding-top: .35rem; }
+  .demo-path strong { font: 500 1.15rem/1.3 var(--font-display); letter-spacing: -.03em; }
+  .demo-path li p { margin: 0; color: #b7c3ad; font-size: .95rem; line-height: 1.55; }
+  .demo-path figcaption { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid #3a4634; font: .75rem/1.5 var(--font-mono); letter-spacing: .04em; color: #8e9f80; }
+  .demo-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 2rem; }
+  .demo-cards article { border: 1px solid var(--color-border); border-radius: 6px; background: #fff; padding: 1.5rem; }
+  .demo-cards figure { margin: 0 0 1.25rem; }
+  .sample-flow { display: flex; align-items: center; gap: .5rem; list-style: none; margin: 0; padding: 0; }
+  .sample-flow li { flex: 1; text-align: center; font: .72rem/1.3 var(--font-mono); letter-spacing: .03em; color: #2a3824; background: #e7eedf; border: 1px solid #c5d4b8; border-radius: 4px; padding: .7rem .4rem; }
+  .sample-flow li:last-child { background: #151915; color: var(--lime); border-color: #151915; }
+  .demo-cards figcaption { margin-top: .6rem; font-size: .75rem; color: var(--color-meta); }
+  .demo-cards h3 { font: 500 1.45rem/1.25 var(--font-display); letter-spacing: -.04em; margin: 0 0 .75rem; }
+  .demo-cards p { color: var(--color-muted); font-size: .95rem; line-height: 1.7; margin: 0 0 .75rem; }
+  .demo-after { max-width: 62ch; margin-top: 2rem; color: var(--color-muted); line-height: 1.75; }
+  .demo-after a { color: #365c23; }
+  @media (max-width: 850px) {
+    .demo-hero .hero-grid { grid-template-columns: 1fr; }
+    .demo-cards { grid-template-columns: 1fr; }
+    .demo-hero h1 { max-width: none; }
+  }
+</style>

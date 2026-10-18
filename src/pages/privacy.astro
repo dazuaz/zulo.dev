@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+export const prerender = true;
+---
+<Layout
+  title="Privacy Policy | Zulo"
+  description="How ZULO.DEV LLC handles the contact form, page views, fonts, and outbound email on zulo.dev, and how to opt out."
+>
+  <main id="main-content" class="transformation-page">
+    <section class="page-masthead site-container">
+      <h1>Privacy Policy</h1>
+      <p class="page-lead">Effective October 18, 2026. This policy covers zulo.dev, operated by ZULO.DEV LLC. Questions and requests go to <a href="mailto:daniel@zulo.dev">daniel@zulo.dev</a>.</p>
+    </section>
+    <section class="section-pad site-container">
+      <div class="privacy-copy">
+        <h2>What we collect, and why</h2>
+        <p>If you use the contact form, we collect your name, your email address, and your message so Daniel can reply. The site emails those three fields once, as plain text, through Resend. A reply goes to the address you typed. We do not email you a copy, and we do not put the message in a database on this site.</p>
+        <p>Every page loads Vercel Web Analytics. That records a page view, including the page address and, when you came from another site, the referring page. We use it to see which pages are read. This site’s code does not set its own cookies and does not attach an account id.</p>
+        <p>Every page loads the fonts Manrope and Sora from Google Fonts. Your browser requests those files from Google.</p>
+        <p>On the live contact page, Vercel BotID runs a bot check before a message is sent. It is there to reject automated submissions.</p>
+
+        <h2>How long we keep it</h2>
+        <p>Contact messages are kept long enough to reply and to carry out any work you ask for, then deleted. Page-view data is kept by Vercel under its analytics service.</p>
+
+        <h2>Who else handles it</h2>
+        <ul>
+          <li>Resend sends the contact email.</li>
+          <li>Vercel hosts the site, provides Web Analytics, and runs the BotID check.</li>
+          <li>Google serves the font files.</li>
+        </ul>
+
+        <h2>We do not sell personal information</h2>
+        <p>We do not sell, rent, or trade personal information.</p>
+
+        <h2>Your choices</h2>
+        <p>Email <a href="mailto:daniel@zulo.dev">daniel@zulo.dev</a> to ask what we have about you, to correct it, to delete it, or to tell us to stop emailing you. We will honor a deletion or opt-out request.</p>
+
+        <h2>Children</h2>
+        <p>This site is not directed at children under 13. We do not knowingly collect personal information from them. If you believe we have, email daniel@zulo.dev and we will delete it.</p>
+
+        <h2>Email we send you</h2>
+        <p>Daniel writes to people at addresses found on public business sources, such as a company website or a public directory. To opt out, reply to that email or write to <a href="mailto:daniel@zulo.dev">daniel@zulo.dev</a>.</p>
+      </div>
+    </section>
+  </main>
+</Layout>
+<style>
+  .privacy-copy { max-width: 65ch; }
+  .page-lead a, .privacy-copy a { color: #365c23; }
+  .privacy-copy h2 { font: 500 1.35rem/1.4 var(--font-display); letter-spacing: -.03em; margin: 2.5rem 0 1rem; }
+  .privacy-copy h2:first-child { margin-top: 0; }
+  .privacy-copy p, .privacy-copy li { color: var(--color-muted); line-height: 1.75; }
+  .privacy-copy p { margin-bottom: 1rem; }
+  .privacy-copy ul { margin: 0 0 1rem; padding-left: 1.2rem; }
+  .privacy-copy li { margin-bottom: .4rem; }
+</style>

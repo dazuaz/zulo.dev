@@ -68,7 +68,7 @@ def check():
     for path in (ROOT / 'src/content/blog').glob('*.md'):
         frontmatter = path.read_text().split('---', 2)[1]
         (drafts if re.search(r'^draft:\s*true\s*$', frontmatter, re.M) else posts).append(path.stem)
-    expected = {ORIGIN + p for p in ['/', '/services', '/lending', '/approach', '/about', '/work', '/work/vaster', '/work/vaster-agent', '/work/expenses', '/blog', '/contact'] + ['/blog/' + slug for slug in posts]}
+    expected = {ORIGIN + p for p in ['/', '/services', '/lending', '/approach', '/about', '/work', '/work/vaster', '/work/vaster-agent', '/work/expenses', '/blog', '/contact', '/demo', '/privacy'] + ['/blog/' + slug for slug in posts]}
     assert len(urls) == len(set(urls)) and set(urls) == expected, 'Sitemap differs from published routes'
     robots = (OUTPUT / 'robots.txt').read_text()
     assert 'User-agent: *\nAllow: /\nDisallow: /api/' in robots
