@@ -311,6 +311,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .related-project p { color: var(--color-muted); font-size: .875rem; line-height: 1.8; max-width: 65ch; margin-top: .6rem; }
 .related-project-path { flex-shrink: 0; color: #617453; font: .6rem/1.6 var(--font-mono); letter-spacing: .04em; }
 .related-project:hover h3 { color: var(--color-accent); }
+.lending-note { margin-top: 1.5rem; max-width: 62ch; color: var(--color-muted); font-size: .875rem; line-height: 1.7; }
+.lending-note a { text-decoration: underline; text-underline-offset: .18em; }
 .case-related { padding-bottom: 4rem; }
 .case-related .related-project { margin-top: 0; }
 @media (max-width:850px) { .related-project { align-items: flex-start; flex-direction: column; gap: 1.2rem; } }

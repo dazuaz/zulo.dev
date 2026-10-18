@@ -16,28 +16,29 @@ const recentPosts = (await getPublishedPosts()).slice(0, 3);
         <section class="hero dark-surface">
             <div class="site-container hero-grid">
                 <div class="hero-copy">
-                    <p class="eyebrow"><span class="signal-dot"></span> FOR TEAMS ALREADY BUILDING WITH AI</p>
-                    <h1>You have the prototype.<br /><span>We build.</span></h1>
-                    <p class="hero-lead">Your AI demo works. Making it reliable, connected, and trusted by your team is the hard part. That’s what we do.</p>
+                    <p class="eyebrow"><span class="signal-dot"></span> FOR OPERATIONS TEAMS</p>
+                    <h1>AI systems for regulated,<br /><span>paperwork-heavy work.</span></h1>
+                    <p class="hero-lead">Forms, files, signatures, and the handoffs a team still has to trust.</p>
                     <div class="hero-actions">
-                        <a class="action action-lime" href="/contact">Let’s look at what you’ve built <span aria-hidden="true">↗</span></a>
-                        <a class="text-action" href="/approach">See how we work <span aria-hidden="true">↗</span></a>
+                        <a class="action action-lime" href="/contact">Let’s talk <span aria-hidden="true">↗</span></a>
+                        <a class="text-action" href="/work">See the work <span aria-hidden="true">↗</span></a>
                     </div>
                     <ul class="hero-proof" aria-label="Why Zulo"><li>20 years building software</li><li>AI in regulated fintech</li></ul>
                 </div>
                 <WorkflowVisual />
             </div>
-            <div class="site-container hero-bottom"><span>Bring what you’ve built. We’ll show you what it takes to run it for real.</span><span>PROTOTYPE <i>/</i> HARDEN <i>/</i> SHIP <i>/</i> EVOLVE</span></div>
+            <div class="site-container hero-bottom"><span>Bring the slow part. We’ll tell you what it would take to fix it.</span><span>FORMS <i>/</i> FILES <i>/</i> HANDOFFS <i>/</i> SYSTEMS</span></div>
         </section>
     <section class="section-pad site-container">
       <div class="section-heading"><div><p class="section-kicker">SELECTED WORK / 01</p><h2>The interface is only<br />the beginning.</h2></div><a class="text-action light-link" href="/work">Explore our work <span aria-hidden="true">↗</span></a></div>
       <VasterShowcase />
       <div class="project-caption"><div><h3><a href="/work/vaster">Vaster <span aria-hidden="true">↗</span></a></h3><p>A connected lending operation—from borrower intake to CRM, signatures, and Oscar.</p></div><a class="text-action light-link" href="/work/vaster">View the case study <span aria-hidden="true">↗</span></a></div>
       <a class="related-project" href="/work/expenses"><div><span class="section-kicker">MORE WORK WITH VASTER</span><h3>Vaster Expenses <span aria-hidden="true">↗</span></h3><p>AI-assisted receipt capture, connected evidence, and a clear handoff to approval and finance.</p></div><span class="related-project-path" aria-hidden="true">CAPTURE → APPROVE → FINANCE</span></a>
+      <p class="lending-note">Vaster is a private lender. <a href="/lending">The lending page</a> covers that practice.</p>
     </section>
     <section class="home-directory opportunities"><div class="site-container directory-grid">
-      <a id="services" href="/services"><span class="section-kicker">01 / SERVICES</span><h2>Assess it. Harden it.<br />Keep it moving.</h2><p>Strategy, engineering, and ongoing support, from your first prototype to the features that come after.</p><span class="directory-link">What we do ↗</span></a>
-      <a id="approach" href="/approach"><span class="section-kicker">02 / APPROACH</span><h2>Start from what works.<br />Ship what holds up.</h2><p>Review what you’ve built, rebuild what matters, then integrate and improve it with your team.</p><span class="directory-link">How we work ↗</span></a>
+      <a id="services" href="/services"><span class="section-kicker">01 / SERVICES</span><h2>Assess it. Harden it.<br />Keep it moving.</h2><p>Strategy, engineering, and ongoing support for the systems a team has to keep running.</p><span class="directory-link">What we do ↗</span></a>
+      <a id="approach" href="/approach"><span class="section-kicker">02 / APPROACH</span><h2>Start from what works.<br />Ship what holds up.</h2><p>Look at the work as it is, keep what holds up, and replace what does not.</p><span class="directory-link">How we work ↗</span></a>
       <a id="about" href="/about"><span class="section-kicker">03 / YOUR PARTNER</span><h2>Product. Engineering.<br />Business.</h2><p>An agency led by Daniel Zuloaga, with twenty years of experience building software with the people who depend on it.</p><span class="directory-link">About Zulo ↗</span></a>
     </div></section>
         <section class="section-pad site-container insights-section"><div class="section-heading"><div><p class="section-kicker">FROM THE BUILD</p><h2>Thinking, tested in practice.</h2></div><a class="text-action light-link" href="/blog">Explore all insights <span aria-hidden="true">↗</span></a></div><PostList posts={recentPosts} showReadingTime /></section>

@@ -13,8 +13,8 @@ export function SocialCard() {
         <div style={{ display: 'flex', color: '#c7f36b', fontSize: 22 }}>AI transformation partner</div>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column', marginTop: 54, fontFamily: 'Sora', fontWeight: 600, fontSize: 70, letterSpacing: '-3px', lineHeight: 1.16 }}>
-        <div>You have the prototype.</div>
-        <div style={{ color: '#c7f36b' }}>We build.</div>
+        <div>AI systems for regulated,</div>
+        <div style={{ color: '#c7f36b' }}>paperwork-heavy work.</div>
       </div>
       <svg width="182" height="234" viewBox="0 0 182 234" style={{ position: 'absolute', right: 66, top: 196 }}>
         <path d="M30 30 H152 V117 H30 V204 H152" fill="none" stroke="#48543e" strokeWidth="2" />
