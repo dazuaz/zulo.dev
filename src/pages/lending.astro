@@ -3,131 +3,130 @@ import Layout from '../layouts/Layout.astro';
 
 export const prerender = true;
 
-type Chore = {
-	number: '01' | '02' | '03' | '04' | '05';
-	category: string;
-	title: string;
-	text: string;
-};
-
-const chores: Chore[] = [
-	{ number: '01', category: 'INTAKE', title: 'Into one loan file.', text: 'When a HubSpot deal is approved to proceed, the workspace creates one loan record and writes the workspace link back onto the deal. HubSpot stays the intake CRM.' },
-	{ number: '02', category: 'DOCUMENTS', title: 'A checklist and a review.', text: 'The loan file gets a Box folder copied from a template, and a checklist of the papers. Review compares what the papers say with the loan record. The closing set stays with the file.' },
-	{ number: '03', category: 'COMMITTEE', title: 'A packet with calculated tables.', text: 'The committee packet is a two-page loan summary the committee can open from a link. Loan amount, value, LTV, sources and uses, and return are calculated. The overview is drafted text a person edits. The workspace does not decide whether to lend.' },
-	{ number: '04', category: 'HANDOFF', title: 'Each system keeps its job.', text: 'HubSpot keeps intake. This workspace keeps the origination record. The Mortgage Office keeps servicing after funding. Encompass is only a source for older loans being imported.' },
-	{ number: '05', category: 'SERVICING', title: 'Insurance and interest.', text: 'The workspace tracks insurance expirations and month-end interest against The Mortgage Office. It does not yet send the full loan contract into that system.' },
-];
+// Held until Daniel approves how Vaster is named on this page.
+const showNamedProof = false;
 ---
-<Layout title="Private Lending Systems | Zulo" description="For private lenders and loan-origination teams. How a staff workspace takes a loan from intake through document review, a committee packet, and servicing, with people approving the file." nav="lending">
+<Layout title="Private Lending Systems | Zulo" description="We build the staff workspace that pulls a deal from your CRM, checks the documents against it, and drafts the committee packet. Your team still makes every credit decision." nav="lending">
 	<main id="main-content" class="transformation-page">
-		<section class="page-masthead site-container">
-			<p class="section-kicker">FOR PRIVATE LENDERS</p>
-			<h1>One file for the loan.<br />A person still decides.</h1>
-			<p class="page-lead">For private lenders and loan-origination teams. The work runs from intake to a loan file, through document review and a committee packet, and on to servicing.</p>
-		</section>
-		<section class="section-pad site-container">
-			<div class="section-heading">
-				<div>
-					<p class="section-kicker">THE WORK</p>
-					<h2>What the staff workspace does.</h2>
-				</div>
-				<p>These are the chores in Vaster’s staff workspace. A new engagement starts from your files, not from this list.</p>
-			</div>
-			{chores.map(chore => (
-				<article class="chore">
-					<div>
-						<p class="section-kicker">{chore.number} / {chore.category}</p>
-						<h3>{chore.title}</h3>
+		<section class="hero dark-surface lending-hero">
+			<div class="site-container hero-grid">
+				<div class="hero-copy">
+					<p class="eyebrow"><span class="signal-dot"></span> FOR PRIVATE LENDERS.</p>
+					<h1>Stop rebuilding the same loan<br />in five places.</h1>
+					<p class="hero-lead">We build the staff workspace that pulls a deal from your CRM, checks the documents against it, and drafts the committee packet. Your team still makes every credit decision.</p>
+					<div class="hero-actions">
+						<a class="action action-lime" href="/contact">Walk me through one of your files <span aria-hidden="true">↗</span></a>
+						<a class="text-action" href="/work/vaster-agent">See the Vaster workspace <span aria-hidden="true">↗</span></a>
 					</div>
-					<p>{chore.text}</p>
-				</article>
-			))}
-		</section>
-		<section class="section-pad site-container proof-links">
-			<div class="section-heading">
-				<div>
-					<p class="section-kicker">THE PROOF</p>
-					<h2>The borrower portal<br />and the staff workspace.</h2>
+					{showNamedProof && <ul class="hero-proof" aria-label="Proof"><li>Built for Vaster, a private bridge lender</li><li>20 years building software</li></ul>}
 				</div>
-				<p>Both are Vaster. Borrowers use one. Staff use the other.</p>
+				<figure class="loan-board" aria-label="Illustration of a committee packet. Sample data.">
+					<div class="loan-board-top"><span>SAMPLE PACKET</span><span>ILLUSTRATION</span></div>
+					<div class="loan-sheet">
+						<p class="sheet-kicker">Committee brief · sample data</p>
+						<p class="sheet-title">Example Holdings</p>
+						<p class="sheet-line">Sample bridge · one property</p>
+						<dl>
+							<div><dt>Loan amount</dt><dd>SAMPLE</dd></div>
+							<div><dt>Value</dt><dd>SAMPLE</dd></div>
+							<div><dt>LTV</dt><dd>Calculated</dd></div>
+							<div><dt>Sources and uses</dt><dd>Calculated</dd></div>
+						</dl>
+						<p class="sheet-status">Draft for a person to edit</p>
+					</div>
+					<figcaption><span class="signal-dot"></span> Illustration. Sample data. Not a client result.</figcaption>
+				</figure>
 			</div>
-			<a class="related-project" href="/work/vaster">
-				<div>
-					<span class="section-kicker">BORROWER PORTAL</span>
-					<h3>Vaster <span aria-hidden="true">↗</span></h3>
-					<p>Intake, CRM records, protected identity data, and signing.</p>
-				</div>
-				<span class="related-project-path" aria-hidden="true">INTAKE → SIGNATURE</span>
-			</a>
-			<a class="related-project" href="/work/vaster-agent">
-				<div>
-					<span class="section-kicker">STAFF WORKSPACE</span>
-					<h3>Vaster Agent <span aria-hidden="true">↗</span></h3>
-					<p>The loan file, the committee packet, and servicing handoffs.</p>
-				</div>
-				<span class="related-project-path" aria-hidden="true">DEAL → FILE → DECISION</span>
-			</a>
 		</section>
-		<section class="section-pad site-container">
-			<div class="section-heading">
-				<div>
-					<p class="section-kicker">HOW WE START</p>
-					<h2>How an engagement works.</h2>
-				</div>
-				<p>We start from a file you already have.</p>
-			</div>
-			<ol class="steps">
-				<li>
-					<span class="step-number">01<span aria-hidden="true">↗</span></span>
-					<h3>Look at a live file.</h3>
-					<p>Walk one loan with the people who touch it, from the CRM through documents, the committee packet, and servicing.</p>
-				</li>
-				<li>
-					<span class="step-number">02<span aria-hidden="true">↗</span></span>
-					<h3>Send a sample.</h3>
-					<p>A free demo, built with sample data and delivered by email.</p>
-					<a class="text-action light-link" href="/demo">See the sample demo <span aria-hidden="true">↗</span></a>
-				</li>
-				<li>
-					<span class="step-number">03<span aria-hidden="true">↗</span></span>
-					<h3>Scope the build.</h3>
-					<p>Fees are scoped to the work. Lending decisions stay with your team.</p>
-				</li>
-			</ol>
+		<section class="section-pad site-container lending-offer">
+			<h2>We’ll mock up a committee packet from a sample deal.</h2>
+			<p>Send one of your files, or start from the sample above. We mark the places the deal gets retyped, then draft the packet your committee would open. The picture uses sample data. The credit decision stays with your team.</p>
 		</section>
 		<section class="closing-section dark-surface">
 			<div class="site-container closing-inner">
 				<p class="eyebrow"><span class="signal-dot"></span> THE NEXT STEP</p>
-				<h2>Bring a loan file.<br />We’ll scope the work from it.</h2>
+				<h2>Send one loan file.<br />We’ll show you where it gets retyped, and mock up the fix on sample data, free.</h2>
 				<div class="closing-bottom">
-					<p>Email <a href="mailto:daniel@zulo.dev">daniel@zulo.dev</a>.</p>
-					<a class="action action-lime" href="/contact">Start with the contact form <span aria-hidden="true">↗</span></a>
+					<a class="action action-lime" href="/contact">Send me a file walkthrough <span aria-hidden="true">↗</span></a>
 				</div>
 			</div>
 		</section>
 	</main>
 </Layout>
 <style>
-	.chore {
-		display: grid;
-		grid-template-columns: 1fr 1.4fr;
-		gap: 3rem;
-		padding-block: 2.5rem;
-		border-top: 1px solid #c9d2c0;
+	.lending-hero .hero-lead { max-width: 42ch; }
+	.loan-board {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		border: 1px solid #394333;
+		border-radius: 6px;
+		background: #1a2018;
+		overflow: hidden;
 	}
-	.chore h3 {
-		font: 500 1.65rem/1.3 var(--font-display);
+	.loan-board-top, .loan-board figcaption {
+		display: flex;
+		justify-content: space-between;
+		gap: .75rem;
+		padding: .7rem 1rem;
+		font: .65rem/1.6 var(--font-mono);
+		letter-spacing: .06em;
+		color: #acb99f;
+	}
+	.loan-board-top { background: #171e13; }
+	.loan-board figcaption {
+		justify-content: flex-start;
+		align-items: center;
+		gap: .5rem;
+		border-top: 1px solid #36462b;
+		background: #171e13;
+	}
+	.loan-sheet { padding: 1.25rem 1.35rem 1.4rem; }
+	.sheet-kicker {
+		margin: 0;
+		font: .65rem/1.6 var(--font-mono);
+		letter-spacing: .08em;
+		color: #a8bd96;
+	}
+	.sheet-title {
+		margin: .7rem 0 0;
+		font: 500 1.7rem/1.2 var(--font-display);
 		letter-spacing: -.04em;
 	}
-	.chore p { color: var(--color-muted); line-height: 1.8; }
-	.steps { grid-template-columns: repeat(3, 1fr); }
-	.proof-links .related-project + .related-project { border-top: 0; margin-top: 0; }
-	.closing-bottom a:not(.action) { color: var(--lime); }
-	@media (max-width: 850px) {
-		.chore { grid-template-columns: 1fr; gap: 1rem; }
-		.steps { grid-template-columns: 1fr 1fr; }
+	.sheet-line { margin: .35rem 0 0; color: #b7c3ad; }
+	.loan-sheet dl { margin: 1.1rem 0 0; }
+	.loan-sheet dl div {
+		display: flex;
+		justify-content: space-between;
+		gap: 1rem;
+		padding-block: .55rem;
+		border-top: 1px solid #36462b;
+		font-size: .92rem;
+	}
+	.loan-sheet dt { color: #b7c3ad; }
+	.loan-sheet dd { margin: 0; font-weight: 500; }
+	.sheet-status { margin: 1rem 0 0; color: var(--lime); font-size: .85rem; }
+	.lending-offer { max-width: 78rem; }
+	.lending-offer h2 { max-width: 18ch; }
+	.lending-offer p {
+		max-width: 58ch;
+		margin-top: 1.25rem;
+		color: var(--color-muted);
+		font-size: 1.125rem;
+		line-height: 1.75;
 	}
 	@media (max-width: 640px) {
-		.steps { grid-template-columns: 1fr; }
+		.lending-hero .hero-grid { padding-block: 1rem .85rem; gap: .7rem; }
+		.lending-hero .eyebrow { margin-bottom: .5rem; }
+		.lending-hero h1 { font-size: 1.9rem; }
+		.lending-hero .hero-lead { margin-top: .6rem; font-size: .95rem; line-height: 1.45; }
+		.lending-hero .hero-actions { margin-top: .7rem; gap: .25rem .9rem; }
+		.loan-board-top, .loan-board figcaption { padding: .4rem .85rem; }
+		.loan-sheet { padding: .6rem .85rem .65rem; }
+		.sheet-title { margin-top: .35rem; font-size: 1.2rem; }
+		.sheet-line { margin-top: .15rem; }
+		.loan-sheet dl { margin-top: .6rem; }
+		.loan-sheet dl div { padding-block: .22rem; font-size: .85rem; }
+		.sheet-status { margin-top: .5rem; }
 	}
 </style>
