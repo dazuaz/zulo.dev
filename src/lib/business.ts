@@ -1,5 +1,5 @@
 export const services = [
-    { number: '01', symbol: '↗', title: 'Assess what you’ve built.', description: 'Make a clear decision about what to keep, rebuild, or retire. Review the prototype alongside your workflows, data, and constraints, then prioritize what is worth taking to production.', deliverables: ['Prototype & workflow assessment', 'Prioritized path to production', 'Success measures & risk review'], tag: 'AI STRATEGY' },
+    { number: '01', symbol: '↗', title: 'Workflow & prototype assessment.', description: 'Make a clear decision about what to keep, rebuild, or retire. Review the prototype alongside your workflows, data, and constraints, then prioritize what is worth taking to production.', deliverables: ['Prototype & workflow assessment', 'Prioritized path to production', 'Success measures & risk review'], tag: 'AI STRATEGY' },
     { number: '02', symbol: '⌘', title: 'Build it into the business.', description: 'Take the prototype to production. Connect it to the tools and information your team uses, and make agents, automations, and products dependable under real load.', deliverables: ['Custom agents & workflow automation', 'Knowledge systems & integrations', 'Interfaces built for your team'], tag: 'SYSTEMS & ENGINEERING' },
     { number: '03', symbol: '◎', title: 'Keep it moving.', description: 'Software is never finished. Stay on a subscription that covers maintenance, monitoring, and the next round of features, while your team learns to run it with confidence.', deliverables: ['Maintenance, monitoring & fixes', 'New features as your needs change', 'Team training & human oversight'], tag: 'ONGOING PARTNERSHIP' },
 ];
@@ -9,7 +9,7 @@ export const workflows = [
     { number: '03', title: 'Workflows with fewer loose ends.', category: 'ORCHESTRATION', before: 'Routine follow-ups and handoffs rely on someone remembering the next action.', after: 'Connect the steps, prepare the next action, and bring people in when a decision needs their judgment.', measure: 'Cycle time · Missed handoffs · Manual touches' },
 ];
 export const steps = [
-    { title: 'Understand', text: 'Start with what you have. Review the prototype and map the work around it with the people doing it, then find where it breaks against real data and real users.', output: 'A focused opportunity' },
+    { title: 'Understand', text: 'Start with how the work is done today, or with what you’ve already built, then map it with the people doing it and find where it breaks against real data and real users.', output: 'A focused opportunity' },
     { title: 'Harden', text: 'Rebuild the core that matters. Test it with representative work and compare the result against a baseline before anything else gets built on top.', output: 'Evidence to move forward' },
     { title: 'Ship', text: 'Connect the system, handle exceptions, and give the team the controls and training they need to use it confidently.', output: 'A working capability' },
     { title: 'Evolve', text: 'Stay on it together. Track quality and usage, fix what breaks, and ship the next features as your needs change, on an ongoing subscription.', output: 'Software that keeps up' },
