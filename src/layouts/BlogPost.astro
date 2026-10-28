@@ -72,7 +72,7 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
 >
   <main id="main-content">
     <PageShell as="article" class="pb-section-lg">
-      <header class="flex flex-col gap-md pt-page-intro pb-lg">
+      <header class="flex max-w-[45rem] flex-col gap-md pt-page-intro pb-lg">
         <nav class="flex items-center gap-xs font-ui text-sm font-medium leading-ui text-accent" aria-label="Breadcrumb">
           <a class={focusRing} href="/">Home</a>
           <span class="select-none text-meta" aria-hidden="true">/</span>
@@ -80,8 +80,8 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
           <span class="select-none text-meta" aria-hidden="true">/</span>
           <span class="text-ink" aria-current="page">{title}</span>
         </nav>
-        <h1 class={cn(displayTitle, 'max-w-[48rem]')}>{title}</h1>
-        <p class={proseLead}>{description}</p>
+        <h1 class={displayTitle}>{title}</h1>
+        <p class={cn(proseLead, 'max-w-none')}>{description}</p>
 
         <div class={cn(metaText, 'flex flex-wrap items-center gap-sm')}>
           <a href="/about" rel="author" class={focusRing}>By {siteIdentity.author}</a>
