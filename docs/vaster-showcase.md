@@ -44,4 +44,4 @@ The demonstration is a $450,000 refinance on an estimated $750,000 property, wit
 
 ## Validation
 
-Run `pnpm build` then `pnpm check:seo` for route, metadata, link, and sitemap validation. Browser verification covers all five chapters, matching detail anchors, pause/resume, reduced motion, offscreen behavior, narrow viewports, and no-JavaScript fallback. Capability claims are based on source inspection, not a live end-to-end check of external services.
+Run `bun run build` then `bun run check:seo` for route, metadata, link, and sitemap validation. Browser verification covers all five chapters, matching detail anchors, pause/resume, reduced motion, offscreen behavior, narrow viewports, and no-JavaScript fallback. Capability claims are based on source inspection, not a live end-to-end check of external services.

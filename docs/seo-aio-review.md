@@ -31,7 +31,7 @@ Public routes opt into Astro prerendering while retaining the existing server ad
 
 ## Verification
 
-Run `pnpm build`, then `pnpm check:seo` (Python 3; standard library only). The audit checks the generated Vercel artifacts:
+Run `bun run build`, then `bun run check:seo` (Python 3; standard library only). The audit checks the generated Vercel artifacts:
 
 - Exact sitemap and RSS membership: nine public pages, six articles, one excluded draft at review time.
 - A single H1 and canonical per indexable page, unique descriptions and social titles, image files, and preview metadata.

@@ -1,6 +1,6 @@
 """Validate crawlable production HTML, structured data, and discovery feeds.
 
-Run `pnpm check:seo` after building. Uses only Python's standard library.
+Run `bun run check:seo` after building. Uses only Python's standard library.
 """
 from html.parser import HTMLParser
 from pathlib import Path
@@ -60,7 +60,7 @@ def output_path(url):
 
 
 def check():
-    assert OUTPUT.exists(), 'Run pnpm build first.'
+    assert OUTPUT.exists(), 'Run bun run build first.'
     sitemap = ET.parse(OUTPUT / 'sitemap.xml')
     urls = [entry.find('s:loc', NS).text for entry in sitemap.findall('s:url', NS)]
     posts = []
