@@ -20,7 +20,7 @@ Read the user's idea and supplied material before researching. Capture a short w
 
 Infer audience and angle when reasonable. If no actual topic or idea is supplied, ask for it rather than inventing a post. If missing information would materially change the thesis or require inventing personal experience, ask one focused question while doing independent preparation. Thin notes can support a thoughtful essay through explanations, counterexamples, and implications; do not fill gaps with fabricated experiences or generic padding.
 
-Inspect `src/content.config.ts`, the relevant existing draft, and two representative posts in `src/content/blog/`. Use `the-uneven-days-of-agentic-building.md` for personal reflection and `building-products-for-agents.md` for the author's direct product observations when relevant. These are voice context, not evidence that the author experienced a new event. Respect any newer repo instructions.
+Read the content rules in `AGENTS.md`; they bind the manuscript and every judge's suggestions. Inspect `src/content.config.ts`, the relevant existing draft, and two representative posts in `src/content/blog/`. Use `the-uneven-days-of-agentic-building.md` for personal reflection and `building-products-for-agents.md` for the author's direct product observations when relevant. These are voice context, not evidence that the author experienced a new event. Respect any newer repo instructions.
 
 The site's voice is personal, candid, concrete, and interested in how tools change real work. Keep useful uncertainty and the author's distinctive observations. Correct grammar without polishing away personality. Do not force every topic into AI, startups, or a how-to.
 
@@ -29,6 +29,8 @@ The site's voice is personal, candid, concrete, and interested in how tools chan
 Choose the angle with the strongest combination of fidelity, specificity, and reader value. Identify what this essay contributes beyond a generic treatment of its topic: an observation, useful distinction, causal explanation, or consequence grounded in the supplied idea. Do not manufacture contrarian claims or claim global novelty.
 
 Draft a complete argument with a concrete opening, a developing line of thought, and an ending earned by the body. Let the idea determine the structure. Use headings, examples, and lists only where they aid the reader; avoid a fixed introduction/three-lessons/conclusion template. Each section should advance the thesis, demonstrate it, test it, or show a consequence.
+
+Link related posts and the matching `/work` case study where they help the reader. When revising a published post, set `updatedDate`.
 
 Keep a compact evidence ledger outside the post: claim, supporting source or user note, and uncertainty. Verify current or disputed factual claims against primary sources and link them near the claim in Markdown. Distinguish observation, inference, and prediction. Label invented examples as hypothetical. Never fabricate quotes, data, customer stories, personal memories, or results. A judge's confidence is not factual verification.
 

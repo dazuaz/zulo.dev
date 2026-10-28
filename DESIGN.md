@@ -25,7 +25,7 @@ Use four-to-six-pixel corners, thin borders, and restrained shadows. The connect
 
 ## Content
 
-Write original, specific copy about strategy, implementation, and adoption. Identify Daniel directly as the practitioner. Workflow opportunities are illustrative and labeled accordingly. Do not add unsupported client names, testimonials, certifications, financial results, delivery guarantees, or team-size claims.
+Write original, specific copy about strategy, implementation, and adoption. Identify Daniel directly as the practitioner. The content rules in `AGENTS.md` govern what copy may claim and how illustrative material is labeled.
 
 ## Interaction and access
 
