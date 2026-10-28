@@ -34,7 +34,7 @@ test('uses comparison sizes only inside the comparison grid and respects explici
   const nodes = parseFragment(html).childNodes as Element[];
   const comparison = Object.fromEntries((nodes[0].childNodes[0] as Element).attrs.map(({ name, value }) => [name, value]));
   const full = Object.fromEntries(nodes[1].attrs.map(({ name, value }) => [name, value]));
-  assert.match(comparison.sizes, /20rem/);
-  assert.doesNotMatch(full.sizes, /20rem/);
+  assert.match(comparison.sizes, /22rem/);
+  assert.doesNotMatch(full.sizes, /22rem/);
   assert.equal(comparison.loading, 'eager');
 });

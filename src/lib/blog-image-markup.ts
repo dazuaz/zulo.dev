@@ -3,8 +3,8 @@ import type { DefaultTreeAdapterMap } from 'parse5';
 
 // Match the reading column and its mobile/tablet gutters. Lazy images use their
 // actual laid-out width via sizes=auto where supported, with these fallbacks.
-export const articleImageSizes = '(max-width: 640px) calc(100vw - 2.5rem), (max-width: 688px) calc(100vw - 3rem), 40rem';
-const comparisonImageSizes = '(min-width: 768px) 20rem, ' + articleImageSizes;
+export const articleImageSizes = '(max-width: 640px) calc(100vw - 2.5rem), (max-width: 768px) calc(100vw - 3rem), 45rem';
+const comparisonImageSizes = '(min-width: 768px) 22rem, ' + articleImageSizes;
 
 export interface ResponsiveImage {
   src: string;

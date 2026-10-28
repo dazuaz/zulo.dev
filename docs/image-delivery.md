@@ -9,7 +9,7 @@ Astro handles conversion, caching, hashed output URLs, and source-size limits. T
 ## Resolution and quality
 
 - Candidate widths: 320, 640, 960, 1280, 1600, and 1920 pixels. Astro caps them at the original resolution and does not enlarge the source.
-- Measured desktop article width: approximately 634 CSS pixels. Comparison columns: approximately 309 CSS pixels. At a 390px mobile viewport, article images occupy 350 CSS pixels.
+- Measured desktop article width: 720 CSS pixels (45rem). Comparison columns: approximately 352 CSS pixels. At a 390px mobile viewport, article images occupy 350 CSS pixels.
 - Eager hero sizes reflect the reading column and mobile/tablet gutters. Lazy inline images use `sizes="auto, ..."` to select from their actual rendered width where supported, with layout-specific fallback sizes.
 - Illustrations use WebP quality 90; the text-heavy Git diagram uses 95. The native Sharp service uses maximum encoding effort and sharper chroma subsampling.
 - Existing WebPs are retained unchanged for the full-resolution candidate, avoiding a lossy re-encode that could enlarge the file or discard detail. Smaller candidates are generated as needed. Original links remain available.
