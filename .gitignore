@@ -24,3 +24,5 @@ pnpm-debug.log*
 .idea/
 .vercel
 .impeccable/
+# local SEO/analytics snapshots (bun run seo:report)
+.seo-reports/

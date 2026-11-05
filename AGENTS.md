@@ -26,3 +26,5 @@ Visual direction, palette, type, and accessibility rules are in `DESIGN.md`. Ima
 ## Checks
 
 Before finishing a change, run `bun run build`, then `bun run check:seo`. Run `bun run test:images` when a change touches article images.
+
+To see how the live site is doing in Google and AI search, run `bun run seo:report`. It checks Google index coverage per sitemap URL, Search Console clicks and queries, and Vercel traffic by channel, including AI-assistant referrals. It compares against the last snapshot in `.seo-reports/` (gitignored, kept out of this public repo). It needs gcloud application-default credentials with the `webmasters.readonly` scope (see the script header) and a linked Vercel CLI.

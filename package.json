@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "astro": "astro",
     "check:seo": "python3 scripts/check-seo.py",
+    "seo:report": "bun scripts/seo-report.mjs",
     "test:images": "node --test tests/blog-images.test.ts"
   },
   "dependencies": {
