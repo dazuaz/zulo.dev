@@ -108,6 +108,29 @@ const fontHref =
 		<link rel="preload" as="style" href={fontHref} />
 		<link href={fontHref} rel="stylesheet" />
 		{import.meta.env.PROD && nav === 'contact' && <BotIdProtection />}
+		{/* Owner opt-out for Vercel Web Analytics. Visit any page with ?notrack to stop
+		    counting this browser, ?notrack=off to resume. Stored in localStorage only. */}
+		<script is:inline>
+			(function () {
+				var key = 'zulo-notrack';
+				try {
+					var url = new URL(location.href);
+					if (url.searchParams.has('notrack')) {
+						if (url.searchParams.get('notrack') === 'off') localStorage.removeItem(key);
+						else localStorage.setItem(key, '1');
+						url.searchParams.delete('notrack');
+						history.replaceState(history.state, '', url.pathname + url.search + url.hash);
+					}
+				} catch (e) {}
+				window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+				window.va('beforeSend', function (event) {
+					try {
+						if (localStorage.getItem(key) === '1') return null;
+					} catch (e) {}
+					return event;
+				});
+			})();
+		</script>
 	</head>
 	<body class="min-h-screen bg-bg font-body text-base leading-body text-ink antialiased [font-kerning:normal] [font-optical-sizing:auto]">
 		<a
