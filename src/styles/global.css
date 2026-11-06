@@ -105,7 +105,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .action-nav { min-height: 44px; padding: .7rem 1rem; }
 .mobile-menu { display: none; }
 .hero { overflow: hidden; background-image: radial-gradient(ellipse at 85% 45%, #26351e55, transparent 50%); }
-.hero-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 3rem; padding-block: 6.5rem 5.5rem; }
+.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 3rem; padding-block: 6.5rem 5.5rem; }
 .eyebrow { display: flex; align-items: center; gap: .65rem; font: 400 .75rem/1.5 var(--font-mono); letter-spacing: .1em; }
 .signal-dot { display: inline-block; width: 7px; height: 7px; flex-shrink: 0; border-radius: 50%; background: var(--lime); box-shadow: 0 0 12px #c7f33233; }
 .hero .eyebrow { color: #c6ccbf; margin-bottom: 1.75rem; }
@@ -115,6 +115,9 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .hero-actions { display: flex; flex-wrap: wrap; gap: 1.25rem 1.75rem; align-items: center; margin-top: 2rem; }
 .hero-proof { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; margin: 1.5rem 0 0; padding: 0; list-style: none; font: 500 .9375rem/1.6 var(--font-body); color: #dde4d5; }
 .hero-proof li { display: flex; align-items: center; gap: .55rem; }
+/* All three on one row or a clean stack; never a 2 + 1 orphan. */
+.hero-copy { container-type: inline-size; }
+@container (max-width: 38.5rem) { .hero-proof { flex-direction: column; } }
 .hero-proof li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--lime); flex-shrink: 0; }
 .text-action { display: inline-flex; align-items: center; gap: 1rem; min-height: 44px; font: 500 .875rem/1.5 var(--font-ui); transition: color .18s var(--ease-out); }
 .text-action span[aria-hidden] { transition: transform .18s var(--ease-out); }
