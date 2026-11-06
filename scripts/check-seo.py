@@ -134,7 +134,7 @@ def check():
             assert crumbs[-1]['item'] == url
         for image in page.elements('img'):
             assert int(image.get('width', 0)) > 0 and int(image.get('height', 0)) > 0, f'{url}: missing dimensions'
-            if image.get('src', '').startswith(('/_astro/', '/blog/')):
+            if image.get('src', '').startswith(('/_astro/', '/blog/')) and not urlsplit(image['src']).path.endswith('.svg'):
                 assert image.get('sizes'), f'{url}: missing responsive sizes'
                 candidates = [candidate.strip().split() for candidate in image.get('srcset', '').split(',')]
                 assert len(candidates) >= 2, f'{url}: missing responsive variants'

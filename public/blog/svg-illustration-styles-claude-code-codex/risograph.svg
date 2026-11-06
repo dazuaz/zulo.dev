@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 336">
+<style>
+svg{--paper:#f4eee1;--teal:#00839a;--pink:#ff4f9a;--yellow:#ffd03a}
+.pa{fill:var(--paper)}.t{fill:var(--teal)}.p{fill:var(--pink)}.y{fill:var(--yellow)}
+.drum{mix-blend-mode:multiply}
+</style>
+<defs>
+<pattern id="t20" width="3.5" height="3.5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><circle class="t" cx="1.75" cy="1.75" r=".88"/></pattern>
+<pattern id="t45" width="3.5" height="3.5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><circle class="t" cx="1.75" cy="1.75" r="1.34"/></pattern>
+<pattern id="holes" x="296" y="128" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="5" cy="5" r="3.4" fill="#000"/></pattern>
+<g id="dashes"><rect x="8" y="302" width="24" height="4"/><rect x="58" y="302" width="24" height="4"/><rect x="108" y="302" width="24" height="4"/><rect x="158" y="302" width="24" height="4"/><rect x="208" y="302" width="24" height="4"/><rect x="258" y="302" width="24" height="4"/><rect x="308" y="302" width="24" height="4"/><rect x="358" y="302" width="24" height="4"/><rect x="408" y="302" width="24" height="4"/><rect x="458" y="302" width="24" height="4"/><rect x="508" y="302" width="24" height="4"/></g>
+<mask id="roadcut" maskUnits="userSpaceOnUse" x="0" y="0" width="560" height="336">
+<rect width="560" height="336" fill="#fff"/><use href="#dashes" fill="#000"/>
+</mask>
+<mask id="screen" maskUnits="userSpaceOnUse" x="0" y="0" width="560" height="336">
+<rect width="560" height="336" fill="#fff"/><rect x="296" y="128" width="50" height="70" fill="url(#holes)"/>
+</mask>
+<filter id="paperf" filterUnits="userSpaceOnUse" x="0" y="0" width="560" height="336" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="3" result="n"/>
+<feColorMatrix in="n" type="matrix" values="0 0 0 0 0.45 0 0 0 0 0.36 0 0 0 0 0.26 -0.3 0 0 0 0.18" result="s"/>
+<feComposite in="s" in2="SourceGraphic" operator="over"/>
+</filter>
+<filter id="inky" filterUnits="userSpaceOnUse" x="0" y="0" width="560" height="336" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency="0.12" numOctaves="2" seed="5" result="w"/>
+<feDisplacementMap in="SourceGraphic" in2="w" scale="1.2" xChannelSelector="R" yChannelSelector="G" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.9" seed="21" result="f"/>
+<feColorMatrix in="f" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -10 0 0 0 7" result="k"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="40" result="dn"/>
+<feColorMatrix in="dn" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 0 0 0 0.45" result="ds"/>
+<feComposite in="k" in2="ds" operator="arithmetic" k1="1" result="m"/>
+<feComposite in="d" in2="m" operator="in"/>
+</filter>
+<filter id="inkt" filterUnits="userSpaceOnUse" x="0" y="0" width="560" height="336" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency="0.12" numOctaves="2" seed="8" result="w"/>
+<feDisplacementMap in="SourceGraphic" in2="w" scale="1.2" xChannelSelector="R" yChannelSelector="G" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.9" seed="34" result="f"/>
+<feColorMatrix in="f" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -10 0 0 0 7" result="k"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="41" result="dn"/>
+<feColorMatrix in="dn" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 0 0 0 0.45" result="ds"/>
+<feComposite in="k" in2="ds" operator="arithmetic" k1="1" result="m"/>
+<feComposite in="d" in2="m" operator="in"/>
+</filter>
+<filter id="inkp" filterUnits="userSpaceOnUse" x="0" y="0" width="560" height="336" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency="0.12" numOctaves="2" seed="13" result="w"/>
+<feDisplacementMap in="SourceGraphic" in2="w" scale="1.2" xChannelSelector="R" yChannelSelector="G" result="d"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.9" seed="55" result="f"/>
+<feColorMatrix in="f" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -10 0 0 0 7" result="k"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="2" seed="42" result="dn"/>
+<feColorMatrix in="dn" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9 0 0 0 0.45" result="ds"/>
+<feComposite in="k" in2="ds" operator="arithmetic" k1="1" result="m"/>
+<feComposite in="d" in2="m" operator="in"/>
+</filter>
+</defs>
+
+<rect class="pa" width="560" height="336" filter="url(#paperf)"/>
+
+<!-- yellow drum -->
+<g class="drum" transform="translate(-1,1)"><g filter="url(#inky)">
+<circle class="y" cx="300" cy="92" r="46"/>
+<circle class="y" cx="178" cy="200" r="24"/>
+<circle class="y" cx="388" cy="210" r="20"/>
+<circle class="y" cx="476" cy="222" r="16"/>
+<circle class="y" cx="14" cy="214" r="18"/>
+<rect class="y" x="178" y="252" width="210" height="10"/>
+<use href="#dashes" class="y"/>
+</g></g>
+
+<!-- teal drum -->
+<g class="drum"><g filter="url(#inkt)">
+<rect x="30" y="150" width="120" height="102" fill="url(#t45)"/>
+<path class="t" d="M150 150L162 143V245L150 252Z"/>
+<path d="M30 150L42 143H162L150 150Z" fill="url(#t20)"/>
+<g class="t"><rect x="44" y="164" width="20" height="16"/><rect x="82" y="164" width="20" height="16"/><rect x="120" y="164" width="20" height="16"/><rect x="44" y="194" width="20" height="16"/><rect x="82" y="194" width="20" height="16"/><rect x="120" y="194" width="20" height="16"/><rect x="44" y="224" width="20" height="28"/><rect x="82" y="224" width="20" height="16"/><rect x="120" y="224" width="20" height="16"/></g>
+<path class="t" d="M360 118L374 110V244L360 252Z"/>
+<rect class="t" x="194" y="160" width="172" height="6"/>
+<rect class="t" x="214" y="134" width="30" height="22"/><rect class="t" x="250" y="134" width="30" height="22"/>
+<rect class="t" x="214" y="178" width="30" height="24"/><rect class="t" x="250" y="178" width="30" height="24"/>
+<rect class="t" x="214" y="214" width="66" height="22"/>
+<rect class="t" x="300" y="212" width="24" height="40"/>
+<rect x="404" y="186" width="64" height="66" fill="url(#t20)"/>
+<path class="t" d="M468 186L478 180V246L468 252Z"/>
+<rect class="t" x="414" y="204" width="20" height="18"/><rect class="t" x="442" y="204" width="18" height="18"/>
+<rect x="488" y="140" width="60" height="112" fill="url(#t45)"/>
+<path class="t" d="M548 140L558 134V246L548 252Z"/>
+<g class="t"><rect x="498" y="154" width="14" height="14"/><rect x="524" y="154" width="14" height="14"/><rect x="498" y="180" width="14" height="14"/><rect x="524" y="180" width="14" height="14"/><rect x="498" y="206" width="14" height="14"/><rect x="524" y="206" width="14" height="14"/><rect x="510" y="230" width="16" height="22"/></g>
+<g class="t">
+<circle cx="178" cy="200" r="24"/><rect x="175" y="214" width="6" height="38"/>
+<circle cx="388" cy="210" r="20"/><rect x="385" y="224" width="6" height="28"/>
+<circle cx="476" cy="222" r="16"/><rect x="473" y="232" width="5" height="20"/>
+<circle cx="14" cy="214" r="18"/><rect x="11" y="226" width="6" height="26"/>
+</g>
+<rect x="0" y="252" width="560" height="10" fill="url(#t20)"/>
+<rect class="t" x="0" y="270" width="560" height="66" mask="url(#roadcut)"/>
+</g></g>
+
+<!-- pink drum, misregistered -->
+<g class="drum" transform="translate(2.5,1.5)"><g filter="url(#inkp)">
+<rect class="p" x="200" y="118" width="160" height="134" mask="url(#screen)"/>
+<path class="p" d="M360 118L374 110V244L360 252Z"/>
+<path class="p" d="M200 118L214 110H374L360 118Z"/>
+<rect class="p" x="296" y="252" width="30" height="18"/>
+</g></g>
+</svg>

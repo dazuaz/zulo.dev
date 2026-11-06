@@ -1,0 +1,161 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 336" role="img" aria-labelledby="title desc">
+  <title id="title">A hypothetical South Florida block built from type</title>
+  <desc id="desc">A dark three-plane focus building with word windows and an open word-framed entrance stands on its own lot. Two lighter three-plane neighboring buildings, three spiral-text canopies, and a word-built frontage road complete the block.</desc>
+  <style>
+    svg { --paper:#f3efe3; --ink:#284138; --teal:#1d7973; --ochre:#ac733e; }
+    text { font-family:ui-monospace,monospace; fill:var(--ink); }
+    .roof-fill { font-size:5px; font-weight:600; }
+    .wall-fill { font-size:5px; font-weight:600; }
+    .roof-edge { font-size:6.8px; font-weight:700; }
+    .wall-base { font-size:6.4px; font-weight:700; }
+    .upright { font-size:3.8px; font-weight:500; }
+    .lintel { font-size:3px; font-weight:500; }
+    .terrace { font-size:4.3px; fill:var(--ochre); }
+    .neighbor-fill { font-size:3.7px; font-weight:400; }
+    .neighbor-edge { font-size:4.6px; font-weight:400; }
+    .lot { font-size:5.5px; fill:var(--ochre); opacity:.75; }
+    .canopy { font-size:5px; fill:var(--teal); }
+    .road-fill { font-size:4.8px; fill:var(--teal); }
+    .road-edge { font-size:7px; fill:var(--teal); }
+  </style>
+  <defs>
+    <!-- Open site edges: every baseline has positive canvas x direction. -->
+    <path id="lot-top" d="M223 29L427 96"/>
+    <path id="lot-bottom" d="M91 180L295 247"/>
+    <path id="lot-left" d="M86 165L200 34"/>
+    <path id="lot-right" d="M318 242L432 112"/>
+    <!-- Roof-local coordinates. Both long edges point right; both short edges point up. -->
+    <path id="roof-row" d="M12 0H180"/>
+    <path id="roof-left-row" d="M12 0H62"/>
+    <path id="roof-right-row" d="M130 0H180"/>
+    <path id="roof-top" d="M12 0H180"/>
+    <path id="roof-bottom" d="M12 96H180"/>
+    <path id="roof-left" d="M0 84V12"/>
+    <path id="roof-right" d="M192 84V12"/>
+    <path id="terrace-top" d="M76 30H116"/>
+    <path id="terrace-bottom" d="M76 66H116"/>
+    <path id="terrace-left" d="M70 60V36"/>
+    <path id="terrace-right" d="M122 60V36"/>
+    <!-- Four independent windows, plus facade rows split around the entrance. -->
+    <path id="window-1" d="M12 10H44"/>
+    <path id="window-2" d="M52 10H84"/>
+    <path id="window-3" d="M108 10H140"/>
+    <path id="window-4" d="M148 10H180"/>
+    <path id="front-left-row" d="M12 0H82"/>
+    <path id="front-right-row" d="M110 0H180"/>
+    <path id="front-left-base" d="M12 34H82"/>
+    <path id="front-right-base" d="M110 34H180"/>
+    <path id="front-upright" d="M0 26V10"/>
+    <path id="door-left" d="M88 31V17"/>
+    <path id="door-right" d="M104 31V17"/>
+    <path id="door-lintel" d="M90 14H102"/>
+    <path id="side-row" d="M10 0H86"/>
+    <path id="side-base" d="M10 34H86"/>
+    <path id="side-upright" d="M96 26V10"/>
+    <!-- Small buildings repeat all three planes, with explicit local type classes. -->
+    <path id="n-row" d="M8 0H58"/>
+    <path id="n-top" d="M8 0H58"/>
+    <path id="n-bottom" d="M8 36H58"/>
+    <path id="n-left" d="M0 28V8"/>
+    <path id="n-right" d="M66 28V8"/>
+    <path id="n-front-base" d="M8 22H58"/>
+    <path id="n-side-row" d="M6 0H30"/>
+    <path id="n-side-base" d="M6 22H30"/>
+    <path id="n-side-upright" d="M36 16V6"/>
+    <g id="neighbor-roof">
+      <text class="neighbor-fill" dy="10" textLength="50" lengthAdjust="spacing"><textPath href="#n-row">parcel · roof · parcel</textPath></text>
+      <text class="neighbor-fill" dy="20" textLength="50" lengthAdjust="spacing"><textPath href="#n-row">roof · lot · frontage</textPath></text>
+      <text class="neighbor-fill" dy="30" textLength="50" lengthAdjust="spacing"><textPath href="#n-row">parcel · roof · parcel</textPath></text>
+      <text class="neighbor-edge" textLength="50" lengthAdjust="spacing"><textPath href="#n-top">roof · lot · roof</textPath></text>
+      <text class="neighbor-edge" textLength="50" lengthAdjust="spacing"><textPath href="#n-bottom">roof · lot · roof</textPath></text>
+      <text class="neighbor-edge" textLength="16" lengthAdjust="spacing"><textPath href="#n-left" startOffset="2">lot</textPath></text>
+      <text class="neighbor-edge" textLength="16" lengthAdjust="spacing"><textPath href="#n-right" startOffset="2">lot</textPath></text>
+    </g>
+    <g id="neighbor-front">
+      <text class="neighbor-fill" dy="10" textLength="50" lengthAdjust="spacing"><textPath href="#n-row">window · frontage</textPath></text>
+      <text class="neighbor-fill" dy="18" textLength="50" lengthAdjust="spacing"><textPath href="#n-row">parcel · lot · parcel</textPath></text>
+      <text class="neighbor-edge" textLength="50" lengthAdjust="spacing"><textPath href="#n-front-base">frontage · lot</textPath></text>
+    </g>
+    <g id="neighbor-side">
+      <text class="neighbor-fill" dy="10" textLength="22" lengthAdjust="spacing"><textPath href="#n-side-row" startOffset="1">window</textPath></text>
+      <text class="neighbor-fill" dy="18" textLength="22" lengthAdjust="spacing"><textPath href="#n-side-row" startOffset="1">parcel</textPath></text>
+      <text class="neighbor-edge" textLength="22" lengthAdjust="spacing"><textPath href="#n-side-base" startOffset="1">parcel</textPath></text>
+      <text class="neighbor-edge" textLength="8" lengthAdjust="spacing"><textPath href="#n-side-upright" startOffset="1">lot</textPath></text>
+    </g>
+    <path id="spiral" d="M0-24a24 24 0 0 1 0 48a21 21 0 0 1 0-42a18 18 0 0 1 0 36a15 15 0 0 1 0-30a12 12 0 0 1 0 24a9 9 0 0 1 0-18a6 6 0 0 1 0 12"/>
+    <g id="text-canopy">
+      <text class="canopy" textLength="321" lengthAdjust="spacing"><textPath href="#spiral">canopy · shade · canopy · shade · canopy · shade · canopy · shade · canopy · shade · canopy · shade · canopy</textPath></text>
+    </g>
+    <path id="road-row" d="M6 0H506"/>
+  </defs>
+  <rect width="560" height="336" fill="var(--paper)"/>
+  <text class="lot" textLength="210" lengthAdjust="spacing"><textPath href="#lot-top">setback · lot · setback · lot · setback · lot · setback · lot</textPath></text>
+  <text class="lot" textLength="210" lengthAdjust="spacing"><textPath href="#lot-bottom">frontage · lot · setback · lot · frontage · lot · setback</textPath></text>
+  <text class="lot" textLength="169" lengthAdjust="spacing"><textPath href="#lot-left">setback · lot · setback · lot · setback · lot</textPath></text>
+  <text class="lot" textLength="169" lengthAdjust="spacing"><textPath href="#lot-right">setback · lot · setback · lot · setback · lot</textPath></text>
+  <g opacity=".6">
+    <use href="#neighbor-roof" transform="matrix(1 .3333333 -1 .75 77 67)"/>
+    <use href="#neighbor-front" transform="matrix(1 .3333333 0 1 41 94)"/>
+    <use href="#neighbor-side" transform="matrix(1 -.75 0 1 107 116)"/>
+    <use href="#neighbor-roof" transform="matrix(1.0606061 .3484848 -1 .75 437 168)"/>
+    <use href="#neighbor-front" transform="matrix(1.0606061 .3484848 0 1 401 195)"/>
+    <use href="#neighbor-side" transform="matrix(1 -.75 0 1 471 218)"/>
+  </g>
+  <g transform="matrix(.875 .2916667 0 1 129 134)">
+    <text class="wall-fill" textLength="26" lengthAdjust="spacing"><textPath href="#window-1" startOffset="3">window</textPath></text>
+    <text class="wall-fill" textLength="26" lengthAdjust="spacing"><textPath href="#window-2" startOffset="3">window</textPath></text>
+    <text class="wall-fill" textLength="26" lengthAdjust="spacing"><textPath href="#window-3" startOffset="3">window</textPath></text>
+    <text class="wall-fill" textLength="26" lengthAdjust="spacing"><textPath href="#window-4" startOffset="3">window</textPath></text>
+    <text class="wall-fill" dy="20" textLength="70" lengthAdjust="spacing"><textPath href="#front-left-row">frontage · lot · parcel</textPath></text>
+    <text class="wall-fill" dy="20" textLength="70" lengthAdjust="spacing"><textPath href="#front-right-row">parcel · lot · frontage</textPath></text>
+    <text class="wall-fill" dy="28" textLength="70" lengthAdjust="spacing"><textPath href="#front-left-row">parcel · lot · frontage</textPath></text>
+    <text class="wall-fill" dy="28" textLength="70" lengthAdjust="spacing"><textPath href="#front-right-row">frontage · lot · parcel</textPath></text>
+    <text class="wall-base" textLength="70" lengthAdjust="spacing"><textPath href="#front-left-base">frontage · lot</textPath></text>
+    <text class="wall-base" textLength="70" lengthAdjust="spacing"><textPath href="#front-right-base">lot · frontage</textPath></text>
+    <text class="upright" textLength="12" lengthAdjust="spacing"><textPath href="#front-upright" startOffset="2">lot</textPath></text>
+    <text class="upright" textLength="12" lengthAdjust="spacing"><textPath href="#door-left" startOffset="1">entry</textPath></text>
+    <text class="upright" textLength="12" lengthAdjust="spacing"><textPath href="#door-right" startOffset="1">door</textPath></text>
+    <text class="lintel" textLength="12" lengthAdjust="spacing"><textPath href="#door-lintel">entry</textPath></text>
+  </g>
+  <g transform="matrix(1 -.75 0 1 297 190)">
+    <text class="wall-fill" dy="12" textLength="76" lengthAdjust="spacing"><textPath href="#side-row">window · parcel · window</textPath></text>
+    <text class="wall-fill" dy="22" textLength="76" lengthAdjust="spacing"><textPath href="#side-row">frontage · lot · parcel</textPath></text>
+    <text class="wall-base" textLength="76" lengthAdjust="spacing"><textPath href="#side-base">frontage · parcel</textPath></text>
+    <text class="upright" textLength="12" lengthAdjust="spacing"><textPath href="#side-upright" startOffset="2">lot</textPath></text>
+  </g>
+  <g transform="matrix(.875 .2916667 -1 .75 225 62)">
+    <text class="roof-fill" dy="10" textLength="168" lengthAdjust="spacing"><textPath href="#roof-row">roof · parcel · roof · lot · roof · parcel · roof · lot</textPath></text>
+    <text class="roof-fill" dy="18" textLength="168" lengthAdjust="spacing"><textPath href="#roof-row">parcel · roof · lot · roof · parcel · roof · lot · roof</textPath></text>
+    <text class="roof-fill" dy="26" textLength="168" lengthAdjust="spacing"><textPath href="#roof-row">roof · parcel · roof · lot · roof · parcel · roof · lot</textPath></text>
+    <text class="roof-fill" dy="34" textLength="50" lengthAdjust="spacing"><textPath href="#roof-left-row">roof · parcel</textPath></text>
+    <text class="roof-fill" dy="34" textLength="50" lengthAdjust="spacing"><textPath href="#roof-right-row">parcel · lot</textPath></text>
+    <text class="roof-fill" dy="42" textLength="50" lengthAdjust="spacing"><textPath href="#roof-left-row">parcel · roof</textPath></text>
+    <text class="roof-fill" dy="42" textLength="50" lengthAdjust="spacing"><textPath href="#roof-right-row">roof · parcel</textPath></text>
+    <text class="roof-fill" dy="50" textLength="50" lengthAdjust="spacing"><textPath href="#roof-left-row">roof · parcel</textPath></text>
+    <text class="roof-fill" dy="50" textLength="50" lengthAdjust="spacing"><textPath href="#roof-right-row">parcel · lot</textPath></text>
+    <text class="roof-fill" dy="58" textLength="50" lengthAdjust="spacing"><textPath href="#roof-left-row">parcel · roof</textPath></text>
+    <text class="roof-fill" dy="58" textLength="50" lengthAdjust="spacing"><textPath href="#roof-right-row">roof · parcel</textPath></text>
+    <text class="roof-fill" dy="66" textLength="50" lengthAdjust="spacing"><textPath href="#roof-left-row">roof · parcel</textPath></text>
+    <text class="roof-fill" dy="66" textLength="50" lengthAdjust="spacing"><textPath href="#roof-right-row">parcel · lot</textPath></text>
+    <text class="roof-fill" dy="74" textLength="168" lengthAdjust="spacing"><textPath href="#roof-row">parcel · roof · lot · roof · parcel · roof · lot · roof</textPath></text>
+    <text class="roof-fill" dy="82" textLength="168" lengthAdjust="spacing"><textPath href="#roof-row">roof · parcel · roof · lot · roof · parcel · roof · lot</textPath></text>
+    <text class="roof-edge" textLength="168" lengthAdjust="spacing"><textPath href="#roof-top">roof · parcel · roof · frontage · roof</textPath></text>
+    <text class="roof-edge" textLength="168" lengthAdjust="spacing"><textPath href="#roof-bottom">roof · frontage · roof · parcel · roof</textPath></text>
+    <text class="roof-edge" textLength="72" lengthAdjust="spacing"><textPath href="#roof-left">lot · roof · lot</textPath></text>
+    <text class="roof-edge" textLength="72" lengthAdjust="spacing"><textPath href="#roof-right">lot · roof · lot</textPath></text>
+    <text class="terrace" textLength="40" lengthAdjust="spacing"><textPath href="#terrace-top">terrace · open</textPath></text>
+    <text class="terrace" textLength="40" lengthAdjust="spacing"><textPath href="#terrace-bottom">terrace · open</textPath></text>
+    <text class="terrace" textLength="18" lengthAdjust="spacing"><textPath href="#terrace-left" startOffset="3">open</textPath></text>
+    <text class="terrace" textLength="18" lengthAdjust="spacing"><textPath href="#terrace-right" startOffset="3">open</textPath></text>
+  </g>
+  <use href="#text-canopy" transform="translate(63 174)"/>
+  <use href="#text-canopy" transform="translate(464 76) scale(1.0833333)"/>
+  <use href="#text-canopy" transform="translate(367 219) scale(.75)"/>
+  <g transform="matrix(1 .125 0 1 24 222)">
+    <text class="road-edge" textLength="500" lengthAdjust="spacing"><textPath href="#road-row">sidewalk · frontage · sidewalk · frontage · sidewalk · frontage · sidewalk · frontage · sidewalk · frontage</textPath></text>
+    <text class="road-fill" dy="8" textLength="500" lengthAdjust="spacing"><textPath href="#road-row">avenue · frontage · avenue · frontage · avenue · frontage · avenue · frontage · avenue · frontage · avenue · frontage · avenue</textPath></text>
+    <text class="road-fill" dy="16" textLength="500" lengthAdjust="spacing"><textPath href="#road-row">frontage · avenue · frontage · avenue · frontage · avenue · frontage · avenue · frontage · avenue · frontage · avenue · frontage</textPath></text>
+    <text class="road-fill" dy="24" textLength="500" lengthAdjust="spacing"><textPath href="#road-row">avenue · frontage · avenue · frontage · avenue · frontage · avenue · frontage · avenue · frontage · avenue · frontage · avenue</textPath></text>
+    <text class="road-edge" dy="32" textLength="500" lengthAdjust="spacing"><textPath href="#road-row">frontage · avenue · frontage · avenue · frontage · avenue · frontage · avenue · frontage · avenue · frontage</textPath></text>
+  </g>
+</svg>

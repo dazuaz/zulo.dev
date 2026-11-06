@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 336">
+<style>
+svg{--sky:#f2e6d4;--far:#bcd7cc;--mid:#79ab9f;--sand:#e3c7a1;--focus:#e2735a;--ink:#3a2e3b;}
+.sky{fill:var(--sky)}.far{fill:var(--far)}.mid{fill:var(--mid)}.sand{fill:var(--sand)}.focus{fill:var(--focus)}.ink{fill:var(--ink)}
+</style>
+<defs>
+<filter id="paper" x="-10%" y="-10%" width="125%" height="125%" color-interpolation-filters="sRGB">
+  <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="7" result="wob"/>
+  <feDisplacementMap in="SourceGraphic" in2="wob" scale="2.5" xChannelSelector="R" yChannelSelector="G" result="cut"/>
+  <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="2" result="noise"/>
+  <feDiffuseLighting in="noise" surfaceScale="0.6" lighting-color="#fff" result="fibre"><feDistantLight azimuth="225" elevation="70"/></feDiffuseLighting>
+  <feComposite in="cut" in2="fibre" operator="arithmetic" k1="0.45" k2="0.58" k3="0" k4="0" result="tex"/>
+  <feComposite in="tex" in2="cut" operator="in" result="sheet"/>
+  <feGaussianBlur in="cut" stdDeviation="1" result="cb"/><feOffset dx="1.5" dy="2" result="co"/>
+  <feFlood flood-color="#3a2e3b" flood-opacity="0.5"/><feComposite in2="co" operator="in" result="contact"/>
+  <feGaussianBlur in="cut" stdDeviation="4" result="ab"/><feOffset dx="4" dy="5" result="ao"/>
+  <feFlood flood-color="#3a2e3b" flood-opacity="0.28"/><feComposite in2="ao" operator="in" result="ambient"/>
+  <feMerge><feMergeNode in="ambient"/><feMergeNode in="contact"/><feMergeNode in="sheet"/></feMerge>
+</filter>
+<filter id="paper-lift" x="-10%" y="-10%" width="125%" height="125%" color-interpolation-filters="sRGB">
+  <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="2" seed="7" result="wob"/>
+  <feDisplacementMap in="SourceGraphic" in2="wob" scale="2.5" xChannelSelector="R" yChannelSelector="G" result="cut"/>
+  <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="2" result="noise"/>
+  <feDiffuseLighting in="noise" surfaceScale="0.6" lighting-color="#fff" result="fibre"><feDistantLight azimuth="225" elevation="70"/></feDiffuseLighting>
+  <feComposite in="cut" in2="fibre" operator="arithmetic" k1="0.45" k2="0.58" k3="0" k4="0" result="tex"/>
+  <feComposite in="tex" in2="cut" operator="in" result="sheet"/>
+  <feGaussianBlur in="cut" stdDeviation="1" result="cb"/><feOffset dx="3" dy="4" result="co"/>
+  <feFlood flood-color="#3a2e3b" flood-opacity="0.5"/><feComposite in2="co" operator="in" result="contact"/>
+  <feGaussianBlur in="cut" stdDeviation="7" result="ab"/><feOffset dx="8" dy="10" result="ao"/>
+  <feFlood flood-color="#3a2e3b" flood-opacity="0.32"/><feComposite in2="ao" operator="in" result="ambient"/>
+  <feMerge><feMergeNode in="ambient"/><feMergeNode in="contact"/><feMergeNode in="sheet"/></feMerge>
+</filter>
+<filter id="lamp" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+  <feFlood flood-color="#fff" result="flat"/>
+  <feDiffuseLighting in="flat" surfaceScale="0" diffuseConstant="1" lighting-color="#fff">
+    <feSpotLight x="140" y="-80" z="420" pointsAtX="300" pointsAtY="200" pointsAtZ="0" specularExponent="2" limitingConeAngle="75"/>
+  </feDiffuseLighting>
+</filter>
+<filter id="frame" x="0" y="0" width="100%" height="100%"><feGaussianBlur stdDeviation="7"/></filter>
+<mask id="cuts" maskUnits="userSpaceOnUse" x="0" y="0" width="560" height="336">
+  <rect width="560" height="336" fill="#fff"/>
+  <g fill="#000">
+    <rect x="232" y="114" width="18" height="24"/><rect x="266" y="114" width="18" height="24"/><rect x="300" y="114" width="18" height="24"/>
+    <rect x="232" y="154" width="18" height="24"/><rect x="266" y="154" width="18" height="24"/><rect x="300" y="154" width="18" height="24"/>
+    <rect x="232" y="194" width="18" height="24"/><rect x="266" y="194" width="18" height="24"/><rect x="300" y="194" width="18" height="24"/>
+    <rect x="264" y="230" width="22" height="32"/>
+  </g>
+</mask>
+</defs>
+
+<!-- 1 sky -->
+<rect class="sky" width="560" height="336"/>
+
+<!-- 2 far band: sun, clouds, far roofs, palms -->
+<g filter="url(#paper)">
+  <circle class="sand" cx="452" cy="58" r="26"/>
+  <path class="sky" d="M70 66c0-9 8-15 17-13 4-9 16-12 24-5 9-4 19 2 19 11 8 0 13 5 13 11H62c0-3 3-4 8-4z"/>
+  <path class="sky" d="M232 44c0-7 6-12 13-10 3-7 13-9 19-4 7-3 15 1 15 9 6 0 10 4 10 8h-64c0-2 3-3 7-3z"/>
+  <path class="far" d="M-10 340V160h34v-12h44v10h40v-6h52v14h40v-8h120v-12h36v10h58v-6h40v8h52v8h64v180z"/>
+  <g class="far">
+    <path d="M56 160l1 -76h3l1 76z"/><path transform="translate(58 84) scale(1.0)" d="M0 0c-12-8-28-6-36 4 12-5 25-4 34-1-10 3-20 10-23 21 8-9 18-14 25-15 0 0-3 13 2 21 2-9 3-16 0-21 8 3 16 11 18 19 0-10-8-19-16-23 10-3 23 0 31 5-8-10-23-13-34-8 3-8 11-13 21-15-13-3-23 5-22 13z"/>
+    <path d="M346 160l1 -64h3l1 64z"/><path transform="translate(348 96) scale(0.9)" d="M0 0c-12-8-28-6-36 4 12-5 25-4 34-1-10 3-20 10-23 21 8-9 18-14 25-15 0 0-3 13 2 21 2-9 3-16 0-21 8 3 16 11 18 19 0-10-8-19-16-23 10-3 23 0 31 5-8-10-23-13-34-8 3-8 11-13 21-15-13-3-23 5-22 13z"/>
+    <path d="M526 170l1 -62h3l1 62z"/><path transform="translate(528 108) scale(0.8)" d="M0 0c-12-8-28-6-36 4 12-5 25-4 34-1-10 3-20 10-23 21 8-9 18-14 25-15 0 0-3 13 2 21 2-9 3-16 0-21 8 3 16 11 18 19 0-10-8-19-16-23 10-3 23 0 31 5-8-10-23-13-34-8 3-8 11-13 21-15-13-3-23 5-22 13z"/>
+  </g>
+</g>
+
+<!-- 3 neighbours -->
+<g filter="url(#paper)">
+  <path class="sand" d="M36 262V132h40v-8h52v8h30v130z"/>
+  <path class="sand" d="M158 262v-66h44v66z"/>
+  <path class="sand" d="M362 262V112h104v150z"/>
+  <path class="sand" d="M476 262V164h94v98z"/>
+</g>
+
+<!-- 4 trees + ground -->
+<g filter="url(#paper)">
+  <rect class="mid" x="-10" y="252" width="580" height="90"/>
+  <path class="mid" d="M140 256v-34h5v34z"/><path class="mid" d="M142 228c-14 0-24-10-24-22 0-13 10-23 23-23 9 0 16 5 20 12 6 3 8 8 8 13 0 12-12 20-27 20z"/>
+  <path class="mid" d="M202 256v-30h5v30z"/><circle class="mid" cx="204" cy="212" r="21"/>
+  <path class="mid" d="M350 256v-28h5v28z"/><circle class="mid" cx="352" cy="214" r="20"/>
+  <path class="mid" d="M462 256v-36h5v36z"/><path class="mid" d="M464 226c-15 0-26-10-26-23 0-12 11-22 25-22 8 0 15 4 19 10 7 2 10 8 10 14 0 12-12 21-28 21z"/>
+</g>
+
+<!-- 5 focus building on its lot (lifted) -->
+<g filter="url(#paper-lift)">
+  <g mask="url(#cuts)">
+    <path class="sand" d="M196 276l3-16h152l3 16z"/>
+    <path class="focus" d="M216 262V96h6v-8h106v8h6v166z"/>
+  </g>
+</g>
+
+<!-- 6 road + curb -->
+<g filter="url(#paper)">
+  <path class="ink" d="M-10 340V281h580v59z"/>
+  <path class="sky" d="M-10 284v-6h580v6z"/>
+  <g class="sand"><rect x="14" y="298" width="30" height="3"/><rect x="84" y="298" width="30" height="3"/><rect x="154" y="298" width="30" height="3"/><rect x="224" y="298" width="30" height="3"/><rect x="294" y="298" width="30" height="3"/><rect x="364" y="298" width="30" height="3"/><rect x="434" y="298" width="30" height="3"/><rect x="504" y="298" width="30" height="3"/></g>
+</g>
+
+<!-- 7 hedge -->
+<g filter="url(#paper)">
+  <path class="mid" d="M-10 346V320c6-9 18-12 28-6 6-8 20-10 28-2 10-10 30-9 36 2 8-6 20-6 26 2 10-8 26-8 34 1 6-5 14-6 20-1 10-9 30-8 36 3 8-6 18-5 24 2 10-7 22-6 28 2 8-9 24-10 32 0 6-4 14-4 20 1 10-8 28-8 34 3 8-7 22-6 28 1 10-9 24-8 30 1 6-5 16-5 22 1 10-9 28-8 34 2 8-6 20-6 26 1 6-6 16-5 22 2 v26z"/>
+</g>
+
+<!-- light pool -->
+<rect width="560" height="336" fill="#fff" filter="url(#lamp)" style="mix-blend-mode:multiply" opacity="0.22"/>
+
+<!-- shadow-box frame -->
+<path fill="#3a2e3b" fill-opacity="0.45" fill-rule="evenodd" filter="url(#frame)" d="M-40-40h640v416h-640zM6 6v324h548V6z"/>
+</svg>

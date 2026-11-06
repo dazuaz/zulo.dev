@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 336" role="img" aria-labelledby="title desc">
+<title id="title">A hypothetical block, one unit per storey</title>
+<desc id="desc">An Isotype elevation with invented storey counts of three, five, four and two, built from identical repeated floor units. Only the four-storey focus building is vermilion. Four shallow separate lots, three identical round trees and a pale frontage road complete the hypothetical South Florida scene.</desc>
+<style>svg { --paper:#F3EBD7; --lot:#E0E3CF; --building:#6F877A; --tree:#284D3D; --focus:#DE6343; } .buildings {color:var(--building)} .focus {color:var(--focus)}</style>
+<defs>
+<symbol id="storey" viewBox="0 0 64 24"><path fill="currentColor" d="M0 0h64v4h-4v20H4V4H0z"/><path fill="var(--paper)" d="M12 8h8v12h-8zM28 8h8v12h-8zM44 8h8v12h-8z"/></symbol>
+<symbol id="lot" viewBox="0 0 96 32"><path fill="var(--lot)" d="M0 0h96v32H0z"/><path fill="var(--paper)" d="M40 0h16v32H40z"/></symbol>
+<symbol id="tree" viewBox="0 0 24 32"><path fill="var(--tree)" d="M10 20h4v12h-4z"/><circle fill="var(--tree)" cx="12" cy="12" r="12"/></symbol>
+<symbol id="road" viewBox="0 0 56 16"><path fill="var(--lot)" d="M0 0h56v16H0z"/><path fill="var(--paper)" d="M16 6h24v4H16z"/></symbol>
+</defs>
+<path fill="var(--paper)" d="M0 0h560v336H0z"/>
+<use href="#lot" x="40" y="224" width="96" height="32"/>
+<use href="#lot" x="168" y="224" width="96" height="32"/>
+<use href="#lot" x="296" y="224" width="96" height="32"/>
+<use href="#lot" x="424" y="224" width="96" height="32"/>
+<g class="buildings">
+<use href="#storey" x="56" y="144" width="64" height="24"/>
+<use href="#storey" x="56" y="172" width="64" height="24"/>
+<use href="#storey" x="56" y="200" width="64" height="24"/>
+<use href="#storey" x="184" y="88" width="64" height="24"/>
+<use href="#storey" x="184" y="116" width="64" height="24"/>
+<use href="#storey" x="184" y="144" width="64" height="24"/>
+<use href="#storey" x="184" y="172" width="64" height="24"/>
+<use href="#storey" x="184" y="200" width="64" height="24"/>
+<g class="focus">
+<use href="#storey" x="312" y="116" width="64" height="24"/>
+<use href="#storey" x="312" y="144" width="64" height="24"/>
+<use href="#storey" x="312" y="172" width="64" height="24"/>
+<use href="#storey" x="312" y="200" width="64" height="24"/>
+</g>
+<use href="#storey" x="440" y="172" width="64" height="24"/>
+<use href="#storey" x="440" y="200" width="64" height="24"/>
+</g>
+<use href="#tree" x="132" y="224" width="24" height="32"/>
+<use href="#tree" x="260" y="224" width="24" height="32"/>
+<use href="#tree" x="388" y="224" width="24" height="32"/>
+<path fill="var(--lot)" d="M24 256h512v4H24z"/>
+<use href="#road" y="280" width="56" height="16"/>
+<use href="#road" x="56" y="280" width="56" height="16"/>
+<use href="#road" x="112" y="280" width="56" height="16"/>
+<use href="#road" x="168" y="280" width="56" height="16"/>
+<use href="#road" x="224" y="280" width="56" height="16"/>
+<use href="#road" x="280" y="280" width="56" height="16"/>
+<use href="#road" x="336" y="280" width="56" height="16"/>
+<use href="#road" x="392" y="280" width="56" height="16"/>
+<use href="#road" x="448" y="280" width="56" height="16"/>
+<use href="#road" x="504" y="280" width="56" height="16"/>
+</svg>

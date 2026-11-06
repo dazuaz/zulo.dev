@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 336">
+<style>
+svg{--paper:#f0ead8;--ink:#1d3b31;--orn:#8b3a2b;--tint:#b9d0c0}
+.bg{fill:var(--paper)}
+.i{stroke:var(--ink);fill:none}
+.o{stroke:var(--orn);fill:none}
+.ol{stroke:var(--ink);stroke-width:.8;stroke-linejoin:round}
+</style>
+<defs>
+<pattern id="tint" width="30" height="6" patternUnits="userSpaceOnUse"><path d="M0 3Q7.5 0 15 3T30 3" stroke="var(--tint)" stroke-width=".5" fill="none"/></pattern>
+<pattern id="hL" width="3" height="3" patternUnits="userSpaceOnUse"><rect width="3" height="3" class="bg"/><path d="M0 1.5h3" class="i" stroke-width=".45"/></pattern>
+<pattern id="hM" width="3" height="3" patternUnits="userSpaceOnUse"><rect width="3" height="3" class="bg"/><path d="M0 1.5h3" class="i" stroke-width=".8"/></pattern>
+<pattern id="vL" width="3" height="3" patternUnits="userSpaceOnUse"><rect width="3" height="3" class="bg"/><path d="M1.5 0v3" class="i" stroke-width=".5"/></pattern>
+<pattern id="vD" width="2.5" height="2.5" patternUnits="userSpaceOnUse"><rect width="2.5" height="2.5" class="bg"/><path d="M1.25 0v2.5" class="i" stroke-width=".8"/></pattern>
+<pattern id="dL" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="3" height="3" class="bg"/><path d="M0 1.5h3" class="i" stroke-width=".4"/></pattern>
+<pattern id="xh" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="3" height="3" class="bg"/><path d="M0 1.5h3M1.5 0v3" class="i" stroke-width=".5"/></pattern>
+<pattern id="xhD" width="2.5" height="2.5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="2.5" height="2.5" class="bg"/><path d="M0 1.25h2.5M1.25 0v2.5" class="i" stroke-width="1"/></pattern>
+<pattern id="grass" width="5" height="4" patternUnits="userSpaceOnUse"><rect width="5" height="4" class="bg"/><path d="M1 4V1.5M3.5 4V2.5" class="i" stroke-width=".5"/></pattern>
+<pattern id="curl" width="4" height="4" patternUnits="userSpaceOnUse"><rect width="4" height="4" class="bg"/><path d="M.6 3.1a1.4 1.4 0 1 1 2.8 0M-1.4 1.1a1.4 1.4 0 1 1 2.8 0M2.6 1.1a1.4 1.4 0 1 1 2.8 0" class="i" stroke-width=".55"/></pattern>
+<pattern id="vM" width="3" height="3" patternUnits="userSpaceOnUse"><path d="M1.5 0v3" class="i" stroke-width=".6"/></pattern>
+<pattern id="xo" width="3" height="3" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 1.5h3M1.5 0v3" class="i" stroke-width=".6"/></pattern>
+<pattern id="hS" width="3" height="3" patternUnits="userSpaceOnUse"><path d="M0 1.5h3" class="i" stroke-width=".4"/></pattern>
+<pattern id="wT" width="24" height="14" y="12" patternUnits="userSpaceOnUse"><g class="o" stroke-width=".45"><path d="M-24 7c4-5 8-5 12 0s8 5 12 0s8-5 12 0s8 5 12 0"/><path d="M-22.5 7c4-5 8-5 12 0s8 5 12 0s8-5 12 0s8 5 12 0"/><path d="M-21 7c4-5 8-5 12 0s8 5 12 0s8-5 12 0s8 5 12 0"/><path d="M-19.5 7c4-5 8-5 12 0s8 5 12 0s8-5 12 0s8 5 12 0"/><path d="M-12 7c4-5 8-5 12 0s8 5 12 0s8-5 12 0s8 5 12 0"/><path d="M-10.5 7c4-5 8-5 12 0s8 5 12 0s8-5 12 0s8 5 12 0"/><path d="M-9 7c4-5 8-5 12 0s8 5 12 0s8-5 12 0s8 5 12 0"/><path d="M-7.5 7c4-5 8-5 12 0s8 5 12 0s8-5 12 0s8 5 12 0"/></g></pattern>
+<pattern id="wB" href="#wT" y="310"/>
+<pattern id="wL" href="#wT" y="-26" patternTransform="rotate(90)"/>
+<pattern id="wR" href="#wT" y="-548" patternTransform="rotate(90)"/>
+<linearGradient id="gLR"><stop offset=".35" stop-color="#000"/><stop offset="1" stop-color="#fff"/></linearGradient>
+<mask id="mLR" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="url(#gLR)"/></mask>
+<linearGradient id="gTop" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#000"/></linearGradient>
+<mask id="mTop" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="url(#gTop)"/></mask>
+<radialGradient id="gSh" cx=".72" cy=".78" r=".85"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#000"/></radialGradient>
+<mask id="mSh" maskContentUnits="objectBoundingBox"><rect width="1" height="1" fill="url(#gSh)"/></mask>
+<radialGradient id="gRay" cx="244" cy="230" r="230" gradientUnits="userSpaceOnUse"><stop offset=".2" stop-color="#fff"/><stop offset="1" stop-color="#000"/></radialGradient>
+<mask id="mRay" maskUnits="userSpaceOnUse" x="0" y="0" width="560" height="336"><rect width="560" height="336" fill="url(#gRay)"/></mask>
+<clipPath id="oval"><ellipse cx="220" cy="170" rx="184" ry="122"/></clipPath>
+<circle id="rc" cx="30" r="22"/>
+<ellipse id="re" rx="54" ry="18"/>
+<circle id="ri" cx="12" r="8"/>
+<ellipse id="pe" rx="13" ry="4.5"/>
+<line id="ray" y2="-280"/>
+<g id="med">
+<circle r="15" class="bg o" stroke-width=".7"/>
+<g class="o" stroke-width=".4"><use href="#pe"/><use href="#pe" transform="rotate(15)"/><use href="#pe" transform="rotate(30)"/><use href="#pe" transform="rotate(45)"/><use href="#pe" transform="rotate(60)"/><use href="#pe" transform="rotate(75)"/><use href="#pe" transform="rotate(90)"/><use href="#pe" transform="rotate(105)"/><use href="#pe" transform="rotate(120)"/><use href="#pe" transform="rotate(135)"/><use href="#pe" transform="rotate(150)"/><use href="#pe" transform="rotate(165)"/></g>
+<circle r="3" class="o" stroke-width=".5"/><circle r="12.5" class="o" stroke-width=".3"/>
+</g>
+</defs>
+<rect width="560" height="336" class="bg"/>
+<rect x="26" y="26" width="508" height="284" fill="url(#tint)"/>
+<rect x="5" y="5" width="550" height="326" class="o" stroke-width="1.1"/>
+<rect x="8.5" y="8.5" width="543" height="319" class="o" stroke-width=".4"/>
+<rect x="12" y="12" width="536" height="14" fill="url(#wT)"/>
+<rect x="12" y="310" width="536" height="14" fill="url(#wB)"/>
+<rect x="12" y="26" width="14" height="284" fill="url(#wL)"/>
+<rect x="534" y="26" width="14" height="284" fill="url(#wR)"/>
+<rect x="12" y="12" width="536" height="312" class="o" stroke-width=".6"/>
+<rect x="26" y="26" width="508" height="284" class="o" stroke-width=".6"/>
+<use href="#med" x="19" y="19"/><use href="#med" x="541" y="19"/><use href="#med" x="19" y="317"/><use href="#med" x="541" y="317"/>
+<g transform="translate(477 168)">
+<circle r="56.5" class="bg"/>
+<g class="o" stroke-width=".3"><use href="#rc"/><use href="#rc" transform="rotate(10)"/><use href="#rc" transform="rotate(20)"/><use href="#rc" transform="rotate(30)"/><use href="#rc" transform="rotate(40)"/><use href="#rc" transform="rotate(50)"/><use href="#rc" transform="rotate(60)"/><use href="#rc" transform="rotate(70)"/><use href="#rc" transform="rotate(80)"/><use href="#rc" transform="rotate(90)"/><use href="#rc" transform="rotate(100)"/><use href="#rc" transform="rotate(110)"/><use href="#rc" transform="rotate(120)"/><use href="#rc" transform="rotate(130)"/><use href="#rc" transform="rotate(140)"/><use href="#rc" transform="rotate(150)"/><use href="#rc" transform="rotate(160)"/><use href="#rc" transform="rotate(170)"/><use href="#rc" transform="rotate(180)"/><use href="#rc" transform="rotate(190)"/><use href="#rc" transform="rotate(200)"/><use href="#rc" transform="rotate(210)"/><use href="#rc" transform="rotate(220)"/><use href="#rc" transform="rotate(230)"/><use href="#rc" transform="rotate(240)"/><use href="#rc" transform="rotate(250)"/><use href="#rc" transform="rotate(260)"/><use href="#rc" transform="rotate(270)"/><use href="#rc" transform="rotate(280)"/><use href="#rc" transform="rotate(290)"/><use href="#rc" transform="rotate(300)"/><use href="#rc" transform="rotate(310)"/><use href="#rc" transform="rotate(320)"/><use href="#rc" transform="rotate(330)"/><use href="#rc" transform="rotate(340)"/><use href="#rc" transform="rotate(350)"/></g>
+<g class="o" stroke-width=".35"><use href="#re"/><use href="#re" transform="rotate(7.5)"/><use href="#re" transform="rotate(15)"/><use href="#re" transform="rotate(22.5)"/><use href="#re" transform="rotate(30)"/><use href="#re" transform="rotate(37.5)"/><use href="#re" transform="rotate(45)"/><use href="#re" transform="rotate(52.5)"/><use href="#re" transform="rotate(60)"/><use href="#re" transform="rotate(67.5)"/><use href="#re" transform="rotate(75)"/><use href="#re" transform="rotate(82.5)"/><use href="#re" transform="rotate(90)"/><use href="#re" transform="rotate(97.5)"/><use href="#re" transform="rotate(105)"/><use href="#re" transform="rotate(112.5)"/><use href="#re" transform="rotate(120)"/><use href="#re" transform="rotate(127.5)"/><use href="#re" transform="rotate(135)"/><use href="#re" transform="rotate(142.5)"/><use href="#re" transform="rotate(150)"/><use href="#re" transform="rotate(157.5)"/><use href="#re" transform="rotate(165)"/><use href="#re" transform="rotate(172.5)"/></g>
+<g class="o" stroke-width=".35"><use href="#ri"/><use href="#ri" transform="rotate(15)"/><use href="#ri" transform="rotate(30)"/><use href="#ri" transform="rotate(45)"/><use href="#ri" transform="rotate(60)"/><use href="#ri" transform="rotate(75)"/><use href="#ri" transform="rotate(90)"/><use href="#ri" transform="rotate(105)"/><use href="#ri" transform="rotate(120)"/><use href="#ri" transform="rotate(135)"/><use href="#ri" transform="rotate(150)"/><use href="#ri" transform="rotate(165)"/><use href="#ri" transform="rotate(180)"/><use href="#ri" transform="rotate(195)"/><use href="#ri" transform="rotate(210)"/><use href="#ri" transform="rotate(225)"/><use href="#ri" transform="rotate(240)"/><use href="#ri" transform="rotate(255)"/><use href="#ri" transform="rotate(270)"/><use href="#ri" transform="rotate(285)"/><use href="#ri" transform="rotate(300)"/><use href="#ri" transform="rotate(315)"/><use href="#ri" transform="rotate(330)"/><use href="#ri" transform="rotate(345)"/></g>
+<circle r="54.5" class="o" stroke-width=".8"/><circle r="56.5" class="o" stroke-width=".4"/>
+</g>
+<g clip-path="url(#oval)">
+<ellipse cx="220" cy="170" rx="184" ry="122" class="bg"/>
+<g transform="translate(-12 0)">
+<rect x="40" y="44" width="390" height="184" fill="url(#hS)" mask="url(#mTop)"/>
+<g mask="url(#mRay)"><g transform="translate(244 230)" class="i" stroke-width=".45"><use href="#ray" transform="rotate(-80)"/><use href="#ray" transform="rotate(-75)"/><use href="#ray" transform="rotate(-70)"/><use href="#ray" transform="rotate(-65)"/><use href="#ray" transform="rotate(-60)"/><use href="#ray" transform="rotate(-55)"/><use href="#ray" transform="rotate(-50)"/><use href="#ray" transform="rotate(-45)"/><use href="#ray" transform="rotate(-40)"/><use href="#ray" transform="rotate(-35)"/><use href="#ray" transform="rotate(-30)"/><use href="#ray" transform="rotate(-25)"/><use href="#ray" transform="rotate(-20)"/><use href="#ray" transform="rotate(-15)"/><use href="#ray" transform="rotate(-10)"/><use href="#ray" transform="rotate(-5)"/><use href="#ray"/><use href="#ray" transform="rotate(5)"/><use href="#ray" transform="rotate(10)"/><use href="#ray" transform="rotate(15)"/><use href="#ray" transform="rotate(20)"/><use href="#ray" transform="rotate(25)"/><use href="#ray" transform="rotate(30)"/><use href="#ray" transform="rotate(35)"/><use href="#ray" transform="rotate(40)"/><use href="#ray" transform="rotate(45)"/><use href="#ray" transform="rotate(50)"/><use href="#ray" transform="rotate(55)"/><use href="#ray" transform="rotate(60)"/><use href="#ray" transform="rotate(65)"/><use href="#ray" transform="rotate(70)"/><use href="#ray" transform="rotate(75)"/><use href="#ray" transform="rotate(80)"/></g></g>
+<rect x="40" y="226" width="390" height="26" fill="url(#grass)"/>
+<rect x="40" y="252" width="390" height="6" class="bg"/>
+<path d="M40 252h390M40 258h390" class="ol" fill="none"/>
+<rect x="40" y="258" width="390" height="40" fill="url(#hM)"/>
+<rect x="40" y="258" width="390" height="40" fill="url(#xo)"/>
+<path d="M44 277h16M76 277h16M108 277h16M140 277h16M172 277h16M204 277h16M236 277h16M268 277h16M300 277h16M332 277h16M364 277h16M396 277h16" stroke="var(--paper)" stroke-width="2.6"/>
+<g fill="url(#xh)"><polygon points="160,236 176,227 196,227 180,242 160,242"/><polygon points="286,236 302,227 326,227 310,244 286,244"/><polygon points="410,236 426,227 440,227 440,242 410,242"/></g>
+<polygon points="70,160 86,151 176,151 160,160" fill="url(#dL)" class="ol"/>
+<polygon points="160,160 176,151 176,227 160,236" fill="url(#vL)" class="ol"/>
+<rect x="70" y="160" width="90" height="76" fill="url(#hL)" class="ol"/>
+<g fill="url(#xh)" class="ol"><rect x="80" y="172" width="14" height="16"/><rect x="108" y="172" width="14" height="16"/><rect x="136" y="172" width="14" height="16"/><rect x="80" y="202" width="14" height="16"/><rect x="108" y="202" width="14" height="34"/><rect x="136" y="202" width="14" height="16"/></g>
+<polygon points="322,170 338,161 426,161 410,170" fill="url(#dL)" class="ol"/>
+<polygon points="410,170 426,161 426,227 410,236" fill="url(#vL)" class="ol"/>
+<rect x="322" y="170" width="88" height="66" fill="url(#hL)" class="ol"/>
+<g fill="url(#xh)" class="ol"><rect x="332" y="182" width="14" height="14"/><rect x="360" y="182" width="14" height="14"/><rect x="388" y="182" width="14" height="14"/><rect x="332" y="208" width="14" height="14"/><rect x="360" y="208" width="14" height="28"/><rect x="388" y="208" width="14" height="14"/></g>
+<polygon points="186,104 202,95 302,95 286,104" fill="url(#dL)" class="ol"/>
+<polygon points="286,104 302,95 302,227 286,236" fill="url(#vD)" class="ol"/>
+<polygon points="286,104 302,95 302,227 286,236" fill="url(#xo)"/>
+<rect x="186" y="104" width="100" height="132" fill="url(#hM)" class="ol"/>
+<rect x="186" y="104" width="100" height="132" fill="url(#vM)" mask="url(#mLR)"/>
+<g fill="url(#xhD)" class="ol"><rect x="193" y="116" width="86" height="18"/><rect x="193" y="146" width="86" height="18"/><rect x="193" y="176" width="86" height="18"/></g>
+<path d="M214 117v16M236 117v16M258 117v16M214 147v16M236 147v16M258 147v16M214 177v16M236 177v16M258 177v16" stroke="var(--paper)" stroke-width="1.6"/>
+<polygon points="206,210 270,210 278,218 214,218" fill="url(#xhD)"/>
+<rect x="222" y="212" width="30" height="24" fill="url(#xhD)" class="ol"/>
+<path d="M237 212v24" stroke="var(--paper)" stroke-width="1.4"/>
+<rect x="202" y="206" width="70" height="4" fill="url(#vD)" class="ol"/>
+<path d="M172 214v24M312 220v20M92 238v14" class="ol" stroke-width="2.2"/>
+<circle cx="172" cy="196" r="22" fill="url(#curl)" class="ol"/>
+<circle cx="172" cy="196" r="22" fill="url(#xo)" mask="url(#mSh)"/>
+<circle cx="312" cy="204" r="20" fill="url(#curl)" class="ol"/>
+<circle cx="312" cy="204" r="20" fill="url(#xo)" mask="url(#mSh)"/>
+<circle cx="92" cy="224" r="18" fill="url(#curl)" class="ol"/>
+<circle cx="92" cy="224" r="18" fill="url(#xo)" mask="url(#mSh)"/>
+</g>
+</g>
+<ellipse cx="220" cy="170" rx="184" ry="122" class="i" stroke-width=".8"/>
+<ellipse cx="220" cy="170" rx="187" ry="125" class="i" stroke-width=".4"/>
+<ellipse cx="220" cy="170" rx="191.5" ry="129.5" class="o" stroke-width="6" stroke-dasharray=".5 1.6"/>
+<ellipse cx="220" cy="170" rx="188.5" ry="126.5" class="o bg" stroke-width=".4" style="fill:none"/>
+<ellipse cx="220" cy="170" rx="194.5" ry="132.5" class="o" stroke-width=".4"/>
+</svg>

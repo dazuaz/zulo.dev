@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 336" role="img" aria-labelledby="title desc">
+  <title id="title">A hypothetical South Florida street in Bauhaus geometry</title>
+  <desc id="desc">A huge red building with square windows, an entrance, and a quarter-circle terrace bleeds off the left of its own lot. Two smaller blue and yellow buildings have windows and doors. Three circular trees on thin trunks stand above a black diagonal frontage road.</desc>
+  <style>
+    svg { --paper:#f2eddc; --black:#161a18; --red:#db3328; --yellow:#f4c52d; --blue:#2448a0; }
+    .paper { fill:var(--paper); }
+    .black { fill:var(--black); }
+    .red { fill:var(--red); }
+    .yellow { fill:var(--yellow); }
+    .blue { fill:var(--blue); }
+  </style>
+  <defs>
+    <path id="quarter" d="M0 0H1A1 1 0 0 1 0 1Z"/>
+    <mask id="building-openings" maskUnits="userSpaceOnUse" x="-32" y="24" width="288" height="216">
+      <rect x="-32" y="24" width="288" height="216" fill="white"/>
+      <path d="M224 56H128A96 96 0 0 0 224 152Z" fill="black"/>
+      <g fill="black">
+        <rect x="24" y="64" width="24" height="24"/>
+        <rect x="72" y="64" width="24" height="24"/>
+        <rect x="8" y="168" width="24" height="24"/>
+        <rect x="56" y="168" width="24" height="24"/>
+        <rect x="104" y="168" width="24" height="24"/>
+        <rect x="152" y="168" width="24" height="24"/>
+      </g>
+    </mask>
+    <clipPath id="road-clip"><rect x="-32" y="0" width="640" height="40"/></clipPath>
+    <pattern id="lane-marks" x="0" y="0" width="80" height="40" patternUnits="userSpaceOnUse">
+      <rect x="16" y="18" width="40" height="4" class="paper"/>
+    </pattern>
+  </defs>
+  <rect width="560" height="336" class="paper"/>
+  <!-- Open-ended lot, oversized facade, and the deliberate red bleed. -->
+  <rect x="-40" y="8" width="320" height="248" class="paper"/>
+  <rect x="-40" y="8" width="320" height="2" class="black"/>
+  <rect x="278" y="8" width="2" height="248" class="black"/>
+  <rect x="-40" y="254" width="320" height="2" class="black"/>
+  <rect x="-32" y="24" width="288" height="216" class="red" mask="url(#building-openings)"/>
+  <rect x="240" y="24" width="16" height="216" class="black"/>
+  <rect x="-32" y="232" width="288" height="8" class="black"/>
+  <!-- A ground-reaching doorway interrupts the base. -->
+  <rect x="184" y="184" width="48" height="56" class="paper"/>
+  <rect x="192" y="192" width="32" height="48" class="black"/>
+  <!-- Staggered neighbor facades carry small, consistent windows and doors. -->
+  <rect x="376" y="24" width="72" height="56" class="blue"/>
+  <rect x="440" y="24" width="8" height="56" class="black"/>
+  <rect x="392" y="40" width="8" height="8" class="paper"/>
+  <rect x="416" y="40" width="8" height="8" class="paper"/>
+  <rect x="400" y="56" width="16" height="24" class="black"/>
+  <rect x="456" y="136" width="64" height="48" class="yellow"/>
+  <rect x="456" y="176" width="64" height="8" class="black"/>
+  <rect x="464" y="144" width="8" height="8" class="paper"/>
+  <rect x="488" y="144" width="8" height="8" class="paper"/>
+  <rect x="496" y="160" width="16" height="24" class="black"/>
+  <!-- Trunks precede their crowns, so only the exposed lower bars show. -->
+  <rect x="340" y="200" width="8" height="40" class="black"/>
+  <circle cx="344" cy="168" r="40" class="black"/>
+  <use href="#quarter" class="yellow" transform="translate(344 168) rotate(180) scale(40)"/>
+  <rect x="492" y="84" width="8" height="28" class="black"/>
+  <circle cx="496" cy="72" r="16" class="red"/>
+  <use href="#quarter" class="black" transform="translate(496 72) scale(16)"/>
+  <rect x="396" y="232" width="8" height="16" class="black"/>
+  <circle cx="400" cy="224" r="12" class="blue"/>
+  <use href="#quarter" class="yellow" transform="translate(400 224) rotate(90) scale(12)"/>
+  <g transform="translate(0 312) rotate(-8)">
+    <rect x="-32" y="0" width="640" height="40" class="black"/>
+    <rect x="-32" y="0" width="640" height="40" fill="url(#lane-marks)" clip-path="url(#road-clip)"/>
+  </g>
+</svg>

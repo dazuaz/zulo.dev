@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 336">
+<style>
+svg{--paper:#f7f3ea;--ink:#2a2933;--blue:#7aa3c4;--green:#93b37d;--sand:#dbc8a4;--coral:#e2876a}
+.pa{fill:var(--paper)}.b{fill:var(--blue)}.g{fill:var(--green)}.s{fill:var(--sand)}.c{fill:var(--coral)}
+.w{mix-blend-mode:multiply}
+.pen{fill:none;stroke:var(--ink);stroke-width:.9;stroke-linecap:round;stroke-linejoin:round}
+.fine{stroke-width:.6}.cl{stroke-dasharray:14 10}.lot{stroke-dasharray:3 3}
+</style>
+<defs>
+<radialGradient id="fade" gradientUnits="userSpaceOnUse" cx="290" cy="160" r="300" gradientTransform="translate(290 160) scale(1 .45) translate(-290 -160)"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#fff"/><stop offset="1" stop-color="#000"/></radialGradient>
+<mask id="skym" maskUnits="userSpaceOnUse" x="0" y="0" width="560" height="336"><rect width="560" height="336" fill="url(#fade)"/></mask>
+<filter id="paper" filterUnits="userSpaceOnUse" x="0" y="0" width="560" height="336" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency="0.5" numOctaves="2" seed="7" result="n"/>
+<feDiffuseLighting in="n" surfaceScale="1" diffuseConstant="1" lighting-color="#fff" result="l"><feDistantLight azimuth="225" elevation="60"/></feDiffuseLighting>
+<feComponentTransfer in="l" result="lt"><feFuncR type="linear" slope="0.2" intercept="0.817"/><feFuncG type="linear" slope="0.2" intercept="0.817"/><feFuncB type="linear" slope="0.2" intercept="0.817"/></feComponentTransfer>
+<feBlend in="SourceGraphic" in2="lt" mode="multiply"/>
+</filter>
+<filter id="wash" filterUnits="userSpaceOnUse" x="-20" y="-20" width="600" height="376" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="4" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="B" result="d"/>
+<feGaussianBlur in="d" stdDeviation="0.5" result="b"/>
+<feGaussianBlur in="b" stdDeviation="2.5" result="bl"/>
+<feComposite in="b" in2="bl" operator="arithmetic" k2="1" k3="-1" result="edge"/>
+<feColorMatrix in="edge" type="matrix" values="0.75 0 0 0 0 0 0.75 0 0 0 0 0 0.78 0 0 0 0 0 2 0" result="rim"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="2" seed="21" result="lo"/>
+<feColorMatrix in="lo" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1.6 0 0 0 -0.25" result="loA"/>
+<feComposite in="rim" in2="loA" operator="in" result="rimv"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="11" result="gr"/>
+<feColorMatrix in="gr" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6 0 0 0 0.55" result="grA"/>
+<feColorMatrix in="b" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.5 0" result="b0"/>
+<feComposite in="b0" in2="grA" operator="in" result="body"/>
+<feMerge><feMergeNode in="body"/><feMergeNode in="rimv"/></feMerge>
+</filter>
+<filter id="dry" filterUnits="userSpaceOnUse" x="-20" y="-20" width="600" height="376" color-interpolation-filters="sRGB">
+<feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="4" result="n"/>
+<feDisplacementMap in="SourceGraphic" in2="n" scale="10" xChannelSelector="R" yChannelSelector="B" result="d"/>
+<feGaussianBlur in="d" stdDeviation="0.5" result="b"/>
+<feGaussianBlur in="b" stdDeviation="2.5" result="bl"/>
+<feComposite in="b" in2="bl" operator="arithmetic" k2="1" k3="-1" result="edge"/>
+<feColorMatrix in="edge" type="matrix" values="0.75 0 0 0 0 0 0.75 0 0 0 0 0 0.78 0 0 0 0 0 2 0" result="rim"/>
+<feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="11" result="gr"/>
+<feColorMatrix in="gr" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.6 0 0 0 0.55" result="grA"/>
+<feColorMatrix in="b" type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.5 0" result="b0"/>
+<feComposite in="b0" in2="grA" operator="in" result="body"/>
+<feMerge result="wet"><feMergeNode in="body"/><feMergeNode in="rim"/></feMerge>
+<feTurbulence type="fractalNoise" baseFrequency="0.006 0.22" numOctaves="2" seed="3" result="st"/>
+<feColorMatrix in="st" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -7 0 0 0 4.4" result="stA"/>
+<feComposite in="wet" in2="stA" operator="in"/>
+</filter>
+</defs>
+
+<rect class="pa" width="560" height="336" filter="url(#paper)"/>
+
+<!-- washes -->
+<g mask="url(#skym)"><path class="b w" filter="url(#wash)" d="M6 28C150 18 410 18 554 28L554 118C540 118 528 122 520 130C512 150 506 176 492 180C470 182 440 180 420 186C408 192 392 192 384 176C378 160 378 130 372 114C350 104 260 104 242 112C222 122 210 140 200 152C190 166 172 172 162 156C150 144 120 146 80 146C50 146 20 146 6 148Z"/></g>
+<path class="s w" filter="url(#wash)" d="M20 288C34 278 64 272 120 274L520 266C544 266 552 278 546 290L26 292Z"/>
+<path class="g w" filter="url(#wash)" d="M192 284L376 284L410 260L374 258L368 246L330 270L210 272Z"/>
+<g class="s w" filter="url(#wash)"><path d="M36 186L118 182L116 240L104 266L38 268Z"/><path d="M414 214L482 212L484 262L420 268Z"/><path d="M532 158L558 154L560 266L534 262Z"/></g>
+<g class="c w" filter="url(#wash)"><path d="M211 160L322 158L324 262L300 268L212 266Z"/><path d="M331 158L363 132L363 238L331 264Z"/></g>
+<path class="c w" filter="url(#wash)" d="M333 170L362 146L362 236L334 258Z"/>
+<path class="b w" filter="url(#dry)" d="M10 296L552 294L554 332L12 333Z"/>
+<g class="g w" filter="url(#wash)"><circle cx="167" cy="238" r="21"/><circle cx="389" cy="252" r="16"/><circle cx="59" cy="264" r="15"/><circle cx="519" cy="264" r="14"/></g>
+<g class="g w" filter="url(#wash)"><circle cx="176" cy="244" r="12"/><circle cx="397" cy="257" r="9"/><circle cx="67" cy="269" r="8"/><circle cx="527" cy="268" r="8"/></g>
+<g class="b w" filter="url(#wash)" opacity=".85">
+<path d="M126 266L150 246V162L126 180Z"/><path d="M490 266L514 248V192L490 210Z"/>
+<path d="M124 272L150 274L178 252L154 250Z"/><path d="M330 272L360 274L398 244L368 242Z"/><path d="M488 272L510 274L538 252L518 250Z"/>
+<ellipse cx="184" cy="281" rx="20" ry="5"/><ellipse cx="404" cy="284" rx="16" ry="4"/><ellipse cx="76" cy="288" rx="14" ry="3.5"/><ellipse cx="534" cy="288" rx="13" ry="3.5"/>
+</g>
+<path class="b w" filter="url(#wash)" opacity=".45" d="M332 176L362 152L362 236L332 260Z"/>
+
+<!-- pen -->
+<g class="pen">
+<path d="M26 176H126M30 172V274M122 172V274M26.8 178.4L63.2 151.6M118.8 178.4L155.2 151.6M56 154H156M152 150V252M118.8 272.4L155.2 245.6"/>
+<path class="fine" d="M42 192h14v12h-14zM68 192h14v12h-14zM94 192h14v12h-14zM42 214h14v12h-14zM68 214h14v12h-14zM94 214h14v12h-14zM42 236h14v12h-14zM94 236h14v12h-14zM68 238h14v32"/>
+<path d="M202 154H330M206 150V274M326 150V274M202.8 156.4L249.2 121.6M322.8 156.4L369.2 121.6M242 124H370M366 120V244M322.8 272.4L369.2 237.6"/>
+<path class="fine" d="M206 160H326M210 166H322M210 168.5H322M216 170h100v16h-100zM241 170v16M266 170v16M291 170v16M210 194H322M210 196.5H322M216 198h100v16h-100zM241 198v16M266 198v16M291 198v16M218 236h28v20h-28zM290 236h26v20h-26zM258 270V232h22v38M252 228H286"/>
+<path class="fine" d="M218 186l14-14M225 186l14-14M232 186l14-14M239 186l14-14M246 186l14-14M253 186l14-14M260 186l14-14M267 186l14-14M274 186l14-14M281 186l14-14M288 186l14-14M295 186l14-14M218 214l14-14M225 214l14-14M232 214l14-14M239 214l14-14M246 214l14-14M253 214l14-14M260 214l14-14M267 214l14-14M274 214l14-14M281 214l14-14M288 214l14-14M295 214l14-14M220 256l10-10M226 256l10-10M232 256l10-10M238 256l10-10M244 256l10-10M292 256l10-10M298 256l10-10M304 256l10-10M310 256l10-10"/>
+<path class="fine" d="M330 180L362 156M331 196L361 173.5M329 212L362 187M330 228L362 204M332 244L361 222M330 260L360 237.5"/>
+<path d="M406 208H490M410 204V274M486 204V274M406.8 210.4L443.2 183.6M482.8 210.4L519.2 183.6M436 186H520M516 182V252M482.8 272.4L519.2 245.6"/>
+<path class="fine" d="M420 226h22v16h-22zM454 226h22v16h-22z"/>
+<path d="M528 146V274M524 150H564M524.8 152.4L561.2 125.6"/>
+<path class="fine" d="M538 164h12v12h-12zM538 188h12v12h-12zM538 212h12v12h-12zM538 240h12v30"/>
+<path d="M2 286H558M2 292H558"/>
+<path class="fine cl" d="M8 314H552"/>
+<path class="fine" d="M50 286v6M110 286v6M170 286v6M230 286v6M290 286v6M350 286v6M410 286v6M470 286v6M530 286v6M262 270v16M276 270v16"/>
+<path class="fine lot" d="M186 286L232 252M378 286L424 252"/>
+<circle cx="170" cy="236" r="22" pathLength="100" stroke-dasharray="86 100" transform="rotate(-30 170 236)"/>
+<circle cx="392" cy="250" r="17" pathLength="100" stroke-dasharray="84 100" transform="rotate(20 392 250)"/>
+<circle cx="62" cy="262" r="16" pathLength="100" stroke-dasharray="88 100" transform="rotate(-60 62 262)"/>
+<circle cx="522" cy="262" r="15" pathLength="100" stroke-dasharray="85 100" transform="rotate(10 522 262)"/>
+<path d="M170 258V280M392 267V283M62 278V287M522 277V287"/>
+<path class="fine" d="M176 246q6-2 8-9M160 232q-2-6 3-10M398 256q5-2 6-7M68 268q4-1 5-6M528 266q4-2 4-6"/>
+</g>
+</svg>

@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 336">
+<style>
+svg{--ink:#060e1b;--structure:#102436;--slate:#244657;--cool:#6fbbd1;--amber:#ffb967;--light:#fff1cb;background:var(--ink)}
+.add{mix-blend-mode:screen}
+</style>
+<defs>
+ <radialGradient id="falloff"><stop stop-color="var(--light)"/><stop offset=".24" stop-color="var(--light)" stop-opacity=".91"/><stop offset=".62" stop-color="var(--light)" stop-opacity=".26"/><stop offset="1" stop-color="var(--light)" stop-opacity="0"/></radialGradient>
+ <radialGradient id="atmosphere"><stop stop-color="var(--slate)" stop-opacity=".31"/><stop offset=".58" stop-color="var(--slate)" stop-opacity=".1"/><stop offset="1" stop-color="var(--ink)" stop-opacity="0"/></radialGradient>
+ <radialGradient id="pool"><stop stop-color="var(--amber)" stop-opacity=".39"/><stop offset=".2" stop-color="var(--amber)" stop-opacity=".28"/><stop offset=".48" stop-color="var(--amber)" stop-opacity=".11"/><stop offset=".79" stop-color="var(--amber)" stop-opacity=".025"/><stop offset="1" stop-color="var(--amber)" stop-opacity="0"/></radialGradient>
+ <radialGradient id="spill"><stop stop-color="var(--amber)" stop-opacity=".63"/><stop offset=".24" stop-color="var(--amber)" stop-opacity=".31"/><stop offset=".6" stop-color="var(--amber)" stop-opacity=".08"/><stop offset="1" stop-color="var(--amber)" stop-opacity="0"/></radialGradient>
+ <radialGradient id="lamp"><stop stop-color="var(--amber)" stop-opacity=".5"/><stop offset=".14" stop-color="var(--amber)" stop-opacity=".23"/><stop offset=".5" stop-color="var(--amber)" stop-opacity=".035"/><stop offset="1" stop-color="var(--amber)" stop-opacity="0"/></radialGradient>
+ <filter id="halation" x="-150%" y="-100%" width="400%" height="300%"><feGaussianBlur stdDeviation="1.6"/></filter>
+ <mask id="siteFade" maskUnits="userSpaceOnUse" mask-type="alpha"><ellipse cx="279" cy="189" rx="240" ry="126" fill="url(#falloff)"/></mask>
+ <mask id="nearWall" maskUnits="userSpaceOnUse" mask-type="alpha"><ellipse cx="274" cy="188" rx="72" ry="69" fill="url(#falloff)"/></mask>
+ <mask id="farWall" maskUnits="userSpaceOnUse" mask-type="alpha"><ellipse cx="293" cy="189" rx="43" ry="65" fill="url(#falloff)" opacity=".5"/></mask>
+ <mask id="roofWash" maskUnits="userSpaceOnUse" mask-type="alpha"><ellipse cx="264" cy="133" rx="94" ry="57" fill="url(#falloff)" opacity=".6"/></mask>
+ <mask id="leftNeighbor" maskUnits="userSpaceOnUse" mask-type="alpha"><ellipse cx="203" cy="116" rx="76" ry="54" fill="url(#falloff)" opacity=".55"/></mask>
+ <mask id="backNeighbor" maskUnits="userSpaceOnUse" mask-type="alpha"><ellipse cx="388" cy="120" rx="69" ry="59" fill="url(#falloff)" opacity=".4"/></mask>
+ <mask id="rightNeighbor" maskUnits="userSpaceOnUse" mask-type="alpha"><ellipse cx="336" cy="222" rx="76" ry="57" fill="url(#falloff)" opacity=".45"/></mask>
+ <clipPath id="walls"><path d="M226.18 111 288.53 147 344.82 114.5V166.5L288.53 199 226.18 163Z"/></clipPath>
+ <clipPath id="road"><path d="M98.016 122 352.62 269 304.124 297 49.52 150Z"/></clipPath>
+ <clipPath id="spillWedge"><path d="M115 169H146L172 213H89Z"/></clipPath>
+ <symbol id="window" viewBox="0 0 7 10"><rect x="1.4" y="1.5" width="4.2" height="7" fill="var(--amber)" opacity=".65" filter="url(#halation)"/><rect x="1.6" y="1.8" width="3.8" height="6.4" fill="var(--light)"/><path d="M3.5 2V8" stroke="var(--amber)" stroke-width=".55"/></symbol>
+</defs>
+<path d="M0 0H560V336H0Z" fill="var(--ink)"/>
+<ellipse cx="287" cy="171" rx="239" ry="152" fill="url(#atmosphere)"/>
+<!-- Fading the land into the night removes the model's hard plinth. -->
+<g mask="url(#siteFade)">
+ <g transform="matrix(.866 .5 -.866 .5 292 42)">
+  <path d="M0 0H230V190H0Z" fill="var(--structure)" opacity=".35"/>
+  <path d="M-32 192H262V248H-32Z" fill="var(--slate)" opacity=".12"/>
+  <path d="M-24 220H250" fill="none" stroke="var(--cool)" stroke-width=".8" stroke-dasharray="9 19" opacity=".055"/>
+  <path d="M83 168H155V188H83Z" fill="var(--structure)" opacity=".8"/>
+ </g>
+ <g clip-path="url(#road)" class="add"><g transform="matrix(.866 .5 -.866 .5 292 42)">
+  <ellipse cx="53" cy="213" rx="62" ry="50" fill="url(#pool)"/>
+  <ellipse cx="211" cy="214" rx="65" ry="52" fill="url(#pool)"/>
+ </g></g>
+</g>
+<g transform="matrix(.866 .5 -.866 .5 292 42)" class="add">
+ <g clip-path="url(#spillWedge)"><ellipse cx="130" cy="174" rx="46" ry="47" fill="url(#spill)"/></g>
+ <ellipse cx="130" cy="178" rx="43" ry="36" fill="url(#spill)" opacity=".33"/>
+</g>
+<!-- Each neighbor is seen through its own local illumination mask. -->
+<g mask="url(#leftNeighbor)">
+ <path d="M187.21 89.5 230.51 114.5V145.5L187.21 120.5Z" fill="var(--structure)"/>
+ <path d="M230.51 114.5 283.34 84V115L230.51 145.5Z" fill="var(--structure)" opacity=".6"/>
+ <path d="M187.21 89.5 240.04 59 283.34 84 230.51 114.5Z" fill="var(--slate)" opacity=".46"/>
+</g>
+<g transform="matrix(.866 .5 0 1 187.21 89.5)" class="add" fill="var(--cool)" opacity=".23"><path d="M14 14H18V19H14Z M23 14H27V19H23Z"/></g>
+<g mask="url(#backNeighbor)">
+ <path d="M314.52 85.5 365.61 115V150L314.52 120.5Z" fill="var(--structure)"/>
+ <path d="M365.61 115 406.31 91.5V126.5L365.61 150Z" fill="var(--structure)" opacity=".7"/>
+ <path d="M314.52 85.5 355.22 62 406.31 91.5 365.61 115Z" fill="var(--slate)" opacity=".5"/>
+</g>
+<g transform="matrix(.866 -.5 0 1 365.61 115)" class="add" fill="var(--cool)"><path d="M13 14H17V20H13Z" opacity=".25"/><path d="M22 14H26V20H22Z" opacity=".13"/></g>
+<g mask="url(#rightNeighbor)">
+ <path d="M301.53 179.5 343.09 203.5V233.5L301.53 209.5Z" fill="var(--structure)"/>
+ <path d="M343.09 203.5 392.45 175V205L343.09 233.5Z" fill="var(--structure)" opacity=".7"/>
+ <path d="M301.53 179.5 350.89 151 392.45 175 343.09 203.5Z" fill="var(--slate)" opacity=".43"/>
+</g>
+<path d="M357.81 207 361.27 205V210L357.81 212Z" fill="var(--cool)" opacity=".15" class="add"/>
+<!-- Focus: an unlit silhouette, then separately masked light on its surfaces. -->
+<path d="M226.18 111 282.47 78.5 344.82 114.5V166.5L288.53 199 226.18 163Z" fill="var(--ink)"/>
+<path d="M226.18 111 282.47 78.5 344.82 114.5 288.53 147Z" fill="var(--slate)" mask="url(#roofWash)" opacity=".58"/>
+<g clip-path="url(#walls)" class="add">
+ <path d="M226.18 111 288.53 147V199L226.18 163Z" fill="var(--structure)" mask="url(#nearWall)"/>
+ <path d="M226.18 111 288.53 147V199L226.18 163Z" fill="var(--amber)" mask="url(#nearWall)" opacity=".23"/>
+ <path d="M288.53 147 344.82 114.5V166.5L288.53 199Z" fill="var(--slate)" mask="url(#farWall)" opacity=".8"/>
+ <path d="M288.53 147 344.82 114.5V166.5L288.53 199Z" fill="var(--amber)" mask="url(#farWall)" opacity=".12"/>
+</g>
+<path d="M238 117.8 267 134.5" fill="none" stroke="var(--cool)" stroke-width=".45" opacity=".11"/>
+<g transform="matrix(.866 .5 0 1 226.18 111)" class="add">
+ <use href="#window" x="11" y="17" width="7" height="10" opacity=".65"/>
+ <use href="#window" x="26" y="17" width="7" height="10" opacity=".8"/>
+ <use href="#window" x="41" y="17" width="7" height="10" opacity=".88"/>
+ <rect x="49" y="31" width="10" height="21" fill="var(--amber)" filter="url(#halation)" opacity=".6"/>
+ <path d="M49.5 32H58.5V52H49.5Z" fill="var(--light)"/>
+ <path d="M54 33V52" stroke="var(--amber)" stroke-width=".8"/>
+ <path d="M47 30H62" stroke="var(--light)" stroke-width=".7" opacity=".55"/>
+</g>
+<g transform="matrix(.866 -.5 0 1 288.53 147)" class="add">
+ <use href="#window" x="11" y="21" width="7" height="10" opacity=".5"/>
+ <use href="#window" x="28" y="21" width="7" height="10" opacity=".32"/>
+ <use href="#window" x="45" y="21" width="7" height="10" opacity=".14"/>
+</g>
+<!-- Canopies stay dark. A small, partial crescent catches each nearby lamp. -->
+<g fill="var(--ink)">
+ <circle cx="162" cy="115" r="18"/>
+ <circle cx="426" cy="155.5" r="18.5"/>
+ <ellipse cx="324" cy="214" rx="19" ry="20"/>
+</g>
+<g fill="none" stroke-linecap="round">
+ <path d="M162 145V133M426 184.5V174M324 241V234" stroke="var(--slate)" stroke-width="1.5" opacity=".38"/>
+ <path d="M166 130Q174 128 177 121" stroke="var(--amber)" stroke-width=".7" opacity=".17"/>
+ <path d="M307 208Q306 216 311 222" stroke="var(--amber)" stroke-width=".75" opacity=".2"/>
+ <path d="M415 143Q421 138 427 138" stroke="var(--cool)" stroke-width=".45" opacity=".07"/>
+</g>
+<g fill="none" stroke="var(--slate)" stroke-width="1.1" opacity=".65">
+ <path d="M171.63 159.5V120.5L177 117.4"/>
+ <path d="M305.87 237V198L311.24 194.9"/>
+</g>
+<g class="add">
+ <ellipse cx="177" cy="118" rx="24" ry="20" fill="url(#lamp)"/>
+ <ellipse cx="311.24" cy="195.5" rx="24" ry="20" fill="url(#lamp)"/>
+ <path d="M174.7 119.3 179.5 116.5M308.9 196.8 313.7 194" stroke="var(--amber)" stroke-width="3" filter="url(#halation)"/>
+ <path d="M174.7 119.3 179.5 116.5M308.9 196.8 313.7 194" stroke="var(--light)" stroke-width="1.3" stroke-linecap="round"/>
+</g>
+</svg>

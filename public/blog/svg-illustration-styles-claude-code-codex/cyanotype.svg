@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 336">
+<style>
+svg{--paper:#eee7cf;--prussian:#073c67;--deep:#052a50;--cyan:#579eb9;--exposed:#e1efdf;background:var(--paper)}
+.exposure{mix-blend-mode:screen}
+</style>
+<defs>
+ <radialGradient id="emulsionTone" cx="48%" cy="58%" r="78%"><stop stop-color="var(--prussian)"/><stop offset=".8" stop-color="var(--deep)"/><stop offset="1" stop-color="var(--prussian)"/></radialGradient>
+ <radialGradient id="exposureWash"><stop stop-color="var(--cyan)" stop-opacity=".3"/><stop offset=".42" stop-color="var(--cyan)" stop-opacity=".13"/><stop offset="1" stop-color="var(--cyan)" stop-opacity="0"/></radialGradient>
+ <radialGradient id="contactTone" cx="41%" cy="38%" r="72%"><stop stop-color="var(--exposed)" stop-opacity=".94"/><stop offset=".63" stop-color="var(--exposed)" stop-opacity=".8"/><stop offset=".91" stop-color="var(--cyan)" stop-opacity=".56"/><stop offset="1" stop-color="var(--cyan)" stop-opacity=".3"/></radialGradient>
+ <radialGradient id="unevenPaper" cx="30%" cy="24%" r="88%"><stop stop-color="var(--paper)" stop-opacity=".56"/><stop offset=".48" stop-color="var(--exposed)" stop-opacity=".14"/><stop offset="1" stop-color="var(--cyan)" stop-opacity=".28"/></radialGradient>
+ <radialGradient id="softMask"><stop stop-color="var(--exposed)"/><stop offset=".35" stop-color="var(--exposed)" stop-opacity=".85"/><stop offset="1" stop-color="var(--exposed)" stop-opacity="0"/></radialGradient>
+ <filter id="brush" x="-4%" y="-5%" width="108%" height="110%"><feTurbulence type="fractalNoise" baseFrequency=".04 .33" numOctaves="3" seed="31" result="paint"/><feDisplacementMap in="SourceGraphic" in2="paint" scale="3.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+ <filter id="contact" x="-8%" y="-8%" width="116%" height="116%"><feTurbulence type="fractalNoise" baseFrequency=".11 .18" numOctaves="2" seed="17" result="fiber"/><feDisplacementMap in="SourceGraphic" in2="fiber" scale="1" xChannelSelector="R" yChannelSelector="G"/><feGaussianBlur stdDeviation=".3"/></filter>
+ <filter id="halo" x="-15%" y="-20%" width="130%" height="140%"><feGaussianBlur stdDeviation="1.7"/></filter>
+ <filter id="roadSoft" x="-5%" y="-30%" width="110%" height="160%"><feGaussianBlur stdDeviation="1.8"/></filter>
+ <mask id="paint" maskUnits="userSpaceOnUse" x="20" y="15" width="522" height="308" mask-type="alpha">
+  <path fill="var(--paper)" filter="url(#brush)" d="M31 39 37 32 59 30 78 31 79 35 81 29 111 28 142 30 166 27 192 29 221 27 222 32 224 28 258 29 286 26 316 28 343 26 372 29 402 27 431 29 465 27 466 32 468 28 504 30 521 34 527 43 525 64 528 90 525 113 529 140 526 169 529 193 526 217 529 244 526 269 528 294 522 303 508 307 476 305 454 309 435 307 434 301 432 307 404 308 375 306 348 309 318 307 294 310 265 307 242 310 214 306 194 308 193 303 191 308 167 307 141 309 116 306 92 308 69 305 46 306 36 300 33 280 35 258 31 237 34 216 30 194 33 174 30 151 33 129 30 108 33 85 30 61Z"/>
+ </mask>
+ <path id="focusShape" d="M207 163 229 127H342L375 163H367V240H213V163Z"/>
+ <path id="focusApertures" fill-rule="evenodd" d="M207 163 229 127H342L375 163H367V240H213V163Z M219 164H361V166H219Z M234 180H249V201H234Z M266 180H281V201H266Z M319 207H336V241H319Z M219 208H309V210H219Z M344 208H361V210H344Z"/>
+ <mask id="focusMask" maskUnits="userSpaceOnUse" x="203" y="123" width="177" height="123" mask-type="alpha"><use href="#focusApertures" fill="var(--exposed)" filter="url(#contact)"/></mask>
+ <mask id="ghostPatch" maskUnits="userSpaceOnUse" x="194" y="110" width="200" height="144" mask-type="alpha"><ellipse cx="339" cy="150" rx="79" ry="64" fill="url(#softMask)"/></mask>
+ <clipPath id="focusClip"><use href="#focusShape"/></clipPath>
+ <g id="neighbors">
+  <path fill-rule="evenodd" d="M73 172 88 154H166L184 172H177V239H80V172Z M91 188H102V203H91Z M114 188H125V203H114Z M153 213H165V240H153Z"/>
+  <path fill-rule="evenodd" d="M348 145 361 132H416L430 145H424V237H352V145Z M363 160H374V175H363Z M389 160H400V175H389Z M363 192H374V207H363Z M389 192H400V207H389Z"/>
+  <path fill-rule="evenodd" d="M412 183 424 170H479L491 183H485V240H418V183Z M431 195H443V210H431Z M459 195H471V210H459Z M444 222H455V241H444Z"/>
+ </g>
+ <symbol id="crown" viewBox="-34 -34 68 68">
+  <path d="M-28-3Q-33-12-24-18Q-24-28-13-27Q-5-34 5-28Q17-31 22-20Q32-17 29-6Q35 5 25 13Q25 24 13 25Q5 33-6 27Q-17 30-23 20Q-33 16-28 6Q-32 1-28-3Z" fill="url(#contactTone)" filter="url(#contact)"/>
+  <g fill="var(--prussian)" opacity=".2"><circle cx="-15" cy="-8" r=".8"/><circle cx="8" cy="16" r="1.3"/><circle cx="14" cy="-15" r=".9"/><circle cx="-5" cy="23" r=".6"/></g>
+ </symbol>
+</defs>
+<path d="M0 0H560V336H0Z" fill="var(--paper)"/>
+<g mask="url(#paint)">
+ <path d="M20 15H542V323H20Z" fill="url(#emulsionTone)"/>
+ <g class="exposure">
+  <ellipse cx="289" cy="202" rx="211" ry="99" fill="url(#exposureWash)" opacity=".39"/>
+  <ellipse cx="116" cy="65" rx="135" ry="93" fill="url(#exposureWash)" opacity=".16"/>
+  <ellipse cx="462" cy="269" rx="112" ry="71" fill="url(#exposureWash)" opacity=".2"/>
+ </g>
+ <!-- Dim contact silhouettes of three neighbors. -->
+ <use href="#neighbors" fill="var(--cyan)" opacity=".43" filter="url(#halo)" class="exposure"/>
+ <use href="#neighbors" fill="var(--exposed)" opacity=".14" transform="translate(7 -4)" filter="url(#halo)" class="exposure"/>
+ <use href="#neighbors" fill="var(--exposed)" opacity=".37" filter="url(#contact)" class="exposure"/>
+ <!-- Rear canopy overlaps the left neighbor, accumulating exposure. -->
+ <g class="exposure">
+  <path d="M98 148H101V239H98Z" fill="var(--exposed)" opacity=".29" filter="url(#contact)"/>
+  <use href="#crown" x="77" y="111" width="47" height="47" opacity=".18" transform="translate(7 -4)" filter="url(#halo)"/>
+  <use href="#crown" x="77" y="111" width="47" height="47" opacity=".57" transform="rotate(13 100.5 134.5)"/>
+ </g>
+ <!-- The central contact is made from real holes in an alpha mask. -->
+ <use href="#focusApertures" fill="var(--cyan)" opacity=".65" filter="url(#halo)" class="exposure"/>
+ <g mask="url(#ghostPatch)" class="exposure"><use href="#focusApertures" fill="var(--exposed)" opacity=".43" transform="translate(7 -4)" filter="url(#halo)"/></g>
+ <g mask="url(#focusMask)" class="exposure">
+  <path d="M203 123H380V246H203Z" fill="var(--exposed)" opacity=".81"/>
+  <g clip-path="url(#focusClip)">
+   <path d="M203 123H380V246H203Z" fill="url(#unevenPaper)"/>
+   <ellipse cx="333" cy="227" rx="103" ry="49" fill="url(#exposureWash)" opacity=".46"/>
+  </g>
+ </g>
+ <!-- Optical contact tone distinguishes the porch without drawn seams. -->
+ <path d="M219 212H309V237H219Z M344 212H361V237H344Z" fill="var(--prussian)" opacity=".13" filter="url(#contact)"/>
+ <g class="exposure" fill="var(--exposed)" opacity=".58" filter="url(#contact)">
+  <path d="M221 210H224V240H221Z M305 210H308V240H305Z M357 210H360V240H357Z"/>
+ </g>
+ <!-- Foreground tree contacts are continuous disks, never separate leaf bubbles. -->
+ <g class="exposure">
+  <path d="M168 208H171V242H168Z M410 220H413V242H410Z" fill="var(--exposed)" opacity=".47" filter="url(#contact)"/>
+  <g opacity=".2" transform="translate(7 -4)" filter="url(#halo)">
+   <use href="#crown" x="141" y="162" width="59" height="59"/>
+   <use href="#crown" x="377" y="167" width="69" height="69"/>
+  </g>
+  <use href="#crown" x="141" y="162" width="59" height="59" opacity=".74" transform="rotate(-19 170.5 191.5)"/>
+  <use href="#crown" x="377" y="167" width="69" height="69" opacity=".69" transform="rotate(31 411.5 201.5)"/>
+ </g>
+ <!-- A quiet contact baseline and the submerged frontage road. -->
+ <ellipse cx="283" cy="242" rx="207" ry="6" fill="url(#exposureWash)" opacity=".48" class="exposure"/>
+ <g class="exposure" filter="url(#roadSoft)">
+  <path d="M25 263H535V284H25Z" fill="var(--cyan)" opacity=".13"/>
+  <path d="M49 274H62M99 274H111M150 274H164M203 274H212M252 274H266M304 274H315M354 274H369M406 274H418M459 274H473M506 274H516" stroke="var(--exposed)" stroke-width=".9" opacity=".18"/>
+ </g>
+</g>
+</svg>
