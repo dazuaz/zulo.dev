@@ -8,9 +8,12 @@ figure.blog-figure {
   text-wrap: pretty;
 }
 
+/* Wide figures break out of the reading column evenly on both sides. */
 @media (min-width: 64rem) {
   figure.blog-figure--wide {
-    width: min(64rem, calc(100vw - 6rem));
+    --figure-wide: min(64rem, calc(100vw - 6rem));
+    width: var(--figure-wide);
+    margin-inline: calc((100% - var(--figure-wide)) / 2);
   }
 }
 

@@ -72,22 +72,20 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
 >
   <main id="main-content">
     <PageShell as="article" class="pb-section-lg">
-      <header class="flex max-w-[45rem] flex-col gap-md pt-page-intro pb-lg">
+      <header class="mx-auto flex max-w-[40rem] flex-col gap-md pt-page-intro pb-lg">
         <nav class="flex items-center gap-xs font-ui text-sm font-medium leading-ui text-accent" aria-label="Breadcrumb">
           <a class={focusRing} href="/">Home</a>
           <span class="select-none text-meta" aria-hidden="true">/</span>
           <a class={focusRing} href="/blog">Insights</a>
-          <span class="hidden select-none text-meta sm:inline" aria-hidden="true">/</span>
-          <span class="hidden text-ink sm:inline" aria-current="page">{title}</span>
         </nav>
         <h1 class={displayTitle}>{title}</h1>
         <p class={cn(proseLead, 'max-w-none max-sm:leading-[1.55]')}>{description}</p>
 
         <div class={cn(metaText, 'flex flex-wrap items-center gap-x-xs gap-y-2xs [&>*+*]:before:mr-xs [&>*+*]:before:text-border-strong [&>*+*]:before:content-["·"]')}>
-          <a href="/about" rel="author" class={cn(focusRing, 'text-ink')}>By {siteIdentity.author}</a>
-          <time datetime={pubDate.toISOString()}>{publishedLabel}</time>
+          <a href="/about" rel="author" class={cn(focusRing, 'text-ink max-sm:basis-full')}>By {siteIdentity.author}</a>
+          <time class="max-sm:before:hidden" datetime={pubDate.toISOString()}>{publishedLabel}</time>
           {minutes && <span>{minutes} min read</span>}
-          {updatedLabel && <span class="basis-full before:hidden sm:basis-auto sm:before:inline">Updated <time datetime={updatedDate.toISOString()}>{updatedLabel}</time></span>}
+          {updatedLabel && <span class="max-sm:basis-full max-sm:before:hidden">Updated <time datetime={updatedDate.toISOString()}>{updatedLabel}</time></span>}
         </div>
 
         {
@@ -101,7 +99,7 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
         }
       </header>
 
-      <div class="w-full max-w-[45rem]">
+      <div class="mx-auto w-full max-w-[40rem]">
         {
           heroImage ? (
             <figure class="mb-lg w-full sm:mb-xl">
@@ -128,7 +126,7 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
 
         {
           newerPost || olderPost ? (
-            <nav class="mt-2xl grid max-w-[45rem] gap-lg border-t border-rule pt-lg sm:grid-cols-2 sm:gap-xl" aria-label="More writing">
+            <nav class="mt-2xl grid gap-lg border-t border-rule pt-lg sm:grid-cols-2 sm:gap-xl" aria-label="More writing">
               {olderPost && (
                 <a class={cn(focusRing, 'group flex flex-col gap-2xs rounded-sm', !newerPost && 'sm:col-span-2')} href={`/blog/${olderPost.slug}`} rel="prev">
                   <span class={metaText}><span aria-hidden="true">← </span>Older</span>
@@ -157,15 +155,11 @@ const updatedLabel = updatedDate ? formatter.format(updatedDate) : null;
 <script>
   import '../components/blog-figures/runtime';
 
-  // Fade the right edge of code blocks that scroll sideways, until the reader reaches the end.
+  // Code blocks that scroll sideways must be reachable by keyboard.
   for (const pre of document.querySelectorAll<HTMLElement>('#main-content pre')) {
     const update = () => {
-      const overflow = pre.scrollWidth - pre.clientWidth > 1;
-      pre.toggleAttribute('data-overflow', overflow);
-      pre.toggleAttribute('data-overflow-end', overflow && pre.scrollLeft + pre.clientWidth >= pre.scrollWidth - 1);
-      if (overflow && !pre.hasAttribute('tabindex')) pre.tabIndex = 0;
+      if (pre.scrollWidth - pre.clientWidth > 1 && !pre.hasAttribute('tabindex')) pre.tabIndex = 0;
     };
-    pre.addEventListener('scroll', update, { passive: true });
     new ResizeObserver(update).observe(pre);
   }
 </script>

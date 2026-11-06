@@ -81,6 +81,16 @@
 }
 
 :root { --lime: #c7f36b; --dark: #151915; }
+/* Scroll cue for code blocks: a soft light edge appears on whichever side has more code, and the
+   locally-attached covers hide it once the reader scrolls to that end. */
+:root {
+  --code-scroll-cue:
+    linear-gradient(90deg, var(--color-ink-deep) 40%, transparent) left / 2.5rem 100% no-repeat local,
+    linear-gradient(270deg, var(--color-ink-deep) 40%, transparent) right / 2.5rem 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, oklch(1 0 0 / 0.16), transparent) left / 0.9rem 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, oklch(1 0 0 / 0.16), transparent) right / 0.9rem 100% no-repeat scroll,
+    var(--color-ink-deep);
+}
 html { scroll-behavior: smooth; scroll-padding-top: 6rem; }
 body { margin: 0; }
 ::selection { background: #c7f36b; color: #151915; }
