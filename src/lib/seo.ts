@@ -4,7 +4,7 @@ export const siteIdentity = {
   title: 'AI Strategy, Automation & Custom Systems | Zulo',
   description: 'AI strategy, custom systems, and hands-on implementation for businesses already building with AI. Zulo takes your prototype and turns it into software your team can depend on.',
   image: '/og/zulo.png',
-  imageAlt: 'Zulo — You have the prototype. We build. AI transformation with Daniel Zuloaga.',
+  imageAlt: 'Zulo — You have the prototype. We ship it. AI transformation with Daniel Zuloaga.',
   profiles: [
     'https://x.com/danielzuloaga',
     'https://www.linkedin.com/in/daniel-zuloaga/',

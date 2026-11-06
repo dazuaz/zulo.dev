@@ -266,6 +266,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .project-caption h3 span, .project-caption h2 span { color: #6b8060; }
 .project-caption p { color: var(--color-muted); font-size: .9375rem; margin-top: .7rem; max-width: 60ch; }
 .project-caption > a { flex-shrink: 0; }
+.project-caption-compact > p { margin-top: 0; font-size: 1rem; }
+.insights-section ul a > span:last-child { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .action-outline { border: 1px solid #9daa91; color: #365c23; }
 .action-outline:hover { background: #e7eedf; }
 .directory-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
