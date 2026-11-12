@@ -4,15 +4,15 @@ import ProjectCTA from '../components/ProjectCTA.astro';
 import { steps, faqs } from '../lib/business';
 export const prerender = true;
 ---
-<Layout title="How We Work | Zulo" description="A focused approach to AI implementation: understand the work, prove the idea, integrate the system, and improve it with your team." nav="approach">
+<Layout title="How We Work | Zulo" description="How a Zulo program runs: understand the operation, prove the first workstream, ship it into the business, and extend it with your team." nav="approach">
   <main id="main-content" class="transformation-page">
     <section class="page-masthead site-container">
       <p class="section-kicker">HOW WE WORK</p>
-      <h1>Start focused.<br />Make every step count.</h1>
-      <p class="page-lead">A working relationship built on clear decisions, useful deliverables, and evidence from the real work.</p>
+      <h1>Start focused.<br />Extend what proves out.</h1>
+      <p class="page-lead">How a program runs: a diagnostic that ranks the opportunities, a first workstream that proves the case, and delivery that extends from there.</p>
     </section>
         <section id="approach" class="section-pad site-container">
-            <div class="section-heading"><div><p class="section-kicker">THE PROCESS</p><h2>Start focused.<br />Build with conviction.</h2></div><p>Transformation is a sequence of useful changes. Each step creates something concrete and tells us what deserves to happen next.</p></div>
+            <div class="section-heading"><div><p class="section-kicker">THE PROCESS</p><h2>Each step earns<br />the next one.</h2></div><p>Transformation is a sequence of useful changes. Each step produces something concrete and tells us what deserves to happen next, so the program grows on evidence.</p></div>
             <ol class="steps">{steps.map((step, index) => <li><span class="step-number">0{index + 1}<span aria-hidden="true">↗</span></span><h3>{step.title}</h3><p>{step.text}</p><div class="step-output">{step.output}</div></li>)}</ol>
             <div class="approach-note"><span aria-hidden="true">◎</span><p><strong>People stay in the loop.</strong> Clear ownership, deliberate review points, and usable interfaces are part of the system from the start.</p></div>
         </section>

@@ -1,14 +1,14 @@
 # Zulo design system
 
-Zulo is Daniel Zuloaga’s AI transformation practice. Its identity combines business judgment, product thinking, and engineering depth.
+Zulo is the AI transformation firm led by Daniel Zuloaga. Its identity combines business judgment, product thinking, and engineering depth.
 
 ## Visual direction
 
-A confident technical practice: charcoal framing, electric lime accents, generous typography, and diagrams that explain the work. Light content sections make detailed service descriptions and writing easy to read. Alternate the hero, capability sections, founder introduction, and closing invitation to create a clear narrative rhythm.
+A confident technical firm: charcoal framing, electric lime accents, generous typography, and diagrams that explain the work. Light content sections make detailed service descriptions and writing easy to read. Alternate dark and light surfaces to create a clear narrative rhythm. The homepage runs hero, the three stages, the Vaster program, the engagement band, selected posts, and the closing invitation.
 
 ## Palette
 
-- Charcoal `#151915`: navigation, hero, founder section, closing invitation.
+- Charcoal `#151915`: navigation, hero, engagement band, founder section, closing invitation.
 - Lime `#c7f36b`: actions and focal points on dark surfaces.
 - Page `#f5f6f3`: primary reading surface.
 - White `#ffffff`: service panels and form fields.
@@ -21,11 +21,11 @@ A confident technical practice: charcoal framing, electric lime accents, generou
 
 Sora carries headings and navigation. Manrope carries body text. System monospace identifies stages and diagram labels. Main body text starts at 16px; secondary metadata at 12px. Headlines scale fluidly. Marketing sections use a 78rem container; writing retains its narrower reading measures.
 
-Use four-to-six-pixel corners, thin borders, and restrained shadows. The connected-operation diagram is explanatory HTML and SVG, not a live product dashboard. Its labels must never imply actual customer performance.
+Use four-to-six-pixel corners, thin borders, and restrained shadows. The hero journey diagram and the Vaster and Expenses showcases are explanatory HTML and SVG, not live product dashboards. Their labels must never imply actual customer performance.
 
 ## Content
 
-Write original, specific copy about strategy, implementation, and adoption. Identify Daniel directly as the practitioner. The content rules in `AGENTS.md` govern what copy may claim and how illustrative material is labeled.
+Write original, specific copy about strategy, implementation, and adoption. Identify Daniel directly as the founder and the lead on every engagement. The positioning and content rules in `AGENTS.md` govern how the firm is presented, what copy may claim, and how illustrative material is labeled.
 
 ## Interaction and access
 

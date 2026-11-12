@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ProjectCTA from '../components/ProjectCTA.astro';
-import { services, workflows } from '../lib/business';
+import { services, workflows, engagement } from '../lib/business';
 import { canonicalUrl } from '../lib/seo';
 const home = canonicalUrl('/', Astro.site!);
 const url = canonicalUrl('/services', Astro.site!);
@@ -12,16 +12,21 @@ const serviceSchema = services.map(service => ({
 }));
 export const prerender = true;
 ---
-<Layout title="AI Strategy & Custom Systems | Zulo" description="AI strategy, custom engineering, and adoption support. Explore how Zulo turns operational problems into practical systems." nav="services" structuredData={serviceSchema}>
+<Layout title="AI Strategy & Custom Systems | Zulo" description="AI diagnostics and roadmaps, program delivery, and managed operation. See how Zulo plans, builds, and runs AI systems inside your business." nav="services" structuredData={serviceSchema}>
   <main id="main-content" class="transformation-page">
     <section class="page-masthead site-container">
       <p class="section-kicker">WHAT WE DO</p>
-      <h1>Useful systems.<br />Built around your business.</h1>
-      <p class="page-lead">From assessing what you’ve already built to shipping the tools your team uses every day.</p>
+      <h1>From first diagnostic<br />to a running operation.</h1>
+      <p class="page-lead">Three stages, usually in sequence: decide where AI pays, build it into the business, then run and extend it.</p>
     </section>
         <section id="services" class="section-pad site-container">
-            <div class="section-heading"><div><p class="section-kicker">ASSESS / BUILD / EVOLVE</p><h2>From v0 to software<br />that keeps up.</h2></div><p>One team across strategy, product, and engineering. A clear path from the prototype you have to a system your team depends on, with ongoing support as your needs evolve.</p></div>
+            <div class="section-heading"><div><p class="section-kicker">DIAGNOSE / DELIVER / RUN</p><h2>One program.<br />Three stages.</h2></div><p>Each stage stands on its own and sets up the next. Start with a diagnostic, or bring a prototype or a stalled initiative and we pick it up from there.</p></div>
             <div class="service-grid">{services.map(service => <article id={`service-${service.number}`} class="service-card"><div class="service-card-top"><span>{service.number}</span><span class="service-symbol" aria-hidden="true">{service.symbol}</span></div><p class="service-tag">{service.tag}</p><h3>{service.title}</h3><p>{service.description}</p><ul>{service.deliverables.map(item => <li><span aria-hidden="true">↗</span>{item}</li>)}</ul></article>)}</div>
+        </section>
+
+        <section id="engagement" class="section-pad site-container engagement-section">
+            <div class="section-heading"><div><p class="section-kicker">HOW WE ENGAGE</p><h2>A team built<br />for the scope.</h2></div><p>A program needs more than one pair of hands and one person answerable for the result. Every engagement has both.</p></div>
+            <div class="engagement-grid">{engagement.map(item => <article><span class="section-kicker">{item.label}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div>
         </section>
 
         <section id="opportunities" class="opportunities section-pad">
@@ -32,3 +37,11 @@ export const prerender = true;
     <ProjectCTA />
   </main>
 </Layout>
+<style>
+  .engagement-section {padding-top:0;}
+  .engagement-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:3rem;}
+  .engagement-grid article {padding-top:1.5rem;border-top:1px solid var(--color-border);}
+  .engagement-grid h3 {font:500 1.35rem/1.4 var(--font-display);letter-spacing:-.04em;margin-block:1.1rem .9rem;}
+  .engagement-grid p {font-size:1rem;line-height:1.8;color:var(--color-muted);}
+  @media(max-width:850px){.engagement-grid {grid-template-columns:1fr;gap:2rem;}}
+</style>

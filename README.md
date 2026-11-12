@@ -1,6 +1,6 @@
 # zulo.dev
 
-AI transformation partner website for Daniel Zuloaga’s Zulo practice. Built with Astro, Tailwind CSS, and deployed on Vercel.
+Website for Zulo, the AI transformation firm led by Daniel Zuloaga. Built with Astro, Tailwind CSS, and deployed on Vercel.
 
 Positioning research: [AI transformation research](docs/ai-transformation-research.md). Visual direction: [Design system](DESIGN.md).
 
