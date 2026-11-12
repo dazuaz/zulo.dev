@@ -190,12 +190,12 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .section-heading > .text-action { flex-shrink: 0; white-space: nowrap; }
 .section-heading > p { max-width: 39ch; font-size: 1.0625rem; color: var(--color-muted); line-height: 1.8; }
 .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--color-border); border-radius: 6px; overflow: hidden; }
-.service-card { padding: 2rem; background: #fff; }
+.service-card { display: grid; grid-row: span 5; grid-template-rows: subgrid; align-content: start; padding: 2rem; background: #fff; }
 .service-card + .service-card { border-left: 1px solid var(--color-border); }
 .service-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 3.5rem; font: .8125rem var(--font-mono); color: #677260; }
 .service-symbol { display: flex; align-items: center; justify-content: center; width: 46px; height: 46px; background: #edf3e3; color: #44622b; font-size: 1.75rem; border-radius: 5px; }
 .service-tag { font: .75rem/1.5 var(--font-mono); letter-spacing: .035em; color: #536a3c; margin-bottom: .75rem; }
-.service-card h3 { max-width: 14ch; font: 500 1.65rem/1.3 var(--font-display); letter-spacing: -.04em; margin-bottom: 1.25rem; }
+.service-card h3 { font: 500 1.65rem/1.3 var(--font-display); letter-spacing: -.04em; margin-bottom: 1.25rem; }
 .service-card > p:not(.service-tag) { font-size: 1rem; line-height: 1.8; color: var(--color-muted); }
 .service-card ul { list-style: none; padding: 1.5rem 0 0; margin-top: 1.5rem; border-top: 1px solid var(--color-rule); }
 .service-card li { display: flex; align-items: baseline; gap: .75rem; font-size: .875rem; margin-block: .75rem; }
