@@ -1,8 +1,8 @@
 ---
-title: "AX: designing for the agent your customer brings"
-description: "A smarter model can work through a rough interface. It can't grant itself authority. Why agent experience is about delegation, and why your app should let in any agent a customer brings."
+title: "What makes a product agent-first?"
+description: "When a customer asks an agent to find two seats, the ticket seller is still up for grabs. Where agent experience matters more than mobile design."
 pubDate: 2026-10-28
-updatedDate: 2026-11-09
+updatedDate: 2026-11-17
 heroImage: "/blog/agent-experience-designing-for-two-users/hero-ink-handoff.webp"
 heroImageWidth: 1920
 heroImageHeight: 1072
@@ -16,88 +16,34 @@ tags:
   - Developer Experience
 ---
 
-Every interface I've built assumed someone was looking at it. A button is a promise to a pair of eyes: this is here, it does that, press it.
+If I ask my agent to find two seats for Saturday's game, whose ticket app did I just open?
 
-Some of software's users now never look at anything. An agent reads a description, calls an endpoint, and decides its next move from the text that comes back. Designing for that user has had a name, agent experience or AX, since [Netlify's Mathias Biilmann wrote about it](https://biilmann.blog/articles/introducing-ax/) in January 2025. Most AX advice since then is about making the agent's work easier: tidier tools, docs a model can read, errors that say what to try next.
+I might have a favorite. I might have season tickets and only ever use the team's exchange. But suppose all I care about is taking my kid to the game. We have $150 to spend, we want to sit together, and I'd like my kid to be able to see over the bench. In this hypothetical purchase I already know who’s coming, which game we want, and what I can spend. The seller is still up for grabs.
 
-That advice is aging, because the models keep getting better at coping without it. What no model can supply is authority. An agent always works for someone, and that person still answers for what it does. So the first design question is whose agent gets in and what it may do once it's there. My answer to the first half: whichever agent your customer brings.
+That's where I think agent experience (AX) can matter more than mobile UX. When I open your app, you've made it into consideration. When I give the job to my agent, your first chance to earn the sale may come before I see a single screen you designed.
 
-## The agent can already use your app
+## What gets a pair of seats onto the shortlist?
 
-In August, a federal appeals court had to describe how Perplexity's Comet assistant shops on Amazon. [The opinion](https://cdn.ca9.uscourts.gov/datastore/opinions/2026/08/04/26-1444.pdf) records that the assistant reads the page the browser has already displayed on the user's computer and acts on it. Nobody built it an API or wrote it a tool description. It uses the store made for eyes.
+Picture the inventory from the ticket seller's side. There's a pair for $128 including fees. On the seat map, two blue dots touch. Tap one and a panel slides up with the row, the total price, and a photo taken from that section. Someone worked out which details a parent would need and put them within reach of a thumb.
 
-What's left of agent-facing craft is mostly cost. An agent pays for everything it reads. Vercel measured one of its own pages at [about 500 KB as HTML and 3 KB as Markdown](https://vercel.com/blog/making-agent-friendly-pages-with-content-negotiation). Serving the small one, offering search before a full listing, and writing errors that name the fix all make your customer's agent faster and cheaper. They're worth doing, and I expect each model release to make them matter a little less.
+Suppose the arena’s event page lists two ticket exchanges for Saturday. The agent follows both links. The first exchange offers *Section 112, tickets from $58*. Does that mean there are two tickets together? Could two people get in for $150? The agent could open the map, select seats, and go through checkout far enough to find out. It could also try the next seller. If that seller comes back with *Section 114, row G, seats 7 and 8, $142 for the pair including fees*, the agent already has one option it can put in front of me.
 
-Authority is different. A smarter agent can't make itself accountable. It can't decide how much of your customer's money it may spend, or which messages they'd want to read before they go out. Those answers live with the person and with your app.
+The first seller has the cheaper pair. As far as the parent knows, the second seller might have the only pair. That's a product problem you could miss entirely by watching recordings of people using the seat map. The parent who missed your offer never got that far.
 
-## Locking agents out picks the worst door
+## Design backward from the answer
 
-This fall several large companies answered "whose agent gets in" with no, or with partners only. Delta [told TechCrunch](https://techcrunch.com/2026/10/06/the-next-hurdle-for-ai-agents-getting-websites-to-let-them-in/) it has no partnership or integration that lets a third-party agent book flights, and Yelp said it admits only agents that pay for its data licensing program. Jamie Dimon said JPMorgan is [not going to allow "just any … outside agent"](https://www.cnbc.com/2026/10/13/jpmorgan-ai-agents-account-access.html) into the bank: "You don't want rogue agents, and it could be thousands of them."
+In an agent-first product, the work a customer wants to delegate can start in their own agent and carry through to the point where they want to take over. I'd start the design by writing down what the agent ought to be able to tell the parent.
 
-JPMorgan's worry is right. Look at what JPMorgan says it's blocking: third parties "obtaining customers' banking credentials and logging in on their behalf." That agent holds the whole password. To the bank it looks exactly like the customer. It can do anything the customer can, and the record will say the customer did it.
+Suppose the first exchange now lets the agent look up a specific pair and see the same details I could see on the map. It can tell me those seats are together and cost $128 in total. The sightline is trickier. A photo taken from the front of the section tells me roughly where I'll be relative to the court. It tells me very little about what a child in row J will see when the bench stands up. If the seller knows which rows sit above the bench, that detail is worth making available alongside the price. If all it has is the photo, I'd want the agent to show me where it was taken. I can decide how much weight to give it.
 
-It's also the design you get by default. An agent that can use a screen, plus a customer who wants the work done, equals a shared password. If you build nothing better, the agents still come, and you can't tell them from customers.
+Suppose I pick the $128 pair. The useful handoff is a checkout with those two seats selected, the seller named, and the current total visible before I pay. Sending me to a home page with instructions to search Section 112 again would throw away most of the work. If the seats sold while I was looking at the photo, I'd want to find that out before I agree to buy anything else.
 
-The Amazon case shows how weak the lock is. According to the opinion, the core of the dispute was Perplexity's decision not to send a user-agent string announcing that an AI agent was active, which "would allow Amazon to block" it. The same opinion vacated an injunction Amazon had won in March: "It is the user who 'accesses' Amazon's computers, with the help of the Assistant." The ruling is narrow and the case continues, but the practical lesson doesn't need a verdict: when the agent runs in your customer's own browser, blocking it means fighting your customer.
+This gives a product team a fairly demanding test. Start outside your app. Ask for something a customer would actually want, using their words. See whether the agent can find your offer, explain why it fits, and carry the customer's choice through to purchase. Adding a chat box above the seat map answers a different question. It helps a customer who's already there.
 
-That leaves two options: an agent you can't identify holding all of the customer's power, or one you can identify holding some of it.
+## When I still want the screen
 
-## The door worth building
+Some evenings I'd happily spend twenty minutes on a stadium map with my kid, zooming in behind the basket and debating whether we'd rather see the players up close or watch a play develop from higher up. Browsing together is part of the fun. Give me the good map.
 
-The pieces for the second option exist. Some have shipped and some are still drafts.
+On a busy afternoon I'd delegate the search and gladly spend ten seconds looking at two views on my phone. That may be the most valuable mobile screen in the whole purchase. It lets me make the one judgment I wanted to keep. I've written about [where to put that human decision in a workflow](/blog/building-products-for-agents).
 
-**It asks who's knocking.** An IETF working group is standardizing [a way for automated clients to sign their requests](https://datatracker.ietf.org/doc/html/draft-ietf-webbotauth-httpsig-protocol), so a site can check the identity a caller claims instead of guessing from traffic patterns. The draft is blunt about its limit: it "does not define authorization or delegation." An identity is a name to put in the record and a thing to revoke. It grants nothing.
-
-**The customer grants the permission, and the server enforces it.** A prompt can ask an agent to stay inside a limit. Only a token lets your server refuse. The Model Context Protocol lets a client your app has never heard of [name itself with a URL](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization/client-registration), but the permission comes from the [OAuth sign-in](https://modelcontextprotocol.io/specification/2026-07-28/basic/authorization) that follows, where the customer approves the agent and your server decides what that approval covers. Say an electrician approves an agent in a scheduling app for two things: rescheduling jobs and sending texts the owner already wrote. That's all the agent can do there, whatever its prompt says.
-
-**It stops in the right places.** The agent should stop when an action spends money, can't be undone, speaks in the person's name, or makes them the owner of something. I've written about [where those calls sit in a workflow](/blog/building-products-for-agents). Everywhere else it should be free to work. Netlify shows how low the bar can go when the stakes are low: an agent can [deploy a site with no account at all](https://www.netlify.com/changelog/2026-03-27-create-and-deploy-anything-netlify-clis-improved-ax/), and identity only matters when a person claims the site, within the hour.
-
-**It keeps a record with two names on it.** In Linear, [assigning an issue to an agent makes it the delegate, not the assignee](https://linear.app/developers/agents). A person still owns the work, so the record should name both and offer the person an undo. The last line of Linear's [agent guidelines](https://linear.app/developers/aig) is the reason for all of it: "An agent cannot be held accountable."
-
-## Why anyone's agent
-
-You could build that door and open it only to your own assistant, or to a few partners. I think that's a mistake.
-
-Your customer's agent knows things your app never will. A built-in assistant sees one product. The agent a person brings has their inbox, their calendar, and every other tool they use. Work crosses products, and only one of those agents crosses with it.
-
-<figure class="blog-figure blog-figure--wide" data-blog-figure="three-doors" aria-labelledby="three-doors-title">
-  <p class="blog-figure__kicker">Figure 01 · Hypothetical example</p>
-  <h3 id="three-doors-title">One reschedule, three doors</h3>
-  <p class="blog-figure__intro">An electrician tells an agent: move the Garcia panel upgrade to Thursday and let her know. The scheduling app has two open windows on Thursday, 10 a.m.–noon and 3–5 p.m. Garcia's email saying she's only home after 3 is in the owner's inbox, not in the app.</p>
-  <div data-figure-stage>
-    <table>
-      <thead>
-        <tr><th scope="col"></th><th scope="col">Locked out, so the owner's agent signs in as the owner</th><th scope="col">The app's built-in assistant</th><th scope="col">The owner's agent, with a grant</th></tr>
-      </thead>
-      <tbody>
-        <tr><th scope="row">How it gets in</th><td>With the owner's password, through the screen made for eyes.</td><td>It's already inside. The app runs it.</td><td>It identifies itself. The owner approved it once, for rescheduling jobs and sending approved texts.</td></tr>
-        <tr><th scope="row">What it can do</th><td>Everything the owner can, including refunds and deleting customers.</td><td>Whatever the app's team built it to do.</td><td>What the grant covers. The server refuses the rest.</td></tr>
-        <tr><th scope="row">What it knows</th><td>The owner's inbox and calendar, plus what it can read off the screen.</td><td>Only what's in the app.</td><td>The owner's inbox and calendar, plus the app's answer: two open windows on Thursday.</td></tr>
-        <tr><th scope="row">Picking the window</th><td>3–5 p.m., after clicking through the calendar.</td><td>Asks the owner, or guesses. It can't see the email.</td><td>3–5 p.m.</td></tr>
-        <tr><th scope="row">Telling Garcia</th><td>Types a free-form text as the owner.</td><td>Sends the approved “rescheduled” text.</td><td>Sends the approved text. Anything free-form goes to the owner first.</td></tr>
-        <tr><th scope="row">The record</th><td>“Moved by the owner.”</td><td>“Moved by the app's assistant.”</td><td>“Moved by an agent, for the owner,” with an undo.</td></tr>
-      </tbody>
-    </table>
-  </div>
-  <figcaption>Hypothetical app, grant, and messages, used to illustrate the comparison. The first door gets the right answer with no limits. The second has limits and can't get the answer on its own. The third has both.</figcaption>
-</figure>
-
-Partners-only fails for a plainer reason: your customers change tools faster than you can sign deals.
-
-Security is the worry these companies say out loud. The other one is commercial. An agent never sees your home page, your upsell, or your loyalty offer, and it can compare you with a competitor on every task. That fear is accurate, and a lock doesn't answer it. The locked-out agent comes through the screen with the customer's password, so you lose the storefront anyway and gain a caller you can't identify. At the granted door you know which requests come from agents, you decide what a grant covers, and the moments where you most want the person's attention are the ones where the agent has to stop and hand them the screen.
-
-The web settled this decades ago. The HTTP standard [defines a user agent](https://www.rfc-editor.org/rfc/rfc9110.html#section-3.5) as "any of the various client programs that initiate a request," and says the browser is "only a small percentage of implementations." A site never chose which browser its customers used. It chose who could sign in and what an account could do. An AI agent is a new user agent, and the same split works: the customer picks the client, and you set the rules.
-
-A browser does what the person clicks, and an agent decides, so the rules have to carry more than they used to. That's what the grant is for. Letting in anyone's agent doesn't mean trusting it. I'd admit an unknown client by default, keep a first grant small, and revoke by name when one misbehaves. The limit comes from what the grant covers, so I don't need to know who built the agent. Dimon's thousands of rogue agents are a real risk at the password door, where each one holds everything. At this door a bad agent holds one grant, capped and revocable, with its name on the record.
-
-None of this closes the password door. Perplexity got in by not announcing itself, and a local agent still can. What the granted door can do is make the password door the worse deal. Driving a screen costs an agent more tokens and breaks when the layout changes. A door built for it shouldn't. That's the job left for the small, cheap pages from earlier. I expect agents to announce themselves once that's the easier way in. An agent comparing two vendors has no habit to break, so the one it can't get into loses the task.
-
-Anyone's agent still has to say what it is and carry your customer's grant. Keep your own assistant if it's good. It shouldn't be the only one allowed in.
-
-## Two users, one handoff
-
-Take the electrician's reschedule in the figure one step further, still hypothetical. Garcia replies asking for $50 off for the delay, and the owner's agent tries to apply the credit. The grant covers rescheduling and approved texts, so the server refuses, and the refusal says what would work: a credit needs the owner, and here is the request to send. The agent sends it. The owner gets one question, whether to credit Garcia $50, and answers it. The record shows the agent asked and the owner approved. At the password door the agent would have applied the credit, and the record would say the owner did.
-
-Those are the two users, the agent and the person it works for, and that refusal is the handoff between them.
-
-I expect most of the work to come from a user who never looks, running a model you didn't choose, for a customer you want to keep. That customer will look only when money moves or a message goes out in their name.
+So I'd decide how much to invest in AX by asking which part of the job customers would happily hand over. If it's comparing seats, the design review should start one step earlier than the home screen. Put the $128 pair back in inventory. Give an agent the parent's request. Does that pair ever make it onto the parent's phone?
